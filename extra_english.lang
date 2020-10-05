@@ -18,7 +18,7 @@
 	<CATEGORY Name="Inventory">	
 	// Chapter I [Start]
 		<Entry Name="ItemName_KeyRoomDesc">Aalot's key</Entry>
-		<Entry Name="ItemDesc_KeyRoomDesc">Key for unlocking everything at Aalot room.</Entry>
+		<Entry Name="ItemDesc_KeyRoomDesc">Key for unlocking everything in Aalot room.</Entry>
 				
 		<Entry Name="ItemName_KeyStoreDesc">Storage Key</Entry>
 		<Entry Name="ItemDesc_KeyStoreDesc">Key for unlocking storage.</Entry>
@@ -76,7 +76,7 @@
 		<Entry Name="ItemDesc_UntaggedKey">I have no idea what this key is from.</Entry>
 		
 		<Entry Name="ItemName_HolyRoot">Holy Root</Entry>
-		<Entry Name="ItemDesc_HolyRoot">I have to use it to the orb.</Entry>
+		<Entry Name="ItemDesc_HolyRoot">I have to use it with the orb.</Entry>
 		
 		<Entry Name="ItemName_Stencil">Stencil</Entry>
 		<Entry Name="ItemDesc_Stencil">Can be used in a lightbox.</Entry>
@@ -91,7 +91,7 @@
 			I haven't seen the chef for a few days.[br]
 		[br]Quest:[br]
 			Visit the kitchen.[br]
-			Find the lever in the storage room and put in to the right place.[br]
+			Find the lever in the storage room and put it to the right place.[br]
 			Go to the library.
 		</Entry>
 		// Chapter II [Library]
@@ -118,13 +118,13 @@
 		All my prisoners started to die due to very aggressive unknown disease. There are more unholy things happening here, they keep reanimating. Bloody undead! Something is happening. Their aggressivity is increasing.
 		It seems like there are few kinds of them, these bloody freaks are not the same... hell I know it! These things are fighting amongst each other, apparently there is more than one kind. They are gathering 'their own' ones. Now the worst kind is left in this prison.
 		In case something would go terribly wrong I barricaded the entrance and hoarded useful things, including my big hammer to fight those beasts.[br][br]
-		Hopefully, any aid will appear soon, I am too old to fight them... and perhaps sick too, I don´t feel well lately. If I turn into this monstrosity, don´t show mercy and finish all this dirty work once for all.
+		Hopefully, any aid will appear soon, I am too old to fight them... and perhaps sick too, I don´t feel well lately. If I turn into this monstrosity, don´t show me any mercy and finish all this dirty work once for all.
 		</Entry>
 		<Entry Name="Note_EmptyNote_Name">Letter</Entry>
 		<Entry Name="Note_EmptyNote_Text">Clean up your alchemical room. Whenever I come there, the most useful things are on the top shelves.</Entry>
 		// Chapter IV [Forest]
 		<Entry Name="Note_NoteMaze_Name">Chef's Warning</Entry>
-		<Entry Name="Note_NoteMaze_Text">Are you dare come to my chambers? I assure you, you won't get alive from here. But I will give you little hope.
+		<Entry Name="Note_NoteMaze_Text">How dare you to come to my chambers? I assure you, you won't get alive from here. But I will give you little hope.
 		The only way out is through a locked door. Look for the key in one of the chests. Try to search them all....</Entry>
 		
 		// Chapter V [Temple]
@@ -143,14 +143,14 @@
 		<Entry Name="Note_SecretaryNote_Text">
 		The Corruption has come to our shrine. The sacred orb of light was destroyed. It started in the main hall. You can't get into it now. The main door is riddled with some strange ulcers.
 		Ulcers spread in the basement. A ghost of a warrior began to walk here. Whoever met him directly did not survive.[br][br]
-		These mysteries are too dangerous even for the Secretary of the temple. But before I left this place. I managed to find several parts of the Sacred orb of light.
-		I hid one into the secret place of the knighthood where the pedestal is located too. The second I hid to just lock here in this table. The key is in the cabinet.[br][br]
+		These mysteries are too dangerous even for the Secretary of the temple. But before I left this place I managed to find several parts of the Sacred orb of light.
+		I hid one into the secret place of the knighthood where the pedestal is located too. The second part is hidden in this table. The key is in the cabinet.[br][br]
 		Please take care of my flowers.
 		</Entry>
 		<Entry Name="Note_Runes_Name">Mysterious Runes</Entry>
 		<Entry Name="Note_Runes_Text">
 		Mysterious runes appeared in one room in this part of the temple. I have no idea what it means, but some are dangerous. Never step on the red ones.
-		They are difficult to distinguish from blacks. It is necessary to shine a lamp on them. White runes indicate a safe place.
+		They are difficult to distinguish from black runes. It is necessary to shine a lamp on them. White runes indicate a safe place.
 		</Entry>
 		
 	//-------------------Quest-------------------//
@@ -325,7 +325,7 @@
 			
 		<Entry Name="Chapter_5">Chapter V[br]Angelic tears.</Entry>
 		<Entry Name="AngelFirstConversation_1">[Angel]: Aalot, you found me.</Entry>
-		<Entry Name="AngelFirstConversation_2">[Angel]: The cursed knight corrupt the temple.</Entry>
+		<Entry Name="AngelFirstConversation_2">[Angel]: The cursed knight corrupted the temple.</Entry>
 		<Entry Name="AngelFirstConversation_3">[Angel]: You know him. He's your old friend.</Entry>
 		<Entry Name="AngelFirstConversation_4">[Aalot]: My old friend?</Entry>
 		<Entry Name="AngelFirstConversation_5">[Angel]: He stood by your side in the glorious battle.</Entry>
@@ -333,7 +333,7 @@
 		<Entry Name="AngelFirstConversation_7">[Angel]: He came to this temple and destroyed the orb of light.</Entry>
 		<Entry Name="AngelFirstConversation_8">[Aalot]: Orb of light? What is it?</Entry>
 		<Entry Name="AngelFirstConversation_9">[Angel]: This is our most sacred artifact that keeps the dark forces where they belong. </Entry>
-		<Entry Name="AngelFirstConversation_10">[Angel]: You have to help us fix it.</Entry>
+		<Entry Name="AngelFirstConversation_10">[Angel]: You have to help us to fix it.</Entry>
 		<Entry Name="AngelHint_Default">[Angel]: Keep searching Aalot.</Entry>
 		<Entry Name="AngelHint_HasTheSharp">[Angel]: Get the sharp to the pedestal Aalot.</Entry>
 		<Entry Name="AngelHint_HolyRoot">[Angel]: Find and use the holy root to the orb.</Entry>
@@ -355,7 +355,7 @@
 		<Entry Name="AngelVoiceEndPart_3">[Angel Voice]: He is here!</Entry>
 		
 		<Entry Name="BruteConversationEndPart_1">[The dead warrior]: You have nowhere to run.</Entry>
-		<Entry Name="BruteConversationEndPart_2">[The dead warrior]: Face to me like as knight.</Entry>
+		<Entry Name="BruteConversationEndPart_2">[The dead warrior]: Face me as a knight.</Entry>
 		<Entry Name="BruteConversationEndPart_3">[Angel voice]: I'll send you your hammer.</Entry>
 		
 		<Entry Name="Fight_BruteHint">[The dead warrior]: You can't kill me.</Entry>
@@ -413,7 +413,7 @@
 		<Entry Name="Library">Library</Entry>
 		<Entry Name="Crypt">Crypt</Entry>
 		<Entry Name="Forest">Forest</Entry>
-		<Entry Name="House">Chef House</Entry>
+		<Entry Name="House">Chef's House</Entry>
 		<Entry Name="Warehouse">Warehouse</Entry>
 		<Entry Name="Temple">Temple</Entry>
 		<Entry Name="TempleCore">Heart of the temple</Entry>
