@@ -1,17 +1,17 @@
 <LANGUAGE>
 	<CATEGORY Name="CustomStoryMain">
-		<Entry Name="Description">Your name is Aalot. You are the only one who survived the last battle where all your friends died. The story takes place two years after. You live alone with a chef and a jailer at your fort. One day you woke up after nightmare...</Entry>
+		<Entry Name="Description">Your name is Aalot. You are the only one who survived the last battle where all your friends died. The story takes place two years after. You live alone with a chef and a jailer in your fort. One day you wake up after a horrible nightmare...</Entry>
 	</CATEGORY>
 		
 	<CATEGORY Name="Loading">
 		<Entry Name="Library">The chef became a monster. The castle is not safe. I have to get out of the castle.</Entry>
 		<Entry Name="Crypt">The chef is not the only one who has changed to monster. The dead warrior from the war is chasing me. I have to find my jailer friend in the crypt.</Entry>
-		<Entry Name="Forest">The jailer's will is done. The way out is free. I have to go to the temple and get answers to what happened.</Entry>
+		<Entry Name="Forest">The jailer's will is done. The way out is free. I have to go to the temple and find out what is happening.</Entry>
 		<Entry Name="Warehouse">I got into the warehouse. I have to find a useful tool.</Entry>
 		<Entry Name="OnLeaveWarehouse">I found a crowbar. I should try to get into another house.</Entry>
-		<Entry Name="House">The chef house. I need to find out what happened here.</Entry>
-		<Entry Name="OnLeaveHouse">The chef is dead. The dead soldier remains. I think he'll find me soon.</Entry>
-		<Entry Name="Temple">The angel of the dream is calling for help. So I enter the temple, where her statue should be...</Entry>
+		<Entry Name="House">The chef's house. I need to find out what happened here.</Entry>
+		<Entry Name="OnLeaveHouse">The chef is dead. The dead soldier remains. I think he will find me soon.</Entry>
+		<Entry Name="Temple">The angel from my dream is calling for help. Her statue should be inside of the Temple.</Entry>
 		<Entry Name="End">The orb of light is complete. It's time to strike.</Entry>
 	</CATEGORY>
 
@@ -31,8 +31,8 @@
 		<Entry Name="ItemDesc_KeyLibraryDesc">Key for unlocking library room.</Entry>
 		
 	// Chapter III [Crypt]
-		<Entry Name="ItemName_KeyJailerDesc">Jailer Key</Entry>
-		<Entry Name="ItemDesc_KeyJailerDesc">Key for unlocking jailer room.</Entry>
+		<Entry Name="ItemName_KeyJailerDesc">Jailer's Key</Entry>
+		<Entry Name="ItemDesc_KeyJailerDesc">Key for unlocking jailer's room.</Entry>
 		
 		<Entry Name="ItemName_KeyAlchemydesc">Untagged Key</Entry>
 		<Entry Name="ItemDesc_KeyAlchemydesc">It probably belongs to some locked substance in the lab.</Entry>
@@ -287,7 +287,7 @@
 		<Entry Name="EvilCow">It's stuck. I could release it with fire.</Entry>
 		
 		<Entry Name="Chapter_4">Chapter IV[br]The way of freedom.</Entry>
-		<Entry Name="House">The Chef house door is locked.[br]I need the key.</Entry>
+		<Entry Name="House">The Chef's house is locked.[br]I need the key.</Entry>
 		<Entry Name="Warehouse">The warehouse door is locked.[br]I should find another way.</Entry>
 		<Entry Name="DoorCrowbar">It's stuck.</Entry>
 		<Entry Name="Door_Temple">I have no reason to come to the Temple.</Entry>
@@ -302,7 +302,7 @@
 		<Entry Name="SlimeAtDoor">What happened?</Entry>
 		
 		<Entry Name="OnLeaveHouseStart">I should look around first.</Entry>
-		<Entry Name="ChefFirst">[Chef]: Do you dare come to my house?</Entry>
+		<Entry Name="ChefFirst">[Chef]: How dare you to come to my house?</Entry>
 		<Entry Name="AcidTouch"> Ouch. It's a acid.</Entry>
 		<Entry Name="WaterRun">Water is not safe!</Entry>
 		<Entry Name="LockedDoorHouse">Door is locked.</Entry>
@@ -312,7 +312,7 @@
 		
 		<Entry Name="WoodenBarricadeHouse">The barricade looks weak. I should try to destroy it with a tool.</Entry>
 		<Entry Name="HeavyDoorHouse">The door is too heavy. There must be a hidden mechanism.</Entry>
-		<Entry Name="HideFromChef">The Chef is here! I should hide to the cabinet.</Entry>
+		<Entry Name="HideFromChef">The Chef is here! I should hide inside that cabinet.</Entry>
 		
 		<Entry Name="AngelPart_1">[Aalot]: Where am I?</Entry>
 		<Entry Name="AngelPart_2">[Aalot]: It is a dream?</Entry>
@@ -379,7 +379,7 @@
 		<Entry Name="KilledAfterMaze">Trust your will.</Entry>
 		<Entry Name="RunToTheTemple">Run To The Temple!</Entry>
 		<Entry Name="DieByChef">Quickly hide in the cabinet.</Entry>
-		<Entry Name="DeathFromChefFinal_1">You should hide from the chef to cabinet.</Entry>
+		<Entry Name="DeathFromChefFinal_1">You should hide inside the cabinet.</Entry>
 		<Entry Name="DeathFromChefFinal_2">Take the hammer and fight with honor.</Entry>
 		<Entry Name="BruteTempleDeadByFirstAttack">Close the door behind you quickly.</Entry>
 		<Entry Name="Runes">Look where you're stepping.</Entry>
