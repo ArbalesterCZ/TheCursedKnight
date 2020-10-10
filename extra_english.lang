@@ -50,7 +50,7 @@
 		<Entry Name="ItemName_PurgeKey">The purge key</Entry>
 		<Entry Name="ItemDesc_PurgeKey">A shiny key.</Entry>
 		
-		<Entry Name="ItemName_DeadBodyKey">A key</Entry>
+		<Entry Name="ItemName_DeadBodyKey">key</Entry>
 		<Entry Name="ItemDesc_DeadBodyKey">This key was found near the body of a dead man.</Entry>
 		
 		<Entry Name="ItemName_UnstableMixture">Unstable Mixture</Entry>
@@ -161,10 +161,10 @@
 		<Entry Name="Quest_Barricade_Text">I have to find a way to get over the barricade to the kitchen.</Entry>
 		<Entry Name="Quest_Exit_Text">I have to escape to the library.</Entry>
 		// Chapter II [Library]	
-		<Entry Name="Quest_MansionDoor_Text">I have to find the secret.</Entry>
-		<Entry Name="Quest_DoorLibrary_Text">I have to find library key.</Entry>
+		<Entry Name="Quest_MansionDoor_Text">Door at common room is locked. I have to find the secret.</Entry>
+		<Entry Name="Quest_DoorLibrary_Text">Library door is locked. I have to find the key.</Entry>
 		<Entry Name="Quest_SecretShelf_Text">The shelf is stuck. I remember some secret mechanism up in the library.</Entry>
-		<Entry Name="Quest_BlockedDoor_Text">The door is blocked. I have to find another way.</Entry>
+		<Entry Name="Quest_BlockedDoor_Text">Door at mansion room is blocked. I have to find another way.</Entry>
 		<Entry Name="Quest_LeverLibrary_Text">I have to find secret mechanism to unlock the door.</Entry>
 		<Entry Name="Quest_Cabinet_Brute_Text">The cabinet is stuck.</Entry>
 		// Chapter III [Crypt]
