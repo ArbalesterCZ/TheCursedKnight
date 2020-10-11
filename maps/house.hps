@@ -52,7 +52,7 @@ void OnStart()
 void OnLeave()
 {
 	StopMusic(0.0f, 5);
-	AddGlobalVarInt("ForestSubChapterComplete", 1);
+	SetGlobalVarInt("ForestSubChapterComplete", 2);
 	SetupLoadScreen("Loading", "OnLeaveHouse", 0, "forest.jpg");
 	CompleteQuest("BackToForest", "BackToForest");
 }
@@ -265,7 +265,6 @@ void OnColliderBeSafe(string &in asParent, string &in asChild, int alState)
 {
 	SetEntityActive("AreaChefSecondAttack", false);
 	
-	SetPropActiveAndFade("SmokeDoor_1" ,false, 2.5f);
 	SetPropActiveAndFade("SmokeDoor_2" ,false, 2.5f);
 	FadeEnemyToSmoke(asParent, true);
 	CheckPoint("ChefAttackAfter_2", "StartAreaAfterChefAttack_2", "OnDeathChefRestoreWater", "", "");
@@ -299,8 +298,8 @@ void UseHammerOnBarricade(string &in asItem, string &in asEntity)
 {
 	SetPlayerActive(false);
 	ShowPlayerCrossHairIcons(false);
-	for(int i=0;i<=4;i++) AddTimer("WoodenBarricadeHouse", 1.25f * i, "TimerHammerAttack");
-	AddTimer("WoodenBarricadeHouse", 5.0f, "TimerHammerFinalAttack");
+	for(int i=0;i<=4;i++) AddTimer(asEntity, 1.25f * i, "TimerHammerAttack");
+	AddTimer(asEntity, 5.0f, "TimerHammerFinalAttack");
 }
 
 void TimerHammerAttack(string &in asTimer)
@@ -312,7 +311,7 @@ void TimerHammerAttack(string &in asTimer)
 void TimerHammerFinalAttack(string &in asTimer)
 {
 	SetPropHealth(asTimer, 0.0f);
-	CompleteQuest("WoodenBarricadeHouse", "WoodenBarricadeHouse");
+	CompleteQuest(asTimer, asTimer);
 	SetPlayerActive(true);
 	ShowPlayerCrossHairIcons(true);
 }
@@ -382,6 +381,29 @@ void OnInteractSacrifice(string &in door)
 	Sacrifice();
 }
 
+void OnPlayerInteractTheBed(string &in door)
+{
+	SetPlayerCrouching(true);
+	SetPlayerActive(false);
+	FadePlayerFOVMulTo(0.5f, 1.0f);
+	FadeOut(1.5f);
+	
+	AddTimer("1.5f", 4.5f, "TimerFadeIn");
+	AddTimer("Restore", 6.0f, "TimerRestore");
+	
+}
+
+void TimerRestore(string &in asTimer)
+{
+	AddPlayerHealth(50.0f);
+	AddPlayerSanity(50.0f);
+	FadePlayerFOVMulTo(1.0f, 4.0f);
+	SetPlayerCrouching(false);
+	SetPlayerActive(true);
+	
+	SetMessage("Hints", "Restore", 4.0f);
+}
+
 void OnDeathSacrifice(string &in asName, int alCount)
 {
 	Sacrifice();
@@ -392,7 +414,7 @@ void Sacrifice()
 	PlayGuiSound("24_knife.snt", 1.0f);
 	SetEntityActive("ParticleBlood", true);
 	GivePlayerDamage(15.0f, "Slash", true, false);
-	GiveSanityDamage(100.0f, false);
+	GiveSanityDamage(110.0f, false);
 	FadeOut(1.5f);
 	
 	ReplaceEntity("ClearAltar", "ClearAltar", "BloodyAltar", "special_altar_static_knife_bloody.ent", false);
@@ -432,6 +454,7 @@ void TimerResetButton(string &in asTimer)
 void EndEvent()
 {
 	GiveSanityBoost();
+	AddPlayerHealth(50.0f);
 	for(int i=1;i<=6;i++) SetEntityActive("Knight_" + i, false);
 	for(int i=1;i<=10;i++)
 	{
@@ -447,6 +470,7 @@ void EndEvent()
 	SetLightVisible("LightHammer", false);
 	SetLevelDoorLocked("BackDoor", false);
 	SetMoveObjectState("SecretDoorSecond", 1);
+	SetEntityPlayerInteractCallback("Script_TheBed", "OnPlayerInteractTheBed", true);
 	RemoveTimer("TheHammer");
 }
 
@@ -555,7 +579,7 @@ void ReturnFromAngel()
 	SetEntityActive("TheHammer", true);
 	SetEntityActive("ChefFinal", true);
 	TeleportEnemyToEntity("ChefFinal", "ChefFinalStart", "ChefFinal", true);
-	AddTimer("ChefFinalAttackRage", 5.0f, "TimerChefFinalAttackRage");
+	AddTimer("ChefFinalAttackRage", 7.5f, "TimerChefFinalAttackRage");
 }
 
 void TimerChefFinalAttackRage(string &in asTextEntry)

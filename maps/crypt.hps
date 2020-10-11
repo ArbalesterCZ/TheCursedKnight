@@ -16,7 +16,7 @@ void OnStart()
 	AddUseItemCallback("", "Acid", "Slime", "UseAcidOnSlime", true);
 	AddUseItemCallback("", "Container", "Burner", "UseItemOnBurner", true);
 	AddUseItemCallback("", "Orpiment", "Burner", "UseItemOnBurner", true);
-	AddUseItemCallback("", "Saw", "WoodenBarricade_1", "UseSawToBarricade", true);
+	AddUseItemCallback("", "Hammer", "WoodenBarricadeCrypt", "UseHammerOnBarricade", true);
 	AddUseItemCallback("", "CeremonyDagger", "EvilPrisonerScript", "UseDaggerToPrisoner", true); 
 	
 	for(int i=1;i<=5;i++) AddEntityCollideCallback("BigHammer", "Suitor_"+i, "UseHammerOnSuitor", false, 1);
@@ -27,7 +27,6 @@ void OnStart()
 	
 	// Required Items
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
-	if(!HasItem("Saw")) GiveItemFromFile("Saw", "bone_saw.ent");
 	
 	// Other
 	SetMessage("Hints", "Chapter_3", 5.0f);
@@ -65,13 +64,26 @@ void UseHammerOnLock(string &in asItem, string &in asEntity)
 	AddTimer(asItem, 4.0f, "TimerBangComplete");
 }
 
-void UseSawToBarricade(string &in asItem, string &in asEntity)
+void UseHammerOnBarricade(string &in asItem, string &in asEntity)
 {
-	RemoveItem(asItem);
 	SetPlayerActive(false);
-	PlaySoundAtEntity("", "26_saw", asEntity, 0, false);	
-	for(int i=0;i<=8;i++) AddTimer(asEntity, i / 2.0f, "TimerSaw");	
-	AddTimer(asEntity, 4.0f, "TimerSawComplete");
+	ShowPlayerCrossHairIcons(false);
+	for(int i=0;i<=4;i++) AddTimer(asEntity, 1.25f * i, "TimerHammerAttack");
+	AddTimer(asEntity, 5.0f, "TimerHammerFinalAttack");
+}
+
+void TimerHammerAttack(string &in asTimer)
+{
+	PlaySoundAtEntity("HitSound", "hit_wood.snt", asTimer, 0.0f, false);
+	CreateParticleSystemAtEntity("HitEffect", "ps_hit_wood.ps", asTimer, false);
+}
+
+void TimerHammerFinalAttack(string &in asTimer)
+{
+	SetPropHealth(asTimer, 0.0f);
+	CompleteQuest("WoodenBarricadeHouse", "WoodenBarricadeHouse");
+	SetPlayerActive(true);
+	ShowPlayerCrossHairIcons(true);
 }
 
 void UseItemOnBurner(string &in asItem, string &in asEntity)
@@ -432,13 +444,6 @@ void TimerHorrorEnd(string &in asTimer)
 void TimerSaw(string &in asTimer)
 {
 	CreateParticleSystemAtEntity("SawSmoke", "ps_hit_wood.ps", asTimer, false);
-}
-
-void TimerSawComplete(string &in asTimer)
-{
-	SetPropHealth(asTimer, 0);
-	SetMessage("Hints", "SawDone", 5.0f);
-	SetPlayerActive(true);
 }
 
 void TimerBang(string &in asTimer)

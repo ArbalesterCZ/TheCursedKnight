@@ -170,7 +170,8 @@
 		// Chapter III [Crypt]
 		<Entry Name="Quest_Jailer_Text">I have to find my jailer friend in the crypt.</Entry>
 		<Entry Name="Quest_DoorJailer_Text">The door is locked. I have to find the key.</Entry>
-		<Entry Name="Quest_BlockedDoorCrypt_Text">The door is blocked. I have to find another way.</Entry>
+		<Entry Name="Quest_BlockedDoorCrypt_Text">The door at the hallway is blocked from the other side. I have to find another way.</Entry>
+		<Entry Name="Quest_WoodenBarricadeCrypt_Text">The barricade looks weak. I should try to destroy it with a tool.</Entry>
 		<Entry Name="Quest_IronMaiden_Text">The Iron Maiden is stuck. There's probably nothing interesting inside.</Entry>
 		<Entry Name="Quest_Purge_Text">Purging the prison is the first way to forgive.</Entry>
 		<Entry Name="Quest_DoorPrison_2_Text">The door is stuck. First I should kill the first suitor.</Entry>
@@ -178,7 +179,7 @@
 		<Entry Name="Quest_NeedBetterTool_Text">The hammer alone is not enough to destroy the lock, i have to find a chipper.</Entry>
 		<Entry Name="Quest_DoorAlchemy_Text">I have to find something to destroy the lock.</Entry>
 		<Entry Name="Quest_Slime_Text">I have to find something to dissolve the slime.</Entry>
-		<Entry Name="Quest_AlchemySecret_Text">The alchemy door is locked. Perhaps something important is behind it.</Entry>
+		<Entry Name="Quest_AlchemySecret_Text">The alchemy small door is locked. Perhaps something important is behind it.</Entry>
 		<Entry Name="Quest_DoorBridge_Text">Door is locked. I should search this room properly.</Entry>	
 		<Entry Name="Quest_EvilCow_Text">The cow door is stuck. I could release it with fire.</Entry>	
 		// Chapter IV [Forest]
@@ -195,7 +196,7 @@
 		// Chapter IV [House]
 		<Entry Name="Quest_WoodenBarricadeHouse_Text">The barricade looks weak. I should try to destroy it with a tool.</Entry>
 		<Entry Name="Quest_HeavyDoorHouse_Text">The door is too Heavy. There must be a hidden mechanism to open it.</Entry>
-		<Entry Name="Quest_LockedDoorHouse_Text">I have to find the right key to the door. Should be somewhere at this room.</Entry>
+		<Entry Name="Quest_LockedDoorHouse_Text">Door is locked. I have to find the key. Should be somewhere at this room.</Entry>
 		<Entry Name="Quest_RustyKeyOnDoor_Text">I have to find a way to clear the key.</Entry>
 		<Entry Name="Quest_KillTheChef_Text">I have to kill the Chef with my hammer.</Entry>
 		<Entry Name="Quest_BackToForest_Text">The Chef is dead. I have to go back to the forest.</Entry>
@@ -295,6 +296,8 @@
 		<Entry Name="LookAtWarehouse">I can see a warehouse. There could be some useful tools.</Entry>
 		<Entry Name="AreaBoomLocation">The barricade is too strong. There could be some useful tools.</Entry>
 		<Entry Name="AngelVoice">[Angel Voice]: I'm in danger. Please find my statue in the temple.</Entry>
+		<Entry Name="PadlockSteel">The padlock is locked. I should find the key.</Entry>
+		<Entry Name="TrapBarrel">The Barrel is too heavy.</Entry>
 		<Entry Name="DeadBodyForestHint">Another dead body.</Entry>
 		
 		<Entry Name="LargeDoor">The door is too heavy to lift.</Entry>
@@ -305,10 +308,9 @@
 		<Entry Name="ChefFirst">[Chef]: How dare you to come to my house?</Entry>
 		<Entry Name="AcidTouch"> Ouch. It's a acid.</Entry>
 		<Entry Name="WaterRun">Water is not safe!</Entry>
-		<Entry Name="LockedDoorHouse">Door is locked.</Entry>
+		<Entry Name="LockedDoorHouse">Door is locked. I have to find the key. Should be somewhere at this room</Entry>
 		<Entry Name="RustyKeyOnDoor">The key needs to be cleaned first.</Entry>
-		<Entry Name="PadlockSteel">The padlock is locked. I should find the key.</Entry>
-		<Entry Name="TrapBarrel">The Barrel is too heavy.</Entry>
+		<Entry Name="Restore">I feel much better.</Entry>
 		
 		<Entry Name="WoodenBarricadeHouse">The barricade looks weak. I should try to destroy it with a tool.</Entry>
 		<Entry Name="HeavyDoorHouse">The door is too heavy. There must be a hidden mechanism.</Entry>

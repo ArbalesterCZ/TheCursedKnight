@@ -21,7 +21,7 @@ void OnStart()
 void OnLeave()
 {
 	StopMusic(0.0f, 5);
-	AddGlobalVarInt("ForestSubChapterComplete", 1);
+	SetGlobalVarInt("ForestSubChapterComplete", 1);
 	SetupLoadScreen("Loading", "OnLeaveWarehouse", 0, "forest.jpg");
 }
 

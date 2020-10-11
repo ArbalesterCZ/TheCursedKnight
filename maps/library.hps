@@ -131,6 +131,11 @@ void TimerSawComplete(string &in asTimer)
 		CompleteQuest("BlockedDoor", "BlockedDoor");
 		GiveSanityBoostSmall();
 	}
+	if(asTimer == "WoodenBarricade_3")
+	{	
+		RemoveItem("Saw");
+		SetMessage("Hints", "SawDone", 5.0f);
+	}
 }
 
 void TimerBrute(string &in asTimer)

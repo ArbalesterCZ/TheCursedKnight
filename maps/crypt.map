@@ -1,11 +1,11 @@
 <Level>
     <EditorSession>
         <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
-        <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="false" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
-            <Viewport CameraPosition="22.5 3.4982 182.25" CameraTarget="22.5 3.4982 2.25" CameraZoom="4.12684" GridHeight="2.25" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="202.5 3.4982 2.25" CameraTarget="22.5 3.4982 2.25" CameraZoom="3.38714" GridHeight="22.5" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="22.2208 183.25 2.21175" CameraTarget="22.2208 3.25 2.21175" CameraZoom="3.38714" GridHeight="3.25" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="18.3344 10.4745 -2.26437" CameraTarget="15.6808 3.25 4.44493" CameraZoom="1.58863" GridHeight="3.25" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+        <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="true" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
+            <Viewport CameraPosition="-3.25 0.905556 163.75" CameraTarget="-3.25 0.905556 -16.25" CameraZoom="2.87825" GridHeight="-16.25" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="176.75 0.905556 -16.25" CameraTarget="-3.25 0.905556 -16.25" CameraZoom="2.87825" GridHeight="-3.25" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="-3.25 180 -16.0074" CameraTarget="-3.25 0 -16.0074" CameraZoom="3.83278" GridHeight="0" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="5.43804 3.62826 -11.5513" CameraTarget="9.04059 4.76837e-07 -9.71037" CameraZoom="2.21929" GridHeight="0" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
@@ -971,7 +971,7 @@
                         <Var Name="DisableBreakable" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="11" Group="0" ID="119" Name="WoodenBarricade_1" Rotation="0 1.5708 0" Scale="1.25 1 1" Tag="" WorldPos="8.25 2 -11">
+                <Entity Active="true" FileIndex="11" Group="0" ID="119" Name="WoodenBarricadeCrypt" Rotation="0 1.5708 0" Scale="1.25 1 1" Tag="" WorldPos="8.25 2 -11">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -982,8 +982,8 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="" />
-                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="ContainedItem" Value="None" />
                         <Var Name="DisableBreakable" Value="false" />
                         <Var Name="IsInsanityVision" Value="false" />
