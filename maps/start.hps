@@ -14,7 +14,7 @@ void OnStart()
 	// Other
 	SetLightVisible("BoxLight", false);
 	SetMessage("Hints", "Chapter_1", 5.0f);
-	GiveSanityDamage(1000.0f, false);
+	GiveSanityDamage(110.0f, false);
 	SetPlayerActive(false);
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	SetMapDisplayNameEntry("GreatHall");

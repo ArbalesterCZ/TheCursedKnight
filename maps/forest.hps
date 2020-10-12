@@ -1,3 +1,6 @@
+
+int mazeMonsterPreset;
+
 void OnStart()
 {
 	// Events
@@ -15,10 +18,7 @@ void OnStart()
 	AddEntityCollideCallback("Player", "AreaOutside", "OnCollideOutside", false, 0);
 	
 	for(int i=0;i<=4;i++) AddEntityCollideCallback("Player", "AreaThorns_" + i, "OnCollideThornsCallback", true, 1);
-	
-	// Varriables
-	SetLocalVarInt("MazeMonsterPreset", RandInt(0, 4));
-	
+		
 	// Required Items
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("Container")) GiveItemFromFile("Container", "chemical_container.ent");
@@ -372,20 +372,18 @@ void TimerMazeMonsters(string &in asEntity)
 {
 	FadeIn(0.75f);
 	PlayGuiSound("00_laugh.snt", 1.0f);
+	mazeMonsterPreset = RandInt(0, 4);
 	AddTimer(asEntity + "_spawn", RandFloat(2.5f, 5.0f), "TimerMazeMonsterSpawn");
 }
 
 void TimerMazeMonsterSpawn(string &in asEntity)
 {
-	int halluciation = GetLocalVarInt("MazeMonsterPreset");
-	SetEnemyIsHallucination("GruntMaze_" + halluciation, true);
-	
-	SetLocalVarInt("MazeMonsterPreset", (GetLocalVarInt("MazeMonsterPreset") + 1) % 5);
-	int seed = GetLocalVarInt("MazeMonsterPreset");
-	SetEnemyIsHallucination("GruntMaze_" + seed, false);
-	SetEntityActive("GruntMaze_" + seed, true);
-	for(int i=(seed*5)+1;i<=(seed*5)+5;i++) AddEnemyPatrolNode("GruntMaze_" + seed, "PathMaze_"+i, 0.001f, "");
-	for(int i=(seed*5)+5+1;i>(seed*5)+1;i--) AddEnemyPatrolNode("GruntMaze_" + seed, "PathMaze_"+i, 0.001f, "");
+	SetEnemyIsHallucination("GruntMaze_" + mazeMonsterPreset, true);
+	mazeMonsterPreset = (mazeMonsterPreset + 1) % 5;
+	SetEnemyIsHallucination("GruntMaze_" + mazeMonsterPreset, false);
+	SetEntityActive("GruntMaze_" + mazeMonsterPreset, true);
+	for(int i=(mazeMonsterPreset*5)+1;i<=(mazeMonsterPreset*5)+5;i++) AddEnemyPatrolNode("GruntMaze_" + mazeMonsterPreset, "PathMaze_"+i, 0.001f, "");
+	for(int i=(mazeMonsterPreset*5)+5+1;i>(mazeMonsterPreset*5)+1;i--) AddEnemyPatrolNode("GruntMaze_" + mazeMonsterPreset, "PathMaze_"+i, 0.001f, "");
 	
 	if(GetSwingDoorLocked("DoorMaze")) AddTimer(asEntity, 14.0f, "TimerMazeMonsterSpawn");
 	else CheckPoint("AfterMaze", "StartArea", "", "Die", "KilledAfterMaze");

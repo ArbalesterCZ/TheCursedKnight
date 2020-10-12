@@ -1,3 +1,6 @@
+
+int bookCount = 0;
+
 void OnStart()
 {
 	// Events
@@ -12,10 +15,7 @@ void OnStart()
 	AddEntityCollideCallback("LadderMoveable", "PlaceLadder", "EventCollideLadder", true, 1);
 	for(int i=1;i<=4;i++) AddEntityCollideCallback("BookSecret_"+i, "AreaSecretBook_"+i, "CollideSecretBook", true, 1);
 	for(int i=1;i<=14;i++) AddEntityCollideCallback("Player", "Thorn_"+i, "CollideThorn", false, 1);
-	
-	// Varriables
-	SetLocalVarInt("BookCount", 0);
-	
+		
 	// Other
 	SetMessage("Hints", "Chapter_2", 5.0f);
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
@@ -57,8 +57,7 @@ void CollideSecretBook(string &in asParent, string &in asChild, int alState)
 	
 	PlayGuiSound("16_lever_stuck", 0.3f);
 	
-	AddLocalVarInt("BookCount", 1);
-	if(GetLocalVarInt("BookCount") == 4)
+	if((++bookCount) == 4)
 	{
 		for(int i=1;i<=4;i++) StopSound("SoundBookSecret_"+i, 2.5f);
 		SetLeverStuckState("LeverLibrary", 0, true);
