@@ -7,18 +7,18 @@
 		<Entry Name="Library">The chef became a monster. The castle is not safe. I have to get out of the castle.</Entry>
 		<Entry Name="Crypt">The chef is not the only one who has changed to monster. The dead warrior from the war is chasing me. I have to find my jailer friend in the crypt.</Entry>
 		<Entry Name="Forest">The jailer's will is done. The way out is free. I have to go to the temple and find out what is happening.</Entry>
-		<Entry Name="Warehouse">I got into the warehouse. I have to find a useful tool.</Entry>
-		<Entry Name="OnLeaveWarehouse">I found a crowbar. I should try to get into another house.</Entry>
-		<Entry Name="House">The chef's house. I need to find out what happened here.</Entry>
+		<Entry Name="Warehouse">I got into the warehouse. I have to find some useful tool.</Entry>
+		<Entry Name="OnLeaveWarehouse">I found a crowbar. It should help me to get into another house.</Entry>
+		<Entry Name="House">The chef's house. I have to find out what happened here.</Entry>
 		<Entry Name="OnLeaveHouse">The chef is dead. The dead soldier remains. I think he will find me soon.</Entry>
-		<Entry Name="Temple">The angel from my dream is calling for help. Her statue should be inside of the Temple.</Entry>
+		<Entry Name="Temple">The angel from my dream is calling for help. Her statue should be inside of the temple.</Entry>
 		<Entry Name="End">The orb of light is complete. It's time to strike.</Entry>
 	</CATEGORY>
 
 	<CATEGORY Name="Inventory">	
 	// Chapter I [Start]
 		<Entry Name="ItemName_KeyRoomDesc">Aalot's key</Entry>
-		<Entry Name="ItemDesc_KeyRoomDesc">Key for unlocking everything in Aalot room.</Entry>
+		<Entry Name="ItemDesc_KeyRoomDesc">Key for unlocking everything in Aalot's room.</Entry>
 				
 		<Entry Name="ItemName_KeyStoreDesc">Storage Key</Entry>
 		<Entry Name="ItemDesc_KeyStoreDesc">Key for unlocking storage.</Entry>
@@ -38,19 +38,19 @@
 		<Entry Name="ItemDesc_KeyAlchemydesc">It probably belongs to some locked substance in the lab.</Entry>
 		
 		<Entry Name="ItemName_OrpimentDesc">Cold Acid</Entry>
-		<Entry Name="ItemDesc_OrpimentDesc">Fixed substance. Can be used as classic acid after heating up.</Entry>
+		<Entry Name="ItemDesc_OrpimentDesc">Ready substance. Can be used as classic acid after heating up.</Entry>
 		
 	// Chapter IV [Forest]
 		<Entry Name="ItemName_DoorMaze">Chef's Key</Entry>
-		<Entry Name="ItemDesc_DoorMaze">This is the Chef's Key.</Entry>
+		<Entry Name="ItemDesc_DoorMaze">This is the chef's Key.</Entry>
 		
-		<Entry Name="ItemName_RustyKey">A Rusty Key</Entry>
-		<Entry Name="ItemDesc_RustyKey">Heavy rusty key. Acid could clean it.</Entry>
+		<Entry Name="ItemName_RustyKey">Rusty key</Entry>
+		<Entry Name="ItemDesc_RustyKey">Heavy rusty key. You could probably clean it with acid.</Entry>
 		
-		<Entry Name="ItemName_PurgeKey">The purge key</Entry>
+		<Entry Name="ItemName_PurgeKey">Cleaned and polished key</Entry>
 		<Entry Name="ItemDesc_PurgeKey">A shiny key.</Entry>
 		
-		<Entry Name="ItemName_DeadBodyKey">key</Entry>
+		<Entry Name="ItemName_DeadBodyKey">Dead man's key</Entry>
 		<Entry Name="ItemDesc_DeadBodyKey">This key was found near the body of a dead man.</Entry>
 		
 		<Entry Name="ItemName_UnstableMixture">Unstable Mixture</Entry>
@@ -60,7 +60,7 @@
 	
 	// Chapter IV [House]
 		<Entry Name="ItemName_Acid">Acid</Entry>
-		<Entry Name="ItemDesc_Acid">A small container of acid.</Entry>
+		<Entry Name="ItemDesc_Acid">Small container of acid.</Entry>
 	
 	// Chapter V [Temple]
 		<Entry Name="ItemName_Lever">Unused torch</Entry>
@@ -76,7 +76,7 @@
 		<Entry Name="ItemDesc_UntaggedKey">I have no idea what this key is from.</Entry>
 		
 		<Entry Name="ItemName_HolyRoot">Holy Root</Entry>
-		<Entry Name="ItemDesc_HolyRoot">I have to use it with the orb.</Entry>
+		<Entry Name="ItemDesc_HolyRoot">I have to use it to activate sacred orb.</Entry>
 		
 		<Entry Name="ItemName_Stencil">Stencil</Entry>
 		<Entry Name="ItemDesc_Stencil">Can be used in a lightbox.</Entry>
@@ -88,7 +88,7 @@
 			<Entry Name="Note_StartNote_Text">
 		[br]Note:[br]
 			I'm running out of food.[br]
-			I haven't seen the chef for a few days.[br]
+			I haven't seen my chef for a couple of days.[br]
 		[br]Quest:[br]
 			Visit the kitchen.[br]
 			Find the lever in the storage room and put it to the right place.[br]
@@ -116,16 +116,16 @@
 		<Entry Name="Note_Jailer_Text">
 		To anyone brave or foolish enough to be here:[br][br]
 		All my prisoners started to die due to very aggressive unknown disease. There are more unholy things happening here, they keep reanimating. Bloody undead! Something is happening. Their aggressivity is increasing.
-		It seems like there are few kinds of them, these bloody freaks are not the same... hell I know it! These things are fighting amongst each other, apparently there is more than one kind. They are gathering 'their own' ones. Now the worst kind is left in this prison.
+		It seems like there are more kinds of them, these bloody freaks are not the same... hell I know it! These things are fighting amongst each other, apparently there is more than one kind. They are gathering 'their own' ones. Now the worst kind is left in this prison.
 		In case something would go terribly wrong I barricaded the entrance and hoarded useful things, including my big hammer to fight those beasts.[br][br]
-		Hopefully, any aid will appear soon, I am too old to fight them... and perhaps sick too, I don´t feel well lately. If I turn into this monstrosity, don´t show me any mercy and finish all this dirty work once for all.
+		Hopefully, any aid will appear soon, I am too old and weak to fight them... and perhaps sick too, I don´t feel well lately. If I turn into this monstrosity, don´t show me any mercy and finish all this dirty work once for all.
 		</Entry>
 		<Entry Name="Note_EmptyNote_Name">Letter</Entry>
 		<Entry Name="Note_EmptyNote_Text">Clean up your alchemical room. Whenever I come there, the most useful things are on the top shelves.</Entry>
 		// Chapter IV [Forest]
 		<Entry Name="Note_NoteMaze_Name">Chef's Warning</Entry>
-		<Entry Name="Note_NoteMaze_Text">How dare you to come to my chambers? I assure you, you won't get alive from here. But I will give you little hope.
-		The only way out is through a locked door. Look for the key in one of the chests. Try to search them all....</Entry>
+		<Entry Name="Note_NoteMaze_Text">How dare you to come to my chambers? I assure you, you won't get alive from here. But I will give you little chance.
+		The only way out is through a locked door. Look for the key in one of my chests. Try to search them all...you may run but you cannot hide from me.</Entry>
 		
 		// Chapter V [Temple]
 		<Entry Name="Note_Secret_1_Name">Secret Combination</Entry>
@@ -141,102 +141,102 @@
 		
 		<Entry Name="Note_SecretaryNote_Name">Secretary Letter</Entry>
 		<Entry Name="Note_SecretaryNote_Text">
-		The Corruption has come to our shrine. The sacred orb of light was destroyed. It started in the main hall. You can't get into it now. The main door is riddled with some strange ulcers.
-		Ulcers spread in the basement. A ghost of a warrior began to walk here. Whoever met him directly did not survive.[br][br]
-		These mysteries are too dangerous even for the Secretary of the temple. But before I left this place I managed to find several parts of the Sacred orb of light.
+		The Corruption has come to our shrine. The sacred orb of light was destroyed. It started in the main hall. You cannot get there now. The main door is blocked with some strange ulcers.
+		Ulcers also spread in the basement. A ghost of a warrior began to walk here. Whoever met him directly did not survive.[br][br]
+		These mysteries are too dangerous even for the Secretary of the temple. But before I left this place and managed to find several parts of the Sacred orb of light.
 		I hid one into the secret place of the knighthood where the pedestal is located too. The second part is hidden in this table. The key is in the cabinet.[br][br]
 		Please take care of my flowers.
 		</Entry>
 		<Entry Name="Note_Runes_Name">Mysterious Runes</Entry>
 		<Entry Name="Note_Runes_Text">
-		Mysterious runes appeared in one room in this part of the temple. I have no idea what it means, but some are dangerous. Never step on the red ones.
-		They are difficult to distinguish from black runes. It is necessary to shine a lamp on them. White runes indicate a safe place.
+		Mysterious runes appeared in one part of the temple. I have no idea what they mean, but some of them are dangerous. Never step on red ones.
+		Be careful they are difficult to recognize, it is hard to tell the difference from black runes without a light. It is necessary to shine a lamp on them. White runes indicate a safe place.
 		</Entry>
 		
 	//-------------------Quest-------------------//
 		// Chapter I [Start]
 		<Entry Name="Quest_Door_Text">The entrance door is locked. The key should be in the cabinet.</Entry>
 		<Entry Name="Quest_SmallDoor_Text">The small door is locked. The key should be in the cabinet.</Entry>
-		<Entry Name="Quest_Door_store_Text">The storage door is locked. The key should be at archive.</Entry>
-		<Entry Name="Quest_Barricade_Text">I have to find a way to get over the barricade to the kitchen.</Entry>
+		<Entry Name="Quest_Door_store_Text">The storage door is locked. The key should be in an archive.</Entry>
+		<Entry Name="Quest_Barricade_Text">I have to find a way to get through the barricade to the kitchen.</Entry>
 		<Entry Name="Quest_Exit_Text">I have to escape to the library.</Entry>
 		// Chapter II [Library]	
-		<Entry Name="Quest_MansionDoor_Text">Door at common room is locked. I have to find the secret.</Entry>
+		<Entry Name="Quest_MansionDoor_Text">Door in common room is locked. I have to find the secret mechanism.</Entry>
 		<Entry Name="Quest_DoorLibrary_Text">Library door is locked. I have to find the key.</Entry>
-		<Entry Name="Quest_SecretShelf_Text">The shelf is stuck. I remember some secret mechanism up in the library.</Entry>
+		<Entry Name="Quest_SecretShelf_Text">The shelf is stuck. I remember there should be some secret mechanism up in the library.</Entry>
 		<Entry Name="Quest_BlockedDoor_Text">Door at mansion room is blocked. I have to find another way.</Entry>
-		<Entry Name="Quest_LeverLibrary_Text">I have to find secret mechanism to unlock the door.</Entry>
+		<Entry Name="Quest_LeverLibrary_Text">I have to find the secret mechanism to unlock the door.</Entry>
 		<Entry Name="Quest_Cabinet_Brute_Text">The cabinet is stuck.</Entry>
 		// Chapter III [Crypt]
 		<Entry Name="Quest_Jailer_Text">I have to find my jailer friend in the crypt.</Entry>
 		<Entry Name="Quest_DoorJailer_Text">The door is locked. I have to find the key.</Entry>
-		<Entry Name="Quest_BlockedDoorCrypt_Text">The door at the hallway is blocked from the other side. I have to find another way.</Entry>
+		<Entry Name="Quest_BlockedDoorCrypt_Text">The door in the hallway is blocked. I have to find another way.</Entry>
 		<Entry Name="Quest_WoodenBarricadeCrypt_Text">The barricade looks weak. I should try to destroy it with a tool.</Entry>
 		<Entry Name="Quest_IronMaiden_Text">The Iron Maiden is stuck. There's probably nothing interesting inside.</Entry>
 		<Entry Name="Quest_Purge_Text">Purging the prison is the first way to forgive.</Entry>
-		<Entry Name="Quest_DoorPrison_2_Text">The door is stuck. First I should kill the first suitor.</Entry>
-		<Entry Name="Quest_DoorPrison_3_Text">Door at prison is blocked.[br]I should try to smash that door with the hammer.</Entry>
-		<Entry Name="Quest_NeedBetterTool_Text">The hammer alone is not enough to destroy the lock, i have to find a chipper.</Entry>
+		<Entry Name="Quest_DoorPrison_2_Text">The door is stuck. I probably should start with killing the first freak.</Entry>
+		<Entry Name="Quest_DoorPrison_3_Text">Door in prison is blocked.[br]I should try to smash that door with the hammer.</Entry>
+		<Entry Name="Quest_NeedBetterTool_Text">The hammer itself is not enough to destroy the lock, I have to find a chipper.</Entry>
 		<Entry Name="Quest_DoorAlchemy_Text">I have to find something to destroy the lock.</Entry>
 		<Entry Name="Quest_Slime_Text">I have to find something to dissolve the slime.</Entry>
-		<Entry Name="Quest_AlchemySecret_Text">The alchemy small door is locked. Perhaps something important is behind it.</Entry>
+		<Entry Name="Quest_AlchemySecret_Text">The alchemy small door is locked. Perhaps there is something important behind it.</Entry>
 		<Entry Name="Quest_DoorBridge_Text">Door is locked. I should search this room properly.</Entry>	
 		<Entry Name="Quest_EvilCow_Text">The cow door is stuck. I could release it with fire.</Entry>	
 		// Chapter IV [Forest]
 		<Entry Name="Quest_DoorCrowbar_Text">The door at abandoned house is stuck. I have to find a tool to open the door.</Entry>	
-		<Entry Name="Quest_DoorMaze_Text">The door at Chef's maze is locked. I have to find the key.</Entry>
+		<Entry Name="Quest_DoorMaze_Text">The door in chef's maze is locked. I have to find the key.</Entry>
 		<Entry Name="Quest_Warehouse_Text">I should explore the warehouse.</Entry>
-		<Entry Name="Quest_AreaBoomLocation_Text">The barricade under stairs is too strong. I have to find a some equipment to break it.</Entry>
-		<Entry Name="Quest_AngelVoice_Text">The angel is in danger. I have to go find him in the temple.</Entry>
+		<Entry Name="Quest_AreaBoomLocation_Text">The barricade under stairs is too strong. I have to find some equipment to break it.</Entry>
+		<Entry Name="Quest_AngelVoice_Text">Angel from my dream is in danger. I have to get inside of the temple and find her.</Entry>
 		<Entry Name="Quest_PadlockSteel_Text">The padlock is locked. I should find the key.</Entry>
-		<Entry Name="Quest_KeyMaze_Text">I have the Chef's Key. Now I must explore his house.</Entry>
+		<Entry Name="Quest_KeyMaze_Text">I have the chef's Key. Now I must explore his house.</Entry>
 		// Chapter IV [Warehouse]
 		<Entry Name="Quest_LargeDoor_Text">I have to find a way to lift the heavy door.</Entry>	
 		<Entry Name="Quest_Crank_Text">The rope tied to the crank is not attached anywhere.</Entry>
 		// Chapter IV [House]
 		<Entry Name="Quest_WoodenBarricadeHouse_Text">The barricade looks weak. I should try to destroy it with a tool.</Entry>
-		<Entry Name="Quest_HeavyDoorHouse_Text">The door is too Heavy. There must be a hidden mechanism to open it.</Entry>
-		<Entry Name="Quest_LockedDoorHouse_Text">Door is locked. I have to find the key. Should be somewhere at this room.</Entry>
+		<Entry Name="Quest_HeavyDoorHouse_Text">The door is too heavy. There must be a hidden mechanism to open it.</Entry>
+		<Entry Name="Quest_LockedDoorHouse_Text">Door is locked. I have to find the key. It should be somewhere in this room.</Entry>
 		<Entry Name="Quest_RustyKeyOnDoor_Text">I have to find a way to clear the key.</Entry>
-		<Entry Name="Quest_KillTheChef_Text">I have to kill the Chef with my hammer.</Entry>
-		<Entry Name="Quest_BackToForest_Text">The Chef is dead. I have to go back to the forest.</Entry>
+		<Entry Name="Quest_KillTheChef_Text">I have to kill the chef with my hammer.</Entry>
+		<Entry Name="Quest_BackToForest_Text">The chef is dead. I have to go back to the forest.</Entry>
 		// Chapter V [Temple]
 		<Entry Name="Quest_SecretPassage1_Text">
-		I need to find the way how to open the secret passage.
+		I have to find the way to open the secret passage.
 		</Entry>
 		<Entry Name="Quest_SecretPassage2_Text">
-		I need to find the way how to open the secret passage.[br]
+		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.
 		</Entry>
 		<Entry Name="Quest_SecretPassage3_Text">
-		I need to find the way how to open the secret passage.[br]
+		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.[br]
-		- The letters resemble the alphabet, but there are stars instead of someones.
+		- The letters resemble the alphabet, but there are stars instead of some of them.
 		</Entry>
 		<Entry Name="Quest_SecretPassage4_Text">
-		I need to find the way how to open the secret passage.[br]
+		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.[br]
-		- The letters resemble the alphabet, but there are stars instead of someones.[br]
+		- The letters resemble the alphabet, but there are stars instead of some of them.[br]
 		- There are also some letters written separately.
 		</Entry>
 		<Entry Name="Quest_SecretPassage5_Text">
-		I need to find the way how to open the secret passage.[br]
+		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.[br]
-		- The letters resemble the alphabet, but there are stars instead of someones.[br]
+		- The letters resemble the alphabet, but there are stars instead of some of them.[br]
 		- There are also some letters written separately.[br]
-		- Maybe I should try to add the separated letters to the columns instead of stars and see which columns will be completed.
+		- Maybe I should try to add the separated letters to the columns instead of stars and see which columns will be complete.
 		</Entry>
-		<Entry Name="Quest_OrbQuest0_Text">I have to complete the Orb.[br] 0 piece from 6 is done.</Entry>
+		<Entry Name="Quest_OrbQuest0_Text">I have to complete the Orb.[br] 0 pieces from 6 is done.</Entry>
 		<Entry Name="Quest_OrbQuest1_Text">I have to complete the Orb.[br] 1 piece from 6 is done.</Entry>
-		<Entry Name="Quest_OrbQuest2_Text">I have to complete the Orb.[br] 2 piece from 6 is done.</Entry>
-		<Entry Name="Quest_OrbQuest3_Text">I have to complete the Orb.[br] 3 piece from 6 is done.</Entry>
-		<Entry Name="Quest_OrbQuest4_Text">I have to complete the Orb.[br] 4 piece from 6 is done.</Entry>
-		<Entry Name="Quest_OrbQuest5_Text">I have to complete the Orb.[br] 5 piece from 6 is done.</Entry>
-		<Entry Name="Quest_OrbQuest6_Text">The orb is done.[br] Now I need to activate it</Entry>
+		<Entry Name="Quest_OrbQuest2_Text">I have to complete the Orb.[br] 2 pieces from 6 is done.</Entry>
+		<Entry Name="Quest_OrbQuest3_Text">I have to complete the Orb.[br] 3 pieces from 6 is done.</Entry>
+		<Entry Name="Quest_OrbQuest4_Text">I have to complete the Orb.[br] 4 pieces from 6 is done.</Entry>
+		<Entry Name="Quest_OrbQuest5_Text">I have to complete the Orb.[br] 5 pieces from 6 is done.</Entry>
+		<Entry Name="Quest_OrbQuest6_Text">The orb is complete.[br] Now I have to activate it.</Entry>
 		<Entry Name="Quest_OrbQuestFinal_Text">The orb is activated.[br] I have to go to Heart of the temple.</Entry>
 		<Entry Name="Quest_LockedCellarDoor_Text">The door is locked. I have to find the key.</Entry>
-		<Entry Name="Quest_SecretarySmallDoor_Text">The small door at secretary room is locked. I have to find the key.</Entry>
-		<Entry Name="Quest_UntaggedSmallDoor_2_Text">The small door at secret passage is locked. I have to find the key.</Entry>
+		<Entry Name="Quest_SecretarySmallDoor_Text">The small door in secretary room is locked. I have to find the key.</Entry>
+		<Entry Name="Quest_UntaggedSmallDoor_2_Text">The small door in secret passage is locked. I have to find the key.</Entry>
 		// Chapter VI [Temple Core]
 		<Entry Name="Quest_MainGate_1_Text">I found the Main Door.[br]To open, I have to place orbs to all 3 pedestals.[br]1/3 is done.</Entry>
 		<Entry Name="Quest_MainGate_2_Text">I found the Main Door.[br]To open, I have to place orbs to all 3 pedestals.[br]2/3 is done.</Entry>
@@ -263,7 +263,7 @@
 		<Entry Name="BlockedDoor">Something is blocking the door from the other side.</Entry>
 		<Entry Name="MansionDoor">There should be a secret mechanism to unlock the door.</Entry>
 		<Entry Name="BruteHalluciation">[The dead warrior]: Do you recognize me, my friend?</Entry>
-		<Entry Name="GruntDialog_1">[Dead Chef]: You won't run away, I'll always find you.</Entry>
+		<Entry Name="GruntDialog_1">[Dead Chef]: You cannot run away, I'll always find you.</Entry>
 		<Entry Name="LeverLibrary">The lever is stuck. There should be a hidden mechanism to release the lever.</Entry>
 		<Entry Name="BruteAgain">[The dead warrior]: Stop running and face me.</Entry>	
 		<Entry Name="Door_Crypt">The door is locked, the key should be somewhere here.</Entry>
@@ -273,12 +273,12 @@
 		<Entry Name="DoorJailer">It's locked.</Entry>
 		<Entry Name="IronMaiden">It's stuck.</Entry>
 		<Entry Name="Door_Forest">First I have to complete the jailer's will.</Entry>
-		<Entry Name="DoorPrison_2">It's stuck. I have to kill the first prisoner first.</Entry>
+		<Entry Name="DoorPrison_2">It's stuck. I have to kill the first prisoner and continue after.</Entry>
 		<Entry Name="DoorPrison_3">It's blocked from the other side.[br]I should try to smash that door with the hammer.</Entry>
 		<Entry Name="DoorAlchemy">It's locked.</Entry>
 		<Entry Name="AlchemySecret">It's locked.</Entry>
 		<Entry Name="HammerDisappeared">My hammer has disappeared!</Entry>
-		<Entry Name="EvilPrisoner">This prisoner is half transformed. There should be a ceremonial dagger. I have to end it.</Entry>
+		<Entry Name="EvilPrisoner">This prisoner is half transformed. There should be a ceremonial dagger. I have to end it now.</Entry>
 		<Entry Name="LowHammer">The lock is too strong. I need a better tool.</Entry>
 		<Entry Name="Jailer">It must be the jailer.</Entry>
 		<Entry Name="SawDone">The saw was destroyed.</Entry>
@@ -287,17 +287,17 @@
 		<Entry Name="DoorBridge">It's locked.</Entry>
 		<Entry Name="EvilCow">It's stuck. I could release it with fire.</Entry>
 		
-		<Entry Name="Chapter_4">Chapter IV[br]The way of freedom.</Entry>
-		<Entry Name="House">The Chef's house is locked.[br]I need the key.</Entry>
+		<Entry Name="Chapter_4">Chapter IV[br]The way to freedom.</Entry>
+		<Entry Name="House">The chef's house is locked.[br]I need the key.</Entry>
 		<Entry Name="Warehouse">The warehouse door is locked.[br]I should find another way.</Entry>
 		<Entry Name="DoorCrowbar">It's stuck.</Entry>
-		<Entry Name="Door_Temple">I have no reason to come to the Temple.</Entry>
+		<Entry Name="Door_Temple">I have no reason to come to the temple.</Entry>
 		<Entry Name="DoorMaze">The door is locked. I have to find the key.</Entry>
 		<Entry Name="LookAtWarehouse">I can see a warehouse. There could be some useful tools.</Entry>
 		<Entry Name="AreaBoomLocation">The barricade is too strong. There could be some useful tools.</Entry>
 		<Entry Name="AngelVoice">[Angel Voice]: I'm in danger. Please find my statue in the temple.</Entry>
 		<Entry Name="PadlockSteel">The padlock is locked. I should find the key.</Entry>
-		<Entry Name="TrapBarrel">The Barrel is too heavy.</Entry>
+		<Entry Name="TrapBarrel">The barrel is too heavy.</Entry>
 		<Entry Name="DeadBodyForestHint">Another dead body.</Entry>
 		
 		<Entry Name="LargeDoor">The door is too heavy to lift.</Entry>
@@ -308,22 +308,22 @@
 		<Entry Name="ChefFirst">[Chef]: How dare you to come to my house?</Entry>
 		<Entry Name="AcidTouch"> Ouch. It's a acid.</Entry>
 		<Entry Name="WaterRun">Water is not safe!</Entry>
-		<Entry Name="LockedDoorHouse">Door is locked. I have to find the key. Should be somewhere at this room</Entry>
+		<Entry Name="LockedDoorHouse">Door is locked. I have to find the key. It should be somewhere in this room</Entry>
 		<Entry Name="RustyKeyOnDoor">The key needs to be cleaned first.</Entry>
-		<Entry Name="Restore">I feel much better.</Entry>
+		<Entry Name="Restore">I feel much better now.</Entry>
 		
 		<Entry Name="WoodenBarricadeHouse">The barricade looks weak. I should try to destroy it with a tool.</Entry>
 		<Entry Name="HeavyDoorHouse">The door is too heavy. There must be a hidden mechanism.</Entry>
-		<Entry Name="HideFromChef">The Chef is here! I should hide inside that cabinet.</Entry>
+		<Entry Name="HideFromChef">The chef is here! I could hide inside that cabinet.</Entry>
 		
 		<Entry Name="AngelPart_1">[Aalot]: Where am I?</Entry>
-		<Entry Name="AngelPart_2">[Aalot]: It is a dream?</Entry>
+		<Entry Name="AngelPart_2">[Aalot]: Is it a dream?</Entry>
 		<Entry Name="AngelPart_3">[Angel]: Did you forget who you are, Aalot?</Entry>
 		<Entry Name="AngelPart_4">[Aalot]: I'm lost.</Entry>
-		<Entry Name="AngelPart_5">[Angel]: You're the knight.</Entry>
+		<Entry Name="AngelPart_5">[Angel]: You are the knight.</Entry>
 		<Entry Name="AngelPart_6">[Angel]: There is no time for hiding anymore.</Entry>
 		<Entry Name="AngelPart_7">[Aalot]: But I...</Entry>
-		<Entry Name="AngelPart_8">[Angel]: Take your hammer and confront your fear. At once.</Entry>
+		<Entry Name="AngelPart_8">[Angel]: Take your hammer and confront your fears. At once.</Entry>
 			
 		<Entry Name="Chapter_5">Chapter V[br]Angelic tears.</Entry>
 		<Entry Name="AngelFirstConversation_1">[Angel]: Aalot, you found me.</Entry>
@@ -331,16 +331,16 @@
 		<Entry Name="AngelFirstConversation_3">[Angel]: You know him. He's your old friend.</Entry>
 		<Entry Name="AngelFirstConversation_4">[Aalot]: My old friend?</Entry>
 		<Entry Name="AngelFirstConversation_5">[Angel]: He stood by your side in the glorious battle.</Entry>
-		<Entry Name="AngelFirstConversation_6">[Angel]: After his entire unit died of his mistake, hatred seized him.</Entry>
-		<Entry Name="AngelFirstConversation_7">[Angel]: He came to this temple and destroyed the orb of light.</Entry>
+		<Entry Name="AngelFirstConversation_6">[Angel]: After his entire unit died of his mistake, hatred seized him and he turned him evil.</Entry>
+		<Entry Name="AngelFirstConversation_7">[Angel]: He came to this temple to destroy the orb of light.</Entry>
 		<Entry Name="AngelFirstConversation_8">[Aalot]: Orb of light? What is it?</Entry>
 		<Entry Name="AngelFirstConversation_9">[Angel]: This is our most sacred artifact that keeps the dark forces where they belong. </Entry>
-		<Entry Name="AngelFirstConversation_10">[Angel]: You have to help us to fix it.</Entry>
+		<Entry Name="AngelFirstConversation_10">[Angel]: You have to help us to repair it.</Entry>
 		<Entry Name="AngelHint_Default">[Angel]: Keep searching Aalot.</Entry>
-		<Entry Name="AngelHint_HasTheSharp">[Angel]: Get the sharp to the pedestal Aalot.</Entry>
-		<Entry Name="AngelHint_HolyRoot">[Angel]: Find and use the holy root to the orb.</Entry>
-		<Entry Name="AngelHint_EndGate">[Angel]: The way is open. You have to go to the Heart of the temple.</Entry>
-		<Entry Name="SecretPassage">I need to find how to open the secret passage.</Entry>
+		<Entry Name="AngelHint_HasTheSharp">[Angel]: Get the shard to the pedestal Aalot.</Entry>
+		<Entry Name="AngelHint_HolyRoot">[Angel]: Find and use the holy root with the orb.</Entry>
+		<Entry Name="AngelHint_EndGate">[Angel]: The way is clear. You have to go to the Heart of the temple.</Entry>
+		<Entry Name="SecretPassage">I have to find how to open the secret passage.</Entry>
 		<Entry Name="LockedCellarDoor">The door is locked. I have to find the key.</Entry>
 		<Entry Name="SecretarySmallDoor">The small door is locked. I have to find the key.</Entry>
 		<Entry Name="HeavyDoor_1">The door is too heavy. I have to find a way to open it.</Entry>
@@ -360,10 +360,10 @@
 		<Entry Name="BruteConversationEndPart_2">[The dead warrior]: Face me as a knight.</Entry>
 		<Entry Name="BruteConversationEndPart_3">[Angel voice]: I'll send you your hammer.</Entry>
 		
-		<Entry Name="Fight_BruteHint">[The dead warrior]: You can't kill me.</Entry>
+		<Entry Name="Fight_BruteHint">[The dead warrior]: You cannot kill me.</Entry>
 		<Entry Name="Fight_AngelHint">[Angel voice]: You won't win like this, try to get to the next room.</Entry>
 		<Entry Name="Fight_FinalHint">[Angel voice]: Under the floor is a holy fire, find a weak spot.</Entry>
-		<Entry Name="BruteNotCollide">I have to wait for him to come here.</Entry>
+		<Entry Name="BruteNotCollide">I have to wait for him to come in here.</Entry>
 		<Entry Name="WeakFloor">The floor looks weak.</Entry>
 		
 		<Entry Name="LastWords">[Angel]: Aalot.... you did great..</Entry>
@@ -432,10 +432,10 @@
 			This made his soul rest in peace.[br]
 			[br][br][br][br][br]
 			Thank you for playing.[br][br][br]
-			Congratulation.[br] You won the custom story of the cursed knight.[br][br][br]
+			Congratulations.[br] You won the custom story of the cursed knight.[br][br][br]
 			Map Creator:[br]
 			Milan Horák (Arbalester)[br][br]
-			Special thanks for:[br][br]
+			Special thanks:[br][br]
 			Main Beta Tester:[br]
 			Matyáš Češík[br][br]
 			Story Beta Tester:[br]
