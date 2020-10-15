@@ -78,13 +78,7 @@ void OnStart()
 	StartEvent();
 	SetMessage("Hints", "Chapter_6", 5.0f);
 	InteractConnectPropWithMoveObject("HeavyDoorChangeState","Valve_HeavyDoorStart", "HeavyDoorStart", true, false, 0);
-	
-	for(int i=1;i<=4;i++)
-	{
-		CreateParticleSystemAtEntity("ParticleFireball_" + i, "ps_fire_orb_room.ps", "Fireball_" + i, false);
-		PlaySoundAtEntity("SoundFireball_" + i, "general_fire_burning.snt", "Fireball_" + i, 0.0f, false);
-	}
-	
+		
 	for(int i=1;i<=13;i++) for(int j=1;j<=4;j++)  AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 	for(int i=14;i<=16;i++) for(int j=2;j<=3;j++) AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 	
@@ -309,6 +303,12 @@ void OnChangeStateLeverHeavyDoorStart(string &in asEntity, int alState)
 			i++;
 		}
 		SetMoveObjectState("TheRightDoor", 1.0f);
+
+		for(int i=1;i<=4;i++)
+		{
+			CreateParticleSystemAtEntity("ParticleFireball_" + i, "ps_fire_orb_room.ps", "Fireball_" + i, false);
+			PlaySoundAtEntity("SoundFireball_" + i, "general_fire_burning.snt", "Fireball_" + i, 0.0f, false);
+		}
 	}
 }
 
@@ -398,6 +398,7 @@ void TimerSpawnBruteFinal(string &in asTimer)
 void FinalFightRestart()
 {
 	SetEntityPlayerInteractCallback("BigHammer", "OnInteractBigHammer", true);
+	RemoveEntityCollideCallback("BigHammer", "AreaWoodenBarricade");
 	ResetProp("BigHammer");
 	for(int i=1;i<=2;i++) SetEntityActive("AfterFinalCorrupt_" + i, true);
 	for(int i=1;i<=8;i++) SetLampLit("FinalTorch_" + i, false, false);
