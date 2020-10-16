@@ -206,9 +206,11 @@ void OnPickNoteMaze(string &in entityName, string &in type)
 {
 	CheckPoint("PurgeMazeMonsters", "StartAreaMazeMonsters", "OnPlayerDie", "Die", "KilledByMazeMonsters");
 	PlaceEntityAtEntity("KeyMaze", "KeyMaze_" + RandInt(1, 7), "KeyMaze", true); 
-	AddTimer("MazeMonster", 0.75f, "TimerMazeMonsters");
-	AddTimer("MazeKnight_", 0.75f, "TimerSwapKnights");
-	FadeOut(0.75f);
+
+	for(int i=0;i<=7;i++) SetPropActiveAndFade("MazeKnight_" + i, false, 1.75f);
+	for(int i=8;i<=15;i++) SetPropActiveAndFade("MazeKnight_" + i, true, 1.75f);
+
+	MazeMonsters();
 }
 
 void EventCollideWoodenDesk(string &in asParent, string &in asChild, int alState)
@@ -294,8 +296,7 @@ void OnLookAtWarehouse(string &in asEntity, int alState)
 
 void OnPlayerDie(string &in asName, int alCount)
 {
-	AddTimer("MazeMonster", 0.75f, "TimerMazeMonsters");
-	FadeOut(0.75f);
+	MazeMonsters();
 	for(int i=1;i<=7;i++) ResetProp("ChestMaze_"+i);
 	PlaceEntityAtEntity("KeyMaze", "KeyMaze_" + RandInt(1, 7), "KeyMaze", true);
 }
@@ -368,12 +369,11 @@ void TimerAngelInDangerous(string &in asTextEntry)
 	AddQuest("AngelVoice", "AngelVoice");
 }
 
-void TimerMazeMonsters(string &in asEntity)
+void MazeMonsters()
 {
-	FadeIn(0.75f);
 	PlayGuiSound("00_laugh.snt", 1.0f);
 	mazeMonsterPreset = RandInt(0, 4);
-	AddTimer(asEntity + "_spawn", RandFloat(2.5f, 5.0f), "TimerMazeMonsterSpawn");
+	AddTimer("MazeMonster_spawn", RandFloat(2.5f, 5.0f), "TimerMazeMonsterSpawn");
 }
 
 void TimerMazeMonsterSpawn(string &in asEntity)
@@ -392,12 +392,6 @@ void TimerMazeMonsterSpawn(string &in asEntity)
 void TimerFadeIn(string &in time)
 {
 	FadeIn(StringToFloat(time));
-}
-
-void TimerSwapKnights(string &in knight)
-{
-	for(int i=0;i<=7;i++) SetEntityActive(knight + i, false);
-	for(int i=8;i<=15;i++) SetEntityActive(knight + i, true);
 }
 
 void TimerMonsterSpawn(string &in asSeed)

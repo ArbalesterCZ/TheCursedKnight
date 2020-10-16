@@ -38,7 +38,7 @@
 		<Entry Name="ItemDesc_KeyAlchemydesc">It probably belongs to some locked substance in the lab.</Entry>
 		
 		<Entry Name="ItemName_OrpimentDesc">Cold Acid</Entry>
-		<Entry Name="ItemDesc_OrpimentDesc">Ready substance. Can be used as classic acid after heating up.</Entry>
+		<Entry Name="ItemDesc_OrpimentDesc">Compact substance. Can be used as classic acid after heating up.</Entry>
 		
 	// Chapter IV [Forest]
 		<Entry Name="ItemName_DoorMaze">Chef's Key</Entry>
@@ -181,7 +181,7 @@
 		<Entry Name="Quest_Slime_Text">I have to find something to dissolve the slime.</Entry>
 		<Entry Name="Quest_AlchemySecret_Text">The alchemy small door is locked. Perhaps there is something important behind it.</Entry>
 		<Entry Name="Quest_DoorBridge_Text">Door is locked. I should search this room properly.</Entry>	
-		<Entry Name="Quest_EvilCow_Text">The cow door is stuck. I could release it with fire.</Entry>	
+		<Entry Name="Quest_EvilCow_Text">The metal cow door is stuck. I could release it with fire.</Entry>	
 		// Chapter IV [Forest]
 		<Entry Name="Quest_DoorCrowbar_Text">The door at abandoned house is stuck. I have to find a tool to open the door.</Entry>	
 		<Entry Name="Quest_DoorMaze_Text">The door in chef's maze is locked. I have to find the key.</Entry>
@@ -270,6 +270,7 @@
 			
 		<Entry Name="Chapter_3">Chapter III[br]The sins of war.</Entry>
 		<Entry Name="BlockedDoorCrypt">Something is blocking the door from the other side.</Entry>
+		<Entry Name="WoodenBarricadeCrypt">The barricade looks weak. I should try to destroy it with a tool.</Entry>
 		<Entry Name="DoorJailer">It's locked.</Entry>
 		<Entry Name="IronMaiden">It's stuck.</Entry>
 		<Entry Name="Door_Forest">First I have to complete the jailer's will.</Entry>
