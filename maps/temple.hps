@@ -1,12 +1,3 @@
-
-int orbCount = 0;
-int leverTrapDownCount = 0;
-int secretPassageHintCount = 1;
-
-bool isSecretOpenAsFirst = false;
-bool isLightBoxLit = false;
-bool isArrowSet = false;
-
 void OnStart()
 {
 	// Events
@@ -34,14 +25,22 @@ void OnStart()
 	AddEntityCollideCallback("Player", "AreaAfterWaterHorror", "OnCollideAfterWaterHorror", true, 1);
 	AddEntityCollideCallback("Player", "AreaWaterLocation", "OnCollideWaterLocation", true, 1);
 	for(int i=1;i<=15;i++) AddEntityCollideCallback("Player", "AreaRunes_" + i, "OnCollideRunes", false, 1);
+
+	// Varriables
+	SetLocalVarInt("OrbCount", 0);
+	SetLocalVarInt("IsSecretOpenAsFirst", 0);
+	SetLocalVarInt("SecretPassageHintCount", 1);
+	SetLocalVarInt("LeverTrapDownCount", 0);
+	SetLocalVarInt("IsLightBoxLit", 0);
+	SetLocalVarInt("IsArrowSet", 0);
+	SetSecretSeed();
 	
 	// Required Items
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
 	
 	// Other
-	SetMessage("Hints", "Chapter_5", 5.0f);
-	SetSecretSeed();	
+	SetMessage("Hints", "Chapter_5", 5.0f);	
 	SetLightVisible("OrbLight", false);
 	SetPlayerSanity(100.0f);
 	PlayMusic("22_amb.ogg", true, 1.0f, 0, 0, true);
@@ -86,10 +85,10 @@ void ChairsImpulse()
 
 void OnLitLightBox(string &in entityName, string &in asType)
 {
-	isLightBoxLit = true;
+	SetLocalVarInt("IsLightBoxLit", 1);
 	string lightFilter;
 
-	if(isArrowSet)
+	if(GetLocalVarInt("IsArrowSet") == 1)
 	{
 		lightFilter = "LightBoxArrow";
 		SetEntityActive("BridgeLeverHandle", true);
@@ -156,9 +155,9 @@ void UseArrowOnLightBox(string &in asItem, string &in asEntity)
 {
 	RemoveItem(asItem);
 	PlaySoundAtEntity("SoundUseArrow", "pickaxe_charge.snt", asEntity, 0.0f, false);
-	isArrowSet = true;
+	SetLocalVarInt("IsArrowSet", 1);
 	SetEntityActive("Arrow_Static", true);
-	if(isLightBoxLit)
+	if(GetLocalVarInt("IsLightBoxLit") == 1)
 	{
 		FadeLightTo("LightBoxEmpty", 0, 0, 0, 0, -1, 0.2f);
 		FadeLightTo("LightBoxArrow", 0.35f, 0.75f, 1.0f, 1.0f, -1, 0.2f);
@@ -168,10 +167,12 @@ void UseArrowOnLightBox(string &in asItem, string &in asEntity)
 
 void UseSharpOnPedestal(string &in asItem, string &in asEntity)
 {
+	int orbCount = GetLocalVarInt("OrbCount");
 	RemoveItem(asItem);
 	SetEntityActive("orb_" + orbCount, false);
 	CompleteQuest("OrbQuest" + orbCount, "OrbQuest" + orbCount);
-	orbCount++;
+	AddLocalVarInt("OrbCount", 1);
+	orbCount = GetLocalVarInt("OrbCount");
 	SetEntityActive("orb_" + orbCount, true);
 	AddQuest("OrbQuest" + orbCount, "OrbQuest" + orbCount);
 	PlaySoundAtEntity("DropOrb", "22_orb_forge.ogg", "orb_" + orbCount, 0.0f, false);
@@ -190,14 +191,14 @@ void OnInteractCorrupt(string &in asEntity)
 {
 	CreateParticleSystemAtEntity("SlimeDissolution", "ps_slime_attack_normal.ps", asEntity, false);
 	PlaySoundAtEntity("slimeExplosion", "slime_attack_normal_hit.snt", asEntity, 0.0f, false);
-	SetPropStaticPhysics("Corrupt_Door_" + orbCount, false);
+	SetPropStaticPhysics("Corrupt_Door_" + GetLocalVarInt("OrbCount"), false);
 	SetEntityActive(asEntity, false);
 	
 }
 
 void UseSharpOnPedestalSpecial(string &in asItem, string &in asEntity)
 {
-	switch(orbCount)
+	switch(GetLocalVarInt("OrbCount"))
 	{
 		case 3:
 			SetEntityActive("CorruptInstant_1", false);
@@ -262,13 +263,14 @@ void OnLeverTrapChange(string &in asEntity, int LeverState)
 	if(LeverState == 1)
 	{
 		StartScreenShake(0.002f, 0.5f, 0.5f, 0.5f);
+		AddLocalVarInt("LeverTrapDownCount", 1);
 		SetLeverStuckState(asEntity, LeverState, true);
 		string part =  StringSub(asEntity, asEntity.length() - 1, 1);
 		SetMoveObjectState("HeavyDoorLurker_" + part, 0.4f);
 		SetEntityPlayerInteractCallback("HeavyDoorLurker_" + part, "OnInteractHeavyDoorUp", true);
-		AddTimer("waterlurker_" + part, 12.0f - ((++leverTrapDownCount) * 3), "TimerSetEntityActive");		
+		AddTimer("waterlurker_" + part, 12.0f - ((GetLocalVarInt("LeverTrapDownCount")) * 3), "TimerSetEntityActive");
 		
-		if(leverTrapDownCount == 2)
+		if(GetLocalVarInt("LeverTrapDownCount") == 2)
 		{
 			for(int i=1;i<=7;i++) AddEnemyPatrolNode("waterlurker_1", "LurkerPathNode_" + i, 0.01f, "");
 			for(int i=1;i<=13;i++) AddEnemyPatrolNode("waterlurker_2", "LurkerTwoPathNode_" + i, 0.01f, "");
@@ -314,8 +316,13 @@ void OnPickUpSecretCombination(string &in asEntity, string &in asType)
 
 void TimerHintUpSecretPassage(string &in soundFile)
 {
+	int secretPassageHintCount = GetLocalVarInt("SecretPassageHintCount");
+
 	CompleteQuest("SecretPassage" + secretPassageHintCount, "SecretPassage" + secretPassageHintCount);
-	++secretPassageHintCount;
+
+	AddLocalVarInt("SecretPassageHintCount", 1);
+	secretPassageHintCount = GetLocalVarInt("SecretPassageHintCount");
+
 	AddQuest("SecretPassage" + secretPassageHintCount, "SecretPassage" + secretPassageHintCount);
 		
 	if(secretPassageHintCount == 5) return;
@@ -387,7 +394,7 @@ void RestartBodyParts()
 
 void OnDeathByLurkers(string &in asName, int alCount)
 {
-	leverTrapDownCount = 0;
+	SetLocalVarInt("LeverTrapDownCount", 0);
 	SetMoveObjectState("HeavyDoorLurker", 0.0f);
 	RestartBodyParts();
 	for(int i=1;i<=2;i++)
@@ -441,11 +448,11 @@ void OnLeverSecretFirstOpen(string &in asEntity, int LeverState)
 			SetLeverInteractionDisablesStuck("Lever" + i, false);
 			SetLeverStuckState("Lever" + i, GetLeverState("Lever" + i), true);
 		}
-		if(!isSecretOpenAsFirst)
+		if(GetLocalVarInt("IsSecretOpenAsFirst") == 0)
 		{
-			RemoveTimer("HintUpSecretPassage");	
-			isSecretOpenAsFirst = true;
-			CompleteQuest("SecretPassage" + secretPassageHintCount, "SecretPassage" + secretPassageHintCount);		
+			RemoveTimer("HintUpSecretPassage");
+			CompleteQuest("SecretPassage" + GetLocalVarInt("SecretPassageHintCount"), "SecretPassage" + GetLocalVarInt("SecretPassageHintCount"));
+			SetLocalVarInt("IsSecretOpenAsFirst", 1);		
 			AddEntityCollideCallback("Player", "AreaAngelVoice", "OnCollideAreaAngelVoiceHints", false, 1);
 			PlayMusic("10_puzzle01.ogg", false, 1.0f, 0.7f, 10, false);
 			StartPlayerLookAt("castlebase_secret_door_1", 1.5f, 2.0f, "");
