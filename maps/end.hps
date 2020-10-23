@@ -1,23 +1,3 @@
-// FIREBALL
-float speed = 0.14f;
-bool isAcceleration = true;
-bool isDamagePeriod = true;
-
-const float SPEED_MAXIMUM = 0.18f;
-const float SPEED_MINIMUM = 0.10f;
-const float SPEED_STEP = 0.01f;
-
-const float REFRESH_RATE = 0.02f;
-
-const float X_MAXIMUM = 75.5f;
-const float X_MINIMUM = 46.5f;
-const float Z_MAXIMUM = 40.5f;
-const float Z_MINIMUM = 15.5f;
-
-const float DISTANCE_TO_DAMAGE = 1.75f;
-const float DAMAGE_PERIOD = 0.175f;
-const float DAMAGE = 17.5f;
-
 // STEP_ZONES
 float stepSpeed = 1.25f;
 bool isAccelerationStep = true;
@@ -82,7 +62,6 @@ void OnStart()
 	for(int i=1;i<=13;i++) for(int j=1;j<=4;j++)  AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 	for(int i=14;i<=16;i++) for(int j=2;j<=3;j++) AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 	
-	for(int i=1;i<=16;i++) AddEntityCollideCallback("Player", "1_FireBall_" + i, "OnCollideFireBallDamage", false, 0);
 		
 	CheckPoint("StartCheckpoint", "StartArea", "OnDeathAtStart", "Die", "Run");
 	
@@ -286,30 +265,20 @@ void OnChangeStateLeverHeavyDoorStart(string &in asEntity, int alState)
 		StopPlayerLookAt();
 		AddTimer("TimerBruteStartToSMoke", 7.0f, "TimerBruteStartToSMoke");
 		
-		// Add left side timers
 		for(int i=1;i<=4;i++) AddTimer("" + i, 1.0f, "TimerStepZone");
 		AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 		SetMoveObjectState("TheLeftDoor", 1.0f);
-		
-		// Add Right side timers
-		for(int i=1;i<=4;i+=2) AddTimer("Fireball_" + i, 0.0f, "TimerFireballMoveRight");
-		for(int i=2;i<=4;i+=2) AddTimer("Fireball_" + i, 0.0f, "TimerFireballMoveUp");
-		AddTimer("ChangeFireballSpeed", 1.0f, "TimerChangeFireballSpeed");
-
-		int i = 1;
-		while(GetEntityExists("Labyrint_" + i))
-		{
-			AddTimer("Labyrint_" + i, 5.5f, "TimerChangeDoorStateToOpen");
-			i++;
-		}
-		SetMoveObjectState("TheRightDoor", 1.0f);
-
-		for(int i=1;i<=4;i++)
-		{
-			CreateParticleSystemAtEntity("ParticleFireball_" + i, "ps_fire_orb_room.ps", "Fireball_" + i, false);
-			PlaySoundAtEntity("SoundFireball_" + i, "general_fire_burning.snt", "Fireball_" + i, 0.0f, false);
-		}
 	}
+}
+
+void OnChangeLabyrintLever(string &in asEntity, int alState)
+{
+	int doorIndex = StringToInt(StringSub(asEntity, asEntity.length() - 1, 1));
+	SetLeverStuckState(asEntity, alState, true);
+	SetMoveObjectState("Labyrint_" + doorIndex, 1.0f);
+
+	AddTimer("CloseTheDoor", 6.0f, "TimerCloseTheDoor");
+	// TODO ***
 }
 
 void OnCollidePlayerOnAreaHeavyDoorStart(string &in asParent, string &in asChild, int alState)
@@ -330,6 +299,23 @@ void OnInteractMainDoor(string &in asDoor)
 	}
 }
 
+void DestroySlimeArea(string &in slimeName)
+{
+	int i = 1;
+	while(GetEntityExists(slimeName + i))
+	{
+		AddTimer(slimeName + i, 0.25f * i, "TimerCorruptExplode");
+		++i;
+	}
+
+	i = 1;
+	while(GetEntityExists("Area_" + slimeName + i))
+	{
+		SetEntityActive("Area_" + slimeName + i, false);
+		++i;
+	}
+}
+
 void OnInteractAltar(string &in asEntity)
 {
 	SetPlayerActive(false);
@@ -343,38 +329,16 @@ void OnInteractAltar(string &in asEntity)
 	FadeLightTo("OrbLight", 0.5f, 0.4f, 0.8f, 1.0f, 8.0f, 3.0f);
 	PlaySoundAtEntity("OrbSound", "03_orb.snt", "TheOrb", 0.0f, false);
 	StartScreenShake(0.1f, 1.0f, 1.0f, 1.0f);
-	
-	int i = 1;
-	while(GetEntityExists("Final_Corrupt_" + i))
-	{
-		AddTimer("Final_Corrupt_" + i, 0.25f * i, "TimerCorruptExplode");
-		++i;
-	}
 
-	i = 1;
-	while(GetEntityExists("Final_SlimeArea_" + i))
-	{
-		SetEntityActive("Final_SlimeArea_" + i, false);
-		++i;
-	}
+	DestroySlimeArea("Final_Corrupt_");
+	
 	for(int i=1;i<=3;i++) AddTimer("AngelVoiceEndPart_" + i, 5.0f * (i - 1) + 3, "TimerConversation");
 		
 	// Remove left side timers
 	for(int i=1;i<=4;i++) RemoveTimer("" + i);
 	RemoveTimer("ChangeStepSpeed");
 	SetMoveObjectState("TheLeftDoor", 0.0f);
-	
-	// Remove right side timers
-	for(int i=1;i<=4;i++) RemoveTimer("Fireball_" + i);
-	RemoveTimer("ChangeFireballSpeed");
-	
-	while(GetEntityExists("Labyrint_" + i))
-	{
-		RemoveTimer("Labyrint_" + i);
-		++i;
-	}
-	SetMoveObjectState("TheRightDoor", 0.0f);
-	
+			
 	// Brute spawn at final room
 	AddTimer("SpawnBruteFinal", 13.0f, "TimerSpawnBruteFinal");
 }
@@ -455,21 +419,9 @@ void OnInteractPedestal(string &in asEntity)
 	PlaySoundAtEntity("OrbSound", "03_orb.snt", orb, 0.0f, false);
 	StartScreenShake(0.05f, 0.5f, 0.5f, 0.5f);
 	
+	DestroySlimeArea(pedestalNumber + "_Corrupt_");
+	
 	int i = 1;
-	while(GetEntityExists(pedestalNumber + "_Corrupt_" + i))
-	{
-		AddTimer(pedestalNumber + "_Corrupt_" + i, 0.25f * i, "TimerCorruptExplode");
-		++i;
-	}
-	
-	i = 1;
-	while(GetEntityExists(pedestalNumber + "_SlimeArea_" + i))
-	{
-		SetEntityActive(pedestalNumber + "_SlimeArea_" + i, false);
-		++i;
-	}
-	
-	i = 1;
 	while(GetEntityExists(pedestalNumber + "_HeavyDoor_" + i))
 	{
 		SetMoveObjectState(pedestalNumber + "_HeavyDoor_" + i, 1.0f);
@@ -502,16 +454,9 @@ void TimerCorruptExplode(string &in asTimer)
 	SetEntityActive(asTimer, false);
 }
 
-void TimerChangeDoorStateToClose(string &in asDoor)
+void TimerCloseTheDoor(string &in asDoor)
 {
 	SetMoveObjectState(asDoor, 0.0f);
-	AddTimer(asDoor, 5.5f, "TimerChangeDoorStateToOpen");
-}
-
-void TimerChangeDoorStateToOpen(string &in asDoor)
-{
-	SetMoveObjectState(asDoor, 1.0f);
-	AddTimer(asDoor, 5.5f, "TimerChangeDoorStateToClose");
 }
 
 void TimerBruteStartToSMoke(string &in asTimer)
@@ -691,88 +636,3 @@ void TimerChangeStepSpeed(string &in asTimer)
 	}
 	AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////---FIREBALL---/////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void TimerFireballMoveRight(string &in asEntity)
-{
-	SetEntityPos(asEntity, GetEntityPosX(asEntity) + speed, GetEntityPosY(asEntity), GetEntityPosZ(asEntity));
-	FireballDamage(asEntity);
-
-	if(GetEntityPosX(asEntity) <= X_MAXIMUM)
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveRight");
-	else
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveLeft");
-}
-
-void TimerFireballMoveLeft(string &in asEntity)
-{
-	SetEntityPos(asEntity, GetEntityPosX(asEntity) - speed, GetEntityPosY(asEntity), GetEntityPosZ(asEntity));
-	FireballDamage(asEntity);
-
-	if(GetEntityPosX(asEntity) >= X_MINIMUM)
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveLeft");
-	else
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveRight");
-}
-
-void TimerFireballMoveUp(string &in asEntity)
-{
-	SetEntityPos(asEntity, GetEntityPosX(asEntity), GetEntityPosY(asEntity), GetEntityPosZ(asEntity) + speed);
-	FireballDamage(asEntity);
-
-	if(GetEntityPosZ(asEntity) <= Z_MAXIMUM)
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveUp");
-	else
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveDown");
-}
-
-void TimerFireballMoveDown(string &in asEntity)
-{
-	SetEntityPos(asEntity, GetEntityPosX(asEntity), GetEntityPosY(asEntity), GetEntityPosZ(asEntity) - speed);
-	FireballDamage(asEntity);
-
-	if(GetEntityPosZ(asEntity) >= Z_MINIMUM)
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveDown");
-	else
-		AddTimer(asEntity, REFRESH_RATE, "TimerFireballMoveUp");
-}
-
-void FireballDamage(string &in asEntity)
-{
-	if(isDamagePeriod)
-	{
-		if(Distance(asEntity) <= DISTANCE_TO_DAMAGE)
-		{
-			if(GetPlayerHealth() > 0.0f)
-			{
-				GivePlayerDamage(DAMAGE, "BloodSplat", false, true);
-				PlayGuiSound("ui_fire_damage.snt", 1.2f);
-				isDamagePeriod = false;
-				AddTimer("EnableDamage", DAMAGE_PERIOD, "TimerEnableDamage");
-			}
-		}
-	}
-}
-
-void TimerEnableDamage(string &in asEntity)
-{
-	isDamagePeriod = true;
-}
-
-void TimerChangeFireballSpeed(string &in asTimer)
-{	
-	if(isAcceleration)
-	{
-		speed += SPEED_STEP;
-		if(speed >= SPEED_MAXIMUM) isAcceleration = false;
-	}
-	else 
-	{
-		speed -= SPEED_STEP;
-		if(speed <= SPEED_MINIMUM) isAcceleration = true;
-	}
-	AddTimer("ChangeFireballSpeed", 1.0f, "TimerChangeFireballSpeed");
-}
-
