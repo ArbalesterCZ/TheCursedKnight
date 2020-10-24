@@ -351,7 +351,7 @@
 		<Entry Name="Chapter_6">Chapter VI[br]Temple core.</Entry>
 		<Entry Name="MainGate_1">Behind this door is the main shrine.[br]To open, I have to place orb to all 3 pedestals.[br]1/3 is done.</Entry>
 		<Entry Name="MainGate_2">Behind this door is the main shrine.[br]To open, I have to place orb to all 3 pedestals.[br]2/3 is done.</Entry>
-		<Entry Name="MainGate_2">Behind this door is the main shrine.[br]To open, I have to place orb to all 3 pedestals.[br]3/3 is done.</Entry>
+		<Entry Name="BreakLever">Damn it. I have to find another way.</Entry>
 		
 		<Entry Name="AngelVoiceEndPart_1">[Angel Voice]: Corruption is weakening, you did it!</Entry>
 		<Entry Name="AngelVoiceEndPart_2">[Angel Voice]: But... something is wrong.</Entry>
@@ -388,7 +388,6 @@
 		<Entry Name="Runes">Look where you're stepping.</Entry>
 		<Entry Name="Lurkers">The water is not safe.</Entry>
 		<Entry Name="Run">Don't look back and run.</Entry>
-		<Entry Name="BlueFire">Don't touch the fire.</Entry>
 		<Entry Name="FinalFight">Fight with honor.</Entry>
 	</CATEGORY>
 
@@ -409,6 +408,7 @@
 		<Entry Name="TempleMainDoor">Heart of the temple.</Entry>
 		<Entry Name="LeverBridge">The lever is missing.</Entry>
 		<Entry Name="Corrupt">The corrupt is too strong.[br]I have to complete the orb.</Entry>
+		<Entry Name="Bridge">The bridge could fall.[br]I have to throw something at him.</Entry>
 	</CATEGORY>
 	
 	<CATEGORY Name="Levels">
@@ -420,6 +420,12 @@
 		<Entry Name="Warehouse">Warehouse</Entry>
 		<Entry Name="Temple">Temple</Entry>
 		<Entry Name="TempleCore">Heart of the temple</Entry>
+	</CATEGORY>
+	
+	<CATEGORY Name="Memories">
+		<Entry Name="Look">Ancient memory</Entry>
+		<Entry Name="TheLeftSide">People cannot be protected by order forever.[br]They must take their destiny into their own hands.</Entry>
+		<Entry Name="TheRightSide">The ultimate sacrifice is needed to defeat evil.</Entry>
 	</CATEGORY>
 	
 	<CATEGORY Name="End">

@@ -1,10 +1,10 @@
 // STEP_ZONES
-float stepSpeed = 1.25f;
-bool isAccelerationStep = true;
-
 const float STEP_SPEED_MAX = 1.75f;
 const float STEP_SPEED_MIN = 0.75f;
 const float STEP_SPEED_STEP = 0.25f;
+
+float stepSpeed = 1.25f;
+bool isAccelerationStep = true;
 
 // Fight system
 float xOld;
@@ -20,18 +20,29 @@ bool bruteIsActive;
 void OnStart()
 {
 	// Events
-	AddUseItemCallback("", "asItem", "asEntity", "UseItemOnEntity", true);
+	AddUseItemCallback("", "HammerChipper", "Wall", "UseHammerOnWall", true);
 	
 	AddEntityCollideCallback("Player", "Area_HeavyDoorStart", "OnCollidePlayerOnAreaHeavyDoorStart", false, 1);
-	AddEntityCollideCallback("Player", "AreaTheLeftSide", "OnCollideTheLeftSide", false, 0);
-	AddEntityCollideCallback("Player", "AreaTheRightSide", "OnCollideTheRightSide", false, 0);
+	AddEntityCollideCallback("Player", "AreaDreamWalk", "OnCollideDreamWalk", false, 0);
+	AddEntityCollideCallback("Player", "AreaGlobalPit", "OnCollideGlobalPit", false, 1);
 	AddEntityCollideCallback("Player", "AreaPit", "OnCollideThePit", true, 1);
 	AddEntityCollideCallback("Player", "AreaEndRoom", "OnCollideEndRoomTorchLit", true, 1);
 	
+	for(int i=1;i<=2;i++) 
+	{
+		AddEntityCollideCallback("Player", i + "_DreamLocation", "OnCollideBreakDoor", true, 1);
+		AddEntityCollideCallback("ThrowStone", "AreaThrowPlace_" + i, "OnCollideRockToChain", true, 1);		
+	}
+	
 	AddEntityCollideCallback("BruteFinal", "AreaFinalBruteAltarRoom", "OnCollideLockAltarRoom", true, 1);
+	
+	AddEntityCollideCallback("ThrowStone", "AreaGlobalPit", "OnCollideRockToVoid", false, 1);
+	AddEntityCollideCallback("ThrowStone", "AreaThrowVoid", "OnCollideRockToVoid", false, 1);
 	AddEntityCollideCallback("BigHammer", "BruteFinal", "UseHammerOnBrute", false, 1);
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_1", "UseHammerOnCorrupt", false, 1);
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_2", "UseHammerOnCorrupt", false, 1);
+	
+	
 	
 	// Varriable
 	SetLocalVarInt("OrbsCompleteCount", 0);
@@ -56,22 +67,98 @@ void OnStart()
 	
 	// Other
 	StartEvent();
+	SetPlayerRunSpeedMul(0.0f);
 	SetMessage("Hints", "Chapter_6", 5.0f);
 	InteractConnectPropWithMoveObject("HeavyDoorChangeState","Valve_HeavyDoorStart", "HeavyDoorStart", true, false, 0);
 		
 	for(int i=1;i<=13;i++) for(int j=1;j<=4;j++)  AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 	for(int i=14;i<=16;i++) for(int j=2;j<=3;j++) AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 	
-		
 	CheckPoint("StartCheckpoint", "StartArea", "OnDeathAtStart", "Die", "Run");
 	
 	SetMapDisplayNameEntry("TempleCore");
 	AutoSave();
 }
 
+void UseHammerOnWall(string &in asItem, string &in asEntity)
+{
+	SetPlayerActive(false);
+	ShowPlayerCrossHairIcons(false);
+	for(int i=0;i<=4;i++) AddTimer(asEntity, 1.25f * i, "TimerHammerAttack");
+	AddTimer(asEntity, 5.05f, "TimerHammerFinalAttack");
+}
+
+void TimerHammerAttack(string &in asTimer)
+{
+	PlaySoundAtEntity("HitSound", "MetalHeavyBashMetal.snt", asTimer, 0.0f, false);
+	CreateParticleSystemAtEntity("HitEffect", "ps_hit_rock.ps", asTimer, false);
+}
+
+void TimerHammerFinalAttack(string &in asTimer)
+{
+	SetPropHealth(asTimer, 0.0f);
+	CompleteQuest(asTimer, asTimer);
+	SetPlayerActive(true);
+	ShowPlayerCrossHairIcons(true);
+	
+	for(int i=1;i<=6;i++) SetEntityActive("Fragment_" + i, true);
+}
+
 void OnCollideLockAltarRoom(string &in asParent, string &in asChild, int alState)
 {
 	SetMoveObjectState("MainGate", 0.0f);
+}
+
+void OnCollideRockToChain(string &in asParent, string &in asChild, int alState)
+{
+	StartScreenShake(0.002f, 0.5f, 0.5f, 0.5f);
+	BreakJoint("bridge_chained_1_BallJoint_1");
+	RemoveEntityCollideCallback("ThrowStone", "AreaGlobalPit");
+	RemoveEntityCollideCallback("ThrowStone", "AreaThrowVoid");
+	SetEntityActive("SignBridge", false);
+	AddTimer("ChainForce", 0.3f, "TimerChainForce");	
+}
+
+void OnCollideRockToVoid(string &in asParent, string &in asChild, int alState)
+{
+	ResetProp(asParent);
+}
+
+void TimerChainForce(string &in asTimer)
+{
+	AddBodyImpulse("bridge_chained_1_chain", 1.0f, 0.5f, -2.0f, "World");
+	PlaySoundAtEntity("creak", "18_bridge_fall", "bridge_chained_1", 0.0f, false);
+}
+
+void OnCollideGlobalPit(string &in asParent, string &in asChild, int alState)
+{
+	SetPlayerHealth(0.0f);
+}
+
+void OnCollideDreamWalk(string &in asParent, string &in asChild, int alState)
+{
+	switch(alState)
+	{
+		case 1:
+			PlayMusic("search_suitor.ogg", true, 1.0f, 4.75f, 11, true);
+			FadeImageTrailTo(2.25f, 4.75f);
+			SetPlayerRunSpeedMul(0.0f);
+		break;
+		case -1:
+			StopMusic(4.75f, 11);
+			FadeImageTrailTo(0.0f, 4.75f);
+			SetPlayerRunSpeedMul(1.0f);
+		break;
+	}
+}
+
+void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
+{
+	string door = asChild + "Door";
+	SetPropHealth(door, 40.0f);
+	PlaySoundAtEntity("DoorHit", "MetalMediumBashWood.snt", door, 0, false);
+	CreateParticleSystemAtEntity("DreamDoorHit", "ps_hit_wood.ps", door, false);
+	CreateParticleSystemAtEntity("DreamDoorHit", "ps_break_wood.ps", door, false);
 }
 
 void OnCollideThePit(string &in asParent, string &in asChild, int alState)
@@ -210,8 +297,7 @@ void TimerBruteStartAttack(string &in asTimer)
 	GiveSanityDamage(15.0f, true);
 	AddTimer("StopLookBehind", 1.25f, "TimerStopLookBehind");
 	
-	
-	AddPropImpulse("Brute_Start", 5.0f, 5.0f, 5.0f, "world");
+	SetPlayerRunSpeedMul(1.0f);
 }
 
 void TimerStopLookBehind(string &in asTimer)
@@ -243,6 +329,7 @@ void OnDeathAtStart(string &in asName, int alCount)
 	ResetProp("HeavyDoorStart");
 	SetEnemyDisableTriggers("Brute_Start", true);
 	SetWheelAngle("Valve_HeavyDoorStart", 0.0f, false);
+	SetPlayerRunSpeedMul(0.0f);
 	StartEvent();
 }
 
@@ -268,17 +355,40 @@ void OnChangeStateLeverHeavyDoorStart(string &in asEntity, int alState)
 		for(int i=1;i<=4;i++) AddTimer("" + i, 1.0f, "TimerStepZone");
 		AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 		SetMoveObjectState("TheLeftDoor", 1.0f);
+		SetMoveObjectState("TheRightDoor", 1.0f);
 	}
 }
 
 void OnChangeLabyrintLever(string &in asEntity, int alState)
 {
-	int doorIndex = StringToInt(StringSub(asEntity, asEntity.length() - 1, 1));
-	SetLeverStuckState(asEntity, alState, true);
-	SetMoveObjectState("Labyrint_" + doorIndex, 1.0f);
+	if(alState != 0)
+	{
+		string door = "Labyrint_" + StringSub(asEntity, asEntity.length() - 1, 1);
+		SetLeverStuckState(asEntity, alState, true);
+		SetMoveObjectState(door, 1.0f);
 
-	AddTimer("CloseTheDoor", 6.0f, "TimerCloseTheDoor");
-	// TODO ***
+		AddTimer(door, 6.0f, "TimerCloseTheDoor");
+		AddTimer(asEntity, 6.0f, "TimerResetLever");
+	}
+}
+
+void OnChangeLabyrintLeverDestroy(string &in asEntity, int alState)
+{
+	CreateParticleSystemAtEntity("ParticleDestoryLever", "ps_break_wood.ps", asEntity, false);
+	PlaySoundAtEntity("SoundDestoryLever", "break_wood.snt", asEntity, 0.0f, false);
+	SetEntityActive(asEntity, false);
+	
+	SetMessage("Hints", "BreakLever", 4.0f);
+}
+
+void TimerCloseTheDoor(string &in asDoor)
+{
+	SetMoveObjectState(asDoor, 0.0f);
+}
+
+void TimerResetLever(string &in asLever)
+{
+	SetLeverStuckState(asLever, 0, true);
 }
 
 void OnCollidePlayerOnAreaHeavyDoorStart(string &in asParent, string &in asChild, int alState)
@@ -325,7 +435,7 @@ void OnInteractAltar(string &in asEntity)
 	
 	SetEntityActive("TheOrb", true);
 	StartPlayerLookAt("TheOrb", 0.75f, 0.75f, "");
-	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "TheOrb", false);
+	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "TheOrb", true);
 	FadeLightTo("OrbLight", 0.5f, 0.4f, 0.8f, 1.0f, 8.0f, 3.0f);
 	PlaySoundAtEntity("OrbSound", "03_orb.snt", "TheOrb", 0.0f, false);
 	StartScreenShake(0.1f, 1.0f, 1.0f, 1.0f);
@@ -337,7 +447,6 @@ void OnInteractAltar(string &in asEntity)
 	// Remove left side timers
 	for(int i=1;i<=4;i++) RemoveTimer("" + i);
 	RemoveTimer("ChangeStepSpeed");
-	SetMoveObjectState("TheLeftDoor", 0.0f);
 			
 	// Brute spawn at final room
 	AddTimer("SpawnBruteFinal", 13.0f, "TimerSpawnBruteFinal");
@@ -414,7 +523,7 @@ void OnInteractPedestal(string &in asEntity)
 	SetMoveObjectState(pedestalNumber + "_HeavyDoor_1", 1.0f);
 	
 	SetEntityActive(orb, true);
-	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", orb, false);
+	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", orb, true);
 	FadeLightTo("OrbLight_" + pedestalNumber, 0.5f, 0.4f, 0.8f, 1.0f, 8.0f, 3.0f);
 	PlaySoundAtEntity("OrbSound", "03_orb.snt", orb, 0.0f, false);
 	StartScreenShake(0.05f, 0.5f, 0.5f, 0.5f);
@@ -444,7 +553,7 @@ void OnInteractPedestal(string &in asEntity)
 		CompleteQuest("MainGate", "MainGate");
 	}
 	
-	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "Die", "BlueFire");
+	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "", "");
 }
 
 void TimerCorruptExplode(string &in asTimer)
@@ -452,11 +561,6 @@ void TimerCorruptExplode(string &in asTimer)
 	CreateParticleSystemAtEntity("SlimeDissolution", "ps_slime_attack_normal.ps", asTimer, false);
 	PlaySoundAtEntity("slimeExplosion", "slime_attack_normal_hit.snt", asTimer, 0.0f, false);
 	SetEntityActive(asTimer, false);
-}
-
-void TimerCloseTheDoor(string &in asDoor)
-{
-	SetMoveObjectState(asDoor, 0.0f);
 }
 
 void TimerBruteStartToSMoke(string &in asTimer)
@@ -609,17 +713,19 @@ void TimerStepZone(string &in asZone)
 {
 	int stepZone = GetLocalVarInt(asZone + "_SafeStepZone");
 	SetEntityActive(asZone + "_AreaStepZone_" + stepZone, true);
-	CreateParticleSystemAtEntity(asZone + "_DangerousZoneParticle_" + stepZone, "ps_fire_orb_room.ps", asZone + "_AreaStepZone_" + stepZone, false);
+	CreateParticleSystemAtEntity(asZone + "_DangerousZoneParticle_" + stepZone, "ps_fire_orb_room.ps", asZone + "_AreaStepZone_" + stepZone, true);
+	PlaySoundAtEntity(asZone + "_SoundStepZone_" + stepZone, "29_fire.snt", asZone + "_AreaStepZone_" + stepZone, 0.25f, true);
 		
 	stepZone = (stepZone + 1) % GetLocalVarInt(asZone + "_ZoneMax");
 	SetLocalVarInt(asZone + "_SafeStepZone", stepZone);
 	
-	stepZone = (stepZone + 2) % GetLocalVarInt(asZone + "_ZoneMax");
+	stepZone = (stepZone + 3) % GetLocalVarInt(asZone + "_ZoneMax");
 	SetEntityActive(asZone + "_AreaStepZone_" + stepZone, false);
 	DestroyParticleSystem(asZone + "_DangerousZoneParticle_" + stepZone);
+	StopSound(asZone + "_SoundStepZone_" + stepZone, 0.25f);
 	RemoveTimer(asZone + "_AreaStepZone_" + stepZone + "_FireDamage");
 
-	AddTimer(asZone, 6.5f * speed, "TimerStepZone");
+	AddTimer(asZone, stepSpeed, "TimerStepZone");
 }
 
 void TimerChangeStepSpeed(string &in asTimer)
