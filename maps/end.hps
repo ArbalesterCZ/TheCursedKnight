@@ -82,6 +82,7 @@ void UseHammerOnWall(string &in asItem, string &in asEntity)
 {
 	SetPlayerActive(false);
 	ShowPlayerCrossHairIcons(false);
+	SetEntityActive("SignBreakWall", false);
 	for(int i=0;i<=4;i++) AddTimer(asEntity, 1.25f * i, "TimerHammerAttack");
 	AddTimer(asEntity, 5.05f, "TimerHammerFinalAttack");
 }
@@ -390,6 +391,7 @@ void TimerResetLever(string &in asLever)
 void OnCollidePlayerOnAreaHeavyDoorStart(string &in asParent, string &in asChild, int alState)
 {
 	SetEntityActive(asChild, false);
+	SetMessage("Hints", "CloseTheDoorBehind", 5.0f);
 	ShowEnemyPlayerPosition("Brute_Start");
 }
 

@@ -2,10 +2,10 @@
     <EditorSession>
         <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
         <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="true" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
-            <Viewport CameraPosition="35 0.937483 204.25" CameraTarget="35 0.937483 24.25" CameraZoom="2.85663" GridHeight="24.25" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="214.999 0.937483 24.25" CameraTarget="35 0.937483 24.25" CameraZoom="2.85663" GridHeight="35" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="35.0509 180 24.2523" CameraTarget="35.0509 0 24.2523" CameraZoom="4.1332" GridHeight="0" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="53.9777 5.91105 30.1111" CameraTarget="53.7615 -6.53627e-007 32.0256" CameraZoom="2.08472" GridHeight="0" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
+            <Viewport CameraPosition="72 1.75 220" CameraTarget="72 1.75 40" CameraZoom="5.5" GridHeight="40" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="251.999 1.75 40" CameraTarget="72 1.75 40" CameraZoom="5.5" GridHeight="72" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="72 181.75 40" CameraTarget="72 1.75 40" CameraZoom="5.5" GridHeight="1.75" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="69.6462 3.924 41.6689" CameraTarget="72 1.75 40" CameraZoom="2.62757" GridHeight="1.75" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
@@ -6327,6 +6327,12 @@
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
                         <Var Name="ItemInteraction" Value="false" />
                         <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Sign" Group="0" ID="3609" Mesh="" Name="SignBreakWall" Rotation="0 -0 0" Scale="0.25 2 2" Tag="" WorldPos="72 1.5 40">
+                    <UserVariables>
+                        <Var Name="TextCat" Value="Sign" />
+                        <Var Name="TextEntry" Value="StoneWall" />
                     </UserVariables>
                 </Area>
             </Entities>
