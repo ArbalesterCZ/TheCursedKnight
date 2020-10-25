@@ -240,7 +240,6 @@
 		// Chapter VI [Temple Core]
 		<Entry Name="Quest_MainGate_1_Text">I found the Main Door.[br]To open, I have to place orbs to all 3 pedestals.[br]1/3 is done.</Entry>
 		<Entry Name="Quest_MainGate_2_Text">I found the Main Door.[br]To open, I have to place orbs to all 3 pedestals.[br]2/3 is done.</Entry>
-		<Entry Name="Quest_MainGate_3_Text">I found the Main Door.[br]To open, I have to place orbs to all 3 pedestals.[br]3/3 is done.</Entry>
 	</CATEGORY>	
 		
 	<CATEGORY Name="Hints">
@@ -444,7 +443,7 @@
 			Story Beta Tester:[br]
 			Tereza Finrašková[br][br]
 			Other Beta Testers:[br]
-			Michal Kadlec, Michal Prudil, Filip Finrašek, Karolína Dvořáková.
+			Filip Finrašek, Karolína Dvořáková, Michal Kadlec, Michal Prudil.
 		</Entry>
 	</CATEGORY>
 </LANGUAGE>
