@@ -2,10 +2,10 @@
     <EditorSession>
         <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
         <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="true" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
-            <Viewport CameraPosition="44 0.250013 202.125" CameraTarget="44 0.250013 22.125" CameraZoom="0" GridHeight="22.125" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="223.999 0.250013 22.125" CameraTarget="44 0.250013 22.125" CameraZoom="0" GridHeight="44" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="42 180.25 22.125" CameraTarget="42 0.25 22.125" CameraZoom="0" GridHeight="0.25" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="49.7014 26.5352 4.37232" CameraTarget="68.316 0.250003 12.7265" CameraZoom="0.407225" GridHeight="0.25" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
+            <Viewport CameraPosition="54.5 2 211.75" CameraTarget="54.5 2 31.75" CameraZoom="5.5" GridHeight="31.75" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="234.499 2 31.75" CameraTarget="54.5 2 31.75" CameraZoom="5.5" GridHeight="54.5" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="54.5 182 31.75" CameraTarget="54.5 2 31.75" CameraZoom="5.5" GridHeight="2" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="67.4227 10.4225 32.3975" CameraTarget="62.3794 2 32.1438" CameraZoom="1.62758" GridHeight="2" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
@@ -5987,7 +5987,7 @@
                         <Var Name="CustomSubItemTypeName" Value="" />
                     </UserVariables>
                 </Entity>
-                <Area Active="true" AreaType="Script" Group="0" ID="3354" Mesh="" Name="1_DreamLocation" Rotation="0 0 0" Scale="3.75 4 4" Tag="" WorldPos="54.5 2 31.75">
+                <Area Active="true" AreaType="Script" Group="0" ID="3354" Mesh="" Name="1_DreamLocation" Rotation="0 0 0" Scale="4 4 4" Tag="" WorldPos="54.5 2 31.75">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6127,7 +6127,7 @@
                         <Var Name="DisableBreakable" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Area Active="true" AreaType="Script" Group="0" ID="3435" Mesh="" Name="2_DreamLocation" Rotation="0 0 0" Scale="3.75 4 4" Tag="" WorldPos="38.5 2 24.25">
+                <Area Active="true" AreaType="Script" Group="0" ID="3435" Mesh="" Name="2_DreamLocation" Rotation="0 0 0" Scale="4 4 4" Tag="" WorldPos="38.5 2 24.25">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6240,7 +6240,7 @@
                         <Var Name="TextEntry" Value="Bridge" />
                     </UserVariables>
                 </Area>
-                <Entity Active="true" FileIndex="48" Group="0" ID="3597" Name="crude_man_chains_statue_1" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="35 0 24">
+                <Entity Active="true" FileIndex="48" Group="0" ID="3597" Name="2_DreamLocationStatue" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="35 0 24.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -6335,7 +6335,7 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="42" Group="0" ID="3603" Name="deformed_man_1" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="50.75 0 31.75">
+                <Entity Active="true" FileIndex="42" Group="0" ID="3603" Name="1_DreamLocationStatue" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="50.75 0 31.75">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="IsAffectedByDecal" Value="true" />

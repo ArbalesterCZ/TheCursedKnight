@@ -42,12 +42,9 @@ void OnStart()
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_1", "UseHammerOnCorrupt", false, 1);
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_2", "UseHammerOnCorrupt", false, 1);
 	
-	
-	
 	// Varriable
 	SetLocalVarInt("OrbsCompleteCount", 0);
 	SetLocalVarInt("OrbQuestIsVisible", 0);
-	SetLocalVarInt("AfterFinalCorruptestroyed", 0);
 	SetLocalVarInt("CorruptedBarricadeCount", 2);
 	SetLocalVarInt("BruteHit", 0);
 	
@@ -143,6 +140,7 @@ void OnCollideDreamWalk(string &in asParent, string &in asChild, int alState)
 			PlayMusic("search_suitor.ogg", true, 1.0f, 4.75f, 11, true);
 			FadeImageTrailTo(2.25f, 4.75f);
 			SetPlayerRunSpeedMul(0.0f);
+			
 		break;
 		case -1:
 			StopMusic(4.75f, 11);
@@ -156,12 +154,15 @@ void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
 {
 	string door = asChild + "Door";
 	SetPropHealth(door, 40.0f);
-	PlaySoundAtEntity("DoorHit", "MetalMediumBashWood.snt", door, 0, false);
+	
+	PlaySoundAtEntity("DoorHit", "attack_claw_hit.snt", door, 0, false);
+	
 	CreateParticleSystemAtEntity("DreamDoorHit", "ps_hit_wood.ps", door, false);
 	CreateParticleSystemAtEntity("DreamDoorHit", "ps_break_wood.ps", door, false);
 	StartScreenShake(0.25f, 0.25f, 0.25f, 0.25f);
 	
 	AddTimer("react_pant.snt", 0.75f, "TimerScare");
+	AddTimer(door, 1.5f, "TimerScratchSound");
 }
 
 void OnCollideThePit(string &in asParent, string &in asChild, int alState)
@@ -336,16 +337,6 @@ void OnDeathAtStart(string &in asName, int alCount)
 	StartEvent();
 }
 
-void UseKeyOnDoor(string &in asItem, string &in asEntity)
-{
-	SetSwingDoorLocked(asEntity, false, true);
-	SetLevelDoorLocked(asEntity, false);
-	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
-	RemoveItem(asItem);
-	CompleteQuest(asEntity, asEntity);
-}
-
-
 void OnChangeStateLeverHeavyDoorStart(string &in asEntity, int alState)
 {
 	if(alState == 1)
@@ -353,9 +344,9 @@ void OnChangeStateLeverHeavyDoorStart(string &in asEntity, int alState)
 		SetLeverStuckState(asEntity, alState, true);
 		SetMoveObjectState("HeavyDoorStart", 0.0f);
 		StopPlayerLookAt();
-		AddTimer("TimerBruteStartToSMoke", 7.0f, "TimerBruteStartToSMoke");
+		AddTimer("BruteStartToSmoke", 7.0f, "TimerBruteStartToSmoke");
 		
-		for(int i=1;i<=4;i++) AddTimer("" + i, 1.0f, "TimerStepZone");
+		for(int i=1;i<=4;i++) AddTimer(i + "_StepZone", 1.0f, "TimerStepZone");
 		AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 		SetMoveObjectState("TheLeftDoor", 1.0f);
 		SetMoveObjectState("TheRightDoor", 1.0f);
@@ -445,13 +436,11 @@ void OnInteractAltar(string &in asEntity)
 
 	DestroySlimeArea("Final_Corrupt_");
 	
-	for(int i=1;i<=3;i++) AddTimer("AngelVoiceEndPart_" + i, 5.0f * (i - 1) + 3, "TimerConversation");
-		
-	// Remove left side timers
-	for(int i=1;i<=4;i++) RemoveTimer("" + i);
+	for(int i=1;i<=4;i++) RemoveTimer(i + "_StepZone");
 	RemoveTimer("ChangeStepSpeed");
+	
+	for(int i=1;i<=3;i++) AddTimer("AngelVoiceEndPart_" + i, 5.0f * (i - 1) + 3, "TimerConversation");
 			
-	// Brute spawn at final room
 	AddTimer("SpawnBruteFinal", 13.0f, "TimerSpawnBruteFinal");
 }
 
@@ -512,8 +501,7 @@ void OnInteractBigHammer(string &in asEntity)
 	SetEnemyDisableTriggers("BruteFinal", false);
 	bruteIsActive = true;
 	PlayMusic("14_elevator_falls.ogg", true, 1.0f, 0.0f, 10, true);
-	int index = RandInt(0, 1);
-	if(index == 1) for(int i=1;i<=5;i++) AddEnemyPatrolNode("BruteFinal", "PathBruteSecondPath_" + i, 0.01f, "");
+	if(RandInt(0, 1) == 1) for(int i=1;i<=5;i++) AddEnemyPatrolNode("BruteFinal", "PathBruteSecondPath_" + i, 0.01f, "");
 	else for(int i=5;i>=1;i--) AddEnemyPatrolNode("BruteFinal", "PathBruteSecondPath_" + i, 0.01f, "");
 }
 
@@ -532,14 +520,7 @@ void OnInteractPedestal(string &in asEntity)
 	StartScreenShake(0.05f, 0.5f, 0.5f, 0.5f);
 	
 	DestroySlimeArea(pedestalNumber + "_Corrupt_");
-	
-	int i = 1;
-	while(GetEntityExists(pedestalNumber + "_HeavyDoor_" + i))
-	{
-		SetMoveObjectState(pedestalNumber + "_HeavyDoor_" + i, 1.0f);
-		++i;
-	}
-	
+		
 	string oldQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
 	CompleteQuest(oldQuest, oldQuest);
 	AddLocalVarInt("OrbsCompleteCount", 1);
@@ -566,7 +547,7 @@ void TimerCorruptExplode(string &in asTimer)
 	SetEntityActive(asTimer, false);
 }
 
-void TimerBruteStartToSMoke(string &in asTimer)
+void TimerBruteStartToSmoke(string &in asTimer)
 {
 	if(GetPlayerHealth() > 0.0f)
 	{	
@@ -590,6 +571,11 @@ void TimerScare(string &in soundFile)
 {
 	PlayGuiSound(soundFile, 1.0f);
 	ChangePlayerStateToNormal();
+}
+
+void TimerScratchSound(string &in asTimer)
+{
+	PlaySoundAtEntity("ScratchSound", "amb_idle_scratch.snt", asTimer, 0.0f, false);
 }
 
 void TimerChangeTorch(string &in asTimer)
@@ -712,8 +698,9 @@ void TimerBruteRespawn(string &in asTimer)
 /////////////////////////////////////---STEP_ZONE---/////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TimerStepZone(string &in asZone)
+void TimerStepZone(string &in asTimer)
 {
+	string asZone = StringSub(asTimer, 0, 1);
 	int stepZone = GetLocalVarInt(asZone + "_SafeStepZone");
 	SetEntityActive(asZone + "_AreaStepZone_" + stepZone, true);
 	CreateParticleSystemAtEntity(asZone + "_DangerousZoneParticle_" + stepZone, "ps_fire_orb_room.ps", asZone + "_AreaStepZone_" + stepZone, true);
