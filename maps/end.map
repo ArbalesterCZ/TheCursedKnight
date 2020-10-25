@@ -5,7 +5,7 @@
             <Viewport CameraPosition="54.5 2 211.75" CameraTarget="54.5 2 31.75" CameraZoom="5.5" GridHeight="31.75" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
             <Viewport CameraPosition="234.499 2 31.75" CameraTarget="54.5 2 31.75" CameraZoom="5.5" GridHeight="54.5" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
             <Viewport CameraPosition="54.5 182 31.75" CameraTarget="54.5 2 31.75" CameraZoom="5.5" GridHeight="2" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="67.4227 10.4225 32.3975" CameraTarget="62.3794 2 32.1438" CameraZoom="1.62758" GridHeight="2" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
+            <Viewport CameraPosition="31.1651 12.1381 2.21485" CameraTarget="37.8427 2 -3.10965" CameraZoom="1.32758" GridHeight="2" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
@@ -1904,38 +1904,6 @@
                         <Var Name="ConnectionLightUseSpec" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="2" Group="0" ID="2255" Name="TheLeftDoor" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="44.5 0.125 -12">
-                    <UserVariables>
-                        <Var Name="CastShadows" Value="true" />
-                        <Var Name="StaticPhysics" Value="false" />
-                        <Var Name="IsAffectedByDecal" Value="false" />
-                        <Var Name="CallbackFunc" Value="" />
-                        <Var Name="ConnectedProps" Value="" />
-                        <Var Name="ConnectionStateChangeCallback" Value="" />
-                        <Var Name="FullGameSave" Value="false" />
-                        <Var Name="PlayerLookAtCallback" Value="" />
-                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="" />
-                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="AngularOffsetArea" Value="" />
-                    </UserVariables>
-                </Entity>
-                <Entity Active="true" FileIndex="2" Group="0" ID="2256" Name="TheRightDoor" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="44.5 0.125 12">
-                    <UserVariables>
-                        <Var Name="CastShadows" Value="true" />
-                        <Var Name="StaticPhysics" Value="false" />
-                        <Var Name="IsAffectedByDecal" Value="false" />
-                        <Var Name="CallbackFunc" Value="" />
-                        <Var Name="ConnectedProps" Value="" />
-                        <Var Name="ConnectionStateChangeCallback" Value="" />
-                        <Var Name="FullGameSave" Value="false" />
-                        <Var Name="PlayerLookAtCallback" Value="" />
-                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="" />
-                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="AngularOffsetArea" Value="" />
-                    </UserVariables>
-                </Entity>
                 <Entity Active="true" FileIndex="9" Group="0" ID="2257" Name="1_Pedestal" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="36.75 0 0">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
@@ -2108,7 +2076,7 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="13" Group="0" ID="2268" Name="1_Corrupt_6" Rotation="0 1.5708 0" Scale="1 4.25 1" Tag="" WorldPos="40.25 0 -6.5">
+                <Entity Active="true" FileIndex="13" Group="0" ID="2268" Name="1_Corrupt_6" Rotation="0 1.5708 0" Scale="1 7.25 1" Tag="" WorldPos="41 0 -6.5">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -6342,6 +6310,25 @@
                     </UserVariables>
                 </Entity>
                 <ParticleSystem Active="true" Color="0 1 1 1" FadeAtDistance="true" File="ps_area_fog.ps" Group="0" ID="3604" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_5" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="78.75 0.75 12" />
+                <Entity Active="true" FileIndex="11" Group="0" ID="3607" Name="1_Corrupt_20" Rotation="3.14159 0.523597 3.14159" Scale="0.75 1.5 1" Tag="" WorldPos="40.75 0 -6">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
             </Entities>
             <Misc />
             <StaticObjectCombos />

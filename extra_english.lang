@@ -429,10 +429,6 @@
 	</CATEGORY>
 	
 	<CATEGORY Name="End">
-		<Entry Name="Beta">
-			Thank you for playing.[br][br][br]
-			Congratulation.[br] You won the beta version.
-		</Entry>
 		<Entry Name="Full">
 			Aalot, the knight sacrificed his life to stop the corruption.[br]
 			No one except the mysterious angel knows nothing about his great sacrifice.[br]

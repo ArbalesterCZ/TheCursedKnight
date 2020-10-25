@@ -344,12 +344,8 @@ void OnChangeStateLeverHeavyDoorStart(string &in asEntity, int alState)
 		SetLeverStuckState(asEntity, alState, true);
 		SetMoveObjectState("HeavyDoorStart", 0.0f);
 		StopPlayerLookAt();
-		AddTimer("BruteStartToSmoke", 7.0f, "TimerBruteStartToSmoke");
 		
-		for(int i=1;i<=4;i++) AddTimer(i + "_StepZone", 1.0f, "TimerStepZone");
-		AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
-		SetMoveObjectState("TheLeftDoor", 1.0f);
-		SetMoveObjectState("TheRightDoor", 1.0f);
+		AddTimer("BruteStartToSmoke", 7.0f, "TimerBruteStartToSmoke");
 	}
 }
 
@@ -394,13 +390,10 @@ void OnCollidePlayerOnAreaHeavyDoorStart(string &in asParent, string &in asChild
 
 void OnInteractMainDoor(string &in asDoor)
 {
-	if(!QuestIsCompleted(asDoor))
-	{
-		SetLocalVarInt("OrbQuestIsVisible", 1);
-		string questName = asDoor + "_" + GetLocalVarInt("OrbsCompleteCount");
-		SetMessage("Hints", questName , 5.0f);
-		AddQuest(questName, questName);
-	}
+	SetLocalVarInt("OrbQuestIsVisible", 1);
+	string questName = asDoor + "_" + GetLocalVarInt("OrbsCompleteCount");
+	SetMessage("Hints", questName , 5.0f);
+	AddQuest(questName, questName);
 }
 
 void DestroySlimeArea(string &in slimeName)
@@ -525,19 +518,21 @@ void OnInteractPedestal(string &in asEntity)
 	CompleteQuest(oldQuest, oldQuest);
 	AddLocalVarInt("OrbsCompleteCount", 1);
 	
-	if(GetLocalVarInt("OrbsCompleteCount") < 3 && GetLocalVarInt("OrbQuestIsVisible") == 1)
-	{
-		string newQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
-		AddQuest(newQuest, newQuest);
-	}
+	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "", "");
 	
 	if(GetLocalVarInt("OrbsCompleteCount") == 3)
 	{
 		SetMoveObjectState("MainGate", 1.0f);
 		CompleteQuest("MainGate", "MainGate");
+		SetEntityInteractionDisabled("MainGate", true);
+		return;
 	}
 	
-	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "", "");
+	if(GetLocalVarInt("OrbQuestIsVisible") == 1)
+	{
+		string newQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
+		AddQuest(newQuest, newQuest);
+	}
 }
 
 void TimerCorruptExplode(string &in asTimer)
@@ -554,6 +549,9 @@ void TimerBruteStartToSmoke(string &in asTimer)
 		RemoveTimer("BruteAI");
 		FadeEnemyToSmoke("Brute_Start", false);
 		SetEntityPlayerInteractCallback("1_Pedestal", "OnInteractPedestal", true);
+		
+		for(int i=1;i<=4;i++) AddTimer("" + i, 1.0f, "TimerStepZone");
+		AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 	}
 }
 
@@ -698,9 +696,8 @@ void TimerBruteRespawn(string &in asTimer)
 /////////////////////////////////////---STEP_ZONE---/////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TimerStepZone(string &in asTimer)
+void TimerStepZone(string &in asZone)
 {
-	string asZone = StringSub(asTimer, 0, 1);
 	int stepZone = GetLocalVarInt(asZone + "_SafeStepZone");
 	SetEntityActive(asZone + "_AreaStepZone_" + stepZone, true);
 	CreateParticleSystemAtEntity(asZone + "_DangerousZoneParticle_" + stepZone, "ps_fire_orb_room.ps", asZone + "_AreaStepZone_" + stepZone, true);
