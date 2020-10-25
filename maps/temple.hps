@@ -221,7 +221,7 @@ void UseEnchantOnOrb(string &in asItem, string &in asEntity)
 	RemoveItem(asItem);
 	SetEntityActive(asEntity, false);
 	SetEntityActive("TheOrb", true);
-	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "TheOrb", false);
+	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "TheOrb", true);
 	SetLightVisible("OrbLight", true);
 	FadeLightTo("OrbLight", 0.5f, 1.0f, 1.0f, 1.0f, 8.0f, 3.0f);
 	

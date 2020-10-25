@@ -2,10 +2,10 @@
     <EditorSession>
         <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
         <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="true" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
-            <Viewport CameraPosition="44 0.250013 202.125" CameraTarget="44 0.250013 22.125" CameraZoom="3.97656" GridHeight="22.125" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="223.999 0.250013 22.125" CameraTarget="44 0.250013 22.125" CameraZoom="2.12026" GridHeight="44" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="42 180.25 22.125" CameraTarget="42 0.25 22.125" CameraZoom="2.12026" GridHeight="0.25" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="56.7781 6.90395 31.1399" CameraTarget="52.1657 0.250004 32.4741" CameraZoom="1.80722" GridHeight="0.25" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
+            <Viewport CameraPosition="44 0.250013 202.125" CameraTarget="44 0.250013 22.125" CameraZoom="0" GridHeight="22.125" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="223.999 0.250013 22.125" CameraTarget="44 0.250013 22.125" CameraZoom="0" GridHeight="44" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="42 180.25 22.125" CameraTarget="42 0.25 22.125" CameraZoom="0" GridHeight="0.25" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="49.7014 26.5352 4.37232" CameraTarget="68.316 0.250003 12.7265" CameraZoom="0.407225" GridHeight="0.25" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
@@ -41,7 +41,7 @@
                 <File Id="24" Path="static_objects/murky_castlebase/wall/door_way.dae" />
                 <File Id="25" Path="static_objects/castlebase/special/cell_wall_worn.dae" />
             </FileIndex_StaticObjects>
-            <FileIndex_Entities NumOfFiles="48">
+            <FileIndex_Entities NumOfFiles="53">
                 <File Id="0" Path="entities/lamp/torch_static01/torch_static_green.ent" />
                 <File Id="1" Path="entities/door/castle_gate_arched01/castle_gate_arched01.ent" />
                 <File Id="2" Path="entities/door/safety_normal_vert/safety_normal_vert_noauto.ent" />
@@ -84,12 +84,17 @@
                 <File Id="39" Path="entities/organic/bone_pile_human/bone_pile_human1.ent" />
                 <File Id="40" Path="entities/organic/bone_pile_human/bone_pile_human2.ent" />
                 <File Id="41" Path="entities/organic/bone_pile_human/human_bone.ent" />
-                <File Id="42" Path="entities/door/castle/castle_no_grav.ent" />
+                <File Id="42" Path="entities/statues/deformed_man/deformed_man.ent" />
                 <File Id="43" Path="entities/organic/human_bone/human_bone.ent" />
                 <File Id="44" Path="entities/organic/human_skull/human_skull.ent" />
                 <File Id="45" Path="entities/organic/sewer_fungi/sewer_fungi2.ent" />
                 <File Id="46" Path="entities/organic/sewer_fungi/sewer_fungi3.ent" />
                 <File Id="47" Path="entities/organic/sewer_fungi/sewer_fungi1.ent" />
+                <File Id="48" Path="entities/ptest/crude_man_chains_statue/crude_man_chains_statue.ent" />
+                <File Id="49" Path="entities/ptest/dungeon_wall_broken_stones/dungeon_wall_broken_stone04.ent" />
+                <File Id="50" Path="entities/ptest/dungeon_wall_broken_stones/dungeon_wall_broken_stone03.ent" />
+                <File Id="51" Path="entities/ptest/dungeon_wall_broken_stones/dungeon_wall_broken_stone01.ent" />
+                <File Id="52" Path="entities/ptest/dungeon_wall_broken_stones/dungeon_wall_broken_stone02.ent" />
             </FileIndex_Entities>
             <FileIndex_Decals NumOfFiles="4">
                 <File Id="0" Path="textures/decals/chalk_alchemy_circles.mat" />
@@ -5901,7 +5906,7 @@
                         <Var Name="AutoMoveGoal" Value="Middle" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="42" Group="0" ID="3233" Name="1_DreamLocationDoor" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="52 0.125 31.75">
+                <Entity Active="true" FileIndex="34" Group="0" ID="3233" Name="1_DreamLocationDoor" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="52 0.125 31.75">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="true" />
@@ -5914,7 +5919,7 @@
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
                         <Var Name="PlayerInteractCallback" Value="" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="Locked" Value="true" />
+                        <Var Name="Locked" Value="false" />
                         <Var Name="OpenAmount" Value="0" />
                         <Var Name="DisableBreakable" Value="false" />
                     </UserVariables>
@@ -6117,7 +6122,7 @@
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
                         <Var Name="PlayerInteractCallback" Value="" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="Locked" Value="true" />
+                        <Var Name="Locked" Value="false" />
                         <Var Name="OpenAmount" Value="0" />
                         <Var Name="DisableBreakable" Value="false" />
                     </UserVariables>
@@ -6235,6 +6240,108 @@
                         <Var Name="TextEntry" Value="Bridge" />
                     </UserVariables>
                 </Area>
+                <Entity Active="true" FileIndex="48" Group="0" ID="3597" Name="crude_man_chains_statue_1" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="35 0 24">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="49" Group="0" ID="3598" Name="dungeon_wall_broken_stone04_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="32.75 0.25 25.25">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="50" Group="0" ID="3599" Name="dungeon_wall_broken_stone03_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="33.75 0.25 22.75">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="51" Group="0" ID="3600" Name="dungeon_wall_broken_stone01_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="39 0.25 26.5">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="52" Group="0" ID="3601" Name="dungeon_wall_broken_stone02_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="39.25 0.25 36.25">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="42" Group="0" ID="3603" Name="deformed_man_1" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="50.75 0 31.75">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="IsAffectedByDecal" Value="true" />
+                    </UserVariables>
+                </Entity>
+                <ParticleSystem Active="true" Color="0 1 1 1" FadeAtDistance="true" File="ps_area_fog.ps" Group="0" ID="3604" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_5" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="78.75 0.75 12" />
             </Entities>
             <Misc />
             <StaticObjectCombos />

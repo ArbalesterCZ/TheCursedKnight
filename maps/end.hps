@@ -159,6 +159,9 @@ void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
 	PlaySoundAtEntity("DoorHit", "MetalMediumBashWood.snt", door, 0, false);
 	CreateParticleSystemAtEntity("DreamDoorHit", "ps_hit_wood.ps", door, false);
 	CreateParticleSystemAtEntity("DreamDoorHit", "ps_break_wood.ps", door, false);
+	StartScreenShake(0.25f, 0.25f, 0.25f, 0.25f);
+	
+	AddTimer("react_pant.snt", 0.75f, "TimerScare");
 }
 
 void OnCollideThePit(string &in asParent, string &in asChild, int alState)
