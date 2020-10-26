@@ -179,7 +179,7 @@ void OnIgniteCow(string &in entityName, string &in type)
 	SetPlayerActive(false);
 	ShowPlayerCrossHairIcons(false);
 	
-	SetEntityActive("Ghost", true);
+	SetPropActiveAndFade("Ghost", true, 0.25f);
 	SetEntityActive("CeremonyDagger", true);
 	
 	CreateParticleSystemAtEntity("GhostSmoke", "ps_ghost_release.ps", "Ghost", false);
@@ -194,7 +194,7 @@ void OnIgniteCow(string &in entityName, string &in type)
 	CompleteQuest("EvilCow", "EvilCow");
 	SetLeverStuckState("EvilCow", 0, true);
 	
-	AddTimer("Ghost", 1.25f, "TimerGhostUnactive");
+	AddTimer("Ghost", 1.0f, "TimerGhostUnactive");
 	AddTimer("react_pant.snt", 1.5f, "TimerScare");
 	AddTimer("", 2.0f, "TimerLookComplete");
 	AddTimer("hurt_pant.snt", 3.25f, "TimerScare");
@@ -475,7 +475,7 @@ void TimerBangComplete(string &in asTimer)
 void TimerGhostUnactive(string &in asEntity)
 {
 	CreateParticleSystemAtEntity("GhostSmoke", "ps_ghost_release.ps", asEntity, false);
-	SetEntityActive(asEntity, false);
+	SetPropActiveAndFade(asEntity, false, 0.75f);
 	
 	CreateParticleSystemAtEntity("HammerBreak", "ps_ghost_release.ps", "BigHammer", false);
 	RemoveTimer("BigHammer");

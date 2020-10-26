@@ -425,8 +425,8 @@
 	
 	<CATEGORY Name="Memories">
 		<Entry Name="Look">Ancient memory</Entry>
-		<Entry Name="TheLeftSide">Our order cannot protect everyone. Even common folk have to take their chances and risks sometimes. Embrace the destiny or create your own way. -- Unknown acolyte</Entry>
-		<Entry Name="TheRightSide">There is always a chance for redemption. No matter how horrible people can be sometimes. I will always believe in them and will try to empower their goodness. -- Angel</Entry>
+		<Entry Name="TheLeftSide">There is always a chance for redemption. No matter how horrible people can be sometimes. I will always believe in them and will try to empower their goodness. -- Angel</Entry>
+		<Entry Name="TheRightSide">Our order cannot protect everyone. Even common folk have to take their chances and risks sometimes. Embrace the destiny or create your own way. -- Unknown acolyte</Entry>
 	</CATEGORY>
 	
 	<CATEGORY Name="End">
