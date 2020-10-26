@@ -408,7 +408,7 @@
 		<Entry Name="TempleMainDoor">Heart of the temple.</Entry>
 		<Entry Name="LeverBridge">The lever is missing.</Entry>
 		<Entry Name="Corrupt">The corrupt is too strong.[br]I have to complete the orb.</Entry>
-		<Entry Name="Bridge">The bridge could fall.[br]I have to throw something at him.</Entry>
+		<Entry Name="Bridge">The bridge could fall.[br]I have to throw something at it.</Entry>
 		<Entry Name="StoneWall">There is a passage behind the wall.</Entry>
 	</CATEGORY>
 	
@@ -425,15 +425,15 @@
 	
 	<CATEGORY Name="Memories">
 		<Entry Name="Look">Ancient memory</Entry>
-		<Entry Name="TheLeftSide">Filipe, napapadá tě nějaký moudro k tématu co sem napsat? :D</Entry>
-		<Entry Name="TheRightSide">Filipe, napapadá tě nějaký moudro k tématu co sem napsat? :D</Entry>
+		<Entry Name="TheLeftSide">Our order cannot protect everyone. Even common folk have to take their chances and risks sometimes. Embrace the destiny or create your own way. -- Unknown acolyte</Entry>
+		<Entry Name="TheRightSide">There is always a chance for redemption. No matter how horrible people can be sometimes. I will always believe in them and will try to empower their goodness. -- Angel</Entry>
 	</CATEGORY>
 	
 	<CATEGORY Name="End">
 		<Entry Name="Full">
 			Aalot, the knight sacrificed his life to stop the corruption.[br]
-			No one except the mysterious angel knows nothing about his great sacrifice.[br]
-			This made his soul rest in peace.[br]
+			Nobody except the mysterious angel knows anything about his great sacrifice.[br]
+			This act let his soul rest in peace.[br]
 			[br][br][br][br][br]
 			Thank you for playing.[br][br][br]
 			Congratulations.[br] You won the custom story of the cursed knight.[br][br][br]
