@@ -89,7 +89,7 @@ void UseHammerOnWall(string &in asItem, string &in asEntity)
 
 void TimerHammerAttack(string &in asTimer)
 {
-	PlaySoundAtEntity("HitSound", "MetalLightChopStone", asTimer, 0.0f, false);
+	PlaySoundAtEntity("HitSound", "MetalLightChopStone.snt", asTimer, 0.0f, false);
 	CreateParticleSystemAtEntity("HitEffect", "ps_hit_rock.ps", asTimer, false);
 }
 
@@ -227,7 +227,7 @@ void OnCollideEndRoomTorchLit(string &in asParent, string &in asChild, int alSta
 	for(int i=1;i<=8;i++)
 	{
 		SetLampLit("FinalTorch_" + i, true, true);
-		PlaySoundAtEntity("TurnOnFinalTorch_" + i, "ui_use_tinderbox.ogg", "FinalTorch_" + i, 0.0f, false);
+		PlaySoundAtEntity("TurnOnFinalTorch_" + i, "ui_use_tinderbox.snt", "FinalTorch_" + i, 0.0f, false);
 		SetMessage("Hints", "WeakFloor" , 5.0f);
 	}
 	SetPlayerActive(false);
@@ -589,8 +589,8 @@ void TimerChangeTorch(string &in asTimer)
 	string rTorch = "EndTorch_" + (StringToInt(asTimer) + 1);
 	SetLampLit(lTorch, true, true);
 	SetLampLit(rTorch, true, true);
-	PlaySoundAtEntity("turnOnLeft", "ui_use_tinderbox.ogg", lTorch, 0.0f, false);
-	PlaySoundAtEntity("turnOnRight", "ui_use_tinderbox.ogg", rTorch, 0.0f, false);
+	PlaySoundAtEntity("turnOnLeft", "ui_use_tinderbox.snt", lTorch, 0.0f, false);
+	PlaySoundAtEntity("turnOnRight", "ui_use_tinderbox.snt", rTorch, 0.0f, false);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
