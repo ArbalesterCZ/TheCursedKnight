@@ -2,9 +2,7 @@
 Custom story for the Amnesia the dark descent
 
 Scare sounds
-//"hurt_pant.snt"
-//"react_pant.snt"
-//"react_scare.snt"
+"hurt_pant.snt","react_pant.snt","react_scare.snt"
 
 Chapter V - Secret combinations
 
