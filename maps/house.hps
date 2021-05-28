@@ -1,10 +1,4 @@
-float xOld;
-float yOld;
-float zOld;
-
-float x;
-float y;
-float z;
+float[] x(10); float[] y(10); float[] z(10); int last;
 
 void OnStart()
 {
@@ -63,18 +57,9 @@ float Distance(string &in asEntity, float x, float y, float z)
 	return MathSqrt(MathPow(GetEntityPosX(asEntity) - x, 2) + MathPow(GetEntityPosY(asEntity) - y, 2) + MathPow(GetEntityPosZ(asEntity) - z, 2));
 }
 
-bool IsStrength(string &in weapon, float timerLeft)
-{
-	if(timerLeft == 0.1f) return Distance(weapon, xOld, yOld, zOld) >= 1.0f;
-	else return Distance(weapon, x, y, z) >= MathMax(1.0f - timerLeft * 10, 0.25f);
-}
-
 void UseHammerOnChef(string &in weapon, string &in enemy, int alState)
 {	
-	float timerLeft = GetTimerTimeLeft(weapon);
-	RemoveTimer(weapon);
-
-	if(IsStrength(weapon, timerLeft))
+	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
 	{
 		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", enemy, 0, false);
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", weapon, false);
@@ -83,7 +68,6 @@ void UseHammerOnChef(string &in weapon, string &in enemy, int alState)
 		if(GetLocalVarInt("ChefLife") > 0) AddTimer("ChefRespawn", RandFloat(1.25f, 1.75f), "TimerChefRespawn");
 		else AddTimer("WaitForChefNotCounterAttack", 0.25f, "TimerWaitForChefNotCounterAttack");
 	}
-	AddTimer(weapon, 0.1f - timerLeft, "TimerHammerPosition");
 }
 
 void TimerWaitForChefNotCounterAttack(string &in asTimer)
@@ -93,15 +77,13 @@ void TimerWaitForChefNotCounterAttack(string &in asTimer)
 
 void TimerHammerPosition(string &in asTimer)
 {
-	xOld = x;
-	yOld = y;
-	zOld = z;
+	x[last] = GetEntityPosX(asTimer);
+	y[last] = GetEntityPosY(asTimer);
+	z[last] = GetEntityPosZ(asTimer);
+
+	last = (last + 1) % 10;
 	
-	x = GetEntityPosX(asTimer);
-	y = GetEntityPosY(asTimer);
-	z = GetEntityPosZ(asTimer);
-	
-	AddTimer(asTimer, 0.1f, "TimerHammerPosition");
+	AddTimer(asTimer, 0.01f, "TimerHammerPosition");
 }
 
 void TimerChefRespawn(string &in asTimer)
@@ -592,6 +574,3 @@ void OnDeathDuringFight(string &in asName, int alCount)
 {
 	ReturnFromAngel();
 }
-
-
-

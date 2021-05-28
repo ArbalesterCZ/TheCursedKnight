@@ -7,13 +7,7 @@ float stepSpeed = 1.25f;
 bool isAccelerationStep = true;
 
 // Fight system
-float xOld;
-float yOld;
-float zOld;
-
-float x;
-float y;
-float z;
+float[] x(10); float[] y(10); float[] z(10); int last;
 
 bool bruteIsActive;
 
@@ -602,28 +596,17 @@ float Distance(string &in asEntity, float x, float y, float z)
 	return MathSqrt(MathPow(GetEntityPosX(asEntity) - x, 2) + MathPow(GetEntityPosY(asEntity) - y, 2) + MathPow(GetEntityPosZ(asEntity) - z, 2));
 }
 
-bool IsStrength(string &in weapon, float timerLeft)
-{
-	if(timerLeft == 0.1f) return Distance(weapon, xOld, yOld, zOld) >= 1.0f;
-	else return Distance(weapon, x, y, z) >= MathMax(1.0f - timerLeft * 10, 0.25f);
-}
-
 void UseHammerOnBarricade(string &in weapon, string &in enemy, int alState)
 {	
 	if(bruteIsActive)
 	{
-		float timerLeft = GetTimerTimeLeft(weapon);
-		RemoveTimer(weapon);
-		
-		if(IsStrength(weapon, timerLeft))
+		if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
 		{
 			for(int i=1;i<=29;i++) SetPropHealth("wooden_boards_block_" + i, 0.0f);
 			SetPlayerFallDamageDisabled(true);
 			FadeEnemyToSmoke("BruteFinal", false);
 			RemoveTimer("BruteRespawn");
 		}
-		
-		AddTimer(weapon, 0.1f - timerLeft, "TimerHammerPosition");
 	}
 	else
 	{
@@ -633,10 +616,7 @@ void UseHammerOnBarricade(string &in weapon, string &in enemy, int alState)
 
 void UseHammerOnCorrupt(string &in weapon, string &in enemy, int alState)
 {
-	float timerLeft = GetTimerTimeLeft(weapon);
-	RemoveTimer(weapon);
-
-	if(IsStrength(weapon, timerLeft))
+	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
 	{
 		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", enemy, 0, false);
 		CreateParticleSystemAtEntity("", "ps_slime_attack_normal.ps", enemy, false);
@@ -646,15 +626,11 @@ void UseHammerOnCorrupt(string &in weapon, string &in enemy, int alState)
 		AddLocalVarInt("CorruptedBarricadeCount", -1);
 		if(GetLocalVarInt("CorruptedBarricadeCount") == 0) SetMoveObjectState("BackDoor", 1.0f);
 	}
-	AddTimer(weapon, 0.1f - timerLeft, "TimerHammerPosition");
 }
 
 void UseHammerOnBrute(string &in weapon, string &in enemy, int alState)
 {	
-	float timerLeft = GetTimerTimeLeft(weapon);
-	RemoveTimer(weapon);
-
-	if(IsStrength(weapon, timerLeft))
+	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
 	{
 		PlaySoundAtEntity("", "MetalHeavyBashMetal.snt", enemy, 0, false);
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", weapon, false);
@@ -675,20 +651,17 @@ void UseHammerOnBrute(string &in weapon, string &in enemy, int alState)
 				break;
 		}
 	}
-	AddTimer(weapon, 0.1f - timerLeft, "TimerHammerPosition");
 }
 
 void TimerHammerPosition(string &in asTimer)
 {
-	xOld = x;
-	yOld = y;
-	zOld = z;
+	x[last] = GetEntityPosX(asTimer);
+	y[last] = GetEntityPosY(asTimer);
+	z[last] = GetEntityPosZ(asTimer);
+
+	last = (last + 1) % 10;
 	
-	x = GetEntityPosX(asTimer);
-	y = GetEntityPosY(asTimer);
-	z = GetEntityPosZ(asTimer);
-	
-	AddTimer(asTimer, 0.1f, "TimerHammerPosition");
+	AddTimer(asTimer, 0.01f, "TimerHammerPosition");
 }
 
 void TimerBruteRespawn(string &in asTimer)

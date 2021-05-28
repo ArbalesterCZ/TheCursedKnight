@@ -1,10 +1,4 @@
-float xOld;
-float yOld;
-float zOld;
-
-float x;
-float y;
-float z;
+float[] x(10); float[] y(10); float[] z(10); int last;
 
 void OnStart()
 {
@@ -217,12 +211,9 @@ void OnInteractDoor(string &in door)
 
 void UseHammerOnSuitor(string &in weapon, string &in enemy, int alState)
 {	
-	float timerLeft = GetTimerTimeLeft(weapon);
-	RemoveTimer(weapon);
-
-	if(IsStrength(weapon, timerLeft))
+	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
 	{
-		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", enemy, 0, false);	
+		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", weapon, 0, false);	
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", weapon, false);
 		FadeEnemyToSmoke(enemy, false);
 		if(enemy == "Suitor_1")
@@ -231,7 +222,6 @@ void UseHammerOnSuitor(string &in weapon, string &in enemy, int alState)
 			CompleteQuest("DoorPrison_2", "DoorPrison_2");
 		}
 	}
-	AddTimer(weapon, 0.1f - timerLeft, "TimerHammerPosition");
 }
 
 void UseHammerOnProp(string &in weapon, string &in collider, int alState)
@@ -240,7 +230,7 @@ void UseHammerOnProp(string &in weapon, string &in collider, int alState)
 	RemoveTimer(weapon);
 	string theDoor = StringSub(collider, 0, collider.length() - 2);
 
-	if(IsStrength(weapon, timerLeft))
+	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
 	{
 		AddPropHealth(theDoor, -25.0f);
 		PlaySoundAtEntity("DoorHit", "MetalMediumBashWood.snt", theDoor, 0, false);
@@ -300,12 +290,6 @@ void UseAcidOnSlime(string &in asItem, string &in asEntity)
 float Distance(string &in asEntity, float x, float y, float z)
 {
 	return MathSqrt(MathPow(GetEntityPosX(asEntity) - x, 2) + MathPow(GetEntityPosY(asEntity) - y, 2) + MathPow(GetEntityPosZ(asEntity) - z, 2));
-}
-
-bool IsStrength(string &in weapon, float timerLeft)
-{
-	if(timerLeft == 0.1f) return Distance(weapon, xOld, yOld, zOld) >= 1.0f;
-	else return Distance(weapon, x, y, z) >= MathMax(1.0f - timerLeft * 10, 0.25f);
 }
 
 void OnLookJailer(string &in asEntity, int alState)
@@ -398,15 +382,13 @@ void TimerSuitors(string &in asTimer)
 
 void TimerHammerPosition(string &in asTimer)
 {
-	xOld = x;
-	yOld = y;
-	zOld = z;
+	x[last] = GetEntityPosX(asTimer);
+	y[last] = GetEntityPosY(asTimer);
+	z[last] = GetEntityPosZ(asTimer);
+
+	last = (last + 1) % 10;
 	
-	x = GetEntityPosX(asTimer);
-	y = GetEntityPosY(asTimer);
-	z = GetEntityPosZ(asTimer);
-	
-	AddTimer(asTimer, 0.1f, "TimerHammerPosition");
+	AddTimer(asTimer, 0.01f, "TimerHammerPosition");
 }
 	
 void TimerScare(string &in soundFile)
