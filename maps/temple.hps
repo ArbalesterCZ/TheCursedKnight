@@ -265,13 +265,13 @@ void OnLeverTrapChange(string &in asEntity, int LeverState)
 		StartScreenShake(0.002f, 0.5f, 0.5f, 0.5f);
 		AddLocalVarInt("LeverTrapDownCount", 1);
 		SetLeverStuckState(asEntity, LeverState, true);
-		string part =  StringSub(asEntity, asEntity.length() - 1, 1);
+		string part = StringSub(asEntity, asEntity.length() - 1, 1);
 		SetMoveObjectState("HeavyDoorLurker_" + part, 0.4f);
 		SetEntityPlayerInteractCallback("HeavyDoorLurker_" + part, "OnInteractHeavyDoorUp", true);
-		AddTimer("waterlurker_" + part, 12.0f - ((GetLocalVarInt("LeverTrapDownCount")) * 3), "TimerSetEntityActive");
 		
 		if(GetLocalVarInt("LeverTrapDownCount") == 2)
 		{
+			for(int i=1;i<=2;i++) AddTimer("waterlurker_" + i, 4.0f, "TimerSetEntityActive");
 			for(int i=1;i<=7;i++) AddEnemyPatrolNode("waterlurker_1", "LurkerPathNode_" + i, 0.01f, "");
 			for(int i=1;i<=13;i++) AddEnemyPatrolNode("waterlurker_2", "LurkerTwoPathNode_" + i, 0.01f, "");
 			SetMoveObjectState("HeavyDoorLurker", -1.0f);
