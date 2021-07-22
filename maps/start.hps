@@ -8,36 +8,29 @@ void OnStart()
 		
 	AddEntityCollideCallback("HandleStore", "LeverConnect", "AttachLever", true, 1);		
 	
-	// Start stats
+	// Start setting
+	SetPlayerActive(false);
 	SetPlayerLampOil(0);
-	
-	// Other
+	GiveSanityDamage(110.0f, false);
 	SetLightVisible("BoxLight", false);
 	SetMessage("Hints", "Chapter_1", 5.0f);
-	GiveSanityDamage(110.0f, false);
-	SetPlayerActive(false);
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	SetMapDisplayNameEntry("GreatHall");
 	
-	// FADE EFFECT
+	// Dream cutscene
 	FadeOut(0.0f);
 	FadeIn(3.0f);
 	
-	AddTimer("Speak", 7.0f, "TimerSpeak");
-	
 	AddTimer("Dark", 5.0f, "TimerDark");
 	AddTimer("Light", 7.0f, "TimerLight");
-	
-	AddTimer("DreamStart", 7.0f, "TimerDream");
+	AddTimer("DreamStart", 7.0f, "TimerDreamStart");
 	
 	AddTimer("Dark", 10.0f, "TimerDark");
 	AddTimer("Teleport", 12.0f, "TimerLight");
 	
 	AddTimer("Dark", 14.0f, "TimerDark");
 	AddTimer("Light", 16.0f, "TimerLight");
-	
-	AddTimer("DreamEnd", 16.0f, "TimerDream");
-	
+	AddTimer("DreamEnd", 16.0f, "TimerDreamEnd");
 	AddTimer("WakeUp", 18.0f, "TimerWakeUp");
 }
 
@@ -112,7 +105,6 @@ void TimerLookComplete(string &in asTimer)
 	StopPlayerLookAt();
 }
 
-
 void TimerExpire(string &in asTimer)
 {
 	SetMessage("Hints", asTimer, 5.0f);	
@@ -124,30 +116,29 @@ void TimerScare(string &in soundFile)
 	ChangePlayerStateToNormal();
 }
 
+void TimerDreamStart(string &in asTimer)
+{
+	SetFogActive(true);
+	SetEntityActive("GruntDream", true);
+	AddEnemyPatrolNode("GruntDream", "PathDream_1", 0.001f, "");
+	AddEnemyPatrolNode("GruntDream", "PathDream_3", 5.0f, "");
+	SetMessage("Hints", "Dream", 3.0f);
+}
+
+void TimerDreamEnd(string &in asTimer)
+{
+	SetFogActive(false);
+	SetEntityActive("GruntDream", false);
+	StopMusic(3.0f, 5);
+}
+
 void TimerWakeUp(string &in asTimer)
 {
 	SetPlayerSanity(100.0f);
 	SetPlayerActive(true);
 	PlayMusic("amb_extra01.ogg", true, 0.8f, 5.0f, 0, true);
-	SetMessage("Hints", "DreamEnd", 5.0f);
 	SetLightVisible("BoxLight", true);
-}
-
-void TimerDream(string &in asTimer)
-{
-	if(asTimer == "DreamStart")
-	{
-		SetFogActive(true);
-		SetEntityActive("GruntDream", true);
-		AddEnemyPatrolNode("GruntDream", "PathDream_1", 0.001f, "");
-		AddEnemyPatrolNode("GruntDream", "PathDream_3", 5.0f, "");
-	}
-	else
-	{
-		SetFogActive(false);
-		SetEntityActive("GruntDream", false);
-		StopMusic(3.0f, 5);
-	}
+	SetMessage("Hints", "DreamEnd", 5.0f);	
 }
 
 void TimerDark(string &in asTimer)
@@ -160,11 +151,6 @@ void TimerLight(string &in asTimer)
 	FadeIn(2.0f);
 	if(asTimer == "Teleport") TeleportEnemyToNode("GruntDream", "PathDream_2", true);;
 }
-
-void TimerSpeak(string &in asTimer)
-{
-	SetMessage("Hints", "Dream", 3.0f);
-}
 	
 void OnLeverChangeState(string &in asEntity, int LeverState)
 {
@@ -173,22 +159,18 @@ void OnLeverChangeState(string &in asEntity, int LeverState)
 		StartScreenShake(0.001f, 0.5f, 0.5f, 0.5f);
 		SetLeverStuckState(asEntity, LeverState, true);
 
-		// Destroy objetcs
 		SetPropHealth("Barricade", 0);
 		SetPropHealth("Barricade_2", 0);
 		SetPropHealth("BoxDestroy", 0);
 		
-		// Sanity decrease
 		GiveSanityDamage(40.0f, true);
 		
-		// Other
 		SetEntityActive("CorpseStore", true);
 		CompleteQuest("Barricade", "Barricade");
 		
 		AddTimer("Lunch", 2.0f, "TimerExpire");
 		AddTimer("react_pant.snt", 2.0f, "TimerScare");
 		
-		// Grunt
 		SetEntityActive("Grunt", true);
 		
 		for(int i=1;i<=7;i++) AddEnemyPatrolNode("Grunt", "Path"+i, 0.001f, "");
