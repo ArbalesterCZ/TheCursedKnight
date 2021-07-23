@@ -22,15 +22,13 @@ void OnStart()
 	FadeIn(3.0f);
 	
 	AddTimer("Dark", 5.0f, "TimerDark");
-	AddTimer("Light", 7.0f, "TimerLight");
-	AddTimer("DreamStart", 7.0f, "TimerDreamStart");
+	AddTimer("Light", 7.0f, "TimerDreamStart");
 	
 	AddTimer("Dark", 10.0f, "TimerDark");
-	AddTimer("Teleport", 12.0f, "TimerLight");
+	AddTimer("Light", 12.0f, "TimerDreamShift");
 	
 	AddTimer("Dark", 14.0f, "TimerDark");
-	AddTimer("Light", 16.0f, "TimerLight");
-	AddTimer("DreamEnd", 16.0f, "TimerDreamEnd");
+	AddTimer("Light", 16.0f, "TimerDreamEnd");
 	AddTimer("WakeUp", 18.0f, "TimerWakeUp");
 }
 
@@ -92,7 +90,7 @@ void PickKey(string &in asEntity, string &in type)
 {
 	GiveSanityBoostSmall();
 	AddQuest("Exit", "Exit");
-	AddTimer("Exit", 3.0f, "TimerExpire");
+	AddTimer("Exit", 3.0f, "TimerShowMessage");
 }
 
 void PickKeyStore(string &in asEntity, string &in type)
@@ -105,9 +103,9 @@ void TimerLookComplete(string &in asTimer)
 	StopPlayerLookAt();
 }
 
-void TimerExpire(string &in asTimer)
+void TimerShowMessage(string &in asMessage)
 {
-	SetMessage("Hints", asTimer, 5.0f);	
+	SetMessage("Hints", asMessage, 5.0f);	
 }
 
 void TimerScare(string &in soundFile)
@@ -118,6 +116,7 @@ void TimerScare(string &in soundFile)
 
 void TimerDreamStart(string &in asTimer)
 {
+	FadeIn(2.0f);
 	SetFogActive(true);
 	SetEntityActive("GruntDream", true);
 	AddEnemyPatrolNode("GruntDream", "PathDream_1", 0.001f, "");
@@ -125,8 +124,15 @@ void TimerDreamStart(string &in asTimer)
 	SetMessage("Hints", "Dream", 3.0f);
 }
 
+void TimerDreamShift(string &in asTimer)
+{
+	FadeIn(2.0f);
+	TeleportEnemyToNode("GruntDream", "PathDream_2", true);;
+}
+
 void TimerDreamEnd(string &in asTimer)
 {
+	FadeIn(2.0f);
 	SetFogActive(false);
 	SetEntityActive("GruntDream", false);
 	StopMusic(3.0f, 5);
@@ -145,12 +151,6 @@ void TimerDark(string &in asTimer)
 {
 	FadeOut(2.0f);
 }
-
-void TimerLight(string &in asTimer)
-{
-	FadeIn(2.0f);
-	if(asTimer == "Teleport") TeleportEnemyToNode("GruntDream", "PathDream_2", true);;
-}
 	
 void OnLeverChangeState(string &in asEntity, int LeverState)
 {
@@ -168,7 +168,7 @@ void OnLeverChangeState(string &in asEntity, int LeverState)
 		SetEntityActive("CorpseStore", true);
 		CompleteQuest("Barricade", "Barricade");
 		
-		AddTimer("Lunch", 2.0f, "TimerExpire");
+		AddTimer("Lunch", 2.0f, "TimerShowMessage");
 		AddTimer("react_pant.snt", 2.0f, "TimerScare");
 		
 		SetEntityActive("Grunt", true);
