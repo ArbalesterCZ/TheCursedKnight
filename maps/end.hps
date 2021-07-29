@@ -602,7 +602,11 @@ void UseHammerOnBarricade(string &in weapon, string &in enemy, int alState)
 	{
 		if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
 		{
-			for(int i=1;i<=29;i++) SetPropHealth("wooden_boards_block_" + i, 0.0f);
+			for(int i=1;i<=29;i++)
+			{
+			ReplaceEntity("wooden_boards_block_" + i, "wooden_boards_block_broken_body_" + i, "wooden_boards_block_broken_" + i, "wooden_boards_block.ent", false);
+			SetPropHealth("wooden_boards_block_broken_" + i, 0);
+			}
 			SetPlayerFallDamageDisabled(true);
 			FadeEnemyToSmoke("BruteFinal", false);
 			RemoveTimer("BruteRespawn");
