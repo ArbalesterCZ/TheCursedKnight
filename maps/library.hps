@@ -117,21 +117,22 @@ void OnLeverLibraryStuckChange(string &in asEntity, int LeverState)
 	}
 }
 		
-void TimerSaw(string &in asTimer)
+void TimerSaw(string &in asTarget)
 {
-	CreateParticleSystemAtEntity("SawSmoke", "ps_hit_wood.ps", asTimer, false);
+	CreateParticleSystemAtEntity("SawSmoke", "ps_hit_wood.ps", asTarget, false);
 }
 
-void TimerSawComplete(string &in asTimer)
+void TimerSawComplete(string &in asTarget)
 {
-	SetPropHealth(asTimer, 0);
+	ReplaceEntity(asTarget, asTarget + "_broken_body", asTarget + "_broken", "wooden_boards_block.ent", false);
+	SetPropHealth(asTarget + "_broken", 0.0f);
 	SetPlayerActive(true);
 	if(!QuestIsCompleted("BlockedDoor"))
 	{
 		CompleteQuest("BlockedDoor", "BlockedDoor");
 		GiveSanityBoostSmall();
 	}
-	if(asTimer == "WoodenBarricade_3")
+	if(asTarget == "WoodenBarricade_3")
 	{	
 		RemoveItem("Saw");
 		SetMessage("Hints", "SawDone", 5.0f);
