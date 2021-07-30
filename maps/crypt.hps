@@ -66,15 +66,16 @@ void UseHammerOnBarricade(string &in asItem, string &in asEntity)
 	AddTimer(asEntity, 5.0f, "TimerHammerFinalAttack");
 }
 
-void TimerHammerAttack(string &in asTimer)
+void TimerHammerAttack(string &in asTarget)
 {
-	PlaySoundAtEntity("HitSound", "hit_wood.snt", asTimer, 0.0f, false);
-	CreateParticleSystemAtEntity("HitEffect", "ps_hit_wood.ps", asTimer, false);
+	PlaySoundAtEntity("HitSound", "hit_wood.snt", asTarget, 0.0f, false);
+	CreateParticleSystemAtEntity("HitEffect", "ps_hit_wood.ps", asTarget, false);
 }
 
-void TimerHammerFinalAttack(string &in asTimer)
+void TimerHammerFinalAttack(string &in asTarget)
 {
-	SetPropHealth(asTimer, 0.0f);
+	ReplaceEntity(asTarget, asTarget + "_broken_body", asTarget + "_broken", "wooden_boards_block.ent", false);
+	SetPropHealth(asTarget + "_broken", 0.0f);
 	CompleteQuest("WoodenBarricadeHouse", "WoodenBarricadeHouse");
 	SetPlayerActive(true);
 	ShowPlayerCrossHairIcons(true);
