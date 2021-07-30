@@ -11,7 +11,6 @@ void OnStart()
 	
 	AddEntityCollideCallback("Player", "LiquidArea_1", "OnColliderLiquid", true, 1);
 	AddEntityCollideCallback("Player", "AreaPigRise", "OnColliderPigRise", true, 1);
-	AddEntityCollideCallback("Player", "AreaActiveWall", "OnColliderSetBarricadeActive", true, 1);
 	AddEntityCollideCallback("Player", "AreaAfterHeavyDoor", "OnCollideAreaAfterHeavyDoor", true, 1);
 	AddEntityCollideCallback("Player", "AreaChefFirstAttack", "OnColliderAreaChefFirstAttack", true, 1);
 	AddEntityCollideCallback("Player", "AreaChefSecondAttack", "OnColliderAreaChefSecondAttack", true, 1);
@@ -116,11 +115,6 @@ void OnColliderPigRise(string &in asParent, string &in asChild, int alState)
 	PlayGuiSound("pig_chase.snt", 1.0f);
 	AddTimer("hurt_pant.snt", 0.65f, "TimerScare");
 	AddTimer("07_amb.ogg", 4.0f, "TimerRestoreDefaultSound");
-}
-
-void OnColliderSetBarricadeActive(string &in asParent, string &in asChild, int alState)
-{
-	SetEntityActive("WoodenBarricadeHouse", true);
 }
 
 void TimerRestoreDefaultSound(string &in asTimer)
@@ -284,16 +278,17 @@ void UseHammerOnBarricade(string &in asItem, string &in asEntity)
 	AddTimer(asEntity, 5.0f, "TimerHammerFinalAttack");
 }
 
-void TimerHammerAttack(string &in asTimer)
+void TimerHammerAttack(string &in asTarget)
 {
-	PlaySoundAtEntity("HitSound", "hit_wood.snt", asTimer, 0.0f, false);
-	CreateParticleSystemAtEntity("HitEffect", "ps_hit_wood.ps", asTimer, false);
+	PlaySoundAtEntity("HitSound", "hit_wood.snt", asTarget, 0.0f, false);
+	CreateParticleSystemAtEntity("HitEffect", "ps_hit_wood.ps", asTarget, false);
 }
 
-void TimerHammerFinalAttack(string &in asTimer)
+void TimerHammerFinalAttack(string &in asTarget)
 {
-	SetPropHealth(asTimer, 0.0f);
-	CompleteQuest(asTimer, asTimer);
+	ReplaceEntity(asTarget, asTarget + "_broken_body", asTarget + "_broken", "wooden_boards_block.ent", false);
+	SetPropHealth(asTarget + "_broken", 0.0f);
+	CompleteQuest(asTarget, asTarget);
 	SetPlayerActive(true);
 	ShowPlayerCrossHairIcons(true);
 }
@@ -371,8 +366,7 @@ void OnPlayerInteractTheBed(string &in door)
 	FadeOut(1.5f);
 	
 	AddTimer("1.5f", 4.5f, "TimerFadeIn");
-	AddTimer("Restore", 6.0f, "TimerRestore");
-	
+	AddTimer("Restore", 6.0f, "TimerRestore");	
 }
 
 void TimerRestore(string &in asTimer)
