@@ -1,4 +1,4 @@
-# Amnesia-Legacy
+# The Cursed Knight
 Custom story for the [Amnesia: The Dark Descent](https://en.wikipedia.org/wiki/Amnesia:_The_Dark_Descent).  
 Included combat scenes with the uses of [combat-feature](https://github.com/ArbalesterCZ/Amnesia-Combat).  
 6 playabe chapters.
