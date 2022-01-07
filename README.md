@@ -1,60 +1,11 @@
 # Amnesia-Legacy
-Custom story for the Amnesia the dark descent
+Custom story for the [Amnesia: The Dark Descent](https://en.wikipedia.org/wiki/Amnesia:_The_Dark_Descent).  
+Included combat scenes with the uses of [combat-feature](https://github.com/ArbalesterCZ/Amnesia-Combat).  
+6 playabe chapters.
 
-Scare sounds
-"hurt_pant.snt","react_pant.snt","react_scare.snt"
+## Requirements
+Amnesia: The Dark Descent version 1.3.1
 
-Chapter V - Secret combinations
-
-AB  GH  MN  ST
-CD  IJ  OP  UV
-EF  KL  QR  WX
-
-
-A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
-
-
------------------------1-----------------------
-A*  *H  *N  S*
-C*  I*  OP  *V
-EF  KL  Q*  WX
-
-BDGRTU
-
------------------------2-----------------------
-*B  GH  MN  ST
-C*  **  **  U*
-E*  *L  *R  W*
-
-ADFIJKOPV
-
------------------------3-----------------------
-AB  GH  **  *T
-*D  *J  OP  UV
-*F  *L  QR  WX
-
-CEIMNSWX
-
------------------------4-----------------------
-AB  G*  M*  *T
-*D  *J  *P  *V
-**  KL  Q*  *X
-
-CFHINRSUW
-
------------------------4-----------------------
-A*  *H  *N  S*
-C*  **  OP  *V
-*F  KL  **  *X
-
-BEGIOMQRTU
-
-
-0111                1000
-0110                1001→TRUE
-0101→TRUE           1010
-0100                1011→TRUE
-0011                1100→TRUE
-0010→TRUE           1101
-0001                1110
-0000                1111
+## Installation  
+Just clone the repository to the following path. `./Amnesia The Dark Descent/custom_stories`  
+After cloning the repository to the path, you should see it in the custom story game menu.
