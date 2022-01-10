@@ -175,7 +175,7 @@
                 <File Id="128" Path="entities/furniture/chest_of_drawers_nice/chest_of_drawers_nice.ent" />
                 <File Id="129" Path="entities/furniture/sofa/sofa.ent" />
                 <File Id="130" Path="entities/furniture/stove_corner/stove_corner.ent" />
-                <File Id="131" Path="entities/equipment/sledge/sledge.ent" />
+                <File Id="131" Path="custom_stories/TheCursedKnight/resources/entities/sledge_LIGHT.ent" />
                 <File Id="132" Path="entities/furniture/cabinet_nice/cabinet_nice.ent" />
                 <File Id="133" Path="entities/furniture/chair_nice02/chair_nice02.ent" />
                 <File Id="134" Path="entities/furniture/table_nice_round/table_nice_round.ent" />

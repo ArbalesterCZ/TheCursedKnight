@@ -67,7 +67,7 @@
                 <File Id="27" Path="entities/ptest/roman_numeral_signs/roman_numeral_signs_4.ent" />
                 <File Id="28" Path="entities/ptest/roman_numeral_signs/roman_numeral_signs_5.ent" />
                 <File Id="29" Path="entities/ptest/roman_numeral_signs/roman_numeral_signs_6.ent" />
-                <File Id="30" Path="entities/equipment/sledge/sledge.ent" />
+                <File Id="30" Path="custom_stories/TheCursedKnight/resources/entities/sledge_LIGHT.ent" />
                 <File Id="31" Path="entities/ration/bag02/bag02.ent" />
                 <File Id="32" Path="entities/prison/torture_wheel/torture_wheel.ent" />
                 <File Id="33" Path="entities/prison/worn_hay_mattress/worn_hay_mattress.ent" />

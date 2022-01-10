@@ -61,7 +61,7 @@
                 <File Id="16" Path="entities/door/safety_large_vert/safety_large_vert.ent" />
                 <File Id="17" Path="entities/organic/slime_anim/slime_anim_ceiling.ent" />
                 <File Id="18" Path="entities/debris/rock/stone_small01.ent" />
-                <File Id="19" Path="entities/equipment/sledge/sledge.ent" />
+                <File Id="19" Path="custom_stories/TheCursedKnight/resources/entities/sledge_LIGHT.ent" />
                 <File Id="20" Path="entities/gameplay/wooden_boards_block/wooden_boards_block.ent" />
                 <File Id="21" Path="entities/ptest/angel_statue/angel_statue.ent" />
                 <File Id="22" Path="entities/debris/rock/rock_large01_push.ent" />
