@@ -79,7 +79,7 @@
                 <File Id="25" Path="entities/special/orb/orb_1_of_6.ent" />
                 <File Id="26" Path="entities/special/orb/orb_2_of_6.ent" />
                 <File Id="27" Path="entities/special/orb/orb_3_of_6.ent" />
-                <File Id="28" Path="custom_stories/Cursed Knight/entities/orb_4_of_6_FIXED.ent" />
+                <File Id="28" Path="custom_stories/TheCursedKnight/entities/orb_4_of_6_FIXED.ent" />
                 <File Id="29" Path="entities/special/orb/orb_5_of_6.ent" />
                 <File Id="30" Path="entities/special/orb/orb_6_of_6.ent" />
                 <File Id="31" Path="entities/storage/storage_box_wood01/storage_box_wood01_large.ent" />
