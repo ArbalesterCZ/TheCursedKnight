@@ -159,6 +159,10 @@ void OnPlayerDie(string &in asName, int alCount)
 	SetSwingDoorLocked("IronMaiden", true, true);
 	
 	ResetProp("BigHammer");
+
+	SetPlayerHealth(100.0f);
+	SetPlayerSanity(100.0f);
+	SetPlayerLampOil(MathMax(GetPlayerLampOil(), 50.0f));
 }
 
 void OnPickOrpiment(string &in entityName, string &in type)
