@@ -214,14 +214,14 @@ void OnInteractDoor(string &in door)
 	}
 }
 
-void UseHammerOnSuitor(string &in weapon, string &in enemy, int alState)
+void UseHammerOnSuitor(string &in asWeapon, string &in asEnemy, int alState)
 {	
-	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
+	if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
 	{
-		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", weapon, 0, false);	
-		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", weapon, false);
-		FadeEnemyToSmoke(enemy, false);
-		if(enemy == "Suitor_1")
+		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", asWeapon, 0, false);
+		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", asWeapon, false);
+		FadeEnemyToSmoke(asEnemy, false);
+		if(asEnemy == "Suitor_1")
 		{
 			AddTimer("Suitors", 2.0f, "TimerSuitors");			
 			CompleteQuest("DoorPrison_2", "DoorPrison_2");
@@ -229,27 +229,23 @@ void UseHammerOnSuitor(string &in weapon, string &in enemy, int alState)
 	}
 }
 
-void UseHammerOnProp(string &in weapon, string &in collider, int alState)
+void UseHammerOnProp(string &in asWeapon, string &in asTarget, int alState)
 {	
-	float timerLeft = GetTimerTimeLeft(weapon);
-	RemoveTimer(weapon);
-	string theDoor = StringSub(collider, 0, collider.length() - 2);
-
-	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
+	if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
 	{
-		AddPropHealth(theDoor, -25.0f);
-		PlaySoundAtEntity("DoorHit", "MetalMediumBashWood.snt", theDoor, 0, false);
-		CreateParticleSystemAtEntity("HeavyHit", "ps_hit_wood.ps", weapon, false);
-		if(GetPropHealth(theDoor) == 0)
+		string asDoor = StringSub(asTarget, 0, asTarget.length() - 2);
+		AddPropHealth(asDoor, -25.0f);
+		PlaySoundAtEntity("DoorHit", "MetalMediumBashWood.snt", asWeapon, 0, false);
+		CreateParticleSystemAtEntity("HeavyHit", "ps_hit_wood.ps", asWeapon, false);
+		if(GetPropHealth(asDoor) == 0)
 		{
-			SetEntityActive(collider, false);
-			CompleteQuest(theDoor, theDoor);
+			SetEntityActive(asTarget, false);
+			CompleteQuest(asDoor, asDoor);
 		}
 	}
-	AddTimer(weapon, 0.1f - timerLeft, "TimerHammerPosition");
 }
 
-void CollideWater(string &in weapon, string &in collider, int alState)
+void CollideWater(string &in asParent, string &in asChild, int alState)
 {
 	for(int i=1;i<=4;i++) SetEntityActive("waterlurker_"+i, true);	
 }
