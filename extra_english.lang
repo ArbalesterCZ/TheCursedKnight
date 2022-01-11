@@ -377,7 +377,9 @@
 	<CATEGORY Name="Die">
 		<Entry Name="FirstChefMeet">The chef is no longer your friend.</Entry>
 		<Entry Name="Brute">Hide quickly.</Entry>
-		<Entry Name="Hammer">Trust your hammer...</Entry>
+		<Entry Name="Hammer_0">Trust your hammer.</Entry>
+		<Entry Name="Hammer_1">Hit the hammer hard enough.</Entry>
+		<Entry Name="Hammer_2">You have to be faster.</Entry>
 		<Entry Name="KilledByMazeMonsters">Find the way outside.</Entry>
 		<Entry Name="KilledAfterMaze">Trust your will.</Entry>
 		<Entry Name="RunToTheTemple">Run To The Temple!</Entry>

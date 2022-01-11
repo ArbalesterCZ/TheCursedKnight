@@ -1,4 +1,5 @@
 float[] x(10); float[] y(10); float[] z(10); int last;
+int hammer_hint;
 
 void OnStart()
 {
@@ -141,7 +142,8 @@ void OnBreakDoor(string &in entityName, string &in type)
 
 void OnInteractDropDoor(string &in asEntity)
 {
-	CheckPoint("PurgeQuest", "StartAreaPurge", "OnPlayerDie", "Die", "Hammer");
+	hammer_hint = (hammer_hint + 1) % 3;
+	CheckPoint("PurgeQuest", "StartAreaPurge", "OnPlayerDie", "Die", "Hammer_"+hammer_hint);
 	SetMessage("Hints", "HammerTime", 5.0f);
 }
 
@@ -162,6 +164,9 @@ void OnPlayerDie(string &in asName, int alCount)
 	SetPlayerHealth(100.0f);
 	SetPlayerSanity(100.0f);
 	SetPlayerLampOil(MathMax(GetPlayerLampOil(), 50.0f));
+
+	hammer_hint = (hammer_hint + 1) % 3;
+	CheckPoint("PurgeQuest", "StartAreaPurge", "OnPlayerDie", "Die", "Hammer_"+hammer_hint);
 }
 
 void OnPickOrpiment(string &in entityName, string &in type)
