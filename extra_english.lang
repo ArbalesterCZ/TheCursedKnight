@@ -375,7 +375,7 @@
 	</CATEGORY>
 	
 	<CATEGORY Name="Die">
-		<Entry Name="Beta">You dit it.</Entry>
+		<Entry Name="FirstChefMeet">The chef is no longer your friend.</Entry>
 		<Entry Name="Brute">Hide quickly.</Entry>
 		<Entry Name="Hammer">Trust your hammer...</Entry>
 		<Entry Name="KilledByMazeMonsters">Find the way outside.</Entry>

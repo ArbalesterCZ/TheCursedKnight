@@ -190,7 +190,7 @@ void OnLeverChangeState(string &in asEntity, int LeverState)
 		AddEnemyPatrolNode("Grunt", "Path12", 0.001f, "");
 		AddEnemyPatrolNode("Grunt", "Path2", 0.001f, "");
 
-		CheckPoint("BehindChefAttack", "LeverArea", "OnDeathByChef", "", "");
+		CheckPoint("BehindChefAttack", "LeverArea", "OnDeathByChef", "Die", "FirstChefMeet");
     }
 }
 
