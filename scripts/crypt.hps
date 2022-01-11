@@ -152,7 +152,6 @@ void OnPlayerDie(string &in asName, int alCount)
 	SetEntityActive("Suitor_1", true);
 	SetEntityActive("DoorPrison_3_s", true);
 
-	for(int i=1;i<=5;i++) SetEnemyIsHallucination("Suitor_"+i, false);
 	for(int i=1;i<=3;i++) ResetProp("DoorPrison_"+i);
 
 	ResetProp("IronMaiden");
