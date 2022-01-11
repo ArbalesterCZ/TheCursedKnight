@@ -56,7 +56,7 @@
                 <File Id="16" Path="entities/storage/storage_box_wood01/storage_box_wood01_large.ent" />
                 <File Id="17" Path="entities/storage/storage_box_wood02/storage_box_wood02.ent" />
                 <File Id="18" Path="entities/door/level_cellar/level_celler.ent" />
-                <File Id="19" Path="entities/ptest/enemy_suitor/enemy_suitor.ent" />
+                <File Id="19" Path="custom_stories/TheCursedKnight/resources/entities/suitor.ent" />
                 <File Id="20" Path="entities/item/stone_hammer/stone_hammer.ent" />
                 <File Id="21" Path="entities/tool/hammer/hammer.ent" />
                 <File Id="22" Path="entities/ornament/torchholder_empty/torchholder_empty.ent" />
