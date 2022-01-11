@@ -5,9 +5,9 @@ void OnStart()
 	AddUseItemCallback("", "Key", "SmallDoor", "UseKeyOnDoorSpecial", true);
 	AddUseItemCallback("", "Key_store", "Door_store", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "Key_library", "Door_library", "UseKeyOnDoor", true);
-		
+
 	AddEntityCollideCallback("HandleStore", "LeverConnect", "AttachLever", true, 1);		
-	
+
 	// Start setting
 	SetPlayerActive(false);
 	SetPlayerLampOil(0);
@@ -16,17 +16,17 @@ void OnStart()
 	SetMessage("Hints", "Chapter_1", 5.0f);
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	SetMapDisplayNameEntry("GreatHall");
-	
+
 	// Dream cutscene
 	FadeOut(0.0f);
 	FadeIn(3.0f);
-	
+
 	AddTimer("Dark", 5.0f, "TimerDark");
 	AddTimer("Light", 7.0f, "TimerDreamStart");
-	
+
 	AddTimer("Dark", 10.0f, "TimerDark");
 	AddTimer("Light", 12.0f, "TimerDreamShift");
-	
+
 	AddTimer("Dark", 14.0f, "TimerDark");
 	AddTimer("Light", 16.0f, "TimerDreamEnd");
 	AddTimer("WakeUp", 18.0f, "TimerWakeUp");
@@ -91,6 +91,9 @@ void PickKey(string &in asEntity, string &in type)
 	GiveSanityBoostSmall();
 	AddQuest("Exit", "Exit");
 	AddTimer("Exit", 3.0f, "TimerShowMessage");
+
+	CompleteQuest("Barricade", "Barricade");
+	CheckPoint("AfterPickKeyToLibrary", "KitchenArea", "OnDeathMusic", "", "");
 }
 
 void PickKeyStore(string &in asEntity, string &in type)
@@ -159,22 +162,18 @@ void OnLeverChangeState(string &in asEntity, int LeverState)
 		StartScreenShake(0.001f, 0.5f, 0.5f, 0.5f);
 		SetLeverStuckState(asEntity, LeverState, true);
 
-		SetPropHealth("Barricade", 0);
-		SetPropHealth("Barricade_2", 0);
-		SetPropHealth("BoxDestroy", 0);
-		
+		KitchenBarricade(false);
+
 		GiveSanityDamage(40.0f, true);
-		
-		SetEntityActive("CorpseStore", true);
-		CompleteQuest("Barricade", "Barricade");
-		
+
 		AddTimer("Lunch", 2.0f, "TimerShowMessage");
 		AddTimer("react_pant.snt", 2.0f, "TimerScare");
-		
+
 		SetEntityActive("Grunt", true);
-		
+
+		for(int i=1;i<=5;i++) SetEntityActive("Corpse_"+i, true);
 		for(int i=1;i<=7;i++) AddEnemyPatrolNode("Grunt", "Path"+i, 0.001f, "");
-		
+
 		AddEnemyPatrolNode("Grunt", "Path8", 2.5f, "");
 
 		AddEnemyPatrolNode("Grunt", "Path9", 0.001f, "");
@@ -185,15 +184,44 @@ void OnLeverChangeState(string &in asEntity, int LeverState)
 		AddEnemyPatrolNode("Grunt", "Path5", 0.001f, "");
 		AddEnemyPatrolNode("Grunt", "Path11", 0.001f, "");
 		AddEnemyPatrolNode("Grunt", "Path12", 0.001f, "");
-		
+
 		AddEnemyPatrolNode("Grunt", "Path13", 2.5f, "");
-		
+
 		AddEnemyPatrolNode("Grunt", "Path12", 0.001f, "");
 		AddEnemyPatrolNode("Grunt", "Path2", 0.001f, "");
+
+		CheckPoint("BehindChefAttack", "LeverArea", "OnDeathByChef", "", "");
     }
 }
 
 void OnDeathMusic(string &in asName, int alCount)
 {
 	PlayMusic("amb_extra01.ogg", true, 0.8f, 5.0f, 0, true);
+}
+
+void OnDeathByChef(string &in asName, int alCount)
+{
+	SetLeverStuckState("AttachLever", 0, false);
+	ResetProp("AttachLever");
+
+	for(int i=1;i<=5;i++)
+	{
+		SetEntityActive("Corpse_"+i, false);
+		ResetProp("Corpse_"+i);
+	}
+
+	KitchenBarricade(true);
+
+	AddPlayerSanity(40.0f);
+
+	PlayMusic("amb_extra01.ogg", true, 0.8f, 5.0f, 0, true);
+}
+
+void KitchenBarricade(bool build)
+{
+	SetEntityActive("Barricade", build);
+	SetEntityActive("Barricade_1", build);
+	SetEntityActive("Barricade_2", build);
+	SetEntityActive("BarricadeBroken_1", !build);
+	SetEntityActive("BarricadeBroken_2", !build);
 }
