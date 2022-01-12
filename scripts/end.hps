@@ -642,18 +642,7 @@ void UseHammerOnBrute(string &in weapon, string &in enemy, int alState)
 		AddTimer("BruteRespawn", RandFloat(3.75f, 7.25f), "TimerBruteRespawn");
 		AddLocalVarInt("BruteHit", 1);
 		bruteIsActive = false;
-		switch(GetLocalVarInt("BruteHit"))
-		{
-			case 1:
-				SetMessage("Hints", "Fight_BruteHint", 6.5f);
-				break;
-			case 3:
-				SetMessage("Hints", "Fight_AngelHint", 6.5f);
-				break;
-			case 5:
-				SetMessage("Hints", "Fight_FinalHint", 6.5f);
-				break;
-		}
+		SetMessage("Hints", "Final_Fight_"+GetLocalVarInt("BruteHit"), 6.5f);
 	}
 }
 

@@ -361,9 +361,10 @@
 		<Entry Name="BruteConversationEndPart_2">[The dead warrior]: Face me as a knight.</Entry>
 		<Entry Name="BruteConversationEndPart_3">[Angel voice]: I'll send you your hammer.</Entry>
 		
-		<Entry Name="Fight_BruteHint">[The dead warrior]: You cannot kill me.</Entry>
-		<Entry Name="Fight_AngelHint">[Angel voice]: You won't win like this, try to get to the next room.</Entry>
-		<Entry Name="Fight_FinalHint">[Angel voice]: Under the floor is a holy fire, find a weak spot.</Entry>
+		<Entry Name="Final_Fight_1">[The dead warrior]: You cannot kill me.</Entry>
+		<Entry Name="Final_Fight_3">[Angel voice]: You won't win like this, try to get to the next room.</Entry>
+		<Entry Name="Final_Fight_5">[Angel voice]: Under the floor is a holy fire, find a weak spot.</Entry>
+
 		<Entry Name="BruteNotCollide">I have to wait for him to come in here.</Entry>
 		<Entry Name="WeakFloor">The floor looks weak.</Entry>
 		
