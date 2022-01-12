@@ -14,59 +14,59 @@ void OnStart()
 {
 	// Events
 	AddUseItemCallback("", "HammerChipper", "Wall", "UseHammerOnWall", true);
-	
+
 	AddEntityCollideCallback("Player", "Area_HeavyDoorStart", "OnCollidePlayerOnAreaHeavyDoorStart", false, 1);
 	AddEntityCollideCallback("Player", "AreaCheckPoint", "OnCollideCheckPoint", false, 0);
 	AddEntityCollideCallback("Player", "AreaDreamWalk", "OnCollideDreamWalk", false, 0);
 	AddEntityCollideCallback("Player", "AreaGlobalPit", "OnCollideGlobalPit", false, 1);
 	AddEntityCollideCallback("Player", "AreaPit", "OnCollideThePit", true, 1);
 	AddEntityCollideCallback("Player", "AreaEndRoom", "OnCollideEndRoomTorchLit", true, 1);
-	
+
 	for(int i=1;i<=2;i++) 
 	{
 		AddEntityCollideCallback("Player", i + "_DreamLocation", "OnCollideBreakDoor", true, 1);
 	}
-	
+
 	AddEntityCollideCallback("ThrowStone", "AreaThrowPlace", "OnCollideRockToChain", true, 1);
 	AddEntityCollideCallback("BruteFinal", "AreaFinalBruteAltarRoom", "OnCollideLockAltarRoom", true, 1);
-	
+
 	AddEntityCollideCallback("ThrowStone", "AreaGlobalPit", "OnCollideRockToVoid", false, 1);
 	AddEntityCollideCallback("ThrowStone", "AreaThrowVoid", "OnCollideRockToVoid", false, 1);
 	AddEntityCollideCallback("BigHammer", "BruteFinal", "UseHammerOnBrute", false, 1);
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_1", "UseHammerOnCorrupt", false, 1);
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_2", "UseHammerOnCorrupt", false, 1);
-	
-	// Varriable
+
+	// Varriables
 	SetLocalVarInt("OrbsCompleteCount", 0);
 	SetLocalVarInt("OrbQuestIsVisible", 0);
 	SetLocalVarInt("CorruptedBarricadeCount", 2);
 	SetLocalVarInt("BruteHit", 0);
-	
+
 	SetLocalVarInt("1_SafeStepZone", 0);
 	SetLocalVarInt("2_SafeStepZone", 0);
 	SetLocalVarInt("3_SafeStepZone", 0);
 	SetLocalVarInt("4_SafeStepZone", 0);
-	
+
 	SetLocalVarInt("1_ZoneMax", 13);
 	SetLocalVarInt("2_ZoneMax", 16);
 	SetLocalVarInt("3_ZoneMax", 16);
 	SetLocalVarInt("4_ZoneMax", 13);
-	
+
 	// Required Items
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
-	
+
 	// Other
 	StartEvent();
 	SetPlayerRunSpeedMul(0.0f);
 	SetMessage("Hints", "Chapter_6", 5.0f);
 	InteractConnectPropWithMoveObject("HeavyDoorChangeState","Valve_HeavyDoorStart", "HeavyDoorStart", true, false, 0);
-	
+
 	for(int i=1;i<=13;i++) for(int j=1;j<=4;j++)  AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 	for(int i=14;i<=16;i++) for(int j=2;j<=3;j++) AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
-	
+
 	CheckPoint("StartCheckpoint", "StartArea", "OnDeathAtStart", "Die", "Run");
-	
+
 	SetMapDisplayNameEntry("TempleCore");
 	AutoSave();
 }
@@ -155,13 +155,13 @@ void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
 	string door = asChild + "Door";
 	SetPropHealth(door, 40.0f);
 	GiveSanityDamage(30.0f, false);
-	
+
 	PlaySoundAtEntity("DoorHit", "attack_claw_hit.snt", door, 0, false);
-	
+
 	CreateParticleSystemAtEntity("DreamDoorHit", "ps_hit_wood.ps", door, false);
 	CreateParticleSystemAtEntity("DreamDoorHit", "ps_break_wood.ps", door, false);
 	StartScreenShake(0.25f, 0.25f, 0.25f, 0.25f);
-	
+
 	AddTimer("react_pant.snt", 0.75f, "TimerScare");
 	AddTimer(door, 1.5f, "TimerScratchSound");
 }
@@ -182,7 +182,7 @@ void TimerFinalAngelReveal(string &in asTimer)
 	TeleportPlayer("AreaDeathAtAngel");
 	StartPlayerLookAt("TheAngel", 0.75f, 0.75f, "");
 	FadeIn(6.0f);
-	
+
 	for(int i=0;i<=2;i++) AddTimer("WhisperingVoices", 4.25f * i, "TimerWhisperingVoices");
 	AddTimer("GameOver", 12.5f, "TimerGameOver");
 }
@@ -280,10 +280,10 @@ void StartEvent()
 void TimerBruteAI(string &in asTimer)
 {
 	float dangerousZone;
-	
+
 	if(GetLanternActive()) dangerousZone = 22.5f; 
 	else dangerousZone = 15.0f;
-	
+
 	if(Distance("Brute_Start") <= dangerousZone) SetEnemyDisableTriggers("Brute_Start", false);
 	else AddTimer("BruteAI", 0.25f, "TimerBruteAI");
 }
@@ -295,13 +295,13 @@ void TimerBruteStartAttack(string &in asTimer)
 	AddTimer("BruteAI", 0.25f, "TimerBruteAI");
 	AddEnemyPatrolNode("Brute_Start", "PathNode_Start", 0.01f, "");
 	PlayMusic("26_event_brute.ogg", false, 1.0f, 0.0f, 10, false);
-	
+
 	SetPlayerActive(false);
 	StartPlayerLookAt("Brute_Start", 2.75f, 3.25f, "");
-	
+
 	GiveSanityDamage(15.0f, true);
 	AddTimer("StopLookBehind", 1.25f, "TimerStopLookBehind");
-	
+
 	SetPlayerRunSpeedMul(1.0f);
 }
 
@@ -344,7 +344,7 @@ void OnChangeStateLeverHeavyDoorStart(string &in asEntity, int alState)
 	{
 		SetLeverStuckState(asEntity, alState, true);
 		SetMoveObjectState("HeavyDoorStart", 0.0f);
-		
+
 		AddTimer("BruteStartToSmoke", 7.0f, "TimerBruteStartToSmoke");
 	}
 }
@@ -419,7 +419,7 @@ void OnInteractAltar(string &in asEntity)
 	SetLanternActive(false, true);
 	ShowPlayerCrossHairIcons(false);
 	PlayMusic("24_event_vision03", false, 1.0f, 1.0f, 10, false);
-	
+
 	SetEntityActive("TheOrb", true);
 	StartPlayerLookAt("TheOrb", 0.75f, 0.75f, "");
 	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "TheOrb", true);
@@ -428,12 +428,12 @@ void OnInteractAltar(string &in asEntity)
 	StartScreenShake(0.1f, 1.0f, 1.0f, 1.0f);
 
 	DestroySlimeArea("Final_Corrupt_");
-	
+
 	for(int i=1;i<=4;i++) RemoveTimer("" + i);
 	RemoveTimer("ChangeStepSpeed");
-	
+
 	for(int i=1;i<=3;i++) AddTimer("AngelVoiceEndPart_" + i, 5.0f * (i - 1) + 3, "TimerConversation");
-	
+
 	AddTimer("SpawnBruteFinal", 13.0f, "TimerSpawnBruteFinal");
 }
 
@@ -447,7 +447,7 @@ void TimerSpawnBruteFinal(string &in asTimer)
 	SetEntityActive("BruteFinal", true);
 	AddEnemyPatrolNode("BruteFinal", "PathBruteFinal", 10.0f, "");
 	StartPlayerLookAt("BruteFinal", 2.0f, 2.0f, "");
-	
+
 	for(int i=1;i<=3;i++) AddTimer("BruteConversationEndPart_" + i, 5.0f * i, "TimerConversation");
 	AddTimer("SendTheHammer", 15.0f, "TimerSendTheHammer");
 	AddTimer("BruteConversationEnd", 17.5f, "TimerEndConversation");
@@ -483,9 +483,9 @@ void TimerEndConversation(string &in asTimer)
 	ShowPlayerCrossHairIcons(true);
 	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "BigHammer", false);
 	ClearEnemyPatrolNodes("BruteFinal");	
-	
+
 	AddTimer("BigHammer", 0.0f, "TimerHammerPosition");
-	
+
 	CheckPoint("Music_FinalPedestal", "PlayerAfterPedestal_Final", "OnDeathFinalFight", "Die", "FinalFight");
 }
 
@@ -501,33 +501,33 @@ void OnInteractBigHammer(string &in asEntity)
 void OnInteractPedestal(string &in asEntity)
 {
 	PlayMusic("24_event_vision02", false, 1.0f, 1.00f, 10, false);
-	
+
 	string pedestalNumber = StringSub(asEntity, 0, 1);
 	string orb = "Orb_" + pedestalNumber;
 	SetMoveObjectState(pedestalNumber + "_HeavyDoor_1", 1.0f);
-	
+
 	SetEntityActive(orb, true);
 	SetEntityActive("AreaCheckPoint", true);
 	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", orb, true);
 	FadeLightTo("OrbLight_" + pedestalNumber, 0.5f, 0.4f, 0.8f, 1.0f, 8.0f, 3.0f);
 	PlaySoundAtEntity("OrbSound", "03_orb.snt", orb, 0.0f, false);
 	StartScreenShake(0.05f, 0.5f, 0.5f, 0.5f);
-	
+
 	DestroySlimeArea(pedestalNumber + "_Corrupt_");
-	
+
 	string oldQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
 	CompleteQuest(oldQuest, oldQuest);
 	AddLocalVarInt("OrbsCompleteCount", 1);
-	
+
 	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "", "");
-	
+
 	if(GetLocalVarInt("OrbsCompleteCount") == 3)
 	{
 		SetMoveObjectState("MainGate", 1.0f);
 		SetEntityInteractionDisabled("MainGate", true);
 		return;
 	}
-	
+
 	if(GetLocalVarInt("OrbQuestIsVisible") == 1)
 	{
 		string newQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
@@ -625,7 +625,7 @@ void UseHammerOnCorrupt(string &in weapon, string &in enemy, int alState)
 		CreateParticleSystemAtEntity("", "ps_slime_attack_normal.ps", enemy, false);
 		PlaySoundAtEntity("", "slime_attack_normal_hit.snt", enemy, 0.0f, false);
 		SetEntityActive(enemy, false);
-	
+
 		AddLocalVarInt("CorruptedBarricadeCount", -1);
 		if(GetLocalVarInt("CorruptedBarricadeCount") == 0) SetMoveObjectState("BackDoor", 1.0f);
 	}
@@ -652,7 +652,7 @@ void TimerHammerPosition(string &in asTimer)
 	z[last] = GetEntityPosZ(asTimer);
 
 	last = (last + 1) % 10;
-	
+
 	AddTimer(asTimer, 0.01f, "TimerHammerPosition");
 }
 
@@ -690,8 +690,8 @@ void TimerStepZone(string &in asZone)
 void TimerChangeStepSpeed(string &in asTimer)
 {	
 	stepSpeed += stepSpeedShift;
-		if(stepSpeed <= STEP_SPEED_MIN || stepSpeed >= STEP_SPEED_MAX)
-			stepSpeedShift = -stepSpeedShift;
+	if(stepSpeed <= STEP_SPEED_MIN || stepSpeed >= STEP_SPEED_MAX)
+		stepSpeedShift = -stepSpeedShift;
 
 	AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 }
