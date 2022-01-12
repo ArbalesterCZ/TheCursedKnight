@@ -1,10 +1,9 @@
 // STEP_ZONES
 const float STEP_SPEED_MAX = 1.75f;
 const float STEP_SPEED_MIN = 0.75f;
-const float STEP_SPEED_STEP = 0.25f;
 
 float stepSpeed = 1.25f;
-bool isAccelerationStep = true;
+float stepSpeedShift = 0.25f;
 
 // Fight system
 float[] x(10); float[] y(10); float[] z(10); int last;
@@ -690,15 +689,9 @@ void TimerStepZone(string &in asZone)
 
 void TimerChangeStepSpeed(string &in asTimer)
 {	
-	if(isAccelerationStep)
-	{
-		stepSpeed += STEP_SPEED_STEP;
-		if(stepSpeed >= STEP_SPEED_MAX) isAccelerationStep = false;
-	}
-	else 
-	{
-		stepSpeed -= STEP_SPEED_STEP;
-		if(stepSpeed <= STEP_SPEED_MIN) isAccelerationStep = true;
-	}
+	stepSpeed += stepSpeedShift;
+		if(stepSpeed <= STEP_SPEED_MIN || stepSpeed >= STEP_SPEED_MAX)
+			stepSpeedShift = -stepSpeedShift;
+
 	AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 }
