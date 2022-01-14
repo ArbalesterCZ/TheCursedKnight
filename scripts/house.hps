@@ -85,7 +85,7 @@ void TimerHammerPosition(string &in asTimer)
 void TimerChefRespawn(string &in asTimer)
 {
 	SetEntityActive("ChefFinal", true);
-	TeleportEnemyToEntity("ChefFinal", "ChefFinal_" + RandInt(1, 8), "ChefFinal", true);
+	TeleportEnemyToEntity("ChefFinal", "ChefFinal_" + RandInt(1, 6), "ChefFinal", true);
 	CreateParticleSystemAtEntity("ChefFinalEffect", "ps_ghost_release.ps","ChefFinal", false);
 	ShowEnemyPlayerPosition("ChefFinal");
 }

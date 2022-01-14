@@ -2,10 +2,10 @@
     <EditorSession>
         <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
         <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="true" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
-            <Viewport CameraPosition="19 -10.75 244.001" CameraTarget="19 -10.75 64" CameraZoom="0" GridHeight="64" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="199 -10.75 64" CameraTarget="19 -10.75 64" CameraZoom="0" GridHeight="19" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="19 169.252 64" CameraTarget="19 -10.75 64" CameraZoom="0" GridHeight="-10.75" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="18.7782 -5.52818 0.474726" CameraTarget="23.9805 -10.75 0.926347" CameraZoom="1.9126" GridHeight="-10.75" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="-21.75 -4.05035 204.251" CameraTarget="-21.75 -4.05035 24.25" CameraZoom="4.06721" GridHeight="24.25" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="158.25 -4.05035 24.25" CameraTarget="-21.75 -4.05035 24.25" CameraZoom="4.09413" GridHeight="-21.75" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="-21.7494 175.752 24.2476" CameraTarget="-21.7494 -4.25 24.2476" CameraZoom="4.06721" GridHeight="-4.25" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="-20.8214 16.5305 9.17097" CameraTarget="-27.2381 -4.25 9.68537" CameraZoom="0.832194" GridHeight="-4.25" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
@@ -6614,7 +6614,7 @@
                         <Var Name="IsAffectedByDecal" Value="true" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="128" Group="0" ID="1238" Name="chest_of_drawers_nice_1" Rotation="3.14159 -0.785402 3.14159" Scale="1 1 1" Tag="" WorldPos="-22.25 -5 23.5">
+                <Entity Active="true" FileIndex="128" Group="0" ID="1238" Name="chest_of_drawers_nice_1" Rotation="3.14159 -4.94719e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="-22 -5 24.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -7102,13 +7102,13 @@
                         <Var Name="IsAffectedByDecal" Value="true" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="136" Group="0" ID="1293" Name="tome_pile02_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="-21.75 -4.30002 23.25">
+                <Entity Active="true" FileIndex="136" Group="0" ID="1293" Name="tome_pile02_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="-21.75 -4.3 24.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="IsAffectedByDecal" Value="true" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="137" Group="0" ID="1294" Name="tome_pile01_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="-22.5201 -4.30002 23.7879">
+                <Entity Active="true" FileIndex="137" Group="0" ID="1294" Name="tome_pile01_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="-22.5 -4.3 24.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="IsAffectedByDecal" Value="true" />
@@ -7482,7 +7482,7 @@
                 </Area>
                 <PointLight Active="true" CastShadows="false" DiffuseColor="0.6 1 1 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0.2" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="1.49012e-08" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="1397" Name="LightHammer" Radius="2" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="-28.75 -5.5 9" />
                 <PointLight Active="true" CastShadows="false" DiffuseColor="0.6 1 1 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0.2" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0.01" GoboAnimMode="Oscillate" Group="0" ID="1398" Name="GreenLightKnife" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="-28.75 -4 -5.75" />
-                <Entity Active="false" FileIndex="64" Group="0" ID="1399" Name="ChefFinal_1" Rotation="3.14158 1.30898 3.14158" Scale="1 1 1" Tag="" WorldPos="-35.25 -5.75 9">
+                <Entity Active="false" FileIndex="64" Group="0" ID="1401" Name="ChefFinal_5" Rotation="-3.14159 -2.14577e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="-29.5 -5.75 23.25">
                     <UserVariables>
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="DisableTriggers" Value="false" />
@@ -7490,7 +7490,7 @@
                         <Var Name="HallucinationEndDist" Value="3" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1400" Name="ChefFinal_2" Rotation="0.298833 -1.5708 -0.298835" Scale="1 1 1" Tag="" WorldPos="-21.25 -4.75 8">
+                <Entity Active="false" FileIndex="64" Group="0" ID="1402" Name="ChefFinal_2" Rotation="2.02207e-07 -2.38419e-06 -2.29676e-06" Scale="1 1 1" Tag="" WorldPos="-29.5 -5.75 -4.75">
                     <UserVariables>
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="DisableTriggers" Value="false" />
@@ -7498,7 +7498,7 @@
                         <Var Name="HallucinationEndDist" Value="3" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1401" Name="ChefFinal_3" Rotation="-3.14159 -2.14577e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="-29.5 -5.75 15.75">
+                <Entity Active="false" FileIndex="64" Group="0" ID="1403" Name="ChefFinalStart" Rotation="0.298833 -1.5708 -0.298835" Scale="1 1 1" Tag="" WorldPos="-22.25 -5.75 9">
                     <UserVariables>
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="DisableTriggers" Value="false" />
@@ -7506,7 +7506,7 @@
                         <Var Name="HallucinationEndDist" Value="3" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1402" Name="ChefFinal_4" Rotation="2.02207e-07 -2.38419e-06 -2.29676e-06" Scale="1 1 1" Tag="" WorldPos="-29.5 -5.75 2.25">
+                <Entity Active="false" FileIndex="64" Group="0" ID="1404" Name="ChefFinal_1" Rotation="2.85963e-07 0.785395 -2.09456e-06" Scale="1 1 1" Tag="" WorldPos="-35 -5.75 -2">
                     <UserVariables>
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="DisableTriggers" Value="false" />
@@ -7514,7 +7514,7 @@
                         <Var Name="HallucinationEndDist" Value="3" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1403" Name="ChefFinalStart" Rotation="0.298833 -1.5708 -0.298835" Scale="1 1 1" Tag="" WorldPos="-22.25 -5.75 8">
+                <Entity Active="false" FileIndex="64" Group="0" ID="1405" Name="ChefFinal_3" Rotation="2.85964e-07 -0.785399 -2.49897e-06" Scale="1 1 1" Tag="" WorldPos="-22 -5.75 -2">
                     <UserVariables>
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="DisableTriggers" Value="false" />
@@ -7522,7 +7522,7 @@
                         <Var Name="HallucinationEndDist" Value="3" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1404" Name="ChefFinal_5" Rotation="2.85963e-07 0.785395 -2.09456e-06" Scale="1 1 1" Tag="" WorldPos="-34 -5.75 3">
+                <Entity Active="false" FileIndex="64" Group="0" ID="1406" Name="ChefFinal_4" Rotation="3.14159 -0.785399 3.14159" Scale="1 1 1" Tag="" WorldPos="-22 -5.75 20.25">
                     <UserVariables>
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="DisableTriggers" Value="false" />
@@ -7530,23 +7530,7 @@
                         <Var Name="HallucinationEndDist" Value="3" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1405" Name="ChefFinal_6" Rotation="2.85964e-07 -0.785399 -2.49897e-06" Scale="1 1 1" Tag="" WorldPos="-23.5 -5.75 3">
-                    <UserVariables>
-                        <Var Name="CallbackFunc" Value="" />
-                        <Var Name="DisableTriggers" Value="false" />
-                        <Var Name="Hallucination" Value="false" />
-                        <Var Name="HallucinationEndDist" Value="3" />
-                    </UserVariables>
-                </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1406" Name="ChefFinal_7" Rotation="3.14159 -0.785399 3.14159" Scale="1 1 1" Tag="" WorldPos="-23.5 -5.75 13.5">
-                    <UserVariables>
-                        <Var Name="CallbackFunc" Value="" />
-                        <Var Name="DisableTriggers" Value="false" />
-                        <Var Name="Hallucination" Value="false" />
-                        <Var Name="HallucinationEndDist" Value="3" />
-                    </UserVariables>
-                </Entity>
-                <Entity Active="false" FileIndex="64" Group="0" ID="1407" Name="ChefFinal_8" Rotation="3.14159 0.785395 3.14159" Scale="1 1 1" Tag="" WorldPos="-34 -5.75 13.5">
+                <Entity Active="false" FileIndex="64" Group="0" ID="1407" Name="ChefFinal_6" Rotation="3.14159 0.785395 3.14159" Scale="1 1 1" Tag="" WorldPos="-35 -5.75 20.25">
                     <UserVariables>
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="DisableTriggers" Value="false" />
@@ -7556,25 +7540,6 @@
                 </Entity>
                 <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="ps_light_dust_large.ps" Group="0" ID="1415" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="light_dust_large_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="-55.75 0.75 5" />
                 <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="ps_light_dust_large.ps" Group="0" ID="1416" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="light_dust_large_2" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="-55.75 2.75 5" />
-                <Entity Active="true" FileIndex="32" Group="0" ID="1417" Name="stool_wood_4" Rotation="0 -0.785397 0" Scale="1.5 1.75 1.5" Tag="" WorldPos="-21.5 -5.75 24.25">
-                    <UserVariables>
-                        <Var Name="CastShadows" Value="true" />
-                        <Var Name="StaticPhysics" Value="true" />
-                        <Var Name="IsAffectedByDecal" Value="false" />
-                        <Var Name="CallbackFunc" Value="" />
-                        <Var Name="ConnectedProps" Value="" />
-                        <Var Name="ConnectionStateChangeCallback" Value="" />
-                        <Var Name="FullGameSave" Value="false" />
-                        <Var Name="PlayerLookAtCallback" Value="" />
-                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="" />
-                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="ContainedItem" Value="None" />
-                        <Var Name="DisableBreakable" Value="false" />
-                        <Var Name="IsInsanityVision" Value="false" />
-                        <Var Name="VisionMaxSanity" Value="30" />
-                    </UserVariables>
-                </Entity>
                 <Area Active="true" AreaType="Script" Group="0" ID="1418" Mesh="" Name="AreaStopMusic" Rotation="0 0 0" Scale="16.5 4.25 12.5" Tag="" WorldPos="0 -9.75 17">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
@@ -7585,7 +7550,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <BoxLight Active="true" BlendFunc="0" CastShadows="false" DiffuseColor="0 0 0 0" FalloffMap="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../lights/light_falloff_short_fade.tga" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="1419" Name="RedLight" Radius="1" Rotation="0 0 0" Scale="16.25 4.25 32.25" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Size="16.25 4.25 32.25" Tag="" WorldPos="-28.75 -4 9" />
+                <BoxLight Active="true" BlendFunc="0" CastShadows="false" DiffuseColor="0 0 0 0" FalloffMap="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../lights/light_falloff_short_fade.tga" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="1419" Name="RedLight" Radius="1" Rotation="0 0 0" Scale="16.25 4.25 32.25" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Size="16.25 4.25 32.25" Tag="" WorldPos="-28.75 -4 9" />
                 <Area Active="true" AreaType="PathNode" Group="0" ID="1421" Mesh="" Name="PathnodeChefFinalStrike_2" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="-28.75 -5.74 -4.5">
                     <UserVariables />
                 </Area>
@@ -8002,8 +7967,8 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Sound Active="true" Group="0" ID="1482" MaxDistance="3.5" MinDistance="0" Name="SoundFire_1" Rotation="0 0 0" Scale="1 1 1" SoundEntityFile="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../opt/Steam/steamapps/common/Amnesia The Dark Descent/sounds/general/general_fire_burning_low.snt" Tag="" UseDefault="false" Volume="1" WorldPos="18.5 -11.5 0.5" />
-                <Sound Active="true" Group="0" ID="1483" MaxDistance="3.5" MinDistance="0" Name="SoundFire_2" Rotation="0 0 0" Scale="1 1 1" SoundEntityFile="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../opt/Steam/steamapps/common/Amnesia The Dark Descent/sounds/general/general_fire_burning_low.snt" Tag="" UseDefault="false" Volume="1" WorldPos="18.5 -11.5 13" />
+                <Sound Active="true" Group="0" ID="1482" MaxDistance="3.5" MinDistance="0" Name="SoundFire_1" Rotation="0 0 0" Scale="1 1 1" SoundEntityFile="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../opt/Steam/steamapps/common/Amnesia The Dark Descent/sounds/general/general_fire_burning_low.snt" Tag="" UseDefault="false" Volume="1" WorldPos="18.5 -11.5 0.5" />
+                <Sound Active="true" Group="0" ID="1483" MaxDistance="3.5" MinDistance="0" Name="SoundFire_2" Rotation="0 0 0" Scale="1 1 1" SoundEntityFile="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../opt/Steam/steamapps/common/Amnesia The Dark Descent/sounds/general/general_fire_burning_low.snt" Tag="" UseDefault="false" Volume="1" WorldPos="18.5 -11.5 13" />
                 <Entity Active="true" FileIndex="146" Group="0" ID="1485" Name="storage_box_wood02_moveable_2" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="15.75 -12 -0.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
