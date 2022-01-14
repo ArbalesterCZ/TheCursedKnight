@@ -2,13 +2,12 @@ float[] x(10); float[] y(10); float[] z(10); int last;
 
 void OnStart()
 {
-	// Events
 	AddUseItemCallback("", "item", "AcidContainer", "OnUseItemOnAcid", true);
 	AddUseItemCallback("", "RustyKey", "LockedDoorHouse", "UseRustyKeyOnDoor", true);
 	AddUseItemCallback("", "RustyKey", "AcidContainer", "UseRustyKeyOnAcid", true);
 	AddUseItemCallback("", "PurgeKey", "LockedDoorHouse", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "HammerChipper", "WoodenBarricadeHouse", "UseHammerOnBarricade", true);	
-	
+
 	AddEntityCollideCallback("Player", "LiquidArea_1", "OnColliderLiquid", true, 1);
 	AddEntityCollideCallback("Player", "AreaPigRise", "OnColliderPigRise", true, 1);
 	AddEntityCollideCallback("Player", "AreaAfterHeavyDoor", "OnCollideAreaAfterHeavyDoor", true, 1);
@@ -18,7 +17,7 @@ void OnStart()
 	AddEntityCollideCallback("Player", "AreaNoble", "OnColliderNoblePlace", true, 1);
 	AddEntityCollideCallback("Player", "HideFromChef", "OnColliderHideFromChef", true, 1);
 	AddEntityCollideCallback("Player", "AreaStopMusic", "OnColliderStopWaterMusic", false, 1);
-	
+
 	for(int i=1;i<=2;i++)
 	{
 		AddEntityCollideCallback("Player", "AreaFireDamage_" + i, "OnColliderFireDamage", false, 0);
@@ -26,15 +25,13 @@ void OnStart()
 		AddEntityCollideCallback("barrel_" + i, "AreaBarrelBoost", "OnColliderBarrelBoost", true, 1);
 		AddEntityCollideCallback("barrel_" + i, "AreaDestoryBarrels", "OnColliderBarrelDestroy", true, 1);	
 	}
-	
+
 	AddEntityCollideCallback("Chef", "AreaSetHalluciation", "OnColliderBeSafe", false, 1);
 	AddEntityCollideCallback("TheHammer", "ChefFinal", "UseHammerOnChef", false, 1);
 		
-	// Required Items
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
-	
-	// Other
+
 	PlayMusic("07_amb.ogg", true, 0.8f, 0, 0, true);
 	SetLightVisible("CabinetLight", false);
 	SetLightVisible("LightHammer", false);
@@ -100,7 +97,7 @@ void OnPickFreshMeat(string &in asEntity, string &in asType)
 	SetEntityActive("FreshMeatBone", true);
 	CreateParticleSystemAtEntity("FreshMeatEat", "blood.ps", "FreshMeatBone", false);
 	PlaySoundAtEntity("", "21_meat_squeaz.snt", "FreshMeatBone", 0, false);
-	
+
 	GiveSanityDamage(15.0f, true);
 	AddTimer("hurt_pant.snt", 0.65f, "TimerScare");	
 }
@@ -131,11 +128,11 @@ void OnColliderAreaChefFirstAttack(string &in asParent, string &in asChild, int 
 	SetMessage("Hints", "ChefFirst", 4.0f);
 	PlayMusic("04_event_hole.ogg", false, 1.8f, 0, 10, false);
 	PlaySoundAtEntity("ChefGuardian", "guardian_distant.snt", "SecretDoor", 0.0f, false);
-	
+
 	AddTimer("StopLook", 1.75f, "TimerLookComplete");
 	AddTimer("CloseShelf", 1.75f, "TimerCloseShelf");
 	AddTimer("DropBarrels", 2.00f, "TimerDropBarrels");
-	
+
 	SetEntityActive("BoxLight", true);
 }
 
@@ -145,7 +142,7 @@ void OnColliderAreaChefSecondAttack(string &in asParent, string &in asChild, int
 
 	SetPropActiveAndFade("SmokeDoor_1", false, 1.0f);
 	SetPropActiveAndFade("SmokeDoor_2", true, 1.0f);
-		
+
 	AddTimer("LetsAttack", 1.0f, "TimerLetsAttack");
 }
 
@@ -154,7 +151,7 @@ void TimerLetsAttack(string &in asTimer)
 	SetEntityActive("Chef", true);
 	CreateParticleSystemAtEntity("ChefSpawn", "ps_ghost_release.ps", "Chef", false);
 	GiveSanityDamage(20.0f, true);
-	
+
 	AddEnemyPatrolNode("Chef", "PosNodeArea_1", 0.001f, "");
 }
 
@@ -162,7 +159,7 @@ void OnCollideAreaAfterHeavyDoor(string &in asParent, string &in asChild, int al
 {
 	CompleteQuest("HeavyDoorHouse", "HeavyDoorHouse");
 	GiveSanityBoostSmall();
-	
+
 	CheckPoint("AfterHeavyDoor", "StartAfterHeavyDoor", "OnDeathChefRestoreWater", "", "");
 }
 
@@ -189,10 +186,10 @@ void OnDeathChefAttack(string &in asName, int alCount)
 {
 	AddEntityCollideCallback("Player", "AreaChefSecondAttack", "OnColliderAreaChefSecondAttack", true, 1);
 	AddEntityCollideCallback("Player", "LiquidArea_1", "OnColliderLiquid", true, 1);
-	
+
 	SetEntityActive("SmokeDoor_1", true);
 	SetEntityActive("SmokeDoor_2", false);
-	
+
 	ResetProp("EscapeCabinet");
 	for(int i=1;i<=3;i++) ResetProp("EscapeCabinet_" + i);
 }
@@ -205,15 +202,10 @@ void OnColliderBarrelPlayer(string &in asParent, string &in asChild, int alState
 
 void OnColliderFireDamage(string &in asParent, string &in asChild, int alState)
 {
-	switch(alState)
-	{
-		case 1:
+	if(alState == 1)
 		AddTimer("FireDamage", 0.0f, "TimerFireDamage");
-		break;
-		case -1:
+	else
 		RemoveTimer("FireDamage");
-		break;
-	}
 }
 
 void TimerFireDamage(string &in asTimer)
@@ -240,7 +232,7 @@ void OnColliderLiquid(string &in asParent, string &in asChild, int alState)
 void OnColliderBeSafe(string &in asParent, string &in asChild, int alState)
 {
 	SetEntityActive("AreaChefSecondAttack", false);
-	
+
 	SetPropActiveAndFade("SmokeDoor_2" ,false, 2.5f);
 	FadeEnemyToSmoke(asParent, true);
 	CheckPoint("ChefAttackAfter_2", "StartAreaAfterChefAttack_2", "OnDeathChefRestoreWater", "", "");
@@ -257,15 +249,15 @@ void OnColliderHideFromChef(string &in asParent, string &in asChild, int alState
 	SetEntityActive("ChefFinal", false);
 	GiveSanityDamage(100.0f, false);
 	FadeOut(2.0f);
-	
+
 	AddTimer("ChangeIntoAngel", 2.0f, "TimerChangeIntoAngel");
 	AddTimer("2.0f", 2.5f, "TimerFadeIn");
 }
 void UseKeyOnDoor(string &in asItem, string &in asEntity)
 {
-   	SetSwingDoorLocked(asEntity, false, true);
+	SetSwingDoorLocked(asEntity, false, true);
 	SetLevelDoorLocked(asEntity, false);
-   	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
+	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
 	RemoveItem(asItem);
 	CompleteQuest(asEntity, asEntity);
 }
@@ -306,15 +298,15 @@ void UseRustyKeyOnAcid(string &in asItem, string &in asEntity)
 {
 	PlayGuiSound("18_water_drip.snt", 1.0f);
 	PlayGuiSound("puzzle_acid.snt", 1.5f);
-	
+
 	GiveSanityBoostSmall();
-	
+
 	RemoveItem(asItem);
-	
+
 	GiveItem("PurgeKey", "key_tomb.ent", "PurgeKey", "key_tomb.tga", 1.0f);
-	
+
 	CompleteQuest("PurgeTheKey", "RustyKeyOnDoor");
-	
+
 	AddBubbleEffect(6.25f);
 }
 
@@ -323,7 +315,7 @@ void OnInteractAcid(string &in door)
 	SetMessage("Hints", "AcidTouch", 5.0f);
 	GivePlayerDamage(15.0f, "BloodSplat", false, false);
 	PlayGuiSound("puzzle_acid.snt", 1.5f);
-	
+
 	AddBubbleEffect(3.25f);
 }
 
@@ -364,7 +356,7 @@ void OnPlayerInteractTheBed(string &in door)
 	SetPlayerActive(false);
 	FadePlayerFOVMulTo(0.5f, 1.0f);
 	FadeOut(1.5f);
-	
+
 	AddTimer("1.5f", 4.5f, "TimerFadeIn");
 	AddTimer("Restore", 6.0f, "TimerRestore");	
 }
@@ -376,7 +368,7 @@ void TimerRestore(string &in asTimer)
 	FadePlayerFOVMulTo(1.0f, 4.0f);
 	SetPlayerCrouching(false);
 	SetPlayerActive(true);
-	
+
 	SetMessage("Hints", "Restore", 4.0f);
 }
 
@@ -392,10 +384,10 @@ void Sacrifice()
 	GivePlayerDamage(15.0f, "Slash", true, false);
 	GiveSanityDamage(110.0f, false);
 	FadeOut(1.5f);
-	
+
 	ReplaceEntity("ClearAltar", "ClearAltar", "BloodyAltar", "special_altar_static_knife_bloody.ent", false);
 	SetLightVisible("GreenLightKnife", false);
-	
+
 	AddTimer("ChangeRoom", 1.5f, "TimerChangeRoom");
 	AddTimer("1.5f", 2.0f, "TimerFadeIn");
 }
@@ -506,15 +498,15 @@ void TimerChangeRoom(string &in asTimer)
 void TimerChangeIntoAngel(string &in asTimer)
 {
 	PlayMusic("09_amb_safe.ogg", false, 1.0f, 0.0f, 10, false);
-	
+
 	SetPlayerActive(false);
 	SetPlayerCrouching(false);
 	SetLanternActive(false, true);
 	TeleportPlayer("AreaAngel");
 	StartPlayerLookAt("AngelStatue", 10.0f, 10.0f, "");
-	
+
 	for(int i=1;i<=8;i++) AddTimer("AngelPart_" + i, 5.0f * i, "TimerAngelConversation");
-	
+
 	AddTimer("ReturnFromAngel", 45.0f, "TimerChangeFromAngel");
 }
 
@@ -543,7 +535,7 @@ void TimerTeleportFromAngelVision(string &in asTextEntry)
 	AddQuest("KillTheChef", "KillTheChef");
 
 	SetPlayerActive(true);
-	
+
 	CheckPoint("DeathDuringTheFight", "AreaHide", "OnDeathDuringFight", "Die", "DeathFromChefFinal_2");
 }
 
