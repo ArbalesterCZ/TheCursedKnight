@@ -1,0 +1,7 @@
+*.hps linguist-language=AngelScript
+
+*.lang linguist-language=XML
+*.cfg linguist-language=XML
+*.map linguist-language=XML
+*.ent linguist-language=XML
+*.snt linguist-language=XML
