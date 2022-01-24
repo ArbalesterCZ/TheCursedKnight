@@ -1,3 +1,5 @@
+const uint8[] STEP_MAX_SIZES = { 13, 16, 16, 13 };
+
 const float STEP_SPEED_MAX = 1.75f;
 const float STEP_SPEED_MIN = 0.75f;
 
@@ -39,15 +41,10 @@ void OnStart()
 	SetLocalVarInt("CorruptedBarricadeCount", 2);
 	SetLocalVarInt("BruteHit", 0);
 
+	SetLocalVarInt("0_SafeStepZone", 0);
 	SetLocalVarInt("1_SafeStepZone", 0);
 	SetLocalVarInt("2_SafeStepZone", 0);
 	SetLocalVarInt("3_SafeStepZone", 0);
-	SetLocalVarInt("4_SafeStepZone", 0);
-
-	SetLocalVarInt("1_ZoneMax", 13);
-	SetLocalVarInt("2_ZoneMax", 16);
-	SetLocalVarInt("3_ZoneMax", 16);
-	SetLocalVarInt("4_ZoneMax", 13);
 
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
@@ -531,7 +528,7 @@ void TimerBruteStartToSmoke(string &in asTimer)
 		FadeEnemyToSmoke("Brute_Start", false);
 		SetEntityPlayerInteractCallback("1_Pedestal", "OnInteractPedestal", true);
 		
-		for(int i=1;i<=4;i++) AddTimer("" + i, 1.0f, "TimerStepZone");
+		for(int i=0;i<4;i++) AddTimer("" + i, 1.0f, "TimerStepZone");
 		AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 	}
 }
@@ -648,14 +645,17 @@ void TimerBruteRespawn(string &in asTimer)
 void TimerStepZone(string &in asIndex)
 {
 	int stepZone = GetLocalVarInt(asIndex + "_SafeStepZone");
+
 	SetEntityActive(asIndex + "_AreaStepZone_" + stepZone, true);
 	CreateParticleSystemAtEntity(asIndex + "_DangerousZoneParticle_" + stepZone, "ps_fire_orb_room.ps", asIndex + "_AreaStepZone_" + stepZone, true);
 	PlaySoundAtEntity(asIndex + "_SoundStepZone_" + stepZone, "29_fire.snt", asIndex + "_AreaStepZone_" + stepZone, 0.25f, true);
 
-	stepZone = (stepZone + 1) % GetLocalVarInt(asIndex + "_ZoneMax");
+	const uint8 max = STEP_MAX_SIZES[StringToInt(asIndex)];
+
+	stepZone = (stepZone + 1) % max;
 	SetLocalVarInt(asIndex + "_SafeStepZone", stepZone);
 
-	stepZone = (stepZone + 3) % GetLocalVarInt(asIndex + "_ZoneMax");
+	stepZone = (stepZone + 3) % max;
 	SetEntityActive(asIndex + "_AreaStepZone_" + stepZone, false);
 	DestroyParticleSystem(asIndex + "_DangerousZoneParticle_" + stepZone);
 	StopSound(asIndex + "_SoundStepZone_" + stepZone, 0.25f);
