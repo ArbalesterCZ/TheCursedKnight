@@ -1,10 +1,5 @@
-const uint8[] STEP_MAX_SIZES = { 13, 16, 16, 13 };
-
-const float STEP_SPEED_MAX = 1.75f;
-const float STEP_SPEED_MIN = 0.75f;
-
 float stepSpeed = 1.25f;
-float stepSpeedShift = 0.25f;
+float stepSpeedShift = 0.125f;
 
 float[] x(10); float[] y(10); float[] z(10); int last;
 
@@ -21,7 +16,7 @@ void OnStart()
 	AddEntityCollideCallback("Player", "AreaPit", "OnCollideThePit", true, 1);
 	AddEntityCollideCallback("Player", "AreaEndRoom", "OnCollideEndRoomTorchLit", true, 1);
 
-	for(int i=1;i<=2;i++) 
+	for(int i=1;i<=2;i++)
 		AddEntityCollideCallback("Player", i + "_DreamLocation", "OnCollideBreakDoor", true, 1);
 
 	AddEntityCollideCallback("ThrowStone", "AreaThrowPlace", "OnCollideRockToChain", true, 1);
@@ -33,8 +28,9 @@ void OnStart()
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_1", "UseHammerOnCorrupt", false, 1);
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_2", "UseHammerOnCorrupt", false, 1);
 
-	for(int i=1;i<=13;i++) for(int j=1;j<=4;j++)  AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
-	for(int i=14;i<=16;i++) for(int j=2;j<=3;j++) AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
+	for(int i=1;i<=16;i++)
+		for(int j=1;j<=4;j++)
+			AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 
 	SetLocalVarInt("OrbsCompleteCount", 0);
 	SetLocalVarInt("OrbQuestIsVisible", 0);
@@ -469,8 +465,9 @@ void OnInteractBigHammer(string &in asEntity)
 	SetEnemyDisableTriggers("BruteFinal", false);
 	bruteIsActive = true;
 	PlayMusic("14_elevator_falls.ogg", true, 1.0f, 0.0f, 10, true);
-	if(RandInt(0, 1) == 1) for(int i=1;i<=5;i++)
-		AddEnemyPatrolNode("BruteFinal", "PathBruteSecondPath_" + i, 0.01f, "");
+	if(RandInt(0, 1) == 1)
+		for(int i=1;i<=5;i++)
+			AddEnemyPatrolNode("BruteFinal", "PathBruteSecondPath_" + i, 0.01f, "");
 	else
 		for(int i=5;i>=1;i--)
 			AddEnemyPatrolNode("BruteFinal", "PathBruteSecondPath_" + i, 0.01f, "");
@@ -650,12 +647,10 @@ void TimerStepZone(string &in asIndex)
 	CreateParticleSystemAtEntity(asIndex + "_DangerousZoneParticle_" + stepZone, "ps_fire_orb_room.ps", asIndex + "_AreaStepZone_" + stepZone, true);
 	PlaySoundAtEntity(asIndex + "_SoundStepZone_" + stepZone, "29_fire.snt", asIndex + "_AreaStepZone_" + stepZone, 0.25f, true);
 
-	const uint8 max = STEP_MAX_SIZES[StringToInt(asIndex)];
-
-	stepZone = (stepZone + 1) % max;
+	stepZone = (stepZone + 1) % 16;
 	SetLocalVarInt(asIndex + "_SafeStepZone", stepZone);
 
-	stepZone = (stepZone + 3) % max;
+	stepZone = (stepZone + 3) % 16;
 	SetEntityActive(asIndex + "_AreaStepZone_" + stepZone, false);
 	DestroyParticleSystem(asIndex + "_DangerousZoneParticle_" + stepZone);
 	StopSound(asIndex + "_SoundStepZone_" + stepZone, 0.25f);
@@ -667,8 +662,8 @@ void TimerStepZone(string &in asIndex)
 void TimerChangeStepSpeed(string &in asTimer)
 {
 	stepSpeed += stepSpeedShift;
-	if(stepSpeed <= STEP_SPEED_MIN || stepSpeed >= STEP_SPEED_MAX)
+	if(stepSpeed <= 0.5f || stepSpeed >= 2.0f)
 		stepSpeedShift = -stepSpeedShift;
 
-	AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
+	AddTimer("ChangeStepSpeed", 2/stepSpeed , "TimerChangeStepSpeed");
 }

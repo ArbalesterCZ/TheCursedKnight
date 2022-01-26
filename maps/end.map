@@ -2,10 +2,10 @@
     <EditorSession>
         <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
         <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="true" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
-            <Viewport CameraPosition="72 1.75 220" CameraTarget="72 1.75 40" CameraZoom="0" GridHeight="40" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="251.999 1.75 40" CameraTarget="72 1.75 40" CameraZoom="0" GridHeight="72" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="72 181.75 40" CameraTarget="72 1.75 40" CameraZoom="0" GridHeight="1.75" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="86.6935 17.771 4.26639" CameraTarget="87.0988 1.75 1.96076" CameraZoom="1.12756" GridHeight="1.75" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
+            <Viewport CameraPosition="46.75 2.02174 169.501" CameraTarget="46.75 2.02174 -10.499" CameraZoom="2.10945" GridHeight="-10.5" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="226.749 2.02174 -10.5" CameraTarget="46.75 2.02174 -10.5" CameraZoom="2.10945" GridHeight="46.75" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="46.75 180 -10.499" CameraTarget="46.75 0 -10.499" CameraZoom="2.12026" GridHeight="0" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="46.0751 3.82394 -14.4095" CameraTarget="45.3254 0 -7.11542" CameraZoom="1.79942" GridHeight="0" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
@@ -155,9 +155,7 @@
                 <StaticObject CastShadows="true" Collides="true" FileIndex="6" Group="0" ID="2132" Name="ceiling_concave_worn_5" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="32.25 8 8" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="7" Group="0" ID="2133" Name="ceiling_corner_concave_worn_1" Rotation="3.14159 4.44253e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="34.25 8 12" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="10" Group="0" ID="2136" Name="stairs_default_worn_1" Rotation="-0.00967121 -1.5708 0.00967145" Scale="1 1 1" Tag="" WorldPos="41.25 0 0" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="11" Group="0" ID="2137" Name="stairs_railing_worn_1" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="54 0 -13.25" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="12" Group="0" ID="2138" Name="stairs_welder_worn_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="41.25 0 2" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="9" Group="0" ID="2142" Name="wall_welder_convex_worn_1" Rotation="0 0 0" Scale="1.25 1 1.25" Tag="" WorldPos="52.25 0 -13.25" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2143" Name="wall_default_worn_5" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="32.25 0 12" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="2144" Name="wall_default_extension_worn_6" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="32.25 4 12" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2145" Name="wall_default_worn_6" Rotation="0 3.1416 0" Scale="1 1 1" Tag="" WorldPos="34.25 0 14" />
@@ -240,21 +238,16 @@
                 <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="2250" Name="wall_door_frame_plain_worn_2" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="44.375 0 -12" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2251" Name="wall_door_way_worn_3" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="44.25 0 -12" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="7" Group="0" ID="2252" Name="ceiling_corner_concave_worn_8" Rotation="0 -2.14577e-06 -2.6226e-06" Scale="1 1 1" Tag="" WorldPos="42.25 8 -12" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="11" Group="0" ID="2278" Name="stairs_railing_worn_2" Rotation="3.14159 2.17755e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="52.25 0 -15.5" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="9" Group="0" ID="2279" Name="wall_welder_convex_worn_2" Rotation="0 0 0" Scale="1.25 1 1.25" Tag="" WorldPos="48.5 0 -10.5" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2295" Name="wall_default_worn_37" Rotation="3.14159 1.5708 3.14159" Scale="1 1 1" Tag="" WorldPos="44.5 0 -8" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2296" Name="wall_door_way_worn_4" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="44.5 0 -12" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2297" Name="wall_default_worn_38" Rotation="3.14159 1.5708 3.14159" Scale="1 1 1" Tag="" WorldPos="44.5 0 -16" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2298" Name="wall_default_worn_39" Rotation="0 2.14577e-06 0" Scale="1 1 1" Tag="" WorldPos="46.5 0 -18" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2299" Name="wall_door_way_worn_5" Rotation="0 2.26498e-06 0" Scale="1 1 1" Tag="" WorldPos="50.5 0 -18" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2300" Name="wall_default_worn_40" Rotation="0 2.14577e-06 0" Scale="1 1 1" Tag="" WorldPos="54.5 0 -18" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2301" Name="wall_default_worn_41" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="56.5 0 -16" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2302" Name="wall_door_way_worn_6" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="56.5 0 -12" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2303" Name="wall_default_worn_42" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="56.5 0 -8" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="2304" Name="wall_door_frame_plain_worn_3" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="56.625 0 -12" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="2305" Name="wall_door_frame_plain_worn_4" Rotation="3.14159 -1.43051e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="50.75 0 -17.875" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2306" Name="wall_door_way_worn_7" Rotation="3.14159 1.5708 3.14159" Scale="1 1 1" Tag="" WorldPos="56.75 0 -12" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2315" Name="wall_door_way_worn_8" Rotation="3.14159 2.17755e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="50.75 0 -18" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2298" Name="wall_default_worn_39" Rotation="0 2.14577e-06 0" Scale="1 1 1" Tag="" WorldPos="46.5 0 -13.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2299" Name="wall_door_way_worn_5" Rotation="0 2.26498e-06 0" Scale="1 1 1" Tag="" WorldPos="50.5 0 -13.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2302" Name="wall_door_way_worn_6" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="52.5 0 -12" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="2304" Name="wall_door_frame_plain_worn_3" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="52.75 0 -12" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="2305" Name="wall_door_frame_plain_worn_4" Rotation="3.14159 -1.43051e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="50.75 0 -14" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2306" Name="wall_door_way_worn_7" Rotation="3.14159 1.5708 3.14159" Scale="1 1 1" Tag="" WorldPos="52.75 0 -12" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2315" Name="wall_door_way_worn_8" Rotation="3.14159 2.17755e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="50.75 0 -14" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2356" Name="wall_default_worn_91" Rotation="3.14159 -2.26498e-06 -3.14159" Scale="1 1 1" Tag="" WorldPos="82.75 0 -38" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2358" Name="wall_default_worn_93" Rotation="-1.10715 -1.5708 1.10715" Scale="1 1 1" Tag="" WorldPos="84.75 0 -40" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2359" Name="wall_default_worn_94" Rotation="-1.10715 -1.5708 1.10715" Scale="1 1 1" Tag="" WorldPos="84.75 0 -44" />
@@ -268,8 +261,7 @@
                 <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2475" Name="wall_door_way_worn_10" Rotation="3.14159 -1.43051e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="46.5 0 14" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="2476" Name="wall_door_frame_plain_worn_5" Rotation="3.14159 -1.43051e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="46.5 0 13.875" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="3" Group="0" ID="2477" Name="wall_door_way_worn_11" Rotation="0 5.87304e-06 0" Scale="1 1 1" Tag="" WorldPos="46.5 0 14" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="11" Group="0" ID="2485" Name="stairs_railing_worn_3" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="46.75 0 -10.75" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="11" Group="0" ID="2486" Name="stairs_railing_worn_4" Rotation="3.14159 -1.43051e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="48.75 0 -8" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="11" Group="0" ID="2485" Name="stairs_railing_worn_3" Rotation="0 1.5708 0" Scale="0.5 3.25 0.5" Tag="" WorldPos="47.5 0 -10.5" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2494" Name="wall_default_worn_112" Rotation="3.14159 -1.5708 3.14159" Scale="1 1 1" Tag="" WorldPos="60.5 0 16" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="2495" Name="wall_default_worn_113" Rotation="-3.14159 1.5708 -3.14159" Scale="1 1 1" Tag="" WorldPos="56.5 0 16" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="9" Group="0" ID="2496" Name="wall_welder_convex_worn_3" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="52.75 0 -38" />
@@ -419,7 +411,7 @@
                 <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="3107" Name="wall_default_extension_worn_111" Rotation="3.14159 4.44253e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="66.5 0 14" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="3108" Name="wall_default_extension_worn_112" Rotation="3.14159 4.44253e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="70.5 0 14" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="12" Group="0" ID="3111" Name="stairs_welder_worn_5" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="48.75 0 13.75" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="21" Group="0" ID="3112" Name="special_shrine_altar_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="53 0 -8" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="21" Group="0" ID="3112" Name="special_shrine_altar_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="46.5 0 -8" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="9" Group="0" ID="3125" Name="wall_welder_convex_worn_12" Rotation="0 0 0" Scale="1.25 1 1.25" Tag="" WorldPos="60.5 0 14" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3158" Name="wall_default_5" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="62.5 0 38" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3163" Name="wall_default_10" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="58.5 0 38" />
@@ -550,6 +542,12 @@
                 <StaticObject CastShadows="true" Collides="true" FileIndex="25" Group="0" ID="3569" Name="special_cell_wall_worn_25" Rotation="3.14159 2.29676e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="46.25 0 25.75" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="25" Group="0" ID="3570" Name="special_cell_wall_worn_26" Rotation="3.14159 2.29676e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="42.25 0 25.75" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="22" Group="0" ID="3587" Name="wall_welder_13" Rotation="0 0 0" Scale="1.5 1 1.5" Tag="" WorldPos="68.25 0 38" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="3613" Name="wall_default_extension_worn_75" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="52.75 0 -16" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="3614" Name="wall_default_extension_worn_76" Rotation="0 2.26498e-06 0" Scale="1 1 1" Tag="" WorldPos="54.75 0 -14" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="3616" Name="wall_default_extension_worn_77" Rotation="3.14159 2.17755e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="54.75 0 -10" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="3624" Name="wall_default_extension_worn_78" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="48.75 0 -16" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="3625" Name="wall_default_worn_40" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="52.5 0 -8" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="11" Group="0" ID="3629" Name="stairs_railing_worn_4" Rotation="0 1.5708 0" Scale="0.5 3.25 0.5" Tag="" WorldPos="45.5 0 -10.5" />
             </StaticObjects>
             <Primitives>
                 <Plane Active="true" AlignToWorldCoords="false" CastShadows="false" Collides="true" Corner1UV="0 6.025" Corner2UV="0 0" Corner3UV="10.025 0" Corner4UV="10.025 6.025" EndCorner="100.25 0 60.25" Group="0" ID="1915" Material="/opt/Steam/steamapps/common/Amnesia The Dark Descent/static_objects/sanctumbase/floor/sanctumbase_floor.mat" Name="Plane_50" Rotation="0 0 0" Scale="1 1 1" StartCorner="0 0 0" Tag="" TextureAngle="0" TileAmount="0.1 1 0.1" TileOffset="0 0 0" WorldPos="0 0 -50" />
@@ -615,9 +613,9 @@
                 <Plane Active="true" AlignToWorldCoords="false" CastShadows="false" Collides="true" Corner1UV="5.70416e-06 -2.25" Corner2UV="0 0" Corner3UV="-9.6 -2.43377e-05" Corner4UV="-9.59999 -2.25002" EndCorner="16 0 3.75" Group="0" ID="3492" Material="/opt/Steam/steamapps/common/Amnesia The Dark Descent/static_objects/dungeonbase/dungeonbase_wall_tileable.mat" Name="Plane_110" Rotation="-1.5708 -2.14577e-06 3.14159" Scale="1 1 1" StartCorner="0 0 0" Tag="" TextureAngle="3.14159" TileAmount="0.6 1 0.6" TileOffset="0 0 0" WorldPos="48.25 3.75 22" />
             </Primitives>
             <Decals>
-                <Decal Active="true" Color="0 0.75 1 1" CurrentSubDiv="1" Group="0" ID="3119" MaterialIndex="0" MaxTriangles="-1" Name="chalk_alchemy_circles_1" Offset="0.00916845" OnEntity="true" OnPrimitive="true" OnStatic="true" Rotation="0 0 0" Scale="0.75 1 0.75" SubDiv="2 2" Tag="" WorldPos="53 0.75 -8">
+                <Decal Active="true" Color="0 0.75 1 1" CurrentSubDiv="1" Group="0" ID="3119" MaterialIndex="0" MaxTriangles="-1" Name="chalk_alchemy_circles_1" Offset="0.00916845" OnEntity="true" OnPrimitive="true" OnStatic="true" Rotation="0 0 0" Scale="0.75 1 0.75" SubDiv="2 2" Tag="" WorldPos="46.5 0.75 -8">
                     <DecalMesh NumInds="12" NumVerts="8">
-                        <Positions Array="52.624 0.755 -7.623 1 52.624 0.755 -8.199 1 53.376 0.755 -7.801 1 53.376 0.755 -7.623 1 53.376 0.755 -8.377 1 53.376 0.755 -7.801 1 52.624 0.755 -8.199 1 52.624 0.755 -8.377 1 " />
+                        <Positions Array="46.124 0.755 -7.623 1 46.124 0.755 -8.199 1 46.876 0.755 -7.801 1 46.876 0.755 -7.623 1 46.876 0.755 -8.377 1 46.876 0.755 -7.801 1 46.124 0.755 -8.199 1 46.124 0.755 -8.377 1 " />
                         <Normals Array="-0.069 0.984 0.165 -0.07 0.994 -0.088 0.069 0.994 0.087 0.069 0.984 0.165 0.069 0.984 -0.165 0.069 0.994 0.087 -0.07 0.994 -0.088 -0.069 0.984 -0.165 " />
                         <Tangents Array="0.998 0.068 0.011 1 0.998 0.069 -0.007 1 0.998 -0.068 -0.006 1 0.998 -0.068 -0.011 1 0.998 -0.068 0.011 1 0.998 -0.068 -0.006 1 0.998 0.069 -0.007 1 0.998 0.068 -0.011 1 " />
                         <TexCoords Array="0.5 0.499 0 0.5 0.882 0 1 0.618 0 1 0.499 0 1 1 0 1 0.618 0 0.5 0.882 0 0.5 1 0 " />
@@ -2641,7 +2639,7 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="15" Group="0" ID="2375" Name="2_Corrupt_9" Rotation="3.14159 -2.14577e-06 3.14159" Scale="1.5 2 1" Tag="" WorldPos="50.5 1.5 -17.75">
+                <Entity Active="true" FileIndex="15" Group="0" ID="2375" Name="2_Corrupt_9" Rotation="3.14159 -2.14577e-06 3.14159" Scale="1.5 2 1" Tag="" WorldPos="50.5 1.5 -14">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -2660,7 +2658,7 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Area Active="true" AreaType="SlimeDamage" Group="0" ID="2376" Mesh="" Name="Area_2_Corrupt_1" Rotation="0 0 0" Scale="1.75 2.75 1" Tag="" WorldPos="50.75 1.5 -17.75">
+                <Area Active="true" AreaType="SlimeDamage" Group="0" ID="2376" Mesh="" Name="Area_2_Corrupt_1" Rotation="0 0 0" Scale="1.75 2.75 1" Tag="" WorldPos="50.75 1.5 -14">
                     <UserVariables>
                         <Var Name="mlSlimeType" Value="0" />
                         <Var Name="MinCheckAttackTime" Value="2" />
@@ -2687,7 +2685,7 @@
                         <Var Name="Callback" Value="" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2381" Mesh="" Name="0_AreaStepZone_0" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="57.75 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2381" Mesh="" Name="0_AreaStepZone_0" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="53.5 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2697,7 +2695,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2382" Mesh="" Name="0_AreaStepZone_1" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="59.25 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2382" Mesh="" Name="0_AreaStepZone_1" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="55 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2707,7 +2705,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2383" Mesh="" Name="0_AreaStepZone_2" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="60.75 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2383" Mesh="" Name="0_AreaStepZone_2" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="56.5 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2717,7 +2715,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2384" Mesh="" Name="0_AreaStepZone_3" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="62.25 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2384" Mesh="" Name="0_AreaStepZone_3" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="58 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2727,7 +2725,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2385" Mesh="" Name="0_AreaStepZone_4" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="63.75 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2385" Mesh="" Name="0_AreaStepZone_4" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="59.5 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2737,7 +2735,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2386" Mesh="" Name="0_AreaStepZone_5" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="65.25 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2386" Mesh="" Name="0_AreaStepZone_5" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="61 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2747,7 +2745,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2390" Mesh="" Name="0_AreaStepZone_6" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="66.75 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2390" Mesh="" Name="0_AreaStepZone_6" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="62.5 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2757,7 +2755,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2391" Mesh="" Name="0_AreaStepZone_7" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="68.25 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2391" Mesh="" Name="0_AreaStepZone_7" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="64 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2767,7 +2765,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2392" Mesh="" Name="0_AreaStepZone_8" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="69.75 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2392" Mesh="" Name="0_AreaStepZone_8" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="65.5 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2777,7 +2775,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2393" Mesh="" Name="0_AreaStepZone_9" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="71.25 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2393" Mesh="" Name="0_AreaStepZone_9" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="67 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2787,7 +2785,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2394" Mesh="" Name="0_AreaStepZone_10" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="72.75 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2394" Mesh="" Name="0_AreaStepZone_10" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="68.5 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2797,7 +2795,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2395" Mesh="" Name="0_AreaStepZone_11" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="74.25 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2395" Mesh="" Name="0_AreaStepZone_11" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="70 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -2807,7 +2805,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="2396" Mesh="" Name="0_AreaStepZone_12" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="75.75 0.5 -12">
+                <Area Active="true" AreaType="Script" Group="0" ID="2396" Mesh="" Name="0_AreaStepZone_12" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="71.5 0.5 -12">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -3360,7 +3358,7 @@
                 <Area Active="true" AreaType="PlayerStart" Group="0" ID="2450" Mesh="" Name="PlayerAfterPedestal_2" Rotation="0 2.35619 0" Scale="1 1 1" Tag="" WorldPos="79.5 0.5 -41">
                     <UserVariables />
                 </Area>
-                <Entity Active="true" FileIndex="6" Group="0" ID="2484" Name="bridge_torch_17" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="46.5 0 -8.25">
+                <Entity Active="true" FileIndex="6" Group="0" ID="2484" Name="bridge_torch_17" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="50.75 0 -8">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -5403,7 +5401,7 @@
                         <Var Name="ConnectionLightUseSpec" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="25" Group="0" ID="3113" Name="emotion_stone_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="53 0.75 -8">
+                <Entity Active="true" FileIndex="25" Group="0" ID="3113" Name="emotion_stone_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="46.5 0.75 -8">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -5423,7 +5421,7 @@
                         <Var Name="Sound" Value="flashback_flash.snt" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="26" Group="0" ID="3114" Name="candle_floor_1" Rotation="0 0 0" Scale="0.75 0.75 0.75" Tag="" WorldPos="52.5 0.75 -7.75">
+                <Entity Active="true" FileIndex="26" Group="0" ID="3114" Name="candle_floor_1" Rotation="0 0 0" Scale="0.75 0.75 0.75" Tag="" WorldPos="46 0.75 -7.75">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -5443,7 +5441,7 @@
                         <Var Name="ConnectionLightUseSpec" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="26" Group="0" ID="3115" Name="candle_floor_2" Rotation="0 0 0" Scale="0.75 1 0.75" Tag="" WorldPos="53.5 0.75 -8.25">
+                <Entity Active="true" FileIndex="26" Group="0" ID="3115" Name="candle_floor_2" Rotation="0 0 0" Scale="0.75 1 0.75" Tag="" WorldPos="47 0.75 -8.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -5463,7 +5461,7 @@
                         <Var Name="ConnectionLightUseSpec" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="26" Group="0" ID="3116" Name="candle_floor_3" Rotation="0 0 0" Scale="0.5 0.75 0.5" Tag="" WorldPos="53.25 0.75 -7.75">
+                <Entity Active="true" FileIndex="26" Group="0" ID="3116" Name="candle_floor_3" Rotation="0 0 0" Scale="0.5 0.75 0.5" Tag="" WorldPos="46.75 0.75 -7.75">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -5483,7 +5481,7 @@
                         <Var Name="ConnectionLightUseSpec" Value="false" />
                     </UserVariables>
                 </Entity>
-                <ParticleSystem Active="true" Color="0 1 1 1" FadeAtDistance="true" File="ps_area_fog.ps" Group="0" ID="3121" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_4" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="53 0.75 -8" />
+                <ParticleSystem Active="true" Color="0 1 1 1" FadeAtDistance="true" File="ps_area_fog.ps" Group="0" ID="3121" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_4" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="46.5 0.75 -8" />
                 <Entity Active="true" FileIndex="0" Group="0" ID="3122" Name="torch_static_green_5" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="53 0.5 10">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
@@ -5955,7 +5953,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Entity Active="true" FileIndex="37" Group="0" ID="3355" Name="potion_sanity_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="52.5 0.75 -8.25">
+                <Entity Active="true" FileIndex="37" Group="0" ID="3355" Name="potion_sanity_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="46 0.75 -8.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -6333,6 +6331,66 @@
                     <UserVariables>
                         <Var Name="TextCat" Value="Sign" />
                         <Var Name="TextEntry" Value="StoneWall" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3618" Mesh="" Name="3_AreaStepZone_13" Rotation="-3.12158 -1.5708 3.12158" Scale="1.5 1 3.25" Tag="" WorldPos="50.75 0.5 -17.75">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3619" Mesh="" Name="3_AreaStepZone_14" Rotation="-3.12158 -1.5708 3.12158" Scale="1.5 1 3.25" Tag="" WorldPos="50.75 0.5 -16.25">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3620" Mesh="" Name="3_AreaStepZone_15" Rotation="-3.12158 -1.5708 3.12158" Scale="1.5 1 3.25" Tag="" WorldPos="50.75 0.5 -14.75">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3621" Mesh="" Name="0_AreaStepZone_13" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="73 0.5 -12">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3622" Mesh="" Name="0_AreaStepZone_14" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="74.5 0.5 -12">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3623" Mesh="" Name="0_AreaStepZone_15" Rotation="0 0 0" Scale="1.5 1 3.25" Tag="" WorldPos="76 0.5 -12">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
             </Entities>
