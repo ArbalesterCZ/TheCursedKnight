@@ -2,16 +2,16 @@
     <EditorSession>
         <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
         <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="true" GridSnap="true" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
-            <Viewport CameraPosition="9.25 -3.58319 203.25" CameraTarget="9.25 -3.58319 23.25" CameraZoom="3.21635" GridHeight="23.25" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="187.999 -3.58319 20" CameraTarget="8 -3.58319 20" CameraZoom="3.21635" GridHeight="8" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="9.25 177.5 20" CameraTarget="9.25 -2.5 20" CameraZoom="3.58552" GridHeight="-2.5" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
-            <Viewport CameraPosition="2.72008 9.36015 6.91727" CameraTarget="4.03086 -2.5 3.48819" CameraZoom="1.39309" GridHeight="-2.5" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
+            <Viewport CameraPosition="9.25 -3.58319 203.25" CameraTarget="9.25 -3.58319 23.25" CameraZoom="0" GridHeight="23.25" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="187.999 -3.58319 20" CameraTarget="8 -3.58319 20" CameraZoom="0" GridHeight="8" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="9.25 177.5 20" CameraTarget="9.25 -2.5 20" CameraZoom="0" GridHeight="-2.5" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="5.73759 6.80217 -32.2039" CameraTarget="11.8383 -2.5 -30.6387" CameraZoom="1.49309" GridHeight="-2.5" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="true" ShowGrid="false" UsingLTCam="true" />
         </ViewportConfig>
         <Groups>
             <Group ID="0" Name="None" Visible="true" />
         </Groups>
     </EditorSession>
-    <MapData FogActive="false" FogColor="1 1 1 1" FogCulling="true" FogEnd="20" FogFalloffExp="1" FogStart="0" GlobalDecalMaxTris="300" Name="" SkyBoxActive="false" SkyBoxColor="1 1 1 1" SkyBoxTexture="../../../../../">
+    <MapData FogActive="false" FogColor="1 1 1 1" FogCulling="true" FogEnd="20" FogFalloffExp="1" FogStart="0" GlobalDecalMaxTris="300" Name="" SkyBoxActive="false" SkyBoxColor="1 1 1 1" SkyBoxTexture="../../../../../../">
         <MapContents>
             <FileIndex_StaticObjects NumOfFiles="35">
                 <File Id="0" Path="static_objects/ornaments/carpets/carpet03.dae" />
@@ -79,7 +79,7 @@
                 <File Id="25" Path="entities/special/orb/orb_1_of_6.ent" />
                 <File Id="26" Path="entities/special/orb/orb_2_of_6.ent" />
                 <File Id="27" Path="entities/special/orb/orb_3_of_6.ent" />
-                <File Id="28" Path="custom_stories/TheCursedKnight/entities/orb_4_of_6_FIXED.ent" />
+                <File Id="28" Path="custom_stories/TheCursedKnight/resources/entities/orb_4_of_6_FIXED.ent" />
                 <File Id="29" Path="entities/special/orb/orb_5_of_6.ent" />
                 <File Id="30" Path="entities/special/orb/orb_6_of_6.ent" />
                 <File Id="31" Path="entities/storage/storage_box_wood01/storage_box_wood01_large.ent" />
@@ -3417,25 +3417,25 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="13" Group="0" ID="616" Name="TheLever" Rotation="-3.14159 -1.34408e-05 1.94963e-06" Scale="1 1 1" Tag="" WorldPos="8 2 -34">
+                <Entity Active="true" FileIndex="13" Group="0" ID="616" Name="lever_0" Rotation="-3.14159 -1.34408e-05 1.94963e-06" Scale="1 1 1" Tag="" WorldPos="8 2 -34">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
                         <Var Name="IsAffectedByDecal" Value="false" />
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="ConnectedProps" Value="" />
-                        <Var Name="ConnectionStateChangeCallback" Value="OnLeverTestChange" />
+                        <Var Name="ConnectionStateChangeCallback" Value="OnSecretLeverChange" />
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
                         <Var Name="PlayerInteractCallback" Value="" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="StuckState" Value="None" />
+                        <Var Name="StuckState" Value="Min" />
                         <Var Name="InteractionDisablesStuck" Value="true" />
-                        <Var Name="OverrideDefaults" Value="false" />
+                        <Var Name="OverrideDefaults" Value="true" />
                         <Var Name="MiddleAngleAmount" Value="0" />
                         <Var Name="AutoMoveToAngle" Value="True" />
-                        <Var Name="AutoMoveGoal" Value="Middle" />
+                        <Var Name="AutoMoveGoal" Value="Max" />
                     </UserVariables>
                 </Entity>
                 <Entity Active="true" FileIndex="51" Group="0" ID="618" Name="cabinet_metal_1" Rotation="0 2.26498e-06 0" Scale="1 1 1" Tag="" WorldPos="19 0 -30.75">
@@ -3720,7 +3720,7 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="65" Group="0" ID="641" Name="Lever1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="12.5 1 -32.5">
+                <Entity Active="true" FileIndex="65" Group="0" ID="641" Name="lever_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="12.5 1 -32.5">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -3735,13 +3735,55 @@
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
                         <Var Name="StuckState" Value="None" />
                         <Var Name="InteractionDisablesStuck" Value="true" />
-                        <Var Name="OverrideDefaults" Value="false" />
+                        <Var Name="OverrideDefaults" Value="true" />
+                        <Var Name="MiddleAngleAmount" Value="0" />
+                        <Var Name="AutoMoveToAngle" Value="true" />
+                        <Var Name="AutoMoveGoal" Value="Middle" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="65" Group="0" ID="643" Name="lever_2" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="13 1 -32.5">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="OnLeverSecretFirstOpen" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="StuckState" Value="None" />
+                        <Var Name="InteractionDisablesStuck" Value="true" />
+                        <Var Name="OverrideDefaults" Value="true" />
+                        <Var Name="MiddleAngleAmount" Value="0" />
+                        <Var Name="AutoMoveToAngle" Value="true" />
+                        <Var Name="AutoMoveGoal" Value="Middle" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="65" Group="0" ID="645" Name="lever_3" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="13.5 1 -32.5">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="OnLeverSecretFirstOpen" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="StuckState" Value="None" />
+                        <Var Name="InteractionDisablesStuck" Value="true" />
+                        <Var Name="OverrideDefaults" Value="true" />
                         <Var Name="MiddleAngleAmount" Value="0" />
                         <Var Name="AutoMoveToAngle" Value="True" />
                         <Var Name="AutoMoveGoal" Value="Middle" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="65" Group="0" ID="643" Name="Lever2" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="13 1 -32.5">
+                <Entity Active="true" FileIndex="65" Group="0" ID="646" Name="lever_4" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="14 1 -32.5">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -3756,49 +3798,7 @@
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
                         <Var Name="StuckState" Value="None" />
                         <Var Name="InteractionDisablesStuck" Value="true" />
-                        <Var Name="OverrideDefaults" Value="false" />
-                        <Var Name="MiddleAngleAmount" Value="0" />
-                        <Var Name="AutoMoveToAngle" Value="True" />
-                        <Var Name="AutoMoveGoal" Value="Middle" />
-                    </UserVariables>
-                </Entity>
-                <Entity Active="true" FileIndex="65" Group="0" ID="645" Name="Lever3" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="13.5 1 -32.5">
-                    <UserVariables>
-                        <Var Name="CastShadows" Value="true" />
-                        <Var Name="StaticPhysics" Value="false" />
-                        <Var Name="IsAffectedByDecal" Value="false" />
-                        <Var Name="CallbackFunc" Value="" />
-                        <Var Name="ConnectedProps" Value="" />
-                        <Var Name="ConnectionStateChangeCallback" Value="OnLeverSecretFirstOpen" />
-                        <Var Name="FullGameSave" Value="false" />
-                        <Var Name="PlayerLookAtCallback" Value="" />
-                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="" />
-                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="StuckState" Value="None" />
-                        <Var Name="InteractionDisablesStuck" Value="true" />
-                        <Var Name="OverrideDefaults" Value="false" />
-                        <Var Name="MiddleAngleAmount" Value="0" />
-                        <Var Name="AutoMoveToAngle" Value="True" />
-                        <Var Name="AutoMoveGoal" Value="Middle" />
-                    </UserVariables>
-                </Entity>
-                <Entity Active="true" FileIndex="65" Group="0" ID="646" Name="Lever4" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="14 1 -32.5">
-                    <UserVariables>
-                        <Var Name="CastShadows" Value="true" />
-                        <Var Name="StaticPhysics" Value="false" />
-                        <Var Name="IsAffectedByDecal" Value="false" />
-                        <Var Name="CallbackFunc" Value="" />
-                        <Var Name="ConnectedProps" Value="" />
-                        <Var Name="ConnectionStateChangeCallback" Value="OnLeverSecretFirstOpen" />
-                        <Var Name="FullGameSave" Value="false" />
-                        <Var Name="PlayerLookAtCallback" Value="" />
-                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="" />
-                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                        <Var Name="StuckState" Value="None" />
-                        <Var Name="InteractionDisablesStuck" Value="true" />
-                        <Var Name="OverrideDefaults" Value="false" />
+                        <Var Name="OverrideDefaults" Value="true" />
                         <Var Name="MiddleAngleAmount" Value="0" />
                         <Var Name="AutoMoveToAngle" Value="True" />
                         <Var Name="AutoMoveGoal" Value="Middle" />
@@ -10565,7 +10565,7 @@
                 <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1485" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_4" Rotation="0.875672 0 2.28981" Tag="" WorldPos="21.6315 2.77829 -44.1976" />
                 <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1486" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_5" Rotation="0.875672 0 2.28981" Tag="" WorldPos="20.601 2.77829 -44.6295" />
                 <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1487" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_6" Rotation="1.4023 -0.432977 1.42698" Tag="" WorldPos="18.7165 2.77829 -44.751" />
-                <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1488" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_7" Rotation="1.4023 -0.432977 1.42698" Tag="" WorldPos="19.2896 2.10397 -45.4183" />
+                <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="-0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1488" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_7" Rotation="1.4023 -0.432977 1.42698" Tag="" WorldPos="19.2896 2.10397 -45.4183" />
                 <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1489" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_8" Rotation="-0.837459 0.0281214 2.68919" Tag="" WorldPos="21.4386 2.92698 -35.5437" />
                 <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1490" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_9" Rotation="-0.884316 0 2.28981" Tag="" WorldPos="20.6646 2.1076 -35.331" />
                 <Billboard Active="true" BillboardColor="0.7 1 1 1" BillboardOffset="0" BillboardSize="1 4.26115" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="1 1 1" ID="1491" IsHalo="false" MaterialFile="/opt/Steam/steamapps/common/Amnesia The Dark Descent/billboards/bb_white_halo.mat" Name="Billboard_10" Rotation="-0.855637 0.259284 2.50892" Tag="" WorldPos="18.8126 2.77371 -34.8753" />

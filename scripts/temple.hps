@@ -445,23 +445,21 @@ void Preparation1(string &in asName, int alCount)
 
 void OnLeverSecretFirstOpen(string &in asEntity, int LeverState)
 {
-	if(GetLeverState("Lever1") == GetLocalVarInt("SecretLever_1")
-	&& GetLeverState("Lever2") == GetLocalVarInt("SecretLever_2")
-	&& GetLeverState("Lever3") == GetLocalVarInt("SecretLever_3")
-	&& GetLeverState("Lever4") == GetLocalVarInt("SecretLever_4"))
+	SetLeverStuckState(asEntity, LeverState, true);
+
+	if(GetLeverState("lever_1") == GetLocalVarInt("SecretLever_1")
+	&& GetLeverState("lever_2") == GetLocalVarInt("SecretLever_2")
+	&& GetLeverState("lever_3") == GetLocalVarInt("SecretLever_3")
+	&& GetLeverState("lever_4") == GetLocalVarInt("SecretLever_4"))
 	{
-		ResetProp("TheLever");
-		SetMoveObjectState("castlebase_secret_door_1", 1);
-		for(int i=1;i<=4;i++)
-		{
-			SetLeverInteractionDisablesStuck("Lever" + i, false);
-			SetLeverStuckState("Lever" + i, GetLeverState("Lever" + i), true);
-		}
+		for(int i=0;i<=5;i++)
+			SetLeverStuckState("lever_" + i, 0, true);
+
 		if(GetLocalVarInt("IsSecretOpenAsFirst") == 0)
 		{
 			RemoveTimer("HintUpSecretPassage");
+			SetLocalVarInt("IsSecretOpenAsFirst", 1);
 			CompleteQuest("SecretPassage" + GetLocalVarInt("SecretPassageHintCount"), "SecretPassage" + GetLocalVarInt("SecretPassageHintCount"));
-			SetLocalVarInt("IsSecretOpenAsFirst", 1);		
 			AddEntityCollideCallback("Player", "AreaAngelVoice", "OnCollideAreaAngelVoiceHints", false, 1);
 			PlayMusic("10_puzzle01.ogg", false, 1.0f, 0.7f, 10, false);
 			StartPlayerLookAt("castlebase_secret_door_1", 1.5f, 2.0f, "");
@@ -470,23 +468,13 @@ void OnLeverSecretFirstOpen(string &in asEntity, int LeverState)
 	}
 }
 
-void OnLeverTestChange(string &in asEntity, int LeverState)
-{	
-	SetLeverStuckState(asEntity, LeverState, true);
-	if(LeverState == 1)
+void OnSecretLeverChange(string &in asEntity, int LeverState)
+{
+	if(LeverState != 0)
 	{
+		SetLeverStuckState(asEntity, LeverState, true);
 		StartScreenShake(0.002f, 0.5f, 0.5f, 0.5f);
-		SetMoveObjectState("castlebase_secret_door_1", 1);
-	}
-	else
-	{
-		StartScreenShake(0.002f, 0.5f, 0.5f, 0.5f);
-		SetMoveObjectState("castlebase_secret_door_1", 0);
-		for(int i=1;i<=4;i++)
-		{
-			ResetProp("Lever" + i);
-			SetLeverStuckState("Lever" + i, 0, true);
-		}
+		SetMoveObjectState("castlebase_secret_door_1", MathMax(LeverState, 0));
 	}
 }
 
