@@ -1,22 +1,23 @@
 void OnStart()
 {
-	// Events
 	AddUseItemCallback("", "KeyLibrary", "DoorLibrary", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "KeyCrypt", "Door_crypt", "UseKeyOnDoor", true);
-	for(int i=1;i<=3;i++) AddUseItemCallback("", "Saw", "WoodenBarricade_"+i, "UseSawToBarricade", true);
-	
+
+	for(int i=1;i<=3;i++)
+		AddUseItemCallback("", "Saw", "WoodenBarricade_"+i, "UseSawToBarricade", true);
+
 	AddEntityCollideCallback("Player", "PlayerFallArea", "EventCollideFall", false, 1);
 	AddEntityCollideCallback("Player", "LibraryEvent_1", "EventCollideLibrary_1", true, 1);
 	AddEntityCollideCallback("Player", "LibraryEvent_2", "EventCollideLibrary_2", true, 1);
 	AddEntityCollideCallback("Player", "TombArea", "EventCollideTomb", true, 1);
 	AddEntityCollideCallback("LadderMoveable", "PlaceLadder", "EventCollideLadder", true, 1);
-	for(int i=1;i<=4;i++) AddEntityCollideCallback("BookSecret_"+i, "AreaSecretBook_"+i, "CollideSecretBook", true, 1);
-	for(int i=1;i<=14;i++) AddEntityCollideCallback("Player", "Thorn_"+i, "CollideThorn", false, 1);
 
-	// Varriables
-	SetLocalVarInt("BookCount", 0);
-		
-	// Other
+	for(int i=1;i<=4;i++)
+		AddEntityCollideCallback("BookSecret_"+i, "AreaSecretBook_"+i, "CollideSecretBook", true, 1);
+
+	for(int i=1;i<=14;i++)
+		AddEntityCollideCallback("Player", "Thorn_"+i, "CollideThorn", false, 1);
+
 	SetMessage("Hints", "Chapter_2", 5.0f);
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	PlayMusic("amb_extra02.ogg", true, 0.8f, 0, 0, true);
@@ -36,9 +37,9 @@ void EventCollideCommonRoom(string &in asParent, string &in asChild, int alState
 {
 	PlaySoundAtEntity("", "hurt_pant.snt", "Player", 0, false);
 	SetMessage("Hints", "GruntDialog_1", 5.0f);
-	// Grunt
 	SetEntityActive("Grunt", true);
-	for(int i=1;i<=9;i++) AddEnemyPatrolNode("Grunt", "GruntPath_"+i, 0.001f, "");
+	for(int i=1;i<=9;i++)
+		AddEnemyPatrolNode("Grunt", "GruntPath_"+i, 0.001f, "");
 }
 
 void CollideThorn(string &in player, string &in collider, int alState)
@@ -50,13 +51,13 @@ void CollideThorn(string &in player, string &in collider, int alState)
 void CollideSecretBook(string &in asParent, string &in asChild, int alState)
 {
 	SetPropObjectStuckState(asParent, alState);
-	
+
 	PlaySoundAtEntity("Sound"+asParent, "gameplay_tick", asParent, 0.0f, false);
-	
+
 	StartScreenShake(0.001f, 0.5f, 0.5f, 0.5f);
-	
+
 	PlayGuiSound("16_lever_stuck", 0.3f);
-	
+
 	AddLocalVarInt("BookCount", 1);
 	if(GetLocalVarInt("BookCount") == 4)
 	{
@@ -108,15 +109,13 @@ void OnLeverLibraryStuckChange(string &in asEntity, int LeverState)
 		CompleteQuest("SecretShelf", "SecretShelf");
 		SetMessage("Hints", "BruteAgain", 5.0f);
 		
-		// Latern
 		SetLampLit("Latern_Library", false, true);
 	
-		// Brute
 		SetEntityActive("Brute_Real", true);
 		for(int i=1;i<=8;i++) AddEnemyPatrolNode("Brute_Real", "PathLibrary_"+i, 0.001f, "");
 	}
 }
-		
+
 void TimerSaw(string &in asTarget)
 {
 	CreateParticleSystemAtEntity("SawSmoke", "ps_hit_wood.ps", asTarget, false);
@@ -133,7 +132,7 @@ void TimerSawComplete(string &in asTarget)
 		GiveSanityBoostSmall();
 	}
 	if(asTarget == "WoodenBarricade_3")
-	{	
+	{
 		RemoveItem("Saw");
 		SetMessage("Hints", "SawDone", 5.0f);
 	}
@@ -146,10 +145,10 @@ void TimerBrute(string &in asTimer)
 	GiveSanityDamage(30.0f, true);
 	StartPlayerLookAt("Brute", 2.0f, 2.5f, "");
 	AddTimer("", 6.0f, "TimerLookComplete");
-	
+
 	SetMessage("Hints", "BruteHalluciation", 5.0f);
 	SetPropStaticPhysics("BrutePainting", false);
-	
+
 	AddTimer(asTimer, 3.0f, "TimerShowPosition");
 }
 
@@ -175,7 +174,8 @@ void TimerBronzeKnightsRemove(string &in asTimer)
 	SetEntityActive("BoxBruteHuman_1",true);
 	SetEntityActive("LampBrute_1", true);
 	SetEntityActive("LampBrute_2", true);
-	for(int i=1;i<=5;i++) SetEntityActive("Bronze_" + i, false);
+	for(int i=1;i<=5;i++)
+		SetEntityActive("Bronze_" + i, false);
 }
 
 void TimerScare(string &in soundFile)
@@ -209,12 +209,14 @@ void EventCollideLadder(string &in asParent, string &in asChild, int alState)
 void OnPickLatern(string &in asEntity, string &in type)
 {
 	AddPlayerLampOil(20.0f);
-	for(int i=1;i<=4;i++) SetEntityActive("BookSecret_"+i, true);
+	for(int i=1;i<=4;i++)
+		SetEntityActive("BookSecret_"+i, true);
 }
 
 void OnPickManual(string &in asEntity, string &in type)
 {
-	for(int i=1;i<=4;i++) SetPropStaticPhysics("BookSecret_"+i, false);	
+	for(int i=1;i<=4;i++)
+		SetPropStaticPhysics("BookSecret_"+i, false);
 }
 
 void OnPickBrute(string &in asEntity, string &in type)
@@ -223,9 +225,9 @@ void OnPickBrute(string &in asEntity, string &in type)
 
 	SetLocalVarFloat("Health", GetPlayerHealth());
 	SetLocalVarFloat("Sanity", GetPlayerSanity());
-	
+
 	ChangeRoom();
-	
+
 	CheckPoint("BruteFirstReveal", "PlayerBrute", "OnDeathByBruteReveal", "Die", "Brute");
 }
 
@@ -236,20 +238,18 @@ void OnPickLibraryKey(string &in asEntity, string &in type)
 
 void ChangeRoom()
 {	
-	// Light
-	for(int i=1;i<=3;i++) SetLampLit("candleBrute_"+i, false, true);
+	for(int i=1;i<=3;i++)
+		SetLampLit("candleBrute_"+i, false, true);
+
 	FadeLightTo("LightWarriorRoom", 0.5f, 0.0f, 0.0f, 1.0f, -1, 10.0f);
-	
-	// State of objects
+
 	SetSwingDoorLocked("Cabinet_Brute", false, true);
 	SetSwingDoorClosed("Cabinet_Brute", false, true);	
 	SetMoveObjectState("Cabinet_Brute", 1.0f);	
 	for(int i=1;i<=5;i++) SetEntityActive("Bronze_" + i, true);
-	
-	// Sound
+
 	PlaySoundAtEntity("", "09_wind_whirl.snt", "candleBrute_3", 0, false);
-		
-	// Brute
+
 	AddTimer("Brute", 4.0f, "TimerBrute");
 }
 
@@ -257,15 +257,17 @@ void OnDeathByBruteReveal(string &in asName, int alCount)
 {
 	SetPlayerHealth(GetLocalVarFloat("Health"));
 	SetPlayerSanity(GetLocalVarFloat("Sanity"));
-	
+
 	ChangeRoom();
-	
+
 	PlayMusic("amb_extra02.ogg", true, 0.8f, 0, 0, true);
 }
 
 void EventCollideLibrary_1(string &in asParent, string &in asChild, int alState)
 {
-	for(int i=1;i<=4;i++) SetPropStaticPhysics("BookDrop_"+i, false);
+	for(int i=1;i<=4;i++)
+		SetPropStaticPhysics("BookDrop_"+i, false);
+
 	SetPropStaticPhysics("SecretDoor", false);
 	StartPlayerLookAt("SecretDoor", 1.0f, 1.0f, "");
 	GiveSanityDamage(10.0f, true);
@@ -284,7 +286,7 @@ void UseKeyOnDoor(string &in asItem, string &in asEntity)
 {
 	SetSwingDoorLocked(asEntity, false, true);
 	SetLevelDoorLocked(asEntity, false);
-   	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
+	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
 	RemoveItem(asItem);
 	CompleteQuest(asEntity, asEntity);
 }
@@ -293,7 +295,9 @@ void UseSawToBarricade(string &in asItem, string &in asEntity)
 {
 	SetPlayerActive(false);
 	PlaySoundAtEntity("", "26_saw", asEntity, 0, false);	
-	for(int i=0;i<=8;i++) AddTimer(asEntity, i / 2.0f, "TimerSaw");	
+	for(int i=0;i<=8;i++)
+		AddTimer(asEntity, i / 2.0f, "TimerSaw");
+
 	AddTimer(asEntity, 4.0f, "TimerSawComplete");
 }
 
@@ -303,7 +307,7 @@ void SecretButton(string &in asEntity)
 	PlaySoundAtEntity("", "unlock_door.snt", "MansionDoor", 0, false);
 	SetSwingDoorLocked("MansionDoor", false, true);
 	CompleteQuest("MansionDoor", "MansionDoor");
-	
+
 	GiveSanityBoostSmall();
 }
 
@@ -321,7 +325,9 @@ void WindowBreak(string &in asEntity)
 	AddPropHealth(asEntity, -10);
 	CreateParticleSystemAtEntity("GlassBreakEffect", "ps_hit_glass.ps", asEntity, false);
 	PlaySoundAtEntity("", "break_glass_bottle.snt", asEntity, 0, false);
-	if(GetPropHealth(asEntity) == 0) GivePlayerDamage(15, "BloodSplat", false, false);
+
+	if(GetPropHealth(asEntity) == 0)
+		GivePlayerDamage(15, "BloodSplat", false, false);
 }
 
 void OnWindowBreak(string &in asEntity, string &in type)
