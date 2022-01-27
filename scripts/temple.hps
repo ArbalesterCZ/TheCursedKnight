@@ -1,17 +1,17 @@
 void OnStart()
 {
-	for(int i=1;i<=6;i++) 
-	{
-		AddUseItemCallback("", "Sharp_" + i, "orb_pedestal", "UseSharpOnPedestal", true);
-		AddUseItemCallback("", "Sharp_" + i, "orb_" + (i - 1), "UseSharpOnPedestal", true);
-	}
-
 	AddUseItemCallback("", "ShinyEnchant", "orb_6", "UseEnchantOnOrb", true);
 	AddUseItemCallback("", "BridgeLeverHandle", "BridgeLeverScript", "UseHandleOnMount", true);
 	AddUseItemCallback("", "TempleKey", "LockedCellarDoor", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "SecretaryKey", "SecretarySmallDoor", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "UntaggedKey", "UntaggedSmallDoor_2", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "Arrow_Item", "light_box_1", "UseArrowOnLightBox", true);
+
+	for(int i=1;i<=6;i++)
+	{
+		AddUseItemCallback("", "Sharp_" + i, "orb_pedestal", "UseSharpOnPedestal", true);
+		AddUseItemCallback("", "Sharp_" + i, "orb_" + (i - 1), "UseSharpOnPedestal", true);
+	}
 
 	AddEntityCollideCallback("Player", "AreaAngelVoice", "OnCollideAreaAngelVoiceFirst", true, 1);
 	AddEntityCollideCallback("Player", "AreaCellar", "OnCollideAreaCellar", false, 0);
@@ -27,17 +27,13 @@ void OnStart()
 	for(int i=1;i<=15;i++)
 		AddEntityCollideCallback("Player", "AreaRunes_" + i, "OnCollideRunes", false, 1);
 
-	SetLocalVarInt("OrbCount", 0);
-	SetLocalVarInt("IsSecretOpenAsFirst", 0);
-	SetLocalVarInt("SecretPassageHintCount", 1);
-	SetLocalVarInt("LeverTrapDownCount", 0);
-	SetLocalVarInt("IsLightBoxLit", 0);
-	SetLocalVarInt("IsArrowSet", 0);
-	SetSecretSeed();
+	for(int i=1;i<=3;i++)
+		InteractConnectPropWithMoveObject("HeavyDoorChangeState_" + i,"valve_iron_rusty02_" + i, "HeavyDoor_" + i, true, false, 0);
 
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
 
+	SetSecretSeed();
 	SetMessage("Hints", "Chapter_5", 5.0f);	
 	SetLightVisible("OrbLight", false);
 	SetPlayerSanity(100.0f);
@@ -45,9 +41,6 @@ void OnStart()
 	PlayMusic("22_puzzle_orb.ogg", false, 1.0f, 0, 10, false);
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	SetMoveObjectState("HeavyDoorLurker", -1.0f);
-
-	for(int i=1;i<=3;i++)
-		InteractConnectPropWithMoveObject("HeavyDoorChangeState_" + i,"valve_iron_rusty02_" + i, "HeavyDoor_" + i, true, false, 0);
 
 	SetMapDisplayNameEntry("Temple");
 	AutoSave();
@@ -96,17 +89,13 @@ void ChairsImpulse()
 void OnLitLightBox(string &in entityName, string &in asType)
 {
 	SetLocalVarInt("IsLightBoxLit", 1);
-	string lightFilter;
-
-	if(GetLocalVarInt("IsArrowSet") == 1)
+	if(GetLocalVarInt("IsFilterAdded") == 1)
 	{
-		lightFilter = "LightBoxArrow";
+		FadeLightTo("LightBoxArrow", 0.35f, 0.75f, 1.0f, 1.0f, -1, 2.00f);
 		SetEntityActive("BridgeLeverHandle", true);
 	}
 	else
-		lightFilter = "LightBoxEmpty";
-	
-	FadeLightTo(lightFilter, 0.35f, 0.75f, 1.0f, 1.0f, -1, 2.00f);
+		FadeLightTo("LightBoxEmpty", 0.35f, 0.75f, 1.0f, 1.0f, -1, 2.00f);
 }
 
 void SetSecretSeed()
@@ -167,8 +156,8 @@ void UseArrowOnLightBox(string &in asItem, string &in asEntity)
 {
 	RemoveItem(asItem);
 	PlaySoundAtEntity("SoundUseArrow", "pickaxe_charge.snt", asEntity, 0.0f, false);
-	SetLocalVarInt("IsArrowSet", 1);
 	SetEntityActive("Arrow_Static", true);
+	SetLocalVarInt("IsFilterAdded", 1);
 	if(GetLocalVarInt("IsLightBoxLit") == 1)
 	{
 		FadeLightTo("LightBoxEmpty", 0, 0, 0, 0, -1, 0.2f);
@@ -180,12 +169,13 @@ void UseArrowOnLightBox(string &in asItem, string &in asEntity)
 void UseSharpOnPedestal(string &in asItem, string &in asEntity)
 {
 	int orbCount = GetLocalVarInt("OrbCount");
+	AddLocalVarInt("OrbCount", 1);
+
 	RemoveItem(asItem);
 	SetEntityActive("orb_" + orbCount, false);
 	CompleteQuest("OrbQuest" + orbCount, "OrbQuest" + orbCount);
-	AddLocalVarInt("OrbCount", 1);
-	orbCount = GetLocalVarInt("OrbCount");
-	SetEntityActive("orb_" + orbCount, true);
+
+	SetEntityActive("orb_" + ++orbCount, true);
 	AddQuest("OrbQuest" + orbCount, "OrbQuest" + orbCount);
 	PlaySoundAtEntity("DropOrb", "22_orb_forge.ogg", "orb_" + orbCount, 0.0f, false);
 
@@ -194,22 +184,7 @@ void UseSharpOnPedestal(string &in asItem, string &in asEntity)
 
 	StartScreenShake(0.002f * orbCount, 0.5f, 0.5f, 0.5f);
 
-	UseSharpOnPedestalSpecial(asItem, asEntity);
-
-	CheckPoint("SpawnAtSanctuary_" + orbCount, "PlayerPedestal", "OnDeathMusic", "", "");
-}
-
-void OnInteractCorrupt(string &in asEntity)
-{
-	CreateParticleSystemAtEntity("SlimeDissolution", "ps_slime_attack_normal.ps", asEntity, false);
-	PlaySoundAtEntity("slimeExplosion", "slime_attack_normal_hit.snt", asEntity, 0.0f, false);
-	SetPropStaticPhysics("Corrupt_Door_" + GetLocalVarInt("OrbCount"), false);
-	SetEntityActive(asEntity, false);
-}
-
-void UseSharpOnPedestalSpecial(string &in asItem, string &in asEntity)
-{
-	switch(GetLocalVarInt("OrbCount"))
+	switch(orbCount)
 	{
 		case 3:
 			SetEntityActive("CorruptInstant_1", false);
@@ -223,6 +198,16 @@ void UseSharpOnPedestalSpecial(string &in asItem, string &in asEntity)
 			AddTimer("StopLookAtSecret", 2.25f, "TimerLookComplete");
 			break;
 	}
+
+	CheckPoint("SpawnAtSanctuary_" + orbCount, "PlayerPedestal", "OnDeathMusic", "", "");
+}
+
+void OnInteractCorrupt(string &in asEntity)
+{
+	CreateParticleSystemAtEntity("SlimeDissolution", "ps_slime_attack_normal.ps", asEntity, false);
+	PlaySoundAtEntity("slimeExplosion", "slime_attack_normal_hit.snt", asEntity, 0.0f, false);
+	SetPropStaticPhysics("Corrupt_Door_" + GetLocalVarInt("OrbCount"), false);
+	SetEntityActive(asEntity, false);
 }
 
 void UseEnchantOnOrb(string &in asItem, string &in asEntity)
@@ -280,8 +265,8 @@ void OnLeverTrapChange(string &in asEntity, int LeverState)
 
 		if(GetLocalVarInt("LeverTrapDownCount") == 2)
 		{
-			for(int i=1;i<=2;i++) AddTimer("waterlurker_" + i, 4.0f, "TimerSetEntityActive");
-			for(int i=1;i<=7;i++) AddEnemyPatrolNode("waterlurker_1", "LurkerPathNode_" + i, 0.01f, "");
+			for(int i=1;i<=2;i++)  AddTimer("waterlurker_" + i, 4.0f, "TimerSetEntityActive");
+			for(int i=1;i<=7;i++)  AddEnemyPatrolNode("waterlurker_1", "LurkerPathNode_" + i, 0.01f, "");
 			for(int i=1;i<=13;i++) AddEnemyPatrolNode("waterlurker_2", "LurkerTwoPathNode_" + i, 0.01f, "");
 			SetMoveObjectState("HeavyDoorLurker", -1.0f);
 			GiveSanityBoostSmall();
@@ -318,33 +303,27 @@ void OnPickUnusedTorch(string &in asEntity, string &in asType)
 void OnPickUpSecretCombination(string &in asEntity, string &in asType)
 {
 	SetMessage("Hints", "SecretPassage", 5.0f);
-	AddQuest("SecretPassage1", "SecretPassage1");
-
-	AddTimer("HintUpSecretPassage", 45.0f, "TimerHintUpSecretPassage");
+	AddQuest("SecretPassage0", "SecretPassage0");
+	AddTimer("SecretPassage0", 30.0f, "TimerHintUpSecretPassage");
 }
 
-void TimerHintUpSecretPassage(string &in soundFile)
+void TimerHintUpSecretPassage(string &in asOldQuest)
 {
-	int secretPassageHintCount = GetLocalVarInt("SecretPassageHintCount");
-
-	CompleteQuest("SecretPassage" + secretPassageHintCount, "SecretPassage" + secretPassageHintCount);
+	CompleteQuest(asOldQuest, asOldQuest);
 
 	AddLocalVarInt("SecretPassageHintCount", 1);
-	secretPassageHintCount = GetLocalVarInt("SecretPassageHintCount");
 
-	AddQuest("SecretPassage" + secretPassageHintCount, "SecretPassage" + secretPassageHintCount);
+	const string asNewQuest = "SecretPassage" + GetLocalVarInt("SecretPassageHintCount");
+	AddQuest(asNewQuest, asNewQuest);
 
-	if(secretPassageHintCount == 5)
-		return;
-
-	AddTimer("HintUpSecretPassage", 45.0f, "TimerHintUpSecretPassage");
+	if(GetLocalVarInt("SecretPassageHintCount") < 5)
+		AddTimer(asNewQuest, 30.0f, "TimerHintUpSecretPassage");
 }
 
 void TimerHeavyDoorDown(string &in asTimer)
 {
 	SetEntityPlayerInteractCallback(asTimer, "OnInteractHeavyDoorUp", true);
 	SetMoveObjectState(asTimer, 0.4f);
-
 }
 
 void OnPickupSharp3(string &in asEntity, string &in asType)
@@ -452,16 +431,17 @@ void OnLeverSecretFirstOpen(string &in asEntity, int LeverState)
 	&& GetLeverState("lever_3") == GetLocalVarInt("SecretLever_3")
 	&& GetLeverState("lever_4") == GetLocalVarInt("SecretLever_4"))
 	{
-		for(int i=0;i<=5;i++)
+		for(int i=0;i<5;i++)
 			SetLeverStuckState("lever_" + i, 0, true);
 
 		if(GetLocalVarInt("IsSecretOpenAsFirst") == 0)
 		{
-			RemoveTimer("HintUpSecretPassage");
+			string asActualQuest = "SecretPassage" + GetLocalVarInt("SecretPassageHintCount");
+			RemoveTimer(asActualQuest);
+			CompleteQuest(asActualQuest, asActualQuest);
 			SetLocalVarInt("IsSecretOpenAsFirst", 1);
-			CompleteQuest("SecretPassage" + GetLocalVarInt("SecretPassageHintCount"), "SecretPassage" + GetLocalVarInt("SecretPassageHintCount"));
-			AddEntityCollideCallback("Player", "AreaAngelVoice", "OnCollideAreaAngelVoiceHints", false, 1);
 			PlayMusic("10_puzzle01.ogg", false, 1.0f, 0.7f, 10, false);
+			AddEntityCollideCallback("Player", "AreaAngelVoice", "OnCollideAreaAngelVoiceHints", false, 1);
 			StartPlayerLookAt("castlebase_secret_door_1", 1.5f, 2.0f, "");
 			AddTimer("StopLookAtSecret", 2.25f, "TimerLookComplete");
 		}
@@ -482,13 +462,13 @@ void OnCollideEndRoomTorch(string &in asParent, string &in asChild, int alState)
 {
 	PlayMusic("12_event_blood.ogg", false, 1.0f, 0.25f, 10, false);
 	for(int i=1;i<=15;i+=2)
-		AddTimer("" + i, 0.75f * i, "TimerChangeTorch");
+		AddTimer("" + i, 0.75f * i, "TimerLitTorchs");
 }
 
-void TimerChangeTorch(string &in asTimer)
+void TimerLitTorchs(string &in asTorchIndex)
 {
-	string lTorch = "EndTorch_" + asTimer;
-	string rTorch = "EndTorch_" + (StringToInt(asTimer) + 1);
+	string lTorch = "EndTorch_" + asTorchIndex;
+	string rTorch = "EndTorch_" + (StringToInt(asTorchIndex) + 1);
 	SetLampLit(lTorch, true, true);
 	SetLampLit(rTorch, true, true);
 	PlaySoundAtEntity("turnOnLeft", "ui_use_tinderbox.snt", lTorch, 0.0f, false);
@@ -725,17 +705,19 @@ void InteractGate(string &in asEntity)
 {
 	PlayGuiSound("17_attach_crank", 0.5f);
 	SetMessage("Ch01Level07", "SecurityGate", 0);
-	
+
 	SetMoveObjectState(asEntity, 0.05f);
-	
-	AddTimer(asEntity, 0.4f, "TimerCloseGate");
-	AddTimer("sound", 0.8f, "TimerCloseGate");
+
+	AddTimer(asEntity, 0.4f, "TimerCloseGateFall");
+	AddTimer("HeavyGateSound", 0.8f, "TimerCloseGateSound");
 }
 
-void TimerCloseGate(string &in asTimer)
+void TimerCloseGateFall(string &in asTimer)
 {
-	if(asTimer == "sound")
-		PlayGuiSound("close_gate.ogg", 0.5f);
-	else
-		SetMoveObjectState(asTimer, 0.00f);	
+	SetMoveObjectState(asTimer, 0.00f);
+}
+
+void TimerCloseGateSound(string &in asTimer)
+{
+	PlayGuiSound("close_gate.ogg", 0.5f);
 }

@@ -201,25 +201,25 @@
 		<Entry Name="Quest_KillTheChef_Text">I have to kill the chef with my hammer.</Entry>
 		<Entry Name="Quest_BackToForest_Text">The chef is dead. I have to go back to the forest.</Entry>
 		// Chapter V [Temple]
-		<Entry Name="Quest_SecretPassage1_Text">
+		<Entry Name="Quest_SecretPassage0_Text">
 		I have to find the way to open the secret passage.
 		</Entry>
-		<Entry Name="Quest_SecretPassage2_Text">
+		<Entry Name="Quest_SecretPassage1_Text">
 		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.
 		</Entry>
-		<Entry Name="Quest_SecretPassage3_Text">
+		<Entry Name="Quest_SecretPassage2_Text">
 		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.[br]
 		- The letters resemble the alphabet, but there are stars instead of some of them.
 		</Entry>
-		<Entry Name="Quest_SecretPassage4_Text">
+		<Entry Name="Quest_SecretPassage3_Text">
 		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.[br]
 		- The letters resemble the alphabet, but there are stars instead of some of them.[br]
 		- There are also some letters written separately.
 		</Entry>
-		<Entry Name="Quest_SecretPassage5_Text">
+		<Entry Name="Quest_SecretPassage4_Text">
 		I have to find the way to open the secret passage.[br]
 		- There are 4 columns on the paper and 4 levers.[br]
 		- The letters resemble the alphabet, but there are stars instead of some of them.[br]
