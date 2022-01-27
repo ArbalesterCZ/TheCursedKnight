@@ -22,22 +22,14 @@ void OnLeave()
 
 void OnPickCrowbar(string &in entityName, string &in type)
 {
+	SetLevelDoorLocked("level_exit", false);
 	AddEntityCollideCallback("Player", "AreaLivingStatue", "OnColliderLivingStatue", true, 1);
-
-	SetEntityActive("living_statue_8", true);
-	SetEntityActive("living_statue_9", true);
-
-	for(int i=0;i<8;i++)
-		AddTimer(i + "", 1.75f * i, "TimerHorrorWakeUp");
-
-	for(int i=1;i<=3;i++)
-		AddTimer("react_pant.snt", 3 * i + 3, "TimerScare");
 }
 
 void UseRopeOnCrank(string &in asItem, string &in asEntity)
 {
 	RemoveItem(asItem);
-	SetWheelAngle(asEntity, 0.0f, false);SetPropActiveAndFade("fleshy_statue_8", false, 3.0f);
+	SetWheelAngle(asEntity, 0.0f, false);
 	SetEntityActive("crank_rope", true);
 	PlaySoundAtEntity("RopeStrain", "06_rope_strain.snt", asEntity, 0, false);
 	for(int i=0; i<3; i++)
@@ -66,43 +58,22 @@ void OnColliderHatchDoorFall(string &in asParent, string &in asChild, int alStat
 
 void OnColliderLivingStatue(string &in asParent, string &in asChild, int alState)
 {
-	for(int i=8;i<10;i++)
-	{
-		SetPropActiveAndFade("living_statue_"+i, false, 0.05f);
-		SetPropActiveAndFade("fleshy_statue_"+i,  true, 0.05f);
-		CreateParticleSystemAtEntity("StatueSwapEffectBlood", "blood.ps", "fleshy_statue_"+i, false);
-		CreateParticleSystemAtEntity("StatueSwapEffectBreak", "ps_break_mansionbase_wall.ps", "fleshy_statue_"+i, false);
-	}
-
-	PlaySoundAtEntity("StatueLaugh", "21_intro_scream.snt", "level_exit", 0, false);
-	StartPlayerLookAt("FleshyStatue", 2.5f, 3.0f, "");
+	StatueSwap(true, 0.05f);
 	GiveSanityDamage(15.0f, true);
+	CreateParticleSystemAtEntity("StatueSwapEffectBlood", "blood.ps", "fleshy_statue", false);
+	CreateParticleSystemAtEntity("StatueSwapEffectBreak", "ps_break_mansionbase_wall.ps", "fleshy_statue", false);
+	PlaySoundAtEntity("StatueLaugh", "21_intro_scream.snt", "level_exit", 0, false);
+	StartPlayerLookAt("fleshy_statue", 2.5f, 3.0f, "");
 
-	AddTimer("react_scare.snt", 0.2f, "TimerScare");
+	AddTimer("react_scare.snt", 0.25f, "TimerScare");
 	AddTimer("StopLookAtLivingStatue", 0.5f, "TimerLookComplete");
-	AddTimer("SwapStatue", 1.25f, "TimerReleaseStatues");
+	AddTimer("SwapBack", 0.5f, "TimerSwapBack");
 }
 
-void TimerHorrorWakeUp(string &in asTimer)
+void StatueSwap(bool evil, float time)
 {
-	SetPropActiveAndFade("living_statue_"+asTimer, true, 3.0f);
-	PlaySoundAtEntity("statue_cry", "amb_idle.snt", "living_statue_"+asTimer, 0.0f, false);
-}
-
-void TimerReleaseStatues(string &in soundFile)
-{
-	for(int i=0;i<8;i++)
-		SetPropActiveAndFade("living_statue_"+i, false, 3.0f);
-
-	for(int i=8;i<10;i++)
-		SetPropActiveAndFade("fleshy_statue_9", false, 3.0f);
-
-	AddTimer("unlock_the_door", 3.0f, "TimerUnlockTheDoor");
-}
-
-void TimerUnlockTheDoor(string &in asTimer)
-{
-	SetLevelDoorLocked("level_exit", false);
+	SetPropActiveAndFade("living_statue",!evil, time);
+	SetPropActiveAndFade("fleshy_statue", evil, time);
 }
 
 void OnInteractDoor(string &in door)
@@ -112,6 +83,11 @@ void OnInteractDoor(string &in door)
 		SetMessage("Hints", door, 5.0f);
 		AddQuest(door, door);
 	}
+}
+
+void TimerSwapBack(string &in asTimer)
+{
+	StatueSwap(false, 1.95f);
 }
 
 void TimerLookComplete(string &in asTimer)
