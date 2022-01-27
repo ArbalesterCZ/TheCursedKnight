@@ -92,7 +92,7 @@ void OnLitLightBox(string &in entityName, string &in asType)
 	if(GetLocalVarInt("IsFilterAdded") == 1)
 	{
 		FadeLightTo("LightBoxArrow", 0.35f, 0.75f, 1.0f, 1.0f, -1, 2.00f);
-		SetEntityActive("BridgeLeverHandle", true);
+		SetPropActiveAndFade("BridgeLeverHandle", true, 2.0f);
 	}
 	else
 		FadeLightTo("LightBoxEmpty", 0.35f, 0.75f, 1.0f, 1.0f, -1, 2.00f);
@@ -162,7 +162,7 @@ void UseArrowOnLightBox(string &in asItem, string &in asEntity)
 	{
 		FadeLightTo("LightBoxEmpty", 0, 0, 0, 0, -1, 0.2f);
 		FadeLightTo("LightBoxArrow", 0.35f, 0.75f, 1.0f, 1.0f, -1, 0.2f);
-		SetEntityActive("BridgeLeverHandle", true);
+		SetPropActiveAndFade("BridgeLeverHandle", true, 2.0f);
 	}
 }
 
