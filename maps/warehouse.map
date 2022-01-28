@@ -11,7 +11,7 @@
             <Group ID="0" Name="None" Visible="true" />
         </Groups>
     </EditorSession>
-    <MapData FogActive="false" FogColor="1 1 1 1" FogCulling="true" FogEnd="20" FogFalloffExp="1" FogStart="0" GlobalDecalMaxTris="300" Name="" SkyBoxActive="true" SkyBoxColor="0.15 0.4 0.15 1" SkyBoxTexture="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../custom_stories/Cursed Knight/dds/mountains.dds">
+    <MapData FogActive="false" FogColor="1 1 1 1" FogCulling="true" FogEnd="20" FogFalloffExp="1" FogStart="0" GlobalDecalMaxTris="300" Name="" SkyBoxActive="true" SkyBoxColor="0.15 0.4 0.15 1" SkyBoxTexture="custom_stories/TheCursedKnight/resources/dds/mountains.dds">
         <MapContents>
             <FileIndex_StaticObjects NumOfFiles="11">
                 <File Id="0" Path="static_objects/cellarbase/wall/sloping.dae" />
