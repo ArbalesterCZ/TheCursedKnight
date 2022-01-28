@@ -11,7 +11,7 @@
             <Group ID="0" Name="None" Visible="true" />
         </Groups>
     </EditorSession>
-    <MapData FogActive="true" FogColor="0.069 0.189 0.052 0.5" FogCulling="true" FogEnd="5" FogFalloffExp="1" FogStart="0" GlobalDecalMaxTris="300" Name="" SkyBoxActive="true" SkyBoxColor="0.2 0.5 0.2 1" SkyBoxTexture="../../../../../">
+    <MapData FogActive="true" FogColor="0.069 0.189 0.052 0.5" FogCulling="true" FogEnd="5" FogFalloffExp="1" FogStart="0" GlobalDecalMaxTris="300" Name="" SkyBoxActive="true" SkyBoxColor="0.2 0.5 0.2 1" SkyBoxTexture="custom_stories/TheCursedKnight/resources/dds/mountains.dds">
         <MapContents>
             <FileIndex_StaticObjects NumOfFiles="61">
                 <File Id="0" Path="static_objects/dungeonbase/wall/default_extension.dae" />
