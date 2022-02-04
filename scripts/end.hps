@@ -32,16 +32,6 @@ void OnStart()
 		for(int j=1;j<=4;j++)
 			AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 
-	SetLocalVarInt("OrbsCompleteCount", 0);
-	SetLocalVarInt("OrbQuestIsVisible", 0);
-	SetLocalVarInt("CorruptedBarricadeCount", 2);
-	SetLocalVarInt("BruteHit", 0);
-
-	SetLocalVarInt("0_SafeStepZone", 0);
-	SetLocalVarInt("1_SafeStepZone", 0);
-	SetLocalVarInt("2_SafeStepZone", 0);
-	SetLocalVarInt("3_SafeStepZone", 0);
-
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
 
@@ -240,14 +230,6 @@ void TimerFireDamage(string &in asTimer)
 	}
 }
 
-float Distance(string &in asEntity)
-{
-	return MathSqrt(
-	MathPow(GetEntityPosX(asEntity) - GetPlayerPosX(), 2) + 
-	MathPow(GetEntityPosY(asEntity) - GetPlayerPosY(), 2) + 
-	MathPow(GetEntityPosZ(asEntity) - GetPlayerPosZ(), 2));
-}
-
 void StartEvent()
 {
 	PlayMusic("21_event_pit.ogg", false, 1.0f, 0, 9, false);
@@ -258,13 +240,17 @@ void StartEvent()
 
 void TimerBruteAI(string &in asTimer)
 {
-	float dangerousZone;
+	float dangerousDistance;
 
-	if(GetLanternActive()) dangerousZone = 22.5f; 
-	else dangerousZone = 15.0f;
+	if(GetLanternActive())
+		dangerousDistance = 22.5f;
+	else
+		dangerousDistance = 15.0f;
 
-	if(Distance("Brute_Start") <= dangerousZone) SetEnemyDisableTriggers("Brute_Start", false);
-	else AddTimer("BruteAI", 0.25f, "TimerBruteAI");
+	if(Distance("Brute_Start", GetPlayerPosX(), GetPlayerPosY(), GetPlayerPosZ()) <= dangerousDistance)
+		SetEnemyDisableTriggers("Brute_Start", false);
+	else
+		AddTimer("BruteAI", 0.25f, "TimerBruteAI");
 }
 
 void TimerBruteStartAttack(string &in asTimer)
@@ -432,7 +418,7 @@ void FinalFightRestart()
 	for(int i=1;i<=2;i++) SetEntityActive("AfterFinalCorrupt_" + i, true);
 	for(int i=1;i<=8;i++) SetLampLit("FinalTorch_" + i, false, false);
 	AddEntityCollideCallback("Player", "AreaEndRoom", "OnCollideEndRoomTorchLit", true, 1);
-	SetLocalVarInt("CorruptedBarricadeCount", 2);
+	SetLocalVarInt("CorruptedBarricadeDestroyed", 0);
 	SetLocalVarInt("BruteHit", 0);
 	SetMoveObjectState("BackDoor", 0.0f);
 	SetEnemyDisableTriggers("BruteFinal", true);
@@ -500,10 +486,8 @@ void OnInteractPedestal(string &in asEntity)
 	{
 		SetMoveObjectState("MainGate", 1.0f);
 		SetEntityInteractionDisabled("MainGate", true);
-		return;
 	}
-
-	if(GetLocalVarInt("OrbQuestIsVisible") == 1)
+	else if(GetLocalVarInt("OrbQuestIsVisible") == 1)
 	{
 		string newQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
 		AddQuest(newQuest, newQuest);
@@ -597,8 +581,8 @@ void UseHammerOnCorrupt(string &in asWeapon, string &in asEnemy, int alState)
 		PlaySoundAtEntity("", "slime_attack_normal_hit.snt", asEnemy, 0.0f, false);
 		SetEntityActive(asEnemy, false);
 
-		AddLocalVarInt("CorruptedBarricadeCount", -1);
-		if(GetLocalVarInt("CorruptedBarricadeCount") == 0) SetMoveObjectState("BackDoor", 1.0f);
+		AddLocalVarInt("CorruptedBarricadeDestroyed", 1);
+		if(GetLocalVarInt("CorruptedBarricadeDestroyed") == 2) SetMoveObjectState("BackDoor", 1.0f);
 	}
 }
 
