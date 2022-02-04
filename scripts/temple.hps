@@ -619,7 +619,7 @@ void TimerChangeDoorState(string &in soundFile)
 
 void TimerChangeLevel(string &in asTimer)
 {
-	ChangeMap("end", "StartArea", "11_event_dog.ogg", "21_event_pit.ogg");
+	ChangeMap("heart_of_the_temple", "StartArea", "11_event_dog.ogg", "21_event_pit.ogg");
 }
 
 void TimerChainForce(string &in asTimer)

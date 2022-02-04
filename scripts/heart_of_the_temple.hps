@@ -42,7 +42,7 @@ void OnStart()
 
 	CheckPoint("StartCheckpoint", "StartArea", "OnDeathAtStart", "Die", "Run");
 
-	SetMapDisplayNameEntry("TempleCore");
+	SetMapDisplayNameEntry("The Heart of the Temple");
 	AutoSave();
 }
 
