@@ -509,7 +509,9 @@ void TimerBruteStartToSmoke(string &in asTimer)
 		FadeEnemyToSmoke("Brute_Start", false);
 		SetEntityPlayerInteractCallback("1_Pedestal", "OnInteractPedestal", true);
 		
-		for(int i=0;i<4;i++) AddTimer("" + i, 1.0f, "TimerStepZone");
+		for(int i=0;i<4;i++)
+			AddTimer("" + i, 1.0f, "TimerStepZone");
+
 		AddTimer("ChangeStepSpeed", 3.0f, "TimerChangeStepSpeed");
 	}
 }
@@ -625,20 +627,19 @@ void TimerBruteRespawn(string &in asTimer)
 
 void TimerStepZone(string &in asIndex)
 {
-	int stepZone = GetLocalVarInt(asIndex + "_SafeStepZone");
+	int safeIndex = GetLocalVarInt(asIndex + "_SafeIndex");
 
-	SetEntityActive(asIndex + "_AreaStepZone_" + stepZone, true);
-	CreateParticleSystemAtEntity(asIndex + "_DangerousZoneParticle_" + stepZone, "ps_fire_orb_room.ps", asIndex + "_AreaStepZone_" + stepZone, true);
-	PlaySoundAtEntity(asIndex + "_SoundStepZone_" + stepZone, "29_fire.snt", asIndex + "_AreaStepZone_" + stepZone, 0.25f, true);
+	SetEntityActive(asIndex + "_AreaStepZone_" + safeIndex, true);
+	CreateParticleSystemAtEntity(asIndex + "_DangerousZoneParticle_" + safeIndex, "ps_fire_orb_room.ps", asIndex + "_AreaStepZone_" + safeIndex, true);
+	PlaySoundAtEntity(asIndex + "_SoundStepZone_" + safeIndex, "29_fire.snt", asIndex + "_AreaStepZone_" + safeIndex, 0.25f, true);
 
-	stepZone = (stepZone + 1) % 16;
-	SetLocalVarInt(asIndex + "_SafeStepZone", stepZone);
+	SetLocalVarInt(asIndex + "_SafeIndex",(safeIndex + 1) % 16);
+	safeIndex = (safeIndex + 4) % 16;
 
-	stepZone = (stepZone + 3) % 16;
-	SetEntityActive(asIndex + "_AreaStepZone_" + stepZone, false);
-	DestroyParticleSystem(asIndex + "_DangerousZoneParticle_" + stepZone);
-	StopSound(asIndex + "_SoundStepZone_" + stepZone, 0.25f);
-	RemoveTimer(asIndex + "_AreaStepZone_" + stepZone + "_FireDamage");
+	SetEntityActive(asIndex + "_AreaStepZone_" + safeIndex, false);
+	DestroyParticleSystem(asIndex + "_DangerousZoneParticle_" + safeIndex);
+	StopSound(asIndex + "_SoundStepZone_" + safeIndex, 0.25f);
+	RemoveTimer(asIndex + "_AreaStepZone_" + safeIndex + "_FireDamage");
 
 	AddTimer(asIndex, stepSpeed, "TimerStepZone");
 }
@@ -649,5 +650,5 @@ void TimerChangeStepSpeed(string &in asTimer)
 	if(stepSpeed <= 0.5f || stepSpeed >= 2.0f)
 		stepSpeedShift = -stepSpeedShift;
 
-	AddTimer("ChangeStepSpeed", 2/stepSpeed , "TimerChangeStepSpeed");
+	AddTimer("ChangeStepSpeed", 2/stepSpeed, "TimerChangeStepSpeed");
 }
