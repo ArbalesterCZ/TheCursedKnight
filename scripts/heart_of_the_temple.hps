@@ -50,7 +50,10 @@ void UseHammerOnWall(string &in asItem, string &in asEntity)
 	SetPlayerActive(false);
 	ShowPlayerCrossHairIcons(false);
 	SetEntityActive("SignBreakWall", false);
-	for(int i=0;i<=4;i++) AddTimer(asEntity, 1.25f * i, "TimerHammerAttack");
+
+	for(int i=0;i<=4;i++)
+		AddTimer(asEntity, 1.25f * i, "TimerHammerAttack");
+
 	AddTimer(asEntity, 5.05f, "TimerHammerFinalAttack");
 }
 
@@ -67,7 +70,8 @@ void TimerHammerFinalAttack(string &in asTimer)
 	SetPlayerActive(true);
 	ShowPlayerCrossHairIcons(true);
 	
-	for(int i=1;i<=6;i++) SetEntityActive("Fragment_" + i, true);
+	for(int i=1;i<=6;i++)
+		SetEntityActive("Fragment_" + i, true);
 }
 
 void OnCollideLockAltarRoom(string &in asParent, string &in asChild, int alState)
@@ -124,7 +128,7 @@ void OnCollideCheckPoint(string &in asParent, string &in asChild, int alState)
 
 void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
 {
-	string door = asChild + "Door";
+	const string door = asChild + "Door";
 	SetPropHealth(door, 40.0f);
 	GiveSanityDamage(30.0f, false);
 
@@ -155,7 +159,9 @@ void TimerFinalAngelReveal(string &in asTimer)
 	StartPlayerLookAt("TheAngel", 0.75f, 0.75f, "");
 	FadeIn(6.0f);
 
-	for(int i=0;i<=2;i++) AddTimer("WhisperingVoices", 4.25f * i, "TimerWhisperingVoices");
+	for(int i=0;i<=2;i++)
+		AddTimer("WhisperingVoices", 4.25f * i, "TimerWhisperingVoices");
+
 	AddTimer("GameOver", 12.5f, "TimerGameOver");
 }
 
@@ -189,6 +195,7 @@ void OnCollideEndRoomTorchLit(string &in asParent, string &in asChild, int alSta
 {
 	SetMoveObjectState("BackDoor", 0.0f);
 	RemoveTimer("BruteRespawn");
+
 	for(int i=1;i<=8;i++)
 	{
 		SetLampLit("FinalTorch_" + i, true, true);
@@ -232,20 +239,16 @@ void StartEvent()
 {
 	PlayMusic("21_event_pit.ogg", false, 1.0f, 0, 9, false);
 	PlayMusic("12_amb.ogg", true, 1.0f, 0, 0, true);
-	for(int i=7;i<=15;i+=2) AddTimer("" + i, 0.75f * i - 4.5f, "TimerChangeTorch");
+
+	for(int i=7;i<=15;i+=2)
+		AddTimer("" + i, 0.75f * i - 4.5f, "TimerChangeTorch");
+
 	AddTimer("BruteStartAttack", 6.75f, "TimerBruteStartAttack");
 }
 
 void TimerBruteAI(string &in asTimer)
 {
-	float dangerousDistance;
-
-	if(GetLanternActive())
-		dangerousDistance = 22.5f;
-	else
-		dangerousDistance = 15.0f;
-
-	if(Distance("Brute_Start", GetPlayerPosX(), GetPlayerPosY(), GetPlayerPosZ()) <= dangerousDistance)
+	if(Distance("Brute_Start", GetPlayerPosX(), GetPlayerPosY(), GetPlayerPosZ()) <= (GetLanternActive() ? 22.5f : 15.0f))
 		SetEnemyDisableTriggers("Brute_Start", false);
 	else
 		AddTimer("BruteAI", 0.25f, "TimerBruteAI");
@@ -289,7 +292,10 @@ void OnDeathMusic(string &in asName, int alCount)
 void OnDeathAtStart(string &in asName, int alCount)
 {
 	RemoveTimer("BruteAI");
-	for(int i=7;i<=16;i++) SetLampLit("EndTorch_" + i, false, false);
+
+	for(int i=7;i<=16;i++)
+		SetLampLit("EndTorch_" + i, false, false);
+
 	PlayMusic("12_amb.ogg", true, 1.0f, 5.0f, 0, true);
 	SetEntityActive("Area_HeavyDoorStart", true);
 	ResetProp("Lever_HeavyDoorStart");
@@ -316,7 +322,7 @@ void OnChangeLabyrintLever(string &in asEntity, int alState)
 {
 	if(alState != 0)
 	{
-		string door = "Labyrint_" + StringSub(asEntity, asEntity.length() - 1, 1);
+		const string door = "Labyrint_" + StringSub(asEntity, asEntity.length() - 1, 1);
 		SetLeverStuckState(asEntity, alState, true);
 		SetMoveObjectState(door, 1.0f);
 
@@ -353,7 +359,7 @@ void OnCollidePlayerOnAreaHeavyDoorStart(string &in asParent, string &in asChild
 
 void OnInteractMainDoor(string &in asDoor)
 {
-	string questName = asDoor + "_" + GetLocalVarInt("OrbsCompleteCount");
+	const string questName = asDoor + "_" + GetLocalVarInt("OrbsCompleteCount");
 	SetMessage("Hints", questName , 5.0f);
 	AddQuest(questName, questName);
 }
@@ -383,10 +389,13 @@ void OnInteractAltar(string &in asEntity)
 
 	DestroySlimeArea("Final_Corrupt_");
 
-	for(int i=1;i<=4;i++) RemoveTimer("" + i);
+	for(int i=1;i<=4;i++)
+		RemoveTimer("" + i);
+
 	RemoveTimer("ChangeStepSpeed");
 
-	for(int i=1;i<=3;i++) AddTimer("AngelVoiceEndPart_" + i, 5.0f * (i - 1) + 3, "TimerConversation");
+	for(int i=1;i<=3;i++)
+		AddTimer("AngelVoiceEndPart_" + i, 5.0f * (i - 1) + 3, "TimerConversation");
 
 	AddTimer("SpawnBruteFinal", 13.0f, "TimerSpawnBruteFinal");
 }
@@ -402,7 +411,9 @@ void TimerSpawnBruteFinal(string &in asTimer)
 	AddEnemyPatrolNode("BruteFinal", "PathBruteFinal", 10.0f, "");
 	StartPlayerLookAt("BruteFinal", 2.0f, 2.0f, "");
 
-	for(int i=1;i<=3;i++) AddTimer("BruteConversationEndPart_" + i, 5.0f * i, "TimerConversation");
+	for(int i=1;i<=3;i++)
+		AddTimer("BruteConversationEndPart_" + i, 5.0f * i, "TimerConversation");
+
 	AddTimer("SendTheHammer", 15.0f, "TimerSendTheHammer");
 	AddTimer("BruteConversationEnd", 17.5f, "TimerEndConversation");
 }
@@ -412,8 +423,13 @@ void FinalFightRestart()
 	SetEntityPlayerInteractCallback("BigHammer", "OnInteractBigHammer", true);
 	RemoveEntityCollideCallback("BigHammer", "AreaWoodenBarricade");
 	ResetProp("BigHammer");
-	for(int i=1;i<=2;i++) SetEntityActive("AfterFinalCorrupt_" + i, true);
-	for(int i=1;i<=8;i++) SetLampLit("FinalTorch_" + i, false, false);
+
+	for(int i=1;i<=2;i++)
+		SetEntityActive("AfterFinalCorrupt_" + i, true);
+
+	for(int i=1;i<=8;i++)
+		SetLampLit("FinalTorch_" + i, false, false);
+
 	AddEntityCollideCallback("Player", "AreaEndRoom", "OnCollideEndRoomTorchLit", true, 1);
 	SetLocalVarInt("CorruptedBarricadeDestroyed", 0);
 	SetLocalVarInt("BruteHit", 0);
@@ -448,6 +464,7 @@ void OnInteractBigHammer(string &in asEntity)
 	SetEnemyDisableTriggers("BruteFinal", false);
 	bruteIsActive = true;
 	PlayMusic("14_elevator_falls.ogg", true, 1.0f, 0.0f, 10, true);
+
 	if(RandInt(0, 1) == 1)
 		for(int i=1;i<=5;i++)
 			AddEnemyPatrolNode("BruteFinal", "PathBruteSecondPath_" + i, 0.01f, "");
@@ -471,7 +488,7 @@ void OnInteractPedestal(string &in asEntity)
 
 	DestroySlimeArea(pedestalNumber + "_Corrupt_");
 
-	string oldQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
+	const string oldQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
 	AddLocalVarInt("OrbsCompleteCount", 1);
 
 	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "", "");
@@ -486,7 +503,7 @@ void OnInteractPedestal(string &in asEntity)
 	}
 	else if(QuestIsAdded(oldQuest))
 	{
-		string newQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
+		const string newQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
 		AddQuest(newQuest, newQuest);
 	}
 	CompleteQuest(oldQuest, oldQuest);
@@ -582,7 +599,8 @@ void UseHammerOnCorrupt(string &in asWeapon, string &in asEnemy, int alState)
 		SetEntityActive(asEnemy, false);
 
 		AddLocalVarInt("CorruptedBarricadeDestroyed", 1);
-		if(GetLocalVarInt("CorruptedBarricadeDestroyed") == 2) SetMoveObjectState("BackDoor", 1.0f);
+		if(GetLocalVarInt("CorruptedBarricadeDestroyed") == 2)
+			SetMoveObjectState("BackDoor", 1.0f);
 	}
 }
 
@@ -645,6 +663,7 @@ void TimerStepZone(string &in asIndex)
 void TimerChangeStepSpeed(string &in asTimer)
 {
 	stepSpeed += stepSpeedShift;
+
 	if(stepSpeed <= 0.5f || stepSpeed >= 2.0f)
 		stepSpeedShift = -stepSpeedShift;
 
