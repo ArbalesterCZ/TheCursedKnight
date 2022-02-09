@@ -353,7 +353,6 @@ void OnCollidePlayerOnAreaHeavyDoorStart(string &in asParent, string &in asChild
 
 void OnInteractMainDoor(string &in asDoor)
 {
-	SetLocalVarInt("OrbQuestIsVisible", 1);
 	string questName = asDoor + "_" + GetLocalVarInt("OrbsCompleteCount");
 	SetMessage("Hints", questName , 5.0f);
 	AddQuest(questName, questName);
@@ -473,7 +472,6 @@ void OnInteractPedestal(string &in asEntity)
 	DestroySlimeArea(pedestalNumber + "_Corrupt_");
 
 	string oldQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
-	CompleteQuest(oldQuest, oldQuest);
 	AddLocalVarInt("OrbsCompleteCount", 1);
 
 	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "", "");
@@ -486,11 +484,12 @@ void OnInteractPedestal(string &in asEntity)
 		SetMoveObjectState("MainGate", 1.0f);
 		SetEntityInteractionDisabled("MainGate", true);
 	}
-	else if(GetLocalVarInt("OrbQuestIsVisible") == 1)
+	else if(QuestIsAdded(oldQuest))
 	{
 		string newQuest = "MainGate_" + GetLocalVarInt("OrbsCompleteCount");
 		AddQuest(newQuest, newQuest);
 	}
+	CompleteQuest(oldQuest, oldQuest);
 }
 
 void TimerCorruptExplode(string &in asTimer)
