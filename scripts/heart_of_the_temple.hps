@@ -218,7 +218,7 @@ void TimerPlayerPlay(string &in asTimer)
 void OnColliderFireDamage(string &in asParent, string &in asChild, int alState)
 {
 	if(alState == 1)
-		AddTimer(asChild + "_FireDamage", 0.0f, "TimerFireDamage");
+		TimerFireDamage(asChild + "_FireDamage");
 	else
 		RemoveTimer(asChild + "_FireDamage");
 }
