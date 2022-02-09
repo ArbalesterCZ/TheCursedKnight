@@ -6317,7 +6317,7 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Area Active="false" AreaType="Script" Group="0" ID="3608" Mesh="" Name="AreaCheckPoint" Rotation="0 0 0" Scale="9 11.5 5.25" Tag="" WorldPos="36.75 5.75 0">
+                <Area Active="true" AreaType="Script" Group="0" ID="3608" Mesh="" Name="AreaCheckPoint" Rotation="0 0 0" Scale="9 11.5 5.25" Tag="" WorldPos="36.75 5.75 0">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />

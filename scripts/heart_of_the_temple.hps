@@ -10,7 +10,6 @@ void OnStart()
 	AddUseItemCallback("", "HammerChipper", "Wall", "UseHammerOnWall", true);
 
 	AddEntityCollideCallback("Player", "Area_HeavyDoorStart", "OnCollidePlayerOnAreaHeavyDoorStart", false, 1);
-	AddEntityCollideCallback("Player", "AreaCheckPoint", "OnCollideCheckPoint", false, 0);
 	AddEntityCollideCallback("Player", "AreaDreamWalk", "OnCollideDreamWalk", false, 0);
 	AddEntityCollideCallback("Player", "AreaGlobalPit", "OnCollideGlobalPit", false, 1);
 	AddEntityCollideCallback("Player", "AreaPit", "OnCollideThePit", true, 1);
@@ -28,8 +27,8 @@ void OnStart()
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_1", "UseHammerOnCorrupt", false, 1);
 	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_2", "UseHammerOnCorrupt", false, 1);
 
-	for(int i=1;i<=16;i++)
-		for(int j=1;j<=4;j++)
+	for(int i=0;i<16;i++)
+		for(int j=0;j<4;j++)
 			AddEntityCollideCallback("Player", j + "_AreaStepZone_" + i, "OnColliderFireDamage", false, 0);
 
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
@@ -121,7 +120,6 @@ void OnCollideDreamWalk(string &in asParent, string &in asChild, int alState)
 void OnCollideCheckPoint(string &in asParent, string &in asChild, int alState)
 {
 	CheckPoint("Checkpoint_" + GetLocalVarInt("OrbsCompleteCount"), "PlayerAfterPedestal_1", "OnDeathMusic", "", "");
-	SetEntityActive(asChild, false);
 }
 
 void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
@@ -465,10 +463,8 @@ void OnInteractPedestal(string &in asEntity)
 
 	string pedestalNumber = StringSub(asEntity, 0, 1);
 	string orb = "Orb_" + pedestalNumber;
-	SetMoveObjectState(pedestalNumber + "_HeavyDoor_1", 1.0f);
 
 	SetEntityActive(orb, true);
-	SetEntityActive("AreaCheckPoint", true);
 	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", orb, true);
 	FadeLightTo("OrbLight_" + pedestalNumber, 0.5f, 0.4f, 0.8f, 1.0f, 8.0f, 3.0f);
 	PlaySoundAtEntity("OrbSound", "03_orb.snt", orb, 0.0f, false);
@@ -481,6 +477,9 @@ void OnInteractPedestal(string &in asEntity)
 	AddLocalVarInt("OrbsCompleteCount", 1);
 
 	CheckPoint("Music_" + pedestalNumber, "PlayerAfterPedestal_" + pedestalNumber, "OnDeathMusic", "", "");
+
+	if(GetLocalVarInt("OrbsCompleteCount") > 1)
+		AddEntityCollideCallback("Player", "AreaCheckPoint", "OnCollideCheckPoint", true, 1);
 
 	if(GetLocalVarInt("OrbsCompleteCount") == 3)
 	{
