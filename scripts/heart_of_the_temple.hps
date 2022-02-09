@@ -3,8 +3,6 @@ float stepSpeedShift = 0.125f;
 
 float[] x(10); float[] y(10); float[] z(10); int last;
 
-bool bruteIsActive;
-
 void OnStart()
 {
 	AddUseItemCallback("", "HammerChipper", "Wall", "UseHammerOnWall", true);
@@ -462,7 +460,6 @@ void TimerEndConversation(string &in asTimer)
 void OnInteractBigHammer(string &in asEntity)
 {
 	SetEnemyDisableTriggers("BruteFinal", false);
-	bruteIsActive = true;
 	PlayMusic("14_elevator_falls.ogg", true, 1.0f, 0.0f, 10, true);
 
 	if(RandInt(0, 1) == 1)
@@ -572,8 +569,7 @@ float Distance(string &in asEntity, float x, float y, float z)
 }
 
 void UseHammerOnBarricade(string &in asWeapon, string &in asTarget, int alState)
-{	
-	if(bruteIsActive)
+{
 		if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
 		{
 			for(int i=1;i<=29;i++)
@@ -585,8 +581,6 @@ void UseHammerOnBarricade(string &in asWeapon, string &in asTarget, int alState)
 			FadeEnemyToSmoke("BruteFinal", false);
 			RemoveTimer("BruteRespawn");
 		}
-	else
-		SetMessage("Hints", "BruteNotCollide", 4.0f);
 }
 
 void UseHammerOnCorrupt(string &in asWeapon, string &in asEnemy, int alState)
@@ -613,7 +607,6 @@ void UseHammerOnBrute(string &in asWeapon, string &in asEnemy, int alState)
 		FadeEnemyToSmoke(asEnemy, false);
 		AddTimer("BruteRespawn", RandFloat(3.75f, 7.25f), "TimerBruteRespawn");
 		AddLocalVarInt("BruteHit", 1);
-		bruteIsActive = false;
 		SetMessage("Hints", "Final_Fight_"+GetLocalVarInt("BruteHit"), 6.5f);
 	}
 }
@@ -632,7 +625,6 @@ void TimerHammerPosition(string &in asHammer)
 void TimerBruteRespawn(string &in asTimer)
 {
 	SetEntityActive("BruteFinal", true);
-	bruteIsActive = true;
 	CreateParticleSystemAtEntity("ChefFinalEffect", "ps_dust_ghost.ps","BruteFinal", false);
 	ShowEnemyPlayerPosition("BruteFinal");
 }
