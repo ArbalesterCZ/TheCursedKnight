@@ -221,12 +221,11 @@ void OnColliderFireDamage(string &in asParent, string &in asChild, int alState)
 
 void TimerFireDamage(string &in asTimer)
 {
+	GivePlayerDamage(8.0f, "BloodSplat", false, true);
+	PlayGuiSound("ui_fire_damage.snt", 1.0f);
+
 	if(GetPlayerHealth() > 0.0f)
-	{
-		GivePlayerDamage(8.0f, "BloodSplat", false, true);
-		PlayGuiSound("ui_fire_damage.snt", 1.0f);
 		AddTimer(asTimer, 0.25f, "TimerFireDamage");	
-	}
 }
 
 void StartEvent()
