@@ -635,6 +635,7 @@ void TimerStepZone(string &in asIndex)
 	AddEntityCollideCallback("Player", asIndex + "_AreaStepZone_" + safeIndex, "OnColliderFireDamage", false, 0);
 	CreateParticleSystemAtEntity(asIndex + "_DangerousZoneParticle_" + safeIndex, "ps_fire_orb_room.ps", asIndex + "_AreaStepZone_" + safeIndex, true);
 	PlaySoundAtEntity(asIndex + "_SoundStepZone_" + safeIndex, "29_fire.snt", asIndex + "_AreaStepZone_" + safeIndex, 0.25f, true);
+	FadeLightTo(asIndex + "_BlueFireLight_" + safeIndex, 0.0f, 1.0f, 1.0f, 1.0f, 2.5f, stepSpeed);
 
 	SetLocalVarInt(asIndex + "_SafeIndex",(safeIndex + 1) % 16);
 	safeIndex = (safeIndex + 4) % 16;
@@ -642,6 +643,7 @@ void TimerStepZone(string &in asIndex)
 	RemoveEntityCollideCallback("Player", asIndex + "_AreaStepZone_" + safeIndex);
 	DestroyParticleSystem(asIndex + "_DangerousZoneParticle_" + safeIndex);
 	StopSound(asIndex + "_SoundStepZone_" + safeIndex, 0.25f);
+	FadeLightTo(asIndex + "_BlueFireLight_" + safeIndex, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, stepSpeed);
 	RemoveTimer(asIndex + "_AreaStepZone_" + safeIndex + "_FireDamage");
 
 	AddTimer(asIndex, stepSpeed, "TimerStepZone");
