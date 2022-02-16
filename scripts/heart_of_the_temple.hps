@@ -16,6 +16,8 @@ void OnStart()
 	for(int i=1;i<=2;i++)
 		AddEntityCollideCallback("Player", i + "_DreamLocation", "OnCollideBreakDoor", true, 1);
 
+	AddEntityCollideCallback("Player", "DreamLocationFinal", "OnCollideDreamFinal", true, 1);
+
 	AddEntityCollideCallback("ThrowStone", "AreaThrowPlace", "OnCollideRockToChain", true, 1);
 	AddEntityCollideCallback("BruteFinal", "AreaFinalBruteAltarRoom", "OnCollideLockAltarRoom", true, 1);
 
@@ -134,6 +136,27 @@ void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
 
 	AddTimer("react_pant.snt", 0.75f, "TimerScare");
 	AddTimer(door, 1.5f, "TimerScratchSound");
+}
+
+void OnCollideDreamFinal(string &in asParent, string &in asChild, int alState)
+{
+	SetPlayerActive(false);
+	StartPlayerLookAt("Brute_Dream", 4.f, 4.f, "");
+	SetEntityActive("Brute_Dream", true);
+	ShowEnemyPlayerPosition("Brute_Dream");
+	GiveSanityDamage(20.f, true);
+	AddEntityCollideCallback("Brute_Dream", "DreamLocationDisapear", "DreamBruteDisapear", true, 1);
+
+	AddTimer("react_pant.snt", .5f, "TimerScare");
+}
+
+void DreamBruteDisapear(string &in asParent, string &in asChild, int alState)
+{
+	SetPlayerActive(true);
+	StopPlayerLookAt();
+	FadeEnemyToSmoke(asParent, true);
+	SetEntityPos("DreamStatueFinal", GetEntityPosX("DreamStatueFinal"), GetEntityPosY("DreamStatueFinal"), GetEntityPosZ(asParent));
+	SetPropActiveAndFade("DreamStatueFinal", true, 4.f);
 }
 
 void OnCollideThePit(string &in asParent, string &in asChild, int alState)
