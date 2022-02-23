@@ -13,8 +13,11 @@ void OnStart()
 	AddEntityCollideCallback("Player", "AreaPit", "OnCollideThePit", true, 1);
 	AddEntityCollideCallback("Player", "AreaEndRoom", "OnCollideEndRoomTorchLit", true, 1);
 
-	for(int i=1;i<=2;i++)
-		AddEntityCollideCallback("Player", i + "_DreamLocation", "OnCollideBreakDoor", true, 1);
+	for(int i=0;GetEntityExists(i+"_DreamLocation");i++)
+		AddEntityCollideCallback("Player", i+"_DreamLocation", "OnCollideBreakDoor", true, 1);
+
+	for(int i=0;GetEntityExists("fire_damage_"+i);i++)
+		AddEntityCollideCallback("Player", "fire_damage_"+i, "OnColliderFireDamage", false, 0);
 
 	AddEntityCollideCallback("Player", "DreamLocationFinal", "OnCollideDreamFinal", true, 1);
 
@@ -124,18 +127,19 @@ void OnCollideCheckPoint(string &in asParent, string &in asChild, int alState)
 
 void OnCollideBreakDoor(string &in asParent, string &in asChild, int alState)
 {
-	const string door = asChild + "Door";
-	SetPropHealth(door, 40.0f);
-	GiveSanityDamage(30.0f, false);
+	const string asDoor = asChild + "Door";
+	SetPropHealth(asDoor, (asDoor == "2_DreamLocationDoor" ? 0.0f : 40.0f));
+	GiveSanityDamage(20.0f, false);
+	SetPropStaticPhysics(asDoor, true);
 
-	PlaySoundAtEntity("DoorHit", "attack_claw_hit.snt", door, 0, false);
+	PlaySoundAtEntity("DoorHit", "attack_claw_hit.snt", asDoor, 0, false);
 
-	CreateParticleSystemAtEntity("DreamDoorHit", "ps_hit_wood.ps", door, false);
-	CreateParticleSystemAtEntity("DreamDoorHit", "ps_break_wood.ps", door, false);
+	CreateParticleSystemAtEntity("DreamDoorHit", "ps_hit_wood.ps", asDoor, false);
+	CreateParticleSystemAtEntity("DreamDoorHit", "ps_break_wood.ps", asDoor, false);
 	StartScreenShake(0.25f, 0.25f, 0.25f, 0.25f);
 
 	AddTimer("react_pant.snt", 0.75f, "TimerScare");
-	AddTimer(door, 1.5f, "TimerScratchSound");
+	AddTimer(asDoor, 1.5f, "TimerScratchSound");
 }
 
 void OnCollideDreamFinal(string &in asParent, string &in asChild, int alState)

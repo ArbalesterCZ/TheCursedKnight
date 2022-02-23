@@ -41,7 +41,7 @@
                 <File Id="24" Path="static_objects/murky_castlebase/wall/door_way.dae" />
                 <File Id="25" Path="static_objects/castlebase/special/cell_wall_worn.dae" />
             </FileIndex_StaticObjects>
-            <FileIndex_Entities NumOfFiles="53">
+            <FileIndex_Entities NumOfFiles="56">
                 <File Id="0" Path="entities/lamp/torch_static01/torch_static_green.ent" />
                 <File Id="1" Path="entities/door/castle_gate_arched01/castle_gate_arched01.ent" />
                 <File Id="2" Path="entities/door/safety_normal_vert/safety_normal_vert_noauto.ent" />
@@ -95,6 +95,9 @@
                 <File Id="50" Path="entities/ptest/dungeon_wall_broken_stones/dungeon_wall_broken_stone03.ent" />
                 <File Id="51" Path="entities/ptest/dungeon_wall_broken_stones/dungeon_wall_broken_stone01.ent" />
                 <File Id="52" Path="entities/ptest/dungeon_wall_broken_stones/dungeon_wall_broken_stone02.ent" />
+                <File Id="53" Path="entities/ptest/graveyard_corpse/graveyard_corpse02.ent" />
+                <File Id="54" Path="entities/ptest/graveyard_corpse/graveyard_corpse03.ent" />
+                <File Id="55" Path="entities/ptest/graveyard_corpse/graveyard_corpse01.ent" />
             </FileIndex_Entities>
             <FileIndex_Decals NumOfFiles="4">
                 <File Id="0" Path="textures/decals/chalk_alchemy_circles.mat" />
@@ -475,7 +478,7 @@
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3415" Name="wall_default_72" Rotation="2.86139 -1.5708 -2.86139" Scale="1 1 1" Tag="" WorldPos="40.5 0 31.75" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3416" Name="wall_default_73" Rotation="2.86139 -1.5708 -2.86139" Scale="1 1 1" Tag="" WorldPos="40.5 0 35.75" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3417" Name="wall_default_74" Rotation="3.14159 -2.35438e-06 -3.14159" Scale="1 1 1" Tag="" WorldPos="38.5 0 37.75" />
-                <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3418" Name="wall_default_75" Rotation="3.14159 -2.35438e-06 -3.14159" Scale="1 1 1" Tag="" WorldPos="34.5 0 37.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3418" Name="wall_default_75" Rotation="3.14159 -2.35438e-06 -3.14159" Scale="1 1 1" Tag="" WorldPos="34.5 0 41.75" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3419" Name="wall_default_76" Rotation="3.14159 -2.35438e-06 -3.14159" Scale="1 1 1" Tag="" WorldPos="30.5 0 37.75" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3420" Name="wall_default_77" Rotation="3.05669 1.5708 3.05669" Scale="1 1 1" Tag="" WorldPos="28.5 0 35.75" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3421" Name="wall_default_78" Rotation="3.05669 1.5708 3.05669" Scale="1 1 1" Tag="" WorldPos="28.5 0 31.75" />
@@ -548,6 +551,11 @@
                 <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="3624" Name="wall_default_extension_worn_78" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="48.75 0 -16" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="3625" Name="wall_default_worn_40" Rotation="0 -1.5708 0" Scale="1 1 1" Tag="" WorldPos="52.5 0 -8" />
                 <StaticObject CastShadows="true" Collides="true" FileIndex="11" Group="0" ID="3629" Name="stairs_railing_worn_4" Rotation="0 1.5708 0" Scale="0.5 3.25 0.5" Tag="" WorldPos="45.5 0 -10.5" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3703" Name="wall_default_84" Rotation="1.51834 -1.5708 -1.51833" Scale="1 1 1" Tag="" WorldPos="36.5 0 39.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="24" Group="0" ID="3707" Name="wall_door_way_6" Rotation="0 1.43051e-06 -5.00679e-06" Scale="1 1 1" Tag="" WorldPos="34.5 0 37.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="24" Group="0" ID="3708" Name="wall_door_way_7" Rotation="3.14159 -1.43051e-06 3.14159" Scale="1 1 1" Tag="" WorldPos="34.5 0 37.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="3709" Name="wall_door_frame_plain_worn_13" Rotation="-3.45707e-06 -1.19209e-06 0" Scale="1 1 1" Tag="" WorldPos="34.25 0 37.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="23" Group="0" ID="3738" Name="wall_default_85" Rotation="-0.662666 1.5708 -0.662656" Scale="1 1 1" Tag="" WorldPos="32.5 0 39.75" />
             </StaticObjects>
             <Primitives>
                 <Plane Active="true" AlignToWorldCoords="false" CastShadows="false" Collides="true" Corner1UV="0 6.025" Corner2UV="0 0" Corner3UV="10.025 0" Corner4UV="10.025 6.025" EndCorner="100.25 0 60.25" Group="0" ID="1915" Material="/opt/Steam/steamapps/common/Amnesia The Dark Descent/static_objects/sanctumbase/floor/sanctumbase_floor.mat" Name="Plane_50" Rotation="0 0 0" Scale="1 1 1" StartCorner="0 0 0" Tag="" TextureAngle="0" TileAmount="0.1 1 0.1" TileOffset="0 0 0" WorldPos="0 0 -50" />
@@ -1313,6 +1321,33 @@
                         <Tangents Array="0.393 0.816 -0.423 1 0.394 0.815 -0.425 1 0.362 0.911 0.197 1 0.361 0.914 0.183 1 0.356 0.934 0.022 1 0.356 0.934 0.022 1 0.361 0.914 0.183 1 0.361 0.917 0.169 1 0.391 0.826 -0.407 1 0.365 0.904 -0.224 1 0.392 0.822 -0.413 1 0.392 0.822 -0.413 1 0.365 0.904 -0.224 1 0.363 0.91 0.202 1 0.362 0.911 0.197 1 0.394 0.815 -0.425 1 " />
                         <TexCoords Array="0.002 0.001 0 0.002 0.432 0 0.999 0.811 0 0.999 0.307 0 0.747 0 0 0.747 0 0 0.999 0.307 0 0.999 0 0 0.002 1 0 0.322 1 0 0.002 0.61 0 0.002 0.61 0 0.322 1 0 0.999 1 0 0.999 0.811 0 0.002 0.432 0 " />
                         <Indices Array="0 1 2 0 2 3 0 3 4 5 6 7 8 9 10 11 12 13 11 13 14 11 14 15" />
+                    </DecalMesh>
+                </Decal>
+                <Decal Active="true" Color="1 1 1 1" CurrentSubDiv="2" Group="0" ID="3713" MaterialIndex="2" MaxTriangles="-1" Name="blood_stain_large_1" Offset="0.00719306" OnEntity="true" OnPrimitive="true" OnStatic="true" Rotation="2.53518e-06 6.42716e-12 -2.53519e-06" Scale="2 1 1.75" SubDiv="2 2" Tag="" WorldPos="35.25 0 39.5">
+                    <DecalMesh NumInds="12" NumVerts="8">
+                        <Positions Array="34.25 0.007 40.375 1 34.25 0.007 39.486 1 36.133 0.007 38.625 1 36.25 0.007 38.625 1 36.25 0.007 40.375 1 36.133 0.007 38.625 1 34.25 0.007 39.486 1 34.25 0.007 38.625 1 " />
+                        <Normals Array="0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 " />
+                        <Tangents Array="1 -0 0 1 1 -0 -0 1 1 -0 0 1 1 -0 0 1 1 -0 0 1 1 -0 0 1 1 -0 -0 1 1 -0 -0 1 " />
+                        <TexCoords Array="0 0 0 0 0.254 0 0.471 0.5 0 0.5 0.5 0 0.5 0 0 0.471 0.5 0 0 0.254 0 0 0.5 0 " />
+                        <Indices Array="0 1 2 0 2 3 0 3 4 5 6 7" />
+                    </DecalMesh>
+                </Decal>
+                <Decal Active="true" Color="1 1 1 1" CurrentSubDiv="1" Group="0" ID="3714" MaterialIndex="2" MaxTriangles="-1" Name="blood_stain_large_15" Offset="0.007555" OnEntity="true" OnPrimitive="true" OnStatic="true" Rotation="3.58528e-06 -0.785397 -5.07036e-06" Scale="1.75 1 1" SubDiv="2 2" Tag="" WorldPos="33.5298 0.000102282 40.7413">
+                    <DecalMesh NumInds="54" NumVerts="38">
+                        <Positions Array="32.558 0.008 40.476 1 32.957 0.008 40.077 1 33.379 0.008 39.884 1 34.502 0.008 41.006 1 33.795 0.008 41.714 1 33.379 0.008 39.884 1 32.957 0.008 40.077 1 33.265 0.008 39.769 1 33.824 0.229 41.679 1 33.759 0.227 41.672 1 33.637 0.179 41.55 1 33.953 0.179 41.55 1 33.759 0.227 41.672 1 33.824 0.229 41.679 1 33.795 0.24 41.707 1 33.968 0.132 41.535 1 33.612 0.101 41.525 1 33.581 0.002 41.493 1 34.009 0.002 41.493 1 33.612 0.101 41.525 1 33.968 0.132 41.535 1 33.953 0.179 41.55 1 33.637 0.179 41.55 1 32.623 0.209 40.537 1 32.636 0.204 40.403 1 32.7 0.179 40.339 1 32.7 0.178 40.613 1 32.563 0.232 40.476 1 32.636 0.204 40.403 1 32.623 0.209 40.537 1 32.732 0.081 40.644 1 32.742 0.051 40.299 1 32.757 0.002 40.284 1 32.757 0.002 40.669 1 32.742 0.051 40.299 1 32.732 0.081 40.644 1 32.7 0.178 40.613 1 32.7 0.179 40.339 1 " />
+                        <Normals Array="0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 -0 0.647 -0.763 -0 0.654 -0.756 -0 0.732 -0.682 -0 0.715 -0.699 -0 0.654 -0.756 -0 0.647 -0.763 -0 0.581 -0.814 -0 0.595 -0.804 -0 0.53 -0.848 -0 0.305 -0.952 -0 0.305 -0.952 -0 0.53 -0.848 -0 0.595 -0.804 -0 0.715 -0.699 -0 0.732 -0.682 0.711 0.703 0 0.714 0.7 0 0.76 0.65 0 0.774 0.633 0 0.748 0.663 0 0.714 0.7 0 0.711 0.703 0 0.906 0.424 0 0.926 0.379 0 0.952 0.305 0 0.952 0.305 0 0.926 0.379 0 0.906 0.424 0 0.774 0.633 0 0.76 0.65 0 " />
+                        <Tangents Array="0.707 -0 0.707 1 0.707 -0 0.707 1 0.707 -0 0.707 1 0.707 -0 0.707 1 0.707 -0 0.707 1 0.707 -0 0.707 1 0.707 -0 0.707 1 0.707 -0 0.707 1 0.728 0.523 0.443 1 0.726 0.52 0.45 1 0.531 0.578 0.62 1 0.411 0.638 0.651 1 0.726 0.52 0.45 1 0.728 0.523 0.443 1 0.746 0.542 0.387 1 0.31 0.764 0.565 1 0.305 0.808 0.504 1 0.294 0.91 0.292 1 0.294 0.91 0.292 1 0.305 0.808 0.504 1 0.31 0.764 0.565 1 0.411 0.638 0.651 1 0.531 0.578 0.62 1 0.493 -0.498 0.713 1 0.49 -0.5 0.714 1 0.554 -0.648 0.523 1 0.582 -0.711 0.395 1 0.458 -0.517 0.723 1 0.49 -0.5 0.714 1 0.493 -0.498 0.713 1 0.405 -0.865 0.295 1 0.362 -0.884 0.295 1 0.292 -0.911 0.292 1 0.292 -0.911 0.292 1 0.362 -0.884 0.295 1 0.405 -0.865 0.295 1 0.582 -0.711 0.395 1 0.554 -0.648 0.523 1 " />
+                        <TexCoords Array="0.5 0.5 0 0.5 0.782 0 0.546 1 0 1 1 0 1 0.5 0 0.546 1 0 0.5 0.782 0 0.5 1 0 0.999 0.523 0 0.984 0.502 0 0.935 0.502 0 0.999 0.614 0 0.984 0.502 0 0.999 0.523 0 0.999 0.502 0 0.999 0.624 0 0.925 0.502 0 0.912 0.503 0 0.999 0.654 0 0.925 0.502 0 0.999 0.624 0 0.999 0.614 0 0.935 0.502 0 0.525 0.502 0 0.501 0.554 0 0.501 0.599 0 0.556 0.502 0 0.501 0.502 0 0.501 0.554 0 0.525 0.502 0 0.569 0.502 0 0.501 0.628 0 0.501 0.639 0 0.579 0.503 0 0.501 0.628 0 0.569 0.502 0 0.556 0.502 0 0.501 0.599 0 " />
+                        <Indices Array="0 1 2 0 2 3 0 3 4 5 6 7 8 9 10 8 10 11 12 13 14 15 16 17 15 17 18 19 20 21 19 21 22 23 24 25 23 25 26 27 28 29 30 31 32 30 32 33 34 35 36 34 36 37" />
+                    </DecalMesh>
+                </Decal>
+                <Decal Active="true" Color="1 1 1 1" CurrentSubDiv="3" Group="0" ID="3715" MaterialIndex="2" MaxTriangles="-1" Name="blood_stain_large_16" Offset="0.00789435" OnEntity="true" OnPrimitive="true" OnStatic="true" Rotation="2.53518e-06 6.42716e-12 -2.53519e-06" Scale="1 1 1" SubDiv="2 2" Tag="" WorldPos="35.25 0 40.75">
+                    <DecalMesh NumInds="6" NumVerts="4">
+                        <Positions Array="34.75 0.008 41.25 1 34.75 0.008 40.25 1 35.75 0.008 40.25 1 35.75 0.008 41.25 1 " />
+                        <Normals Array="0 1 0 0 1 0 0 1 0 0 1 0 " />
+                        <Tangents Array="1 -0 -0 1 1 -0 -0 1 1 -0 -0 1 1 -0 -0 1 " />
+                        <TexCoords Array="0.5 0 0 0.5 0.5 0 1 0.5 0 1 0 0 " />
+                        <Indices Array="0 1 2 0 2 3" />
                     </DecalMesh>
                 </Decal>
             </Decals>
@@ -3025,7 +3060,7 @@
                         <Var Name="ConnectionLightUseSpec" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="6" Group="0" ID="2416" Name="bridge_torch_15" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="51 0 -40">
+                <Entity Active="true" FileIndex="6" Group="0" ID="2416" Name="bridge_torch_15" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="50.75 0 -40">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
@@ -5862,10 +5897,10 @@
                         <Var Name="AutoMoveGoal" Value="Middle" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="34" Group="0" ID="3233" Name="1_DreamLocationDoor" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="52 0.125 31.75">
+                <Entity Active="true" FileIndex="34" Group="0" ID="3233" Name="0_DreamLocationDoor" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="52 0.125 31.75">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
-                        <Var Name="StaticPhysics" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
                         <Var Name="IsAffectedByDecal" Value="false" />
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="ConnectedProps" Value="" />
@@ -5943,7 +5978,7 @@
                         <Var Name="CustomSubItemTypeName" Value="" />
                     </UserVariables>
                 </Entity>
-                <Area Active="true" AreaType="Script" Group="0" ID="3354" Mesh="" Name="1_DreamLocation" Rotation="0 0 0" Scale="4 4 4" Tag="" WorldPos="54.5 2 31.75">
+                <Area Active="true" AreaType="Script" Group="0" ID="3354" Mesh="" Name="0_DreamLocation" Rotation="0 0 0" Scale="4 4 4" Tag="" WorldPos="54.5 2 31.75">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6065,10 +6100,10 @@
                         <Var Name="CustomSubItemTypeName" Value="" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="34" Group="0" ID="3432" Name="2_DreamLocationDoor" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="36.25 0.125 24.25">
+                <Entity Active="true" FileIndex="34" Group="0" ID="3432" Name="1_DreamLocationDoor" Rotation="0 1.5708 0" Scale="1 1 1" Tag="" WorldPos="36.25 0.125 24.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
-                        <Var Name="StaticPhysics" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
                         <Var Name="IsAffectedByDecal" Value="false" />
                         <Var Name="CallbackFunc" Value="" />
                         <Var Name="ConnectedProps" Value="" />
@@ -6083,7 +6118,7 @@
                         <Var Name="DisableBreakable" Value="false" />
                     </UserVariables>
                 </Entity>
-                <Area Active="true" AreaType="Script" Group="0" ID="3435" Mesh="" Name="2_DreamLocation" Rotation="0 0 0" Scale="4 4 4" Tag="" WorldPos="38.5 2 24.25">
+                <Area Active="true" AreaType="Script" Group="0" ID="3435" Mesh="" Name="1_DreamLocation" Rotation="0 0 0" Scale="4 4 4" Tag="" WorldPos="38.5 2 24.25">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6495,6 +6530,347 @@
                     </UserVariables>
                 </Entity>
                 <Area Active="true" AreaType="Script" Group="0" ID="3702" Mesh="" Name="DreamLocationDisapear" Rotation="0 0 0" Scale="0.25 4 4" Tag="" WorldPos="43.5 2 20">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Entity Active="true" FileIndex="34" Group="0" ID="3710" Name="2_DreamLocationDoor" Rotation="0 3.14159 0" Scale="1 1 1" Tag="" WorldPos="34.25 0.125 37.75">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="Locked" Value="false" />
+                        <Var Name="OpenAmount" Value="0" />
+                        <Var Name="DisableBreakable" Value="false" />
+                    </UserVariables>
+                </Entity>
+                <Area Active="true" AreaType="Script" Group="0" ID="3711" Mesh="" Name="2_DreamLocation" Rotation="0 0 0" Scale="4 4 3.25" Tag="" WorldPos="34.25 2 36">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Entity Active="true" FileIndex="48" Group="0" ID="3712" Name="3_DreamLocationStatue" Rotation="3.14159 -1.43051e-06 3.14159" Scale="2.75 1.5 2.5" Tag="" WorldPos="34.25 0 39.75">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="53" Group="0" ID="3716" Name="graveyard_corpse02_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="35.75 0 41">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="54" Group="0" ID="3717" Name="graveyard_corpse03_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="33.25 0 40.25">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <Entity Active="true" FileIndex="55" Group="0" ID="3718" Name="graveyard_corpse01_1" Rotation="0 -1.0472 0" Scale="1 1 1" Tag="" WorldPos="35.5 0 39.5">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ContainedItem" Value="None" />
+                        <Var Name="DisableBreakable" Value="false" />
+                        <Var Name="IsInsanityVision" Value="false" />
+                        <Var Name="VisionMaxSanity" Value="30" />
+                    </UserVariables>
+                </Entity>
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3719" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_6" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="34.5 0 40.75" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3720" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_7" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="33.5 0 39" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3721" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_8" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="35.5 0 39" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3722" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_9" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="34.25 0 38.5" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3723" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_10" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="35.75 0 40" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3724" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_11" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="33.25 0 40.75" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3725" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_12" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="35.5 0 41.25" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="true" File="/mnt/hdd-1/Steam/steamapps/common/Amnesia The Dark Descent/particles/ps_torch_fire.ps" Group="0" ID="3726" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_13" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="34.25 0 39.75" />
+                <Area Active="true" AreaType="Script" Group="0" ID="3727" Mesh="" Name="fire_damage_0" Rotation="0 0 0" Scale="3.5 0.5 3.5" Tag="" WorldPos="34.5 0.25 39.75">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3729" Name="FireLight_1" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="34.25 0.25 39.75" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3730" Name="FireLight_2" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="33.5 0.25 39" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3731" Name="FireLight_3" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="33.25 0.25 40.75" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3732" Name="FireLight_4" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="34.5 0.25 40.75" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3733" Name="FireLight_5" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="35.5 0.25 41.25" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3734" Name="FireLight_6" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="35.75 0.25 40" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3735" Name="FireLight_7" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="35.5 0.25 39" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3736" Name="OnColliderFireDamage" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="34.25 0.25 38.5" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3737" Name="OnColliderFireDamage_1" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="35.5 0.25 39" />
+                <Area Active="true" AreaType="Script" Group="0" ID="3739" Mesh="" Name="fire_damage_1" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="78.75 1 -12.25">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3740" Mesh="" Name="fire_damage_2" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="78.75 1 -40">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3741" Mesh="" Name="fire_damage_3" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="50.75 1 -40">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3742" Mesh="" Name="fire_damage_4" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="50.75 1 -8">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3743" Mesh="" Name="fire_damage_5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="81 9 -11">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3744" Mesh="" Name="fire_damage_6" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="81 9 11">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3745" Mesh="" Name="fire_damage_7" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="59 9 11">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3746" Mesh="" Name="fire_damage_8" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="59 9 -11">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3747" Mesh="" Name="fire_damage_9" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="78.25 1 36.5">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3748" Mesh="" Name="fire_damage_10" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="69.25 1 20">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3749" Mesh="" Name="fire_damage_11" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="58.5 1 17.25">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3750" Mesh="" Name="fire_damage_12" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="79.25 1 28">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3751" Mesh="" Name="fire_damage_13" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="62.5 1 6.75">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3752" Mesh="" Name="fire_damage_14" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="65 9 4">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3753" Mesh="" Name="fire_damage_15" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="65 9 -4">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3754" Mesh="" Name="fire_damage_16" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="73 9 -4">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3755" Mesh="" Name="fire_damage_17" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="73 9 4">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3757" Mesh="" Name="fire_damage_19" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="57 10.75 2">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3758" Mesh="" Name="fire_damage_20" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="57 10.75 -2">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3759" Mesh="" Name="fire_damage_21" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="41.25 2.75 -2">
+                    <UserVariables>
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="ItemInteraction" Value="false" />
+                        <Var Name="MaxFocusDistance" Value="-1" />
+                    </UserVariables>
+                </Area>
+                <Area Active="true" AreaType="Script" Group="0" ID="3760" Mesh="" Name="fire_damage_22" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="41.25 2.75 2">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
