@@ -6670,7 +6670,7 @@
                 <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3735" Name="FireLight_7" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="35.5 0.25 39" />
                 <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3736" Name="OnColliderFireDamage" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="34.25 0.25 38.5" />
                 <PointLight Active="true" CastShadows="false" DiffuseColor="1 0.75 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="3737" Name="OnColliderFireDamage_1" Radius="1" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="35.5 0.25 39" />
-                <Area Active="true" AreaType="Script" Group="0" ID="3739" Mesh="" Name="fire_damage_1" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="78.75 1 -12.25">
+                <Area Active="true" AreaType="Script" Group="0" ID="3739" Mesh="" Name="fire_damage_1" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="78.75 1 -12.25">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6680,7 +6680,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3740" Mesh="" Name="fire_damage_2" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="78.75 1 -40">
+                <Area Active="true" AreaType="Script" Group="0" ID="3740" Mesh="" Name="fire_damage_2" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="78.75 1 -40">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6690,7 +6690,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3741" Mesh="" Name="fire_damage_3" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="50.75 1 -40">
+                <Area Active="true" AreaType="Script" Group="0" ID="3741" Mesh="" Name="fire_damage_3" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="50.75 1 -40">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6700,7 +6700,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3742" Mesh="" Name="fire_damage_4" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="50.75 1 -8">
+                <Area Active="true" AreaType="Script" Group="0" ID="3742" Mesh="" Name="fire_damage_4" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="50.75 1 -8">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6710,7 +6710,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3743" Mesh="" Name="fire_damage_5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="81 9 -11">
+                <Area Active="true" AreaType="Script" Group="0" ID="3743" Mesh="" Name="fire_damage_5" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="81 9 -11">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6720,7 +6720,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3744" Mesh="" Name="fire_damage_6" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="81 9 11">
+                <Area Active="true" AreaType="Script" Group="0" ID="3744" Mesh="" Name="fire_damage_6" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="81 9 11">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6730,7 +6730,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3745" Mesh="" Name="fire_damage_7" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="59 9 11">
+                <Area Active="true" AreaType="Script" Group="0" ID="3745" Mesh="" Name="fire_damage_7" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="59 9 11">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6740,7 +6740,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3746" Mesh="" Name="fire_damage_8" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="59 9 -11">
+                <Area Active="true" AreaType="Script" Group="0" ID="3746" Mesh="" Name="fire_damage_8" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="59 9 -11">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6750,7 +6750,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3747" Mesh="" Name="fire_damage_9" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="78.25 1 36.5">
+                <Area Active="true" AreaType="Script" Group="0" ID="3747" Mesh="" Name="fire_damage_9" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="78.25 1 36.5">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6760,7 +6760,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3748" Mesh="" Name="fire_damage_10" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="69.25 1 20">
+                <Area Active="true" AreaType="Script" Group="0" ID="3748" Mesh="" Name="fire_damage_10" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="69.25 1 20">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6770,7 +6770,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3749" Mesh="" Name="fire_damage_11" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="58.5 1 17.25">
+                <Area Active="true" AreaType="Script" Group="0" ID="3749" Mesh="" Name="fire_damage_11" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="58.5 1 17.25">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6780,7 +6780,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3750" Mesh="" Name="fire_damage_12" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="79.25 1 28">
+                <Area Active="true" AreaType="Script" Group="0" ID="3750" Mesh="" Name="fire_damage_12" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="79.25 1 28">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6790,7 +6790,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3751" Mesh="" Name="fire_damage_13" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="62.5 1 6.75">
+                <Area Active="true" AreaType="Script" Group="0" ID="3751" Mesh="" Name="fire_damage_13" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="62.5 1 6.75">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6800,7 +6800,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3752" Mesh="" Name="fire_damage_14" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="65 9 4">
+                <Area Active="true" AreaType="Script" Group="0" ID="3752" Mesh="" Name="fire_damage_14" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="65 9 4">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6810,7 +6810,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3753" Mesh="" Name="fire_damage_15" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="65 9 -4">
+                <Area Active="true" AreaType="Script" Group="0" ID="3753" Mesh="" Name="fire_damage_15" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="65 9 -4">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6820,7 +6820,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3754" Mesh="" Name="fire_damage_16" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="73 9 -4">
+                <Area Active="true" AreaType="Script" Group="0" ID="3754" Mesh="" Name="fire_damage_16" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="73 9 -4">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6830,7 +6830,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3755" Mesh="" Name="fire_damage_17" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="73 9 4">
+                <Area Active="true" AreaType="Script" Group="0" ID="3755" Mesh="" Name="fire_damage_17" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="73 9 4">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6840,7 +6840,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3757" Mesh="" Name="fire_damage_19" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="57 10.75 2">
+                <Area Active="true" AreaType="Script" Group="0" ID="3757" Mesh="" Name="fire_damage_19" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="57 10.75 2">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6850,7 +6850,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3758" Mesh="" Name="fire_damage_20" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="57 10.75 -2">
+                <Area Active="true" AreaType="Script" Group="0" ID="3758" Mesh="" Name="fire_damage_20" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="57 10.75 -2">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6860,7 +6860,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3759" Mesh="" Name="fire_damage_21" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="41.25 2.75 -2">
+                <Area Active="true" AreaType="Script" Group="0" ID="3759" Mesh="" Name="fire_damage_21" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="41.25 2.75 -2">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
@@ -6870,7 +6870,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Area Active="true" AreaType="Script" Group="0" ID="3760" Mesh="" Name="fire_damage_22" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="41.25 2.75 2">
+                <Area Active="true" AreaType="Script" Group="0" ID="3760" Mesh="" Name="fire_damage_22" Rotation="0 0 0" Scale="0.25 0.25 0.25" Tag="" WorldPos="41.25 2.75 2">
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
