@@ -626,8 +626,12 @@ void UseHammerOnBrute(string &in asWeapon, string &in asEnemy, int alState)
 	{
 		PlaySoundAtEntity("", "MetalHeavyBashMetal.snt", asEnemy, 0, false);
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", asWeapon, false);
+
 		FadeEnemyToSmoke(asEnemy, false);
-		AddTimer("BruteRespawn", RandFloat(3.75f, 7.25f), "TimerBruteRespawn");
+		SetEntityPos("FinalBossStatue", GetEntityPosX(asEnemy), GetEntityPosY("FinalBossStatue"), GetEntityPosZ(asEnemy));
+		SetPropActiveAndFade("FinalBossStatue", true, 3.f);
+
+		AddTimer("BruteRespawn", 4.f, "TimerBruteRespawnStart");
 		AddLocalVarInt("BruteHit", 1);
 		SetMessage("Hints", "Final_Fight_"+GetLocalVarInt("BruteHit"), 6.5f);
 	}
@@ -644,10 +648,15 @@ void TimerHammerPosition(string &in asHammer)
 	AddTimer(asHammer, 0.01f, "TimerHammerPosition");
 }
 
-void TimerBruteRespawn(string &in asTimer)
+void TimerBruteRespawnStart(string &in asTimer)
+{
+	SetPropActiveAndFade("FinalBossStatue", false, 3.f);
+	AddTimer("BruteRespawn", 3.f, "TimerBruteRespawnComplete");
+}
+
+void TimerBruteRespawnComplete(string &in asTimer)
 {
 	SetEntityActive("BruteFinal", true);
-	CreateParticleSystemAtEntity("ChefFinalEffect", "ps_dust_ghost.ps","BruteFinal", false);
 	ShowEnemyPlayerPosition("BruteFinal");
 }
 
