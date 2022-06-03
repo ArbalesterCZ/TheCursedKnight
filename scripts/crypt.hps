@@ -25,7 +25,7 @@ void OnStart()
 
 	// Other
 	SetMessage("Hints", "Chapter_3", 5.0f);
-	AddTimer("BigHammer", 0.0f, "TimerHammerPosition");
+	TimerHammerPosition("BigHammer");
 	AddQuest("Jailer", "Jailer");
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	PlayMusic("02_amb_strange.ogg", true, 0.8f, 0, 0, true);

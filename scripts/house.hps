@@ -203,7 +203,7 @@ void OnColliderBarrelPlayer(string &in asParent, string &in asChild, int alState
 void OnColliderFireDamage(string &in asParent, string &in asChild, int alState)
 {
 	if(alState == 1)
-		AddTimer("FireDamage", 0.0f, "TimerFireDamage");
+		TimerFireDamage("FireDamage");
 	else
 		RemoveTimer("FireDamage");
 }
@@ -531,7 +531,7 @@ void TimerTeleportFromAngelVision(string &in asTextEntry)
 	TeleportPlayer("AreaHide");
 	FadeIn(1.5f);
 	ReturnFromAngel();
-	AddTimer("TheHammer", 0.0f, "TimerHammerPosition");
+	TimerHammerPosition("TheHammer");
 	AddQuest("KillTheChef", "KillTheChef");
 
 	SetPlayerActive(true);

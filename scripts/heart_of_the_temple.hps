@@ -474,7 +474,7 @@ void TimerEndConversation(string &in asTimer)
 	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "BigHammer", false);
 	ClearEnemyPatrolNodes("BruteFinal");	
 
-	AddTimer("BigHammer", 0.0f, "TimerHammerPosition");
+	TimerHammerPosition("BigHammer");
 
 	CheckPoint("Music_FinalPedestal", "PlayerAfterPedestal_Final", "OnDeathFinalFight", "Die", "FinalFight");
 }
