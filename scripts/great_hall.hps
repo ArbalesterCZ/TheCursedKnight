@@ -1,14 +1,12 @@
 void OnStart()
 {
-	// Events
 	AddUseItemCallback("", "Key", "Door", "UseKeyOnDoorSpecial", true);
 	AddUseItemCallback("", "Key", "SmallDoor", "UseKeyOnDoorSpecial", true);
 	AddUseItemCallback("", "Key_store", "Door_store", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "Key_library", "Door_library", "UseKeyOnDoor", true);
 
-	AddEntityCollideCallback("HandleStore", "LeverConnect", "AttachLever", true, 1);		
+	AddEntityCollideCallback("HandleStore", "LeverConnect", "AttachLever", true, 1);
 
-	// Start setting
 	SetPlayerActive(false);
 	SetPlayerLampOil(0);
 	GiveSanityDamage(110.0f, false);
@@ -17,19 +15,11 @@ void OnStart()
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	SetMapDisplayNameEntry("GreatHall");
 
-	// Dream cutscene
 	FadeOut(0.0f);
 	FadeIn(3.0f);
 
-	AddTimer("Dark", 5.0f, "TimerDark");
+	AddTimer("2.0f", 5.0f, "TimerFadeOut");
 	AddTimer("Light", 7.0f, "TimerDreamStart");
-
-	AddTimer("Dark", 10.0f, "TimerDark");
-	AddTimer("Light", 12.0f, "TimerDreamShift");
-
-	AddTimer("Dark", 14.0f, "TimerDark");
-	AddTimer("Light", 16.0f, "TimerDreamEnd");
-	AddTimer("WakeUp", 18.0f, "TimerWakeUp");
 }
 
 void OnLeave()
@@ -53,7 +43,7 @@ void UseKeyOnDoor(string &in asItem, string &in asEntity)
 void UseKeyOnDoorSpecial(string &in asItem, string &in asEntity)
 {
 	SetSwingDoorLocked(asEntity, false, true);
-	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);		
+	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
 	if(!GetSwingDoorLocked("Door") && !GetSwingDoorLocked("SmallDoor")) RemoveItem(asItem);
 	if(asEntity == "SmallDoor") SetEntityActive("Oil", true);
 	CompleteQuest(asEntity, asEntity);
@@ -108,7 +98,7 @@ void TimerLookComplete(string &in asTimer)
 
 void TimerShowMessage(string &in asMessage)
 {
-	SetMessage("Hints", asMessage, 5.0f);	
+	SetMessage("Hints", asMessage, 5.0f);
 }
 
 void TimerScare(string &in soundFile)
@@ -125,12 +115,16 @@ void TimerDreamStart(string &in asTimer)
 	AddEnemyPatrolNode("GruntDream", "PathDream_1", 0.001f, "");
 	AddEnemyPatrolNode("GruntDream", "PathDream_3", 5.0f, "");
 	SetMessage("Hints", "Dream", 3.0f);
+	AddTimer("2.0f", 3.0f, "TimerFadeOut");
+	AddTimer("Light", 5.0f, "TimerDreamShift");
 }
 
 void TimerDreamShift(string &in asTimer)
 {
 	FadeIn(2.0f);
-	TeleportEnemyToNode("GruntDream", "PathDream_2", true);;
+	TeleportEnemyToNode("GruntDream", "PathDream_2", true);
+	AddTimer("2.0f", 2.0f, "TimerFadeOut");
+	AddTimer("Light", 4.0f, "TimerDreamEnd");
 }
 
 void TimerDreamEnd(string &in asTimer)
@@ -139,6 +133,7 @@ void TimerDreamEnd(string &in asTimer)
 	SetFogActive(false);
 	SetEntityActive("GruntDream", false);
 	StopMusic(3.0f, 5);
+	AddTimer("WakeUp", 2.0f, "TimerWakeUp");
 }
 
 void TimerWakeUp(string &in asTimer)
@@ -150,11 +145,11 @@ void TimerWakeUp(string &in asTimer)
 	SetMessage("Hints", "DreamEnd", 5.0f);	
 }
 
-void TimerDark(string &in asTimer)
+void TimerFadeOut(string &in asTimer)
 {
-	FadeOut(2.0f);
+	FadeOut(StringToFloat(asTimer));
 }
-	
+
 void OnLeverChangeState(string &in asEntity, int LeverState)
 {
 	if(LeverState == 1) 
@@ -211,9 +206,7 @@ void OnDeathByChef(string &in asName, int alCount)
 	}
 
 	KitchenBarricade(true);
-
 	AddPlayerSanity(40.0f);
-
 	PlayMusic("amb_extra01.ogg", true, 0.8f, 5.0f, 0, true);
 }
 
