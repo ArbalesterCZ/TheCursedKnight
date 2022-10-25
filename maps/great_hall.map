@@ -2811,7 +2811,7 @@
                 <Area Active="true" AreaType="PathNode" Group="0" ID="1015" Mesh="" Name="PathDream_1" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="10 0 -5.5">
                     <UserVariables />
                 </Area>
-                <Area Active="true" AreaType="PathNode" Group="0" ID="1016" Mesh="" Name="PathDream_2" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="13.5 0 -8.5">
+                <Area Active="true" AreaType="PathNode" Group="0" ID="1016" Mesh="" Name="PathDream_2" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="9.75 0 -10.25">
                     <UserVariables />
                 </Area>
                 <Area Active="true" AreaType="PathNode" Group="0" ID="1017" Mesh="" Name="PathDream_3" Rotation="0 0 0" Scale="0.5 0.5 0.5" Tag="" WorldPos="17.75 0 -6">
