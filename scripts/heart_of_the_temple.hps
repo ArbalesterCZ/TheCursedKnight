@@ -278,7 +278,7 @@ void TimerBruteStartAttack(string &in asTimer)
 {
 	SetLanternActive(false, true);
 	SetEntityActive("Brute_Start", true);
-	AddTimer("BruteAI", 0.25f, "TimerBruteAI");
+	TimerBruteAI("BruteAI")
 	AddEnemyPatrolNode("Brute_Start", "PathNode_Start", 0.01f, "");
 	PlayMusic("26_event_brute.ogg", false, 1.0f, 0.0f, 10, false);
 
