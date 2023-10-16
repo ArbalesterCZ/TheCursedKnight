@@ -1,7 +1,6 @@
 void OnStart()
 {
 	AddUseItemCallback("", "KeyLibrary", "DoorLibrary", "UseKeyOnDoor", true);
-	AddUseItemCallback("", "KeyCrypt", "Door_crypt", "UseKeyOnDoor", true);
 
 	for(int i=1;i<=3;i++)
 		AddUseItemCallback("", "Saw", "WoodenBarricade_"+i, "UseSawToBarricade", true);
@@ -15,7 +14,7 @@ void OnStart()
 	for(int i=1;i<=4;i++)
 		AddEntityCollideCallback("BookSecret_"+i, "AreaSecretBook_"+i, "CollideSecretBook", true, 1);
 
-	for(int i=1;i<=14;i++)
+	for(int i=1;i<=12;i++)
 		AddEntityCollideCallback("Player", "Thorn_"+i, "CollideThorn", false, 1);
 
 	SetMessage("Hints", "Chapter_2", 5.0f);

@@ -265,7 +265,6 @@
 		<Entry Name="GruntDialog_1">[Dead Chef]: You cannot run away, I'll always find you.</Entry>
 		<Entry Name="LeverLibrary">The lever is stuck. There should be a hidden mechanism to release the lever.</Entry>
 		<Entry Name="BruteAgain">[The dead warrior]: Stop running and face me.</Entry>	
-		<Entry Name="Door_Crypt">The door is locked, the key should be somewhere here.</Entry>
 
 		<Entry Name="Chapter_3">Chapter III[br]The sins of war.</Entry>
 		<Entry Name="BlockedDoorCrypt">Something is blocking the door from the other side.</Entry>
