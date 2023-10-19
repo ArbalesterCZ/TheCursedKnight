@@ -1520,7 +1520,7 @@
                         <Var Name="VisionMaxSanity" Value="30" />
                     </UserVariables>
                 </Entity>
-                <Entity Active="true" FileIndex="30" Group="0" ID="294" Name="BigHammer" Rotation="0.261799 0 0" Scale="1 1 1" Tag="" WorldPos="-3.25 0 -16.25">
+                <Entity Active="true" FileIndex="30" Group="0" ID="294" Name="big_hammer" Rotation="0.261799 0 0" Scale="1 1 1" Tag="" WorldPos="-3.25 0 -16.25">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />
