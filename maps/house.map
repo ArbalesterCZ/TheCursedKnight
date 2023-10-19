@@ -7458,7 +7458,7 @@
                     </UserVariables>
                 </Entity>
                 <SpotLight Active="true" Aspect="1" CastShadows="false" DiffuseColor="0.6 1 1 1" FOV="1.0472" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="1369" Name="CabinetLight" NearClipPlane="0.1" Radius="10" Rotation="-1.5708 1.92951e-06 -1.0472" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" SpotFalloffMap="" Tag="" WorldPos="-31.25 -2.25 9" />
-                <Entity Active="false" FileIndex="131" Group="0" ID="1371" Name="TheHammer" Rotation="-0.00966039 1.5708 3.13193" Scale="1 1 1" Tag="" WorldPos="-28.75 -3.75 9">
+                <Entity Active="false" FileIndex="131" Group="0" ID="1371" Name="big_hammer" Rotation="-0.00966039 1.5708 3.13193" Scale="1 1 1" Tag="" WorldPos="-28.75 -3.75 9">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />

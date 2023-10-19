@@ -1,4 +1,8 @@
-float[] x(10); float[] y(10); float[] z(10); int last;
+#include "_combat.hps"
+#include "_use_key_on_door.hps"
+#include "_door_interact.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
 
 void OnStart()
 {
@@ -27,7 +31,7 @@ void OnStart()
 	}
 
 	AddEntityCollideCallback("Chef", "AreaSetHalluciation", "OnColliderBeSafe", false, 1);
-	AddEntityCollideCallback("TheHammer", "ChefFinal", "UseHammerOnChef", false, 1);
+	AddEntityCollideCallback("big_hammer", "ChefFinal", "UseHammerOnChef", false, 1);
 		
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
@@ -47,15 +51,9 @@ void OnLeave()
 	CompleteQuest("BackToForest", "BackToForest");
 }
 
-// FIGHT SYSTEM -->
-float Distance(string &in asEntity, float x, float y, float z)
-{
-	return MathSqrt(MathPow(GetEntityPosX(asEntity) - x, 2) + MathPow(GetEntityPosY(asEntity) - y, 2) + MathPow(GetEntityPosZ(asEntity) - z, 2));
-}
-
 void UseHammerOnChef(string &in weapon, string &in enemy, int alState)
 {	
-	if(Distance(weapon, x[last], y[last], z[last]) > 1.0f)
+	if(velocity > 6.0f)
 	{
 		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", enemy, 0, false);
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", weapon, false);
@@ -71,17 +69,6 @@ void TimerWaitForChefNotCounterAttack(string &in asTimer)
 	if(GetPlayerHealth() > 0.0f) EndEvent();
 }
 
-void TimerHammerPosition(string &in asTimer)
-{
-	x[last] = GetEntityPosX(asTimer);
-	y[last] = GetEntityPosY(asTimer);
-	z[last] = GetEntityPosZ(asTimer);
-
-	last = (last + 1) % 10;
-	
-	AddTimer(asTimer, 0.01f, "TimerHammerPosition");
-}
-
 void TimerChefRespawn(string &in asTimer)
 {
 	SetEntityActive("ChefFinal", true);
@@ -89,7 +76,6 @@ void TimerChefRespawn(string &in asTimer)
 	CreateParticleSystemAtEntity("ChefFinalEffect", "ps_ghost_release.ps","ChefFinal", false);
 	ShowEnemyPlayerPosition("ChefFinal");
 }
-// <-- FIGHT SYSTEM
 
 void OnPickFreshMeat(string &in asEntity, string &in asType)
 {
@@ -253,14 +239,6 @@ void OnColliderHideFromChef(string &in asParent, string &in asChild, int alState
 	AddTimer("ChangeIntoAngel", 2.0f, "TimerChangeIntoAngel");
 	AddTimer("2.0f", 2.5f, "TimerFadeIn");
 }
-void UseKeyOnDoor(string &in asItem, string &in asEntity)
-{
-	SetSwingDoorLocked(asEntity, false, true);
-	SetLevelDoorLocked(asEntity, false);
-	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
-	RemoveItem(asItem);
-	CompleteQuest(asEntity, asEntity);
-}
 
 void UseHammerOnBarricade(string &in asItem, string &in asEntity)
 {
@@ -392,15 +370,6 @@ void Sacrifice()
 	AddTimer("1.5f", 2.0f, "TimerFadeIn");
 }
 
-void OnInteractDoor(string &in door)
-{
-	if(!QuestIsCompleted(door))
-	{
-		SetMessage("Hints", door, 5.0f);
-		AddQuest(door, door);
-	}
-}
-
 void OnInteractButtonHeavyDoor(string &in asEntity)
 {
 	PlaySoundAtEntity("SoundPressTheButton", "gameplay_tick.snt", asEntity, 0.0f, false);
@@ -439,7 +408,6 @@ void EndEvent()
 	SetLevelDoorLocked("BackDoor", false);
 	SetMoveObjectState("SecretDoorSecond", 1);
 	SetEntityPlayerInteractCallback("Script_TheBed", "OnPlayerInteractTheBed", true);
-	RemoveTimer("TheHammer");
 }
 
 void TimerDropBarrels(string &in asTimer)
@@ -462,20 +430,9 @@ void OnColliderBarrelDestroy(string &in asParent, string &in asChild, int alStat
 	SetPropHealth(asParent, 0.0f);
 }	
 
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
-}
-
 void TimerExpire(string &in asTimer)
 {
 	SetMessage("Hints", asTimer, 5.0f);	
-}
-
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
 }
 
 void TimerFadeIn(string &in time)
@@ -531,7 +488,6 @@ void TimerTeleportFromAngelVision(string &in asTextEntry)
 	TeleportPlayer("AreaHide");
 	FadeIn(1.5f);
 	ReturnFromAngel();
-	TimerHammerPosition("TheHammer");
 	AddQuest("KillTheChef", "KillTheChef");
 
 	SetPlayerActive(true);
@@ -543,8 +499,8 @@ void ReturnFromAngel()
 {
 	SetLocalVarInt("ChefLife", 5);
 	ResetProp("CabinetAngel");
-	ResetProp("TheHammer");
-	SetEntityActive("TheHammer", true);
+	ResetProp("big_hammer");
+	SetEntityActive("big_hammer", true);
 	SetEntityActive("ChefFinal", true);
 	TeleportEnemyToEntity("ChefFinal", "ChefFinalStart", "ChefFinal", true);
 	AddTimer("ChefFinalAttackRage", 7.5f, "TimerChefFinalAttackRage");
