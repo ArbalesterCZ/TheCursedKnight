@@ -1,3 +1,7 @@
+#include "_door_interact.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
+
 void OnStart()
 {
 	AddUseItemCallback("rope_on_crank", "rope", "Crank", "UseRopeOnCrank", true);
@@ -76,27 +80,7 @@ void StatueSwap(bool evil, float time)
 	SetPropActiveAndFade("fleshy_statue", evil, time);
 }
 
-void OnInteractDoor(string &in door)
-{
-	if(!QuestIsCompleted(door))
-	{
-		SetMessage("Hints", door, 5.0f);
-		AddQuest(door, door);
-	}
-}
-
 void TimerSwapBack(string &in asTimer)
 {
 	StatueSwap(false, 3.95f);
-}
-
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
-}
-
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
 }
