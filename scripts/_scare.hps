@@ -1,0 +1,5 @@
+void TimerScare(string &in asSound)
+{
+	PlayGuiSound(asSound, 1.0f);
+	ChangePlayerStateToNormal();
+}

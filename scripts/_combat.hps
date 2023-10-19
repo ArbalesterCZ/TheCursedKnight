@@ -1,0 +1,10 @@
+float x; float y; float z; float velocity;
+
+void OnUpdate(float afStep)
+{	
+	velocity = MathSqrt(MathPow(GetEntityPosX("big_hammer") - x, 2) + MathPow(GetEntityPosY("big_hammer") - y, 2) + MathPow(GetEntityPosZ("big_hammer") - z, 2)) / afStep;
+	
+	x = GetEntityPosX("big_hammer");
+	y = GetEntityPosY("big_hammer");
+	z = GetEntityPosZ("big_hammer");
+}

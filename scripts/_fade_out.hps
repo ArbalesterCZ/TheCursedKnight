@@ -1,0 +1,4 @@
+void TimerFadeOut(string &in asTimer)
+{
+	FadeOut(StringToFloat(asTimer));
+}
