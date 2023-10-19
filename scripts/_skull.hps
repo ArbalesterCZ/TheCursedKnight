@@ -1,0 +1,8 @@
+void OnInteractSkull(string &in asEntity)
+{
+	CreateParticleSystemAtEntity("CursedSkullEffect", "blood.ps", asEntity, false);
+	GiveSanityDamage(15.0f, true);
+	StartScreenShake(0.1f, 0.5f, 0.1f, 0.1f);
+	PlaySoundAtEntity("SkullCry", "BansheeDeath.snt", asEntity, 1.0f, false);
+	AddTimer("react_pant.snt", 1.5f, "TimerScare");
+}
