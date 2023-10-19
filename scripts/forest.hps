@@ -1,3 +1,7 @@
+#include "_door_interact.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
+
 int mazeMonsterPreset;
 
 void OnStart()
@@ -80,10 +84,7 @@ void OnLeave()
 
 float Distance(string &in asEntity)
 {
-	return MathSqrt(
-	MathPow(GetEntityPosX(asEntity) - GetPlayerPosX(), 2) + 
-	MathPow(GetEntityPosY(asEntity) - GetPlayerPosY(), 2) + 
-	MathPow(GetEntityPosZ(asEntity) - GetPlayerPosZ(), 2));
+	return MathSqrt(MathPow(GetEntityPosX(asEntity) - GetPlayerPosX(), 2) + MathPow(GetEntityPosY(asEntity) - GetPlayerPosY(), 2) + MathPow(GetEntityPosZ(asEntity) - GetPlayerPosZ(), 2));
 }
 
 void OnPickChefKey(string &in entityName, string &in type)
@@ -134,15 +135,6 @@ void OnInteractSkull(string &in asEntity)
 	StartScreenShake(0.1f, 0.5f, 0.1f, 0.1f);
 	PlaySoundAtEntity("SkullCry", "BansheeDeath.snt", asEntity, 1.0f, false);
 	AddTimer("react_pant.snt", 1.5f, "TimerScare");
-}
-
-void OnInteractDoor(string &in door)
-{
-	if(!QuestIsCompleted(door))
-	{
-		SetMessage("Hints", door, 5.0f);
-		AddQuest(door, door);
-	}
 }
 
 void OnChangeStateCrowbar(string &in asEntity, int alState)
@@ -294,11 +286,6 @@ void OnPlayerDie(string &in asName, int alCount)
 	PlaceEntityAtEntity("KeyMaze", "KeyMaze_" + RandInt(1, 7), "KeyMaze", true);
 }
 
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
-}
-
 void TimerPutIntoTrap(string &in asTimer)
 {
 	SetPropHealth("TrapBarrel", 0.0f);
@@ -306,12 +293,6 @@ void TimerPutIntoTrap(string &in asTimer)
 	ShowEnemyPlayerPosition("TrapChef");
 	StartPlayerLookAt("TrapChef", 2.5f, 3.0f, "");
 	AddTimer("LookComplete", 3.5f, "TimerLookComplete");
-}
-
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
 }
 
 void TimerFullTheGlass(string &in asTimer)
