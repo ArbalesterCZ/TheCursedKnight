@@ -1156,7 +1156,7 @@
                         <Var Name="FullGameSave" Value="true" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
                         <Var Name="Locked" Value="true" />
                         <Var Name="OpenAmount" Value="0" />
@@ -1174,7 +1174,7 @@
                         <Var Name="FullGameSave" Value="true" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="Locked" Value="true" />
                         <Var Name="OpenAmount" Value="0" />
@@ -7702,7 +7702,7 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="ContainedItem" Value="None" />
                         <Var Name="DisableBreakable" Value="true" />
@@ -10181,7 +10181,7 @@
                     <UserVariables>
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="true" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="ItemInteraction" Value="true" />
                         <Var Name="MaxFocusDistance" Value="-1" />

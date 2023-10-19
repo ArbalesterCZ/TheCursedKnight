@@ -1758,7 +1758,7 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="Locked" Value="true" />
                         <Var Name="OpenAmount" Value="0" />
@@ -1776,7 +1776,7 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="Locked" Value="true" />
                         <Var Name="OpenAmount" Value="0" />
@@ -2035,7 +2035,7 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="Locked" Value="false" />
                         <Var Name="OpenAmount" Value="0" />
@@ -2565,7 +2565,7 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="Locked" Value="true" />
                         <Var Name="OpenAmount" Value="0" />
@@ -11847,7 +11847,7 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="StuckState" Value="Min" />
                         <Var Name="InteractionDisablesStuck" Value="false" />
@@ -12480,7 +12480,7 @@
                         <Var Name="FullGameSave" Value="false" />
                         <Var Name="PlayerLookAtCallback" Value="" />
                         <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                        <Var Name="PlayerInteractCallback" Value="OnInteractDoor" />
+                        <Var Name="PlayerInteractCallback" Value="OnInteractQuest" />
                         <Var Name="PlayerInteractCallbackAutoRemove" Value="true" />
                         <Var Name="Locked" Value="true" />
                         <Var Name="OpenAmount" Value="1" />
