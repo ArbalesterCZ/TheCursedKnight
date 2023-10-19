@@ -1,9 +1,14 @@
+#include "_use_key_on_door.hps"
+#include "_door_interact.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
+
 void OnStart()
 {
 	AddUseItemCallback("", "ShinyEnchant", "orb_6", "UseEnchantOnOrb", true);
 	AddUseItemCallback("", "BridgeLeverHandle", "BridgeLeverScript", "UseHandleOnMount", true);
 	AddUseItemCallback("", "TempleKey", "LockedCellarDoor", "UseKeyOnDoor", true);
-	AddUseItemCallback("", "SecretaryKey", "SecretarySmallDoor", "UseKeyOnDoor", true);
+	AddUseItemCallback("", "SecretaryKey", "SecretarySmallDoor", "UseKeyOnDoorSpecial", true);
 	AddUseItemCallback("", "UntaggedKey", "UntaggedSmallDoor_2", "UseKeyOnDoor", true);
 	AddUseItemCallback("", "Arrow_Item", "light_box_1", "UseArrowOnLightBox", true);
 
@@ -140,16 +145,13 @@ void SetSecretSeed()
 	SetEntityActive("1_SecretaryButton_" + secretarySeed, true);
 }
 
-void UseKeyOnDoor(string &in asItem, string &in asEntity)
+void UseKeyOnDoorSpecial(string &in asItem, string &in asEntity)
 {
-	SetSwingDoorLocked(asEntity, false, true);
-	SetLevelDoorLocked(asEntity, false);
-	PlaySoundAtEntity("Sound_" + asEntity, "unlock_door.snt", asEntity, 0, false);
 	RemoveItem(asItem);
+	PlaySoundAtEntity("Sound_" + asEntity, "unlock_door.snt", asEntity, 0, false);
+	SetSwingDoorLocked(asEntity, false, true);
 	CompleteQuest(asEntity, asEntity);
-
-	if(asEntity == "SecretarySmallDoor")
-		SetEntityActive("Sharp_3", true);
+	SetEntityActive("Sharp_3", true);
 }
 
 void UseArrowOnLightBox(string &in asItem, string &in asEntity)
@@ -241,15 +243,6 @@ void UseHandleOnMount(string &in asItem, string &in asEntity)
 	GiveSanityBoostSmall();
 
 	CheckPoint("BridgeSpawn", "StartArea_Bridge", "", "", "");
-}
-
-void OnInteractDoor(string &in asDoor)
-{
-	if(!QuestIsCompleted(asDoor))
-	{
-		SetMessage("Hints", asDoor, 5.0f);
-		AddQuest(asDoor, asDoor);
-	}
 }
 
 void OnLeverTrapChange(string &in asEntity, int LeverState)
@@ -596,17 +589,6 @@ void TimerChangeBackgroundMusic(string &in asTimer)
 void TimerSetEntityActive(string &in asTimer)
 {
 	SetEntityActive(asTimer, true);
-}
-
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
-}
-
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
 }
 
 void TimerChangeDoorState(string &in soundFile)
