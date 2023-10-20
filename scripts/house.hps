@@ -51,13 +51,13 @@ void OnLeave()
 	CompleteQuest("BackToForest", "BackToForest");
 }
 
-void UseHammerOnChef(string &in weapon, string &in enemy, int alState)
+void UseHammerOnChef(string &in asWeapon, string &in asEnemy, int alState)
 {	
 	if(velocity > 6.0f)
 	{
-		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", enemy, 0, false);
-		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", weapon, false);
-		FadeEnemyToSmoke(enemy, false);
+		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", asWeapon, 0, false);
+		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", asWeapon, false);
+		FadeEnemyToSmoke(asEnemy, false);
 		AddLocalVarInt("ChefLife", -1);
 		if(GetLocalVarInt("ChefLife") > 0) AddTimer("ChefRespawn", RandFloat(1.25f, 1.75f), "TimerChefRespawn");
 		else AddTimer("WaitForChefNotCounterAttack", 0.25f, "TimerWaitForChefNotCounterAttack");
