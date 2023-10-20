@@ -573,7 +573,7 @@ void TimerChangeTorch(string &in asTimer)
 /////////////////////////////////////---FIGHT_SYSTEM---/////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void UseHammerOnBarricade(string &in asWeapon, string &in asTarget, int alState)
+void UseHammerOnBarricade(string &in asWeapon, string &in asEnemy, int alState)
 {
 		if(velocity > 4.0f)
 		{
@@ -592,8 +592,9 @@ void UseHammerOnCorrupt(string &in asWeapon, string &in asEnemy, int alState)
 {
 	if(velocity > 8.0f)
 	{
-		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", asEnemy, 0, false);
-		CreateParticleSystemAtEntity("", "ps_slime_attack_normal.ps", asEnemy, false);
+		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", asWeapon, 0, false);
+		CreateParticleSystemAtEntity("", "ps_slime_attack_normal.ps", asWeapon, false);
+
 		PlaySoundAtEntity("", "slime_attack_normal_hit.snt", asEnemy, 0.0f, false);
 		SetEntityActive(asEnemy, false);
 
@@ -607,7 +608,7 @@ void UseHammerOnBrute(string &in asWeapon, string &in asEnemy, int alState)
 {	
 	if(velocity > 6.0f)
 	{
-		PlaySoundAtEntity("", "MetalHeavyBashMetal.snt", asEnemy, 0, false);
+		PlaySoundAtEntity("", "MetalHeavyBashMetal.snt", asWeapon, 0, false);
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", asWeapon, false);
 
 		FadeEnemyToSmoke(asEnemy, false);
