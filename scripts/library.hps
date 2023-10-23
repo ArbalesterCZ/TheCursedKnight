@@ -62,7 +62,7 @@ void CollideSecretBook(string &in asParent, string &in asChild, int alState)
 	{
 		for(int i=1;i<=4;i++) StopSound("SoundBookSecret_"+i, 2.5f);
 		SetLeverStuckState("LeverLibrary", 0, true);
-		CompleteQuest("LeverLibrary", "LeverLibrary");
+		CompleteQuest("PullTheBooks", "PullTheBooks");
 		GiveSanityBoostSmall();
 	}
 }
@@ -93,7 +93,8 @@ void changeState(string &in asEntity, int LeverState)
 	if(LeverState == 1)
 	{
 		SetLeverStuckState(asEntity, LeverState, true);
-		SetMessage("Hints", "DreamEnd", 5.0f);	
+		SetMessage("Hints", "DreamEnd", 5.0f);
+		CompleteQuest("LeverLibrary", "LeverLibrary");
 	}
 }
 
@@ -214,6 +215,7 @@ void OnPickLatern(string &in asEntity, string &in type)
 
 void OnPickManual(string &in asEntity, string &in type)
 {
+	AddQuest("PullTheBooks", "PullTheBooks");
 	for(int i=1;i<=4;i++)
 		SetPropStaticPhysics("BookSecret_"+i, false);
 }

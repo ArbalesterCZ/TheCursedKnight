@@ -165,8 +165,9 @@
 		<Entry Name="Quest_DoorLibrary_Text">Library door is locked. I have to find the key.</Entry>
 		<Entry Name="Quest_SecretShelf_Text">The shelf is stuck. I remember there should be some secret mechanism up in the library.</Entry>
 		<Entry Name="Quest_BlockedDoor_Text">Door at mansion room is blocked. I have to find another way.</Entry>
-		<Entry Name="Quest_LeverLibrary_Text">I have to find the secret mechanism to unlock the door.</Entry>
+		<Entry Name="Quest_LeverLibrary_Text">I have to find the secret mechanism to release the lever.</Entry>
 		<Entry Name="Quest_Cabinet_Brute_Text">The cabinet is stuck.</Entry>
+		<Entry Name="Quest_PullTheBooks_Text">I have to pull 4 books with blue sky color near the lamps in the library.</Entry>
 		// Chapter III [Crypt]
 		<Entry Name="Quest_Jailer_Text">I have to find my jailer friend in the crypt.</Entry>
 		<Entry Name="Quest_DoorJailer_Text">The door is locked. I have to find the key.</Entry>
