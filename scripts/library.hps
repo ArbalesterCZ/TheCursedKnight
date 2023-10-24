@@ -10,6 +10,7 @@ void OnStart()
 	AddEntityCollideCallback("Player", "LibraryEvent_2", "EventCollideLibrary_2", true, 1);
 	AddEntityCollideCallback("Player", "TombArea", "EventCollideTomb", true, 1);
 	AddEntityCollideCallback("LadderMoveable", "PlaceLadder", "EventCollideLadder", true, 1);
+	AddEntityCollideCallback("LadderMoveable", "PlayerFallArea", "EventCollideLadderFall", false, 1);
 
 	for(int i=1;i<=4;i++)
 		AddEntityCollideCallback("BookSecret_"+i, "AreaSecretBook_"+i, "CollideSecretBook", true, 1);
@@ -204,6 +205,11 @@ void EventCollideLadder(string &in asParent, string &in asChild, int alState)
 	SetEntityActive("LadderSecret", true);
 	SetEntityActive("LadderStatic", true);
 	GiveSanityBoostSmall();
+}
+
+void EventCollideLadderFall(string &in asParent, string &in asChild, int alState)
+{
+	ResetProp(asParent);
 }
 
 void OnPickLatern(string &in asEntity, string &in type)
