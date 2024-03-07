@@ -1,3 +1,9 @@
+#include "_use_key_on_door.hps"
+#include "_door_interact.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
+#include "_fade_out.hps"
+
 void OnStart()
 {
 	AddUseItemCallback("", "Key", "Door", "UseKeyOnDoorSpecial", true);
@@ -31,15 +37,6 @@ void OnLeave()
 	SetupLoadScreen("Loading", "Library", 0, "library.jpg");
 }
 
-void UseKeyOnDoor(string &in asItem, string &in asEntity)
-{
-	SetSwingDoorLocked(asEntity, false, true);
-	SetLevelDoorLocked(asEntity, false);
-	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
-	RemoveItem(asItem);
-	CompleteQuest(asEntity, asEntity);
-}
-
 void UseKeyOnDoorSpecial(string &in asItem, string &in asEntity)
 {
 	SetSwingDoorLocked(asEntity, false, true);
@@ -57,15 +54,6 @@ void AttachLever(string &in asParent, string &in asChild, int alState)
 	SetEntityActive("AttachLever", true);
 	PlaySoundAtEntity("", "pickaxe_charge.snt", "AttachLever", 0, false);
 	GiveSanityBoostSmall();
-}
-
-void OnInteractDoor(string &in door)
-{
-	if(!QuestIsCompleted(door))
-	{
-		SetMessage("Hints", door, 5.0f);
-		AddQuest(door, door);
-	}
 }
 
 void OnDestroyVase(string &in asEntity, string &in type)
@@ -91,20 +79,9 @@ void PickKeyStore(string &in asEntity, string &in type)
 	SetPropStaticPhysics("BrokenVase", false);
 }
 
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
-}
-
 void TimerShowMessage(string &in asMessage)
 {
 	SetMessage("Hints", asMessage, 5.0f);
-}
-
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
 }
 
 void TimerDreamStart(string &in asTimer)
@@ -144,11 +121,6 @@ void TimerWakeUp(string &in asTimer)
 	PlayMusic("amb_extra01.ogg", true, 0.8f, 5.0f, 0, true);
 	SetLightVisible("BoxLight", true);
 	SetMessage("Hints", "DreamEnd", 5.0f);	
-}
-
-void TimerFadeOut(string &in asTimer)
-{
-	FadeOut(StringToFloat(asTimer));
 }
 
 void OnLeverChangeState(string &in asEntity, int LeverState)

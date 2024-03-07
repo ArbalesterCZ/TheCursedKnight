@@ -1,0 +1,8 @@
+void UseKeyOnDoor(string &in asItem, string &in asEntity)
+{
+	RemoveItem(asItem);
+	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
+	SetSwingDoorLocked(asEntity, false, true);
+	SetLevelDoorLocked(asEntity, false);
+	CompleteQuest(asEntity, asEntity);
+}

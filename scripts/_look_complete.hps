@@ -1,0 +1,4 @@
+void TimerLookComplete(string &in asTimer)
+{
+	StopPlayerLookAt();
+}

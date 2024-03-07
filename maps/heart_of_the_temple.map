@@ -4240,7 +4240,7 @@
                         <Var Name="MaxFocusDistance" Value="-1" />
                     </UserVariables>
                 </Area>
-                <Entity Active="false" FileIndex="19" Group="0" ID="2736" Name="BigHammer" Rotation="-2.03444 1.5708 1.10715" Scale="1 1 1" Tag="" WorldPos="63.5 10 0">
+                <Entity Active="false" FileIndex="19" Group="0" ID="2736" Name="big_hammer" Rotation="-2.03444 1.5708 1.10715" Scale="1 1 1" Tag="" WorldPos="63.5 10 0">
                     <UserVariables>
                         <Var Name="CastShadows" Value="true" />
                         <Var Name="StaticPhysics" Value="false" />

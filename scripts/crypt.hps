@@ -1,4 +1,9 @@
-float[] x(10); float[] y(10); float[] z(10); int last;
+#include "_combat.hps"
+#include "_use_key_on_door.hps"
+#include "_door_interact.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
+
 int hammer_hint;
 
 void OnStart()
@@ -14,8 +19,8 @@ void OnStart()
 	AddUseItemCallback("", "Hammer", "WoodenBarricadeCrypt", "UseHammerOnBarricade", true);
 	AddUseItemCallback("", "CeremonyDagger", "EvilPrisonerScript", "UseDaggerToPrisoner", true); 
 
-	for(int i=1;i<=5;i++) AddEntityCollideCallback("BigHammer", "Suitor_"+i, "UseHammerOnSuitor", false, 1);
-	AddEntityCollideCallback("BigHammer", "DoorPrison_3_s", "UseHammerOnProp", false, 1);
+	for(int i=1;i<=5;i++) AddEntityCollideCallback("big_hammer", "Suitor_"+i, "UseHammerOnSuitor", false, 1);
+	AddEntityCollideCallback("big_hammer", "DoorPrison_3_s", "UseHammerOnProp", false, 1);
 	AddEntityCollideCallback("Player", "FallArea", "CollideWater", false, 1);
 	AddEntityCollideCallback("Player", "AreaTorchGhost", "CollideGhostTorch", true, 1);
 	AddEntityCollideCallback("Player", "AreaHorror", "CollideHorror", true, 1);
@@ -25,7 +30,6 @@ void OnStart()
 
 	// Other
 	SetMessage("Hints", "Chapter_3", 5.0f);
-	TimerHammerPosition("BigHammer");
 	AddQuest("Jailer", "Jailer");
 	CheckPoint("Music", "StartArea", "OnDeathMusic", "", "");
 	PlayMusic("02_amb_strange.ogg", true, 0.8f, 0, 0, true);
@@ -40,15 +44,6 @@ void OnLeave()
 	StopMusic(0.0f, 5);
 	CompleteQuest("Jailer", "Jailer");
 	SetupLoadScreen("Loading", "Forest", 0, "forest.jpg");
-}
-
-void UseKeyOnDoor(string &in asItem, string &in asEntity)
-{
-	SetSwingDoorLocked(asEntity, false, true);
-	SetLevelDoorLocked(asEntity, false);
-	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
-	RemoveItem(asItem);
-	CompleteQuest(asEntity, asEntity);
 }
 
 void UseHammerOnLock(string &in asItem, string &in asEntity)
@@ -159,7 +154,7 @@ void OnPlayerDie(string &in asName, int alCount)
 	ResetProp("IronMaiden");
 	SetSwingDoorLocked("IronMaiden", true, true);
 
-	ResetProp("BigHammer");
+	ResetProp("big_hammer");
 
 	SetPlayerHealth(100.0f);
 	SetPlayerSanity(100.0f);
@@ -209,18 +204,9 @@ void OnDestroyDoor(string &in entityName, string &in type)
 	ShowEnemyPlayerPosition("Suitor_5");
 }
 
-void OnInteractDoor(string &in door)
-{
-	if(!QuestIsCompleted(door))
-	{
-		SetMessage("Hints", door, 5.0f);
-		AddQuest(door, door);
-	}
-}
-
 void UseHammerOnSuitor(string &in asWeapon, string &in asEnemy, int alState)
 {	
-	if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
+	if(velocity > 6.0f)
 	{
 		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", asWeapon, 0, false);
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", asWeapon, false);
@@ -235,7 +221,7 @@ void UseHammerOnSuitor(string &in asWeapon, string &in asEnemy, int alState)
 
 void UseHammerOnProp(string &in asWeapon, string &in asTarget, int alState)
 {	
-	if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
+	if(velocity > 8.0f)
 	{
 		string asDoor = StringSub(asTarget, 0, asTarget.length() - 2);
 		AddPropHealth(asDoor, -25.0f);
@@ -290,11 +276,6 @@ void UseAcidOnSlime(string &in asItem, string &in asEntity)
 	SetPropHealth(asEntity, 0);
 	GiveItemFromFile("Container", "chemical_container.ent");
 	GiveSanityBoost();
-}
-
-float Distance(string &in asEntity, float x, float y, float z)
-{
-	return MathSqrt(MathPow(GetEntityPosX(asEntity) - x, 2) + MathPow(GetEntityPosY(asEntity) - y, 2) + MathPow(GetEntityPosZ(asEntity) - z, 2));
 }
 
 void OnLookJailer(string &in asEntity, int alState)
@@ -352,11 +333,6 @@ void TimerBurnerComplete(string &in asTimer)
 	StopSound("WaterSound", 0.05f);
 }
 
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
-}
-
 void TimerGruntBridge(string &in asTimer)
 {
 	SetEntityActive("GruntHalluciation", true);
@@ -383,23 +359,6 @@ void TimerSuitors(string &in asTimer)
 	}
 	SetEntityActive("Suitor_4", true);
 	for(int j=8;j>=1;j--) AddEnemyPatrolNode("Suitor_4", "PathNodeArea_"+j, 0.001f, "");
-}
-
-void TimerHammerPosition(string &in asTimer)
-{
-	x[last] = GetEntityPosX(asTimer);
-	y[last] = GetEntityPosY(asTimer);
-	z[last] = GetEntityPosZ(asTimer);
-
-	last = (last + 1) % 10;
-
-	AddTimer(asTimer, 0.01f, "TimerHammerPosition");
-}
-	
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
 }
 
 void TimerSanity(string &in asTimer)
@@ -464,9 +423,9 @@ void TimerGhostUnactive(string &in asEntity)
 	CreateParticleSystemAtEntity("GhostSmoke", "ps_ghost_release.ps", asEntity, false);
 	SetPropActiveAndFade(asEntity, false, 0.75f);
 
-	CreateParticleSystemAtEntity("HammerBreak", "ps_ghost_release.ps", "BigHammer", false);
-	RemoveTimer("BigHammer");
-	SetEntityActive("BigHammer", false);
+	CreateParticleSystemAtEntity("HammerBreak", "ps_ghost_release.ps", "big_hammer", false);
+	RemoveTimer("big_hammer");
+	SetEntityActive("big_hammer", false);
 
 	ShowPlayerCrossHairIcons(true);
 	SetPlayerActive(true);

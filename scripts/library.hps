@@ -1,3 +1,9 @@
+#include "_use_key_on_door.hps"
+#include "_door_interact.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
+#include "_skull.hps"
+
 void OnStart()
 {
 	AddUseItemCallback("", "KeyLibrary", "DoorLibrary", "UseKeyOnDoor", true);
@@ -68,12 +74,6 @@ void CollideSecretBook(string &in asParent, string &in asChild, int alState)
 	}
 }
 
-void LookOnSkull(string &in asEntity, int alState)
-{
-	GiveSanityDamage(10.0f, true);
-	AddTimer("hurt_pant.snt", 0.5f, "TimerScare");
-}
-
 void EventCollideTomb(string &in asParent, string &in asChild, int alState)
 {
 	SetLampLit("TombLit", true, true);
@@ -81,11 +81,6 @@ void EventCollideTomb(string &in asParent, string &in asChild, int alState)
 	AddTimer("react_scare.snt", 0.5f, "TimerScare");
 	GiveSanityDamage(20.0f, true);
 	AddTimer(asParent, 2.5f, "TimerLookComplete");
-}
-
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
 }
 
 void changeState(string &in asEntity, int LeverState)
@@ -177,12 +172,6 @@ void TimerBronzeKnightsRemove(string &in asTimer)
 	SetEntityActive("LampBrute_2", true);
 	for(int i=1;i<=5;i++)
 		SetEntityActive("Bronze_" + i, false);
-}
-
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
 }
 
 void LookAtDeadBodyAtBrute(string &in asEntity, int alState)
@@ -289,15 +278,6 @@ void EventCollideLibrary_2(string &in asParent, string &in asChild, int alState)
 	AddTimer("hurt_pant.snt", 0.5f, "TimerScare");
 }
 
-void UseKeyOnDoor(string &in asItem, string &in asEntity)
-{
-	SetSwingDoorLocked(asEntity, false, true);
-	SetLevelDoorLocked(asEntity, false);
-	PlaySoundAtEntity("", "unlock_door.snt", asEntity, 0, false);
-	RemoveItem(asItem);
-	CompleteQuest(asEntity, asEntity);
-}
-
 void UseSawToBarricade(string &in asItem, string &in asEntity)
 {
 	SetPlayerActive(false);
@@ -316,15 +296,6 @@ void SecretButton(string &in asEntity)
 	CompleteQuest("MansionDoor", "MansionDoor");
 
 	GiveSanityBoostSmall();
-}
-
-void OnInteractDoor(string &in door)
-{
-	if(!QuestIsCompleted(door))
-	{
-		SetMessage("Hints", door, 5.0f);
-		AddQuest(door, door);
-	}
 }
 
 void WindowBreak(string &in asEntity)

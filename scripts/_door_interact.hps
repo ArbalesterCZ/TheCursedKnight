@@ -1,0 +1,8 @@
+void OnInteractQuest(string &in asEntity)
+{
+	if(!QuestIsCompleted(asEntity))
+	{
+		SetMessage("Hints", asEntity, 5.0f);
+		AddQuest(asEntity, asEntity);
+	}
+}

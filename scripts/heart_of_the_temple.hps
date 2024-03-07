@@ -1,7 +1,9 @@
+#include "_combat.hps"
+#include "_look_complete.hps"
+#include "_scare.hps"
+
 float stepSpeed = 1.25f;
 float stepSpeedShift = 0.125f;
-
-float[] x(10); float[] y(10); float[] z(10); int last;
 
 void OnStart()
 {
@@ -26,9 +28,9 @@ void OnStart()
 
 	AddEntityCollideCallback("ThrowStone", "AreaGlobalPit", "OnCollideRockToVoid", false, 1);
 	AddEntityCollideCallback("ThrowStone", "AreaThrowVoid", "OnCollideRockToVoid", false, 1);
-	AddEntityCollideCallback("BigHammer", "BruteFinal", "UseHammerOnBrute", false, 1);
-	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_1", "UseHammerOnCorrupt", false, 1);
-	AddEntityCollideCallback("BigHammer", "AfterFinalCorrupt_2", "UseHammerOnCorrupt", false, 1);
+	AddEntityCollideCallback("big_hammer", "BruteFinal", "UseHammerOnBrute", false, 1);
+	AddEntityCollideCallback("big_hammer", "AfterFinalCorrupt_1", "UseHammerOnCorrupt", false, 1);
+	AddEntityCollideCallback("big_hammer", "AfterFinalCorrupt_2", "UseHammerOnCorrupt", false, 1);
 
 	if(!HasItem("Lantern")) GiveItemFromFile("Lantern", "lantern.ent");
 	if(!HasItem("HammerChipper")) GiveItem("HammerChipper", "Puzzle", "stone_hammer_chipper", "stone_hammer_chipper.tga", 0);
@@ -235,7 +237,7 @@ void TimerPlayerPlay(string &in asTimer)
 	StopPlayerLookAt();
 	SetPlayerActive(true);
 	TeleportEnemyToNode("BruteFinal", "PathFinalRoom", true);
-	AddEntityCollideCallback("BigHammer", "AreaWoodenBarricade", "UseHammerOnBarricade", false, 1);
+	AddEntityCollideCallback("big_hammer", "AreaWoodenBarricade", "UseHammerOnBarricade", false, 1);
 }
 
 void OnColliderFireDamage(string &in asParent, string &in asChild, int alState)
@@ -268,7 +270,7 @@ void StartEvent()
 
 void TimerBruteAI(string &in asTimer)
 {
-	if(Distance("Brute_Start", GetPlayerPosX(), GetPlayerPosY(), GetPlayerPosZ()) <= (GetLanternActive() ? 22.5f : 15.0f))
+	if(MathSqrt(MathPow(GetEntityPosX("Brute_Start") - GetPlayerPosX(), 2) + MathPow(GetEntityPosY("Brute_Start") - GetPlayerPosY(), 2) + MathPow(GetEntityPosZ("Brute_Start") - GetPlayerPosZ(), 2)) <= (GetLanternActive() ? 22.5f : 15.0f))
 		SetEnemyDisableTriggers("Brute_Start", false);
 	else
 		AddTimer("BruteAI", 0.25f, "TimerBruteAI");
@@ -278,7 +280,7 @@ void TimerBruteStartAttack(string &in asTimer)
 {
 	SetLanternActive(false, true);
 	SetEntityActive("Brute_Start", true);
-	TimerBruteAI("BruteAI")
+	TimerBruteAI("BruteAI");
 	AddEnemyPatrolNode("Brute_Start", "PathNode_Start", 0.01f, "");
 	PlayMusic("26_event_brute.ogg", false, 1.0f, 0.0f, 10, false);
 
@@ -440,9 +442,9 @@ void TimerSpawnBruteFinal(string &in asTimer)
 
 void FinalFightRestart()
 {
-	SetEntityPlayerInteractCallback("BigHammer", "OnInteractBigHammer", true);
-	RemoveEntityCollideCallback("BigHammer", "AreaWoodenBarricade");
-	ResetProp("BigHammer");
+	SetEntityPlayerInteractCallback("big_hammer", "OnInteractBigHammer", true);
+	RemoveEntityCollideCallback("big_hammer", "AreaWoodenBarricade");
+	ResetProp("big_hammer");
 
 	for(int i=1;i<=2;i++)
 		SetEntityActive("AfterFinalCorrupt_" + i, true);
@@ -462,8 +464,8 @@ void FinalFightRestart()
 
 void TimerSendTheHammer(string &in asTimer)
 {
-	SetPropActiveAndFade("BigHammer", true, 2.5f);
-	StartPlayerLookAt("BigHammer", 1.0f, 1.0f, "");
+	SetPropActiveAndFade("big_hammer", true, 2.5f);
+	StartPlayerLookAt("big_hammer", 1.0f, 1.0f, "");
 }
 
 void TimerEndConversation(string &in asTimer)
@@ -471,11 +473,8 @@ void TimerEndConversation(string &in asTimer)
 	StopPlayerLookAt();
 	SetPlayerActive(true);
 	ShowPlayerCrossHairIcons(true);
-	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "BigHammer", false);
+	CreateParticleSystemAtEntity("Ps_OrbLight", "ps_orb_light.ps", "big_hammer", false);
 	ClearEnemyPatrolNodes("BruteFinal");	
-
-	TimerHammerPosition("BigHammer");
-
 	CheckPoint("Music_FinalPedestal", "PlayerAfterPedestal_Final", "OnDeathFinalFight", "Die", "FinalFight");
 }
 
@@ -555,17 +554,6 @@ void TimerSetEntityActive(string &in asTimer)
 	SetEntityActive(asTimer, true);
 }
 
-void TimerLookComplete(string &in asTimer)
-{
-	StopPlayerLookAt();
-}
-
-void TimerScare(string &in soundFile)
-{
-	PlayGuiSound(soundFile, 1.0f);
-	ChangePlayerStateToNormal();
-}
-
 void TimerScratchSound(string &in asTimer)
 {
 	PlaySoundAtEntity("ScratchSound", "amb_idle_scratch.snt", asTimer, 0.0f, false);
@@ -585,14 +573,9 @@ void TimerChangeTorch(string &in asTimer)
 /////////////////////////////////////---FIGHT_SYSTEM---/////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-float Distance(string &in asEntity, float x, float y, float z)
+void UseHammerOnBarricade(string &in asWeapon, string &in asEnemy, int alState)
 {
-	return MathSqrt(MathPow(GetEntityPosX(asEntity) - x, 2) + MathPow(GetEntityPosY(asEntity) - y, 2) + MathPow(GetEntityPosZ(asEntity) - z, 2));
-}
-
-void UseHammerOnBarricade(string &in asWeapon, string &in asTarget, int alState)
-{
-		if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
+		if(velocity > 4.0f)
 		{
 			for(int i=1;i<=29;i++)
 			{
@@ -607,10 +590,11 @@ void UseHammerOnBarricade(string &in asWeapon, string &in asTarget, int alState)
 
 void UseHammerOnCorrupt(string &in asWeapon, string &in asEnemy, int alState)
 {
-	if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
+	if(velocity > 8.0f)
 	{
-		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", asEnemy, 0, false);
-		CreateParticleSystemAtEntity("", "ps_slime_attack_normal.ps", asEnemy, false);
+		PlaySoundAtEntity("", "MetalMediumBashFlesh.snt", asWeapon, 0, false);
+		CreateParticleSystemAtEntity("", "ps_slime_attack_normal.ps", asWeapon, false);
+
 		PlaySoundAtEntity("", "slime_attack_normal_hit.snt", asEnemy, 0.0f, false);
 		SetEntityActive(asEnemy, false);
 
@@ -622,9 +606,9 @@ void UseHammerOnCorrupt(string &in asWeapon, string &in asEnemy, int alState)
 
 void UseHammerOnBrute(string &in asWeapon, string &in asEnemy, int alState)
 {	
-	if(Distance(asWeapon, x[last], y[last], z[last]) > 1.0f)
+	if(velocity > 6.0f)
 	{
-		PlaySoundAtEntity("", "MetalHeavyBashMetal.snt", asEnemy, 0, false);
+		PlaySoundAtEntity("", "MetalHeavyBashMetal.snt", asWeapon, 0, false);
 		CreateParticleSystemAtEntity("BloodyHit", "blood.ps", asWeapon, false);
 
 		FadeEnemyToSmoke(asEnemy, false);
@@ -635,17 +619,6 @@ void UseHammerOnBrute(string &in asWeapon, string &in asEnemy, int alState)
 		AddLocalVarInt("BruteHit", 1);
 		SetMessage("Hints", "Final_Fight_"+GetLocalVarInt("BruteHit"), 6.5f);
 	}
-}
-
-void TimerHammerPosition(string &in asHammer)
-{
-	x[last] = GetEntityPosX(asHammer);
-	y[last] = GetEntityPosY(asHammer);
-	z[last] = GetEntityPosZ(asHammer);
-
-	last = (last + 1) % 10;
-
-	AddTimer(asHammer, 0.01f, "TimerHammerPosition");
 }
 
 void TimerBruteRespawnStart(string &in asTimer)
